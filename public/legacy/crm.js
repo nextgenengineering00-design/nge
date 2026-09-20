@@ -519,7 +519,15 @@
     const password = $('#loginPassword').value;
     const { error } = await client.auth.signInWithPassword({ email, password });
     submit.disabled = false;
-    els.loginStatus.textContent = error ? 'อีเมลหรือรหัสผ่านไม่ถูกต้อง' : '';
+    if (!error) {
+      els.loginStatus.textContent = '';
+      return;
+    }
+    const message = String(error.message || '').toLowerCase();
+    if (message.includes('email not confirmed')) els.loginStatus.textContent = 'อีเมลนี้ยังไม่ได้ยืนยัน กรุณาเปิดอีเมลยืนยันก่อน';
+    else if (message.includes('invalid login credentials')) els.loginStatus.textContent = 'อีเมลหรือรหัสผ่านไม่ถูกต้อง (หน้านี้ไม่ใช้ AI Admin Token)';
+    else if (message.includes('rate limit')) els.loginStatus.textContent = 'ลองเข้าสู่ระบบหลายครั้งเกินไป กรุณารอสักครู่แล้วลองใหม่';
+    else els.loginStatus.textContent = 'เชื่อมต่อระบบเข้าสู่ระบบไม่สำเร็จ กรุณาลองใหม่';
   });
   els.signOut.addEventListener('click', signOut);
   els.deniedSignOut.addEventListener('click', signOut);
