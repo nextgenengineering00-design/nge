@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Bai_Jamjuree, IBM_Plex_Sans_Thai } from "next/font/google";
+import { Anuphan, Sarabun } from "next/font/google";
 import "./globals.css";
 import { JsonLd } from "@/components/json-ld";
 import { absoluteUrl, site } from "@/lib/site-data";
 
-const thai = IBM_Plex_Sans_Thai({ subsets: ["thai", "latin"], weight: ["400", "600"], variable: "--font-legacy-body", display: "optional", preload: false });
-const display = Bai_Jamjuree({ subsets: ["thai", "latin"], weight: "700", variable: "--font-legacy-display", display: "optional", preload: false });
+const thai = Sarabun({ subsets: ["thai", "latin"], weight: ["300", "400", "500", "600"], variable: "--font-legacy-body", display: "swap", preload: false });
+const display = Anuphan({ subsets: ["thai", "latin"], weight: ["400", "500", "600", "700"], variable: "--font-legacy-display", display: "swap", preload: false });
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
