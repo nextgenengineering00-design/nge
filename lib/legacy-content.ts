@@ -1,7 +1,6 @@
-import fs from "node:fs";
-import path from "node:path";
 import type { Metadata } from "next";
 import { localAreaSlugs } from "@/lib/local-area-data";
+import { legacyHtml } from "@/lib/legacy-content.generated";
 
 export type LegacyDocument = {
   title: string;
@@ -16,8 +15,8 @@ export type LegacyDocument = {
 export const legacySlugs=["boq-construction-guide","build-home-nonthaburi","choose-contractor-nonthaburi","concrete-road-cost-guide","concrete-road-guide","construction-contract-guide","construction-process-guide",...localAreaSlugs,"extend-home-nonthaburi","faq","renovation-budget-guide","renovation-nonthaburi","renovation-service-nonthaburi","renovation-structure-check-guide","why-us"] as const;
 
 export function readLegacyDocument(relativeFile: string): LegacyDocument {
-  const fullPath = path.join(process.cwd(), "legacy-source", relativeFile);
-  const source = fs.readFileSync(fullPath, "utf8");
+  const source = legacyHtml[relativeFile.replaceAll("\\", "/")];
+  if (!source) throw new Error(`Legacy page not found: ${relativeFile}`);
   const title = source.match(/<title>([\s\S]*?)<\/title>/i)?.[1]?.trim() || "Next Gen Engineering";
   const description = source.match(/<meta\s+name=["']description["']\s+content=["']([^"']*)["']/i)?.[1]
     || source.match(/<meta\s+content=["']([^"']*)["']\s+name=["']description["']/i)?.[1]
