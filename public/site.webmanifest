@@ -1,0 +1,14 @@
+{
+  "name": "Nextgenengineering | NGE",
+  "short_name": "NGE",
+  "description": "รับเหมาก่อสร้างครบวงจร นนทบุรี ประสบการณ์กว่า 40 ปี มากกว่า 500 ผลงาน",
+  "lang": "th",
+  "start_url": "/",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FAF7F1",
+  "theme_color": "#E1801E",
+  "icons": [
+    {"src": "./nge-icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable"}
+  ]
+}
