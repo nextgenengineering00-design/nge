@@ -11,10 +11,10 @@
 
 ## ครั้งแรก ทำตามนี้ครั้งเดียว
 
-1. สร้าง repository ชื่อ `ngebuild-next` ใน GitHub และตั้งเป็น Private
+1. Repository ที่ใช้งานจริงคือ `nextgenengineering00-design/nge`
 2. ส่งไฟล์ขึ้น branch `main`
 3. เข้า Cloudflare > Workers & Pages > Create application > Import a repository
-4. เลือก GitHub และ repository `ngebuild-next`
+4. เลือก GitHub และ repository `nge`
 5. ตั้งค่า:
    - Worker name: `ngebuild-next`
    - Production branch: `main`
@@ -24,6 +24,14 @@
 6. เพิ่ม Runtime variables/secrets ใน Worker ตามชื่อจาก `.env.example` โดยใช้ค่าจริงจาก `.env.local` ห้ามอัปโหลด `.env.local` เข้า GitHub
 7. กด Save and Deploy
 8. ที่ Worker > Settings > Domains & Routes เพิ่ม Custom domain `ngebuild.com` และ `www.ngebuild.com`
+
+## สถานะปัจจุบัน
+
+- GitHub: <https://github.com/nextgenengineering00-design/nge>
+- Cloudflare Worker: `ngebuild-next`
+- เว็บออนไลน์: <https://ngebuild-next.nextgenengineering00.workers.dev/>
+- Auto Deploy: เปิดแล้ว เมื่อ push เข้า `main` Cloudflare จะ build และ deploy ให้เอง
+- Custom domain: ยังเชื่อม `ngebuild.com` ไม่ได้ เพราะโดเมนยังไม่ได้เพิ่มเป็น Zone ในบัญชี Cloudflare นี้
 
 ## หลังจากตั้งเสร็จ
 
