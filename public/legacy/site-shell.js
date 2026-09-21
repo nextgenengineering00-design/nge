@@ -56,6 +56,6 @@
     }
   }
 
-  customElements.define('nge-header', NGEHeader);
-  customElements.define('nge-footer', NGEFooter);
+  if (!customElements.get('nge-header')) customElements.define('nge-header', NGEHeader);
+  if (!customElements.get('nge-footer')) customElements.define('nge-footer', NGEFooter);
 })();

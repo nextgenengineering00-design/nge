@@ -648,6 +648,69 @@ body{font-weight:400;color:#202020;background:#fffdf9}
 @media(max-width:900px){.about-color-panels{grid-column:auto}.about-corporate-vision{padding:10px 0 12px}.about-vision-flow{grid-template-columns:1fr;gap:26px}.vision-node{max-width:640px;margin:0 auto}.vision-node:not(:last-child)::after{display:none}.vision-loop{min-height:220px;border-width:12px}.vision-node p{margin-top:16px;padding:0}}
 @media(max-width:640px){.about-color-panels{gap:12px}.about-panel{padding:22px 18px 20px;border-radius:24px 8px 24px 8px}.about-panel b{font-size:17px}.about-panel p{font-size:12px}.about-corporate-vision{padding:0 0 8px}.about-vision-head h2{font-size:34px}.about-vision-head p{font-size:14px}.vision-loop{min-height:184px;padding:22px;border-width:10px}.vision-loop span{font-size:28px}.vision-loop small{font-size:13px}.vision-node p{font-size:14px;line-height:1.8}}
 
+/* V20: cinematic construction-home motion, mixed with the existing NGE identity. */
+body[data-page="home"] .hero-cinematic{height:min(810px,calc(100svh - 110px));min-height:690px;background:#12110f}
+body[data-page="home"] .hero-cinematic::before{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,rgba(245,164,0,.12),transparent 34%,rgba(255,255,255,.03) 76%,transparent);mix-blend-mode:screen;pointer-events:none}
+body[data-page="home"] .hero-cinematic::after{content:"";position:absolute;z-index:4;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,rgba(245,164,0,.9),transparent);transform-origin:left;animation:ngeHeroLine 1.4s .65s cubic-bezier(.2,.7,.2,1) both;pointer-events:none}
+body[data-page="home"] .hero-cinematic .hero-media img{transform:scale(1.055);animation:ngeHeroZoom 13s cubic-bezier(.2,.6,.3,1) both;will-change:transform}
+body[data-page="home"] .hero-cinematic .hero-bg{background:linear-gradient(90deg,rgba(10,9,8,.95) 0%,rgba(10,9,8,.83) 37%,rgba(10,9,8,.31) 66%,rgba(10,9,8,.16) 100%)}
+body[data-page="home"] .hero-blueprint{position:absolute;z-index:-2;inset:0;opacity:.13;background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);background-size:78px 78px;mask-image:linear-gradient(90deg,#000 0,#000 36%,transparent 76%);animation:ngeBlueprintDrift 18s linear infinite;pointer-events:none}
+body[data-page="home"] .hero-copy{bottom:96px}
+body[data-page="home"] .hero-copy>*{opacity:0;transform:translate3d(0,25px,0);animation:ngeHeroReveal .8s cubic-bezier(.2,.72,.2,1) forwards}
+body[data-page="home"] .hero-copy .hero-eyebrow{animation-delay:.1s}
+body[data-page="home"] .hero-copy h1{animation-delay:.22s}
+body[data-page="home"] .hero-copy>p:not(.hero-eyebrow){animation-delay:.36s}
+body[data-page="home"] .hero-copy .hero-actions{animation-delay:.5s}
+body[data-page="home"] .hero-copy .hero-trust{animation-delay:.64s}
+body[data-page="home"] .hero-copy h1 em{display:inline-block;position:relative}
+body[data-page="home"] .hero-copy h1 em::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:4px;border-radius:99px;background:linear-gradient(90deg,var(--orange),rgba(245,164,0,0));transform:scaleX(0);transform-origin:left;animation:ngeAccentLine .9s .95s ease forwards}
+body[data-page="home"] .hero-engineer{isolation:isolate;opacity:0;transform:translate3d(36px,32px,0);animation:ngeEngineerIn 1s .28s cubic-bezier(.16,.78,.24,1) forwards}
+body[data-page="home"] .hero-engineer img{position:relative;z-index:2;filter:saturate(1.02) contrast(1.02);transform-origin:center bottom;animation:ngeEngineerFloat 6s 1.35s ease-in-out infinite}
+body[data-page="home"] .engineer-halo{position:absolute;z-index:1;left:50%;top:46%;width:82%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(245,164,0,.28) 0,rgba(245,164,0,.09) 42%,transparent 70%);transform:translate(-50%,-50%);filter:blur(4px);animation:ngeHaloPulse 5s ease-in-out infinite}
+body[data-page="home"] .hero-side-note{position:absolute;z-index:3;right:24px;top:50%;display:flex;align-items:center;gap:14px;color:#fff;writing-mode:vertical-rl;transform:translateY(-50%);font-family:var(--font-legacy-display);letter-spacing:2.2px;opacity:0;animation:ngeSideIn .7s .95s ease forwards}
+body[data-page="home"] .hero-side-note span{font-size:10px;color:var(--orange);font-weight:700}
+body[data-page="home"] .hero-side-note i{width:1px;height:56px;background:linear-gradient(var(--orange),rgba(255,255,255,.2))}
+body[data-page="home"] .hero-side-note b{font-size:8px;font-weight:500;color:rgba(255,255,255,.64)}
+body[data-page="home"] .hero-scroll{position:absolute;z-index:5;left:50%;bottom:20px;display:flex;align-items:center;gap:11px;color:rgba(255,255,255,.62);font:500 9px/1 var(--font-legacy-display);letter-spacing:1.6px;transform:translateX(-50%)}
+body[data-page="home"] .hero-scroll i{position:relative;width:1px;height:30px;overflow:hidden;background:rgba(255,255,255,.22)}
+body[data-page="home"] .hero-scroll i::after{content:"";position:absolute;left:0;top:-100%;width:1px;height:100%;background:var(--orange);animation:ngeScrollCue 1.8s ease-in-out infinite}
+body[data-page="home"] .quick-grid{perspective:1000px}
+body[data-page="home"] .quick-card{opacity:0;transform:translateY(28px) rotateX(5deg);animation:ngeQuickIn .72s cubic-bezier(.2,.72,.2,1) forwards}
+body[data-page="home"] .quick-card:nth-child(1){animation-delay:.72s}
+body[data-page="home"] .quick-card:nth-child(2){animation-delay:.84s}
+body[data-page="home"] .quick-card:nth-child(3){animation-delay:.96s}
+body[data-page="home"] .quick-card{position:relative;overflow:hidden}
+body[data-page="home"] .quick-card::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 20%,rgba(245,164,0,.12) 48%,transparent 70%);transform:translateX(-120%);transition:transform .7s ease;pointer-events:none}
+body[data-page="home"] .quick-card:hover::after{transform:translateX(120%)}
+body[data-page="home"] .credibility-item b{transition:transform .3s ease,color .3s ease}
+body[data-page="home"] .credibility-item:hover b{color:#fff;transform:translateY(-3px)}
+body[data-page="home"] .home-service-card{overflow:hidden}
+body[data-page="home"] .home-service-card img{transition:transform .9s cubic-bezier(.2,.7,.2,1),filter .5s ease}
+body[data-page="home"] .home-service-card:hover img{transform:scale(1.07);filter:saturate(1.08)}
+body[data-page="home"] .home-service-card span{transition:transform .35s ease,background .35s ease}
+body[data-page="home"] .home-service-card:hover span{transform:translateY(-5px)}
+body[data-page="home"] .reveal{transform:translateY(38px) scale(.985);filter:blur(3px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.72,.2,1),filter .8s ease}
+body[data-page="home"] .reveal.is-visible{transform:none;filter:none}
+
+@keyframes ngeHeroZoom{from{transform:scale(1.09)}to{transform:scale(1)}}
+@keyframes ngeHeroLine{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes ngeHeroReveal{to{opacity:1;transform:none}}
+@keyframes ngeAccentLine{to{transform:scaleX(1)}}
+@keyframes ngeEngineerIn{to{opacity:1;transform:none}}
+@keyframes ngeEngineerFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes ngeHaloPulse{0%,100%{opacity:.72;transform:translate(-50%,-50%) scale(.96)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.05)}}
+@keyframes ngeBlueprintDrift{from{background-position:0 0}to{background-position:78px 78px}}
+@keyframes ngeSideIn{from{opacity:0;transform:translate(16px,-50%)}to{opacity:1;transform:translate(0,-50%)}}
+@keyframes ngeScrollCue{0%{transform:translateY(0)}70%,100%{transform:translateY(200%)}}
+@keyframes ngeQuickIn{to{opacity:1;transform:none}}
+
+@media(max-width:1100px){body[data-page="home"] .hero-side-note{display:none}}
+@media(max-width:900px){body[data-page="home"] .hero-cinematic{height:760px;min-height:720px}body[data-page="home"] .hero-copy{bottom:62px}}
+@media(max-width:640px){body[data-page="home"] .hero-cinematic{height:780px;min-height:740px}body[data-page="home"] .hero-blueprint{opacity:.08;background-size:48px 48px}body[data-page="home"] .hero-engineer{top:8px;left:50%;right:auto;width:284px;height:432px;transform:translate3d(-50%,32px,0);animation-name:ngeEngineerInMobile}body[data-page="home"] .hero-copy{bottom:54px}body[data-page="home"] .hero-copy h1 em::after{height:3px;bottom:-4px}body[data-page="home"] .hero-scroll{display:none}body[data-page="home"] .quick-card{animation:none;opacity:1;transform:none}}
+@keyframes ngeEngineerInMobile{to{opacity:1;transform:translate3d(-50%,0,0)}}
+@media(prefers-reduced-motion:reduce){body[data-page="home"] .hero-cinematic .hero-media img,body[data-page="home"] .hero-cinematic::after,body[data-page="home"] .hero-blueprint,body[data-page="home"] .hero-copy>*,body[data-page="home"] .hero-copy h1 em::after,body[data-page="home"] .hero-engineer,body[data-page="home"] .hero-engineer img,body[data-page="home"] .engineer-halo,body[data-page="home"] .hero-side-note,body[data-page="home"] .hero-scroll i::after,body[data-page="home"] .quick-card{animation:none!important;opacity:1;transform:none}}
+@media(max-width:640px) and (prefers-reduced-motion:reduce){body[data-page="home"] .hero-engineer{transform:translateX(-50%)}}
+
 /* V19: calm, image-led company presentation inspired by established home-builder sites. */
 .site-header{height:auto}.header-utility{height:32px;background:#171717;color:#fff}.header-utility>div{width:min(1320px,calc(100% - 48px));height:100%;margin:auto;display:flex;align-items:center;justify-content:space-between;font-size:10px;letter-spacing:.15px}.header-utility-links{display:flex;align-items:center;gap:24px}.header-utility a{color:rgba(255,255,255,.76);transition:color .2s ease}.header-utility a:hover{color:var(--orange)}.header-inner{height:78px}.desktop-nav a{font-weight:400}.desktop-nav a[aria-current="page"]{font-weight:600}.header-call{border-radius:0;background:#171717}.header-call:hover{border-radius:0}
 .hero-copy{max-width:690px}.hero-copy h1{max-width:760px;line-height:1.1;letter-spacing:-1.8px}.hero-copy>p:not(.hero-eyebrow){max-width:590px;font-size:17px;line-height:1.8}.hero-eyebrow,.page-kicker,.section-heading>span{letter-spacing:2.2px}.hero-actions{margin-top:30px}
