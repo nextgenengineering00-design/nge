@@ -816,3 +816,10 @@ body[data-page="home"] .reveal.is-visible{transform:none;filter:none}
 @media(max-width:900px){.knowledge-swnp-intro{padding:48px 0}.knowledge-swnp-intro-grid{grid-template-columns:1fr;gap:38px}.knowledge-featured{max-width:720px}.knowledge-swnp-grid{grid-template-columns:repeat(2,1fr)}.knowledge-swnp-seo-grid{grid-template-columns:1fr;gap:34px}}
 @media(max-width:600px){.knowledge-swnp-intro{padding:34px 0 42px}.knowledge-swnp-copy h1{font-size:40px}.knowledge-swnp-company{font-size:18px!important}.knowledge-swnp-copy>p:not(.knowledge-swnp-company):not(.knowledge-search-status){font-size:14px}.knowledge-featured>span{font-size:11px}.knowledge-featured figure{height:230px}.knowledge-featured h2{font-size:19px}.knowledge-swnp-list{padding:50px 0 64px}.knowledge-swnp-heading{text-align:left;margin-bottom:30px}.knowledge-swnp-heading h2{font-size:31px}.knowledge-swnp-grid{grid-template-columns:1fr;gap:20px}.knowledge-swnp-card figure{height:225px}.knowledge-swnp-card h2{font-size:20px}.knowledge-swnp-seo{padding:62px 0}}
 @media(prefers-reduced-motion:reduce){.knowledge-featured img,.knowledge-swnp-card figure>img,.knowledge-swnp-card{transition:none!important}}
+
+/* V24: Responsive Facebook proof card on the homepage. */
+.facebook-post-card{justify-self:center;width:min(100%,536px);padding:18px;background:#fff;border:1px solid rgba(24,24,24,.08);border-radius:28px;box-shadow:0 28px 70px rgba(0,0,0,.16);overflow:hidden}
+.facebook-post-card iframe{display:block;width:100%;max-width:500px;height:667px;margin:0 auto;background:#fff}
+.facebook-post-card>a{display:flex;min-height:46px;align-items:center;justify-content:center;margin-top:12px;border-radius:9px;background:#1877f2;color:#fff;font-family:var(--font-legacy-display),sans-serif;font-size:12px;font-weight:600;transition:background .2s ease,transform .2s ease}
+.facebook-post-card>a:hover{background:#1267d5;transform:translateY(-1px)}
+@media(max-width:640px){.facebook-post-card{width:100%;padding:10px;border-radius:20px}.facebook-post-card iframe{height:667px}.facebook-post-card>a{margin-top:9px}}
