@@ -6,6 +6,7 @@
   const config = window.NGE_CONFIG || {};
   const consentKey = 'nge-cookie-consent-v2';
   const leadRateKey = 'nge-lead-submit-times';
+  const attributionKey = 'nge-first-touch-v1';
   const privacyVersion = '2026-08-30';
   const toast = $('#toast');
   let toastTimer;
@@ -318,7 +319,7 @@
     return true;
   }
 
-  function campaignData() {
+  function currentCampaignData() {
     const params = new URLSearchParams(location.search);
     const referrerHost = (() => { try { return document.referrer ? new URL(document.referrer).hostname : null; } catch { return null; } })();
     return {
@@ -331,6 +332,29 @@
       utm_term: params.get('utm_term')
     };
   }
+
+  function campaignData() {
+    const current = currentCampaignData();
+    const hasCampaign = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].some(key => current[key]);
+    const saved = safeJson(localStorage.getItem(attributionKey), null);
+    if (!saved && (hasCampaign || current.referrer_host)) {
+      localStorage.setItem(attributionKey, JSON.stringify({ ...current, captured_at: Date.now() }));
+    }
+    const firstTouch = safeJson(localStorage.getItem(attributionKey), null);
+    const isFresh = firstTouch?.captured_at && Date.now() - firstTouch.captured_at < 90 * 24 * 60 * 60 * 1000;
+    if (!isFresh && firstTouch) localStorage.removeItem(attributionKey);
+    return {
+      page_path: current.page_path,
+      referrer_host: current.referrer_host || (isFresh ? firstTouch.referrer_host : null),
+      utm_source: current.utm_source || (isFresh ? firstTouch.utm_source : null),
+      utm_medium: current.utm_medium || (isFresh ? firstTouch.utm_medium : null),
+      utm_campaign: current.utm_campaign || (isFresh ? firstTouch.utm_campaign : null),
+      utm_content: current.utm_content || (isFresh ? firstTouch.utm_content : null),
+      utm_term: current.utm_term || (isFresh ? firstTouch.utm_term : null)
+    };
+  }
+
+  campaignData();
 
   leadForms.forEach(leadForm => leadForm.addEventListener('submit', async event => {
       event.preventDefault();

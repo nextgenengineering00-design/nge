@@ -14,7 +14,7 @@
   const priorityLabels = { low: 'ต่ำ', normal: 'ปกติ', high: 'สำคัญ', urgent: 'ด่วน' };
   const queueLabels = { all: 'แสดงลูกค้าทั้งหมด', new: 'คิวลูกค้าใหม่ที่รอติดต่อ', today: 'คิวที่ต้องติดตามภายในวันนี้', overdue: 'คิวติดตามที่เกินกำหนด', unassigned: 'คิวที่ยังไม่มีผู้รับผิดชอบ', urgent: 'คิวงานด่วน' };
   const activityLabels = { status_changed: 'เปลี่ยนสถานะ', owner_changed: 'เปลี่ยนผู้รับผิดชอบ', follow_up_changed: 'เปลี่ยนวันติดตาม', contact_recorded: 'บันทึกการติดต่อ', lead_updated: 'แก้ไขข้อมูล' };
-  const leadColumns = 'id,created_at,updated_at,name,phone,email,service,location,budget,message,status,internal_note,next_follow_up_at,last_contacted_at,first_response_at,closed_at,assigned_to,priority,lost_reason,page_path,referrer_host,utm_source,utm_medium,utm_campaign,utm_content,utm_term';
+  const leadColumns = 'id,created_at,updated_at,name,phone,email,service,location,budget,message,status,internal_note,next_follow_up_at,last_contacted_at,first_response_at,closed_at,assigned_to,priority,lead_score,auto_priority_reason,lost_reason,page_path,referrer_host,utm_source,utm_medium,utm_campaign,utm_content,utm_term';
   const $ = selector => document.querySelector(selector);
   const $$ = selector => [...document.querySelectorAll(selector)];
   const els = {
@@ -31,7 +31,7 @@
     metricUnassigned: $('#metricUnassigned'), metricUrgent: $('#metricUrgent'), metricSla: $('#metricSla'), metricWon: $('#metricWon'),
     dialog: $('#leadDialog'), detailId: $('#detailId'), detailName: $('#detailName'), detailMeta: $('#detailMeta'),
     detailPhone: $('#detailPhone'), detailPhoneText: $('#detailPhoneText'), detailEmail: $('#detailEmail'), detailEmailText: $('#detailEmailText'),
-    detailService: $('#detailService'), detailLocation: $('#detailLocation'), detailBudget: $('#detailBudget'), detailSource: $('#detailSource'),
+    detailService: $('#detailService'), detailLocation: $('#detailLocation'), detailBudget: $('#detailBudget'), detailSource: $('#detailSource'), detailScore: $('#detailScore'),
     detailMessage: $('#detailMessage'), detailStatus: $('#detailStatus'), detailPriority: $('#detailPriority'), detailOwner: $('#detailOwner'),
     detailFollowup: $('#detailFollowup'), lostReasonField: $('#lostReasonField'), detailLostReason: $('#detailLostReason'),
     detailNote: $('#detailNote'), markContacted: $('#markContacted'), copyPhone: $('#copyPhoneButton'), save: $('#saveLeadButton'),
@@ -141,7 +141,7 @@
       return `<tr class="${lead.priority === 'urgent' ? 'row-urgent' : ''}">
         <td><span class="customer-name"><b>${escapeHtml(lead.name)}</b><small>${escapeHtml(lead.location || 'ไม่ระบุพื้นที่')} · ${escapeHtml(sourceLabel(lead))}</small></span></td>
         <td><span class="contact-stack"><a href="tel:${escapeHtml(lead.phone)}">${escapeHtml(lead.phone)}</a><a class="email-link" href="${lead.email ? `mailto:${escapeHtml(lead.email)}` : '#'}">${escapeHtml(lead.email || 'ไม่มีอีเมล')}</a></span></td>
-        <td><span class="service-stack"><b>${escapeHtml(lead.service || '—')}</b><small>${escapeHtml(lead.budget || 'ยังไม่ระบุงบ')}</small></span></td>
+        <td><span class="service-stack"><b>${escapeHtml(lead.service || '—')}</b><small>${escapeHtml(lead.budget || 'ยังไม่ระบุงบ')} · คะแนน ${Number(lead.lead_score || 0)}/100</small></span></td>
         <td><span class="owner-pill ${lead.assigned_to ? '' : 'unassigned'}">${escapeHtml(ownerName(lead.assigned_to))}</span></td>
         <td><span class="followup-time ${followupClass}">${escapeHtml(thaiShortDate(lead.next_follow_up_at))}</span></td>
         <td><span class="status-pill status-${escapeHtml(lead.status)}">${escapeHtml(statusLabels[lead.status] || lead.status)}</span>${lead.priority !== 'normal' ? `<small class="priority priority-${escapeHtml(lead.priority)}">${escapeHtml(priorityLabels[lead.priority] || lead.priority)}</small>` : ''}</td>
@@ -274,6 +274,7 @@
     els.detailLocation.textContent = lead.location || '—';
     els.detailBudget.textContent = lead.budget || 'ยังไม่ระบุ';
     els.detailSource.textContent = [sourceLabel(lead), lead.utm_campaign].filter(Boolean).join(' / ');
+    els.detailScore.textContent = `${Number(lead.lead_score || 0)}/100${lead.auto_priority_reason ? ` · ${lead.auto_priority_reason}` : ''}`;
     els.detailMessage.textContent = lead.message || 'ลูกค้าไม่ได้ระบุรายละเอียดเพิ่มเติม';
     els.detailStatus.value = lead.status || 'new';
     els.detailPriority.value = lead.priority || 'normal';
