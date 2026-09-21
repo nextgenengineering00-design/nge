@@ -545,6 +545,33 @@
     show(0);
   });
 
+  // Knowledge search: filter the visible article cards without leaving the page.
+  const knowledgeSearch = $('[data-knowledge-search]');
+  if (knowledgeSearch) {
+    const knowledgeCards = $$('[data-knowledge-card]');
+    const knowledgeStatus = $('[data-knowledge-status]');
+    const knowledgeEmpty = $('[data-knowledge-empty]');
+    const normalizeThai = value => value.toLocaleLowerCase('th-TH').replace(/\s+/g, ' ').trim();
+
+    function filterKnowledge() {
+      const query = normalizeThai(knowledgeSearch.value);
+      let visible = 0;
+      knowledgeCards.forEach(card => {
+        const searchable = normalizeThai(`${card.dataset.searchText || ''} ${card.textContent || ''}`);
+        const matches = !query || searchable.includes(query);
+        card.hidden = !matches;
+        if (matches) visible += 1;
+      });
+      if (knowledgeStatus) knowledgeStatus.textContent = query
+        ? `พบบทความ ${visible} เรื่องจากคำค้น “${knowledgeSearch.value.trim()}”`
+        : `มีบทความแนะนำ ${knowledgeCards.length} เรื่อง`;
+      if (knowledgeEmpty) knowledgeEmpty.hidden = visible !== 0;
+    }
+
+    knowledgeSearch.addEventListener('input', filterKnowledge);
+    filterKnowledge();
+  }
+
   setContactLinks();
   const year = $('#year');
   if (year) year.textContent = new Date().getFullYear();
