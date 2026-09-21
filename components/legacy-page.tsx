@@ -16,6 +16,6 @@ export function LegacyPage({ file, project = false }: { file: string; project?: 
     <div dangerouslySetInnerHTML={{ __html: page.html }} />
     <LegacyRuntimeScripts sources={project
       ? ["/legacy/site-config.js","/legacy/project-detail.js"]
-      : ["/legacy/site-config.js?v=20260921-3","/legacy/site-shell.js?v=20260921-2","/legacy/app.js?v=20260921-3"]} />
+      : ["/legacy/site-config.js?v=20260921-3","/legacy/site-shell.js?v=20260921-3","/legacy/app.js?v=20260921-3"]} />
   </div>;
 }

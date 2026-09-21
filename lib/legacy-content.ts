@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { localAreaSlugs } from "@/lib/local-area-data";
+import { localServiceSlugs } from "@/lib/local-service-data";
 import { legacyHtml } from "@/lib/legacy-content.generated";
 
 export type LegacyDocument = {
@@ -12,7 +13,7 @@ export type LegacyDocument = {
   styles: string[];
 };
 
-export const legacySlugs=["boq-construction-guide","build-home-nonthaburi","choose-contractor-nonthaburi","concrete-road-cost-guide","concrete-road-guide","construction-contract-guide","construction-process-guide",...localAreaSlugs,"extend-home-nonthaburi","faq","renovation-budget-guide","renovation-nonthaburi","renovation-service-nonthaburi","renovation-structure-check-guide","why-us"] as const;
+export const legacySlugs=["boq-construction-guide","build-home-nonthaburi","choose-contractor-nonthaburi","concrete-road-cost-guide","concrete-road-guide","construction-contract-guide","construction-process-guide",...localAreaSlugs,...localServiceSlugs,"extend-home-nonthaburi","faq","renovation-budget-guide","renovation-nonthaburi","renovation-service-nonthaburi","renovation-structure-check-guide","why-us"] as const;
 
 export function readLegacyDocument(relativeFile: string): LegacyDocument {
   const source = legacyHtml[relativeFile.replaceAll("\\", "/")];
