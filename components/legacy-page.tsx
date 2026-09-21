@@ -8,7 +8,7 @@ export function LegacyPage({ file, project = false }: { file: string; project?: 
   const page = readLegacyDocument(file);
   return <div className={page.bodyClass} data-legacy-page={page.page}>
     <LegacyBodyState page={page.page} bodyClass={page.bodyClass} />
-    <link rel="stylesheet" href="/legacy/styles.min.css?v=20260921-8" />
+    <link rel="stylesheet" href="/legacy/styles.min.css?v=20260921-9" />
     {!project && <link rel="stylesheet" href="/legacy/service-seo.css?v=20260920" />}
     {project && <link rel="stylesheet" href="/legacy/project-detail.css?v=20260920" />}
     {page.jsonLd.map((value, index) => <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: value.replace(/</g, "\\u003c") }} />)}
