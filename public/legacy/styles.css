@@ -671,9 +671,6 @@ body[data-page="home"] .hero-side-note{position:absolute;z-index:3;right:24px;to
 body[data-page="home"] .hero-side-note span{font-size:10px;color:var(--orange);font-weight:700}
 body[data-page="home"] .hero-side-note i{width:1px;height:56px;background:linear-gradient(var(--orange),rgba(255,255,255,.2))}
 body[data-page="home"] .hero-side-note b{font-size:8px;font-weight:500;color:rgba(255,255,255,.64)}
-body[data-page="home"] .hero-scroll{position:absolute;z-index:5;left:50%;bottom:20px;display:flex;align-items:center;gap:11px;color:rgba(255,255,255,.62);font:500 9px/1 var(--font-legacy-display);letter-spacing:1.6px;transform:translateX(-50%)}
-body[data-page="home"] .hero-scroll i{position:relative;width:1px;height:30px;overflow:hidden;background:rgba(255,255,255,.22)}
-body[data-page="home"] .hero-scroll i::after{content:"";position:absolute;left:0;top:-100%;width:1px;height:100%;background:var(--orange);animation:ngeScrollCue 1.8s ease-in-out infinite}
 body[data-page="home"] .quick-grid{perspective:1000px}
 body[data-page="home"] .quick-card{opacity:0;transform:translateY(28px) rotateX(5deg);animation:ngeQuickIn .72s cubic-bezier(.2,.72,.2,1) forwards}
 body[data-page="home"] .quick-card:nth-child(1){animation-delay:.72s}
@@ -701,14 +698,13 @@ body[data-page="home"] .reveal.is-visible{transform:none;filter:none}
 @keyframes ngeHaloPulse{0%,100%{opacity:.72;transform:translate(-50%,-50%) scale(.96)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.05)}}
 @keyframes ngeBlueprintDrift{from{background-position:0 0}to{background-position:78px 78px}}
 @keyframes ngeSideIn{from{opacity:0;transform:translate(16px,-50%)}to{opacity:1;transform:translate(0,-50%)}}
-@keyframes ngeScrollCue{0%{transform:translateY(0)}70%,100%{transform:translateY(200%)}}
 @keyframes ngeQuickIn{to{opacity:1;transform:none}}
 
 @media(max-width:1100px){body[data-page="home"] .hero-side-note{display:none}}
 @media(max-width:900px){body[data-page="home"] .hero-cinematic{height:760px;min-height:720px}body[data-page="home"] .hero-copy{bottom:62px}}
-@media(max-width:640px){body[data-page="home"] .hero-cinematic{height:780px;min-height:740px}body[data-page="home"] .hero-blueprint{opacity:.08;background-size:48px 48px}body[data-page="home"] .hero-engineer{top:8px;left:50%;right:auto;width:284px;height:432px;transform:translate3d(-50%,32px,0);animation-name:ngeEngineerInMobile}body[data-page="home"] .hero-copy{bottom:54px}body[data-page="home"] .hero-copy h1 em::after{height:3px;bottom:-4px}body[data-page="home"] .hero-scroll{display:none}body[data-page="home"] .quick-card{animation:none;opacity:1;transform:none}}
+@media(max-width:640px){body[data-page="home"] .hero-cinematic{height:780px;min-height:740px}body[data-page="home"] .hero-blueprint{opacity:.08;background-size:48px 48px}body[data-page="home"] .hero-engineer{top:8px;left:50%;right:auto;width:284px;height:432px;transform:translate3d(-50%,32px,0);animation-name:ngeEngineerInMobile}body[data-page="home"] .hero-copy{bottom:54px}body[data-page="home"] .hero-copy h1 em::after{height:3px;bottom:-4px}body[data-page="home"] .quick-card{animation:none;opacity:1;transform:none}}
 @keyframes ngeEngineerInMobile{to{opacity:1;transform:translate3d(-50%,0,0)}}
-@media(prefers-reduced-motion:reduce){body[data-page="home"] .hero-cinematic .hero-media img,body[data-page="home"] .hero-cinematic::after,body[data-page="home"] .hero-blueprint,body[data-page="home"] .hero-copy>*,body[data-page="home"] .hero-copy h1 em::after,body[data-page="home"] .hero-engineer,body[data-page="home"] .hero-engineer img,body[data-page="home"] .engineer-halo,body[data-page="home"] .hero-side-note,body[data-page="home"] .hero-scroll i::after,body[data-page="home"] .quick-card{animation:none!important;opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){body[data-page="home"] .hero-cinematic .hero-media img,body[data-page="home"] .hero-cinematic::after,body[data-page="home"] .hero-blueprint,body[data-page="home"] .hero-copy>*,body[data-page="home"] .hero-copy h1 em::after,body[data-page="home"] .hero-engineer,body[data-page="home"] .hero-engineer img,body[data-page="home"] .engineer-halo,body[data-page="home"] .hero-side-note,body[data-page="home"] .quick-card{animation:none!important;opacity:1;transform:none}}
 @media(max-width:640px) and (prefers-reduced-motion:reduce){body[data-page="home"] .hero-engineer{transform:translateX(-50%)}}
 
 /* V19: calm, image-led company presentation inspired by established home-builder sites. */

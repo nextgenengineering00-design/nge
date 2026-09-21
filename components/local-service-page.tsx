@@ -27,7 +27,7 @@ export function LocalServicePage({ slug }: { slug: LocalServiceSlug }) {
 
   return <div data-legacy-page="services">
     <LegacyBodyState page="services" bodyClass="" />
-    <link rel="stylesheet" href="/legacy/styles.min.css?v=20260921-5" />
+    <link rel="stylesheet" href="/legacy/styles.min.css?v=20260921-6" />
     <link rel="stylesheet" href="/legacy/service-seo.css?v=20260921-2" />
     <JsonLd data={schema} />
     <a className="skip-link" href="#main-content">ข้ามไปเนื้อหาหลัก</a>
