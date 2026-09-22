@@ -14,7 +14,10 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: { type: "website", locale: "th_TH", siteName: site.name, url: "/", images: [{ url: "/og-ngebuild-cover-2026.jpg", width: 1200, height: 630, alt: "Next Gen Engineering" }] },
   twitter: { card: "summary_large_image", images: ["/og-ngebuild-cover-2026.jpg"] },
-  icons: { icon: "/nge-icon.svg" },
+  icons: {
+    icon: [{ url: "/nge-logo-icon-v2-32.png", type: "image/png", sizes: "32x32" }],
+    apple: [{ url: "/nge-logo-icon-v2-180.png", type: "image/png", sizes: "180x180" }],
+  },
   manifest: "/site.webmanifest",
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
 };
