@@ -9,8 +9,8 @@ const display = Anuphan({ subsets: ["thai", "latin"], weight: ["400", "500", "60
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: { default: "รับเหมาก่อสร้าง นนทบุรี | บางใหญ่ บางกรวย บางบัวทอง ไทรน้อย ปากเกร็ด", template: "%s | NGE" },
-  description: "รับเหมาก่อสร้าง นนทบุรี สร้างบ้าน อาคาร ต่อเติม รีโนเวท งานโยธาและงานระบบ ครอบคลุมบางใหญ่ บางกรวย บางบัวทอง ไทรน้อย ปากเกร็ด และพื้นที่ใกล้เคียง",
+  title: { default: "Next Gen Engineering | สร้าง ต่อเติม รีโนเวท โดยทีมวิศวกร", template: "%s | NGE" },
+  description: "Next Gen Engineering ดูแลงานสร้างบ้าน อาคาร ต่อเติม รีโนเวท งานโยธาและงานระบบในนนทบุรี กรุงเทพฯ และปริมณฑล โดยทีมวิศวกรโยธา",
   alternates: { canonical: "/" },
   openGraph: { type: "website", locale: "th_TH", siteName: site.name, url: "/", images: [{ url: "/og-ngebuild-cover-2026.jpg", width: 1200, height: 630, alt: "Next Gen Engineering" }] },
   twitter: { card: "summary_large_image", images: ["/og-ngebuild-cover-2026.jpg"] },
@@ -26,10 +26,13 @@ export const viewport: Viewport = { width: "device-width", initialScale: 1, them
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const schema = [{
-    "@context": "https://schema.org", "@type": "GeneralContractor", name: site.name,
-    url: site.url, image: absoluteUrl("/og-ngebuild-cover-2026.jpg"), telephone: site.phone,
+    "@context": "https://schema.org", "@type": ["Organization", "GeneralContractor"], "@id": `${site.url}/#organization`, name: site.name,
+    legalName: site.legalName, url: site.url, image: absoluteUrl("/og-ngebuild-cover-2026.jpg"), logo: absoluteUrl("/nge-logo-icon-v2-180.png"), telephone: site.phone, email: site.email,
+    address: { "@type": "PostalAddress", streetAddress: site.streetAddress, addressLocality: "นนทบุรี", addressRegion: "นนทบุรี", postalCode: site.postalCode, addressCountry: "TH" },
+    hasMap: site.mapUrl,
+    identifier: [{ "@type": "PropertyValue", name: "เลขทะเบียนนิติบุคคล", value: site.legalId }, { "@type": "PropertyValue", name: "ใบอนุญาตวิศวกรโยธา", value: site.engineerLicense }],
     areaServed: ["นนทบุรี", "บางใหญ่", "บางกรวย", "บางบัวทอง", "ไทรน้อย", "ปากเกร็ด", "กรุงเทพมหานคร", "ปทุมธานี", "ปริมณฑล"], priceRange: "฿฿฿",
-    sameAs: ["https://www.dataforthai.com/company/0103528028423/"]
-  }, { "@context": "https://schema.org", "@type": "WebSite", name: site.name, url: site.url, inLanguage: "th-TH" }];
+    sameAs: [site.facebook, `https://www.dataforthai.com/company/${site.legalId}/`]
+  }, { "@context": "https://schema.org", "@type": "WebSite", "@id": `${site.url}/#website`, name: site.name, url: site.url, inLanguage: "th-TH", publisher: { "@id": `${site.url}/#organization` } }];
   return <html lang="th"><body className={`${thai.variable} ${display.variable}`}><JsonLd data={schema} />{children}</body></html>;
 }

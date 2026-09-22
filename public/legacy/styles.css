@@ -823,3 +823,6 @@ body[data-page="home"] .reveal.is-visible{transform:none;filter:none}
 .facebook-post-card>a{display:flex;min-height:46px;align-items:center;justify-content:center;margin-top:12px;border-radius:9px;background:#1877f2;color:#fff;font-family:var(--font-legacy-display),sans-serif;font-size:12px;font-weight:600;transition:background .2s ease,transform .2s ease}
 .facebook-post-card>a:hover{background:#1267d5;transform:translateY(-1px)}
 @media(max-width:640px){.facebook-post-card{width:100%;padding:10px;border-radius:20px}.facebook-post-card iframe{height:667px}.facebook-post-card>a{margin-top:9px}}
+
+/* V25: Keep local business details readable in the global footer. */
+.footer-contact p strong{color:#bbb}.footer-contact .footer-map-link{display:inline-block;margin-top:5px;color:#f5a400;text-decoration:underline;text-underline-offset:3px}

@@ -27,8 +27,8 @@ export function LocalServicePage({ slug }: { slug: LocalServiceSlug }) {
 
   return <div data-legacy-page="services">
     <LegacyBodyState page="services" bodyClass="" />
-    <link rel="stylesheet" href="/legacy/styles.min.css?v=20260921-12" />
-    <link rel="stylesheet" href="/legacy/service-seo.css?v=20260921-2" />
+    <link rel="stylesheet" href="/legacy/styles.min.css?v=20260922-1" />
+    <link rel="stylesheet" href="/legacy/service-seo.css?v=20260922-1" />
     <JsonLd data={schema} />
     <a className="skip-link" href="#main-content">ข้ามไปเนื้อหาหลัก</a>
     {React.createElement("nge-header")}
@@ -40,7 +40,7 @@ export function LocalServicePage({ slug }: { slug: LocalServiceSlug }) {
         <p className="local-coverage">พื้นที่หลัก: นนทบุรี กรุงเทพฯ ปทุมธานี และพื้นที่ใกล้เคียง</p>
       </div><figure className="seo-photo"><Image src={page.image} alt={page.imageAlt} width={900} height={675} priority sizes="(max-width: 760px) 100vw, 48vw" /><figcaption>{page.imageAlt} · <Link href="/projects">ดูผลงานจริงทั้งหมด</Link></figcaption></figure></div></section>
 
-      <section className="section local-area-intro"><div className="container seo-content"><span className="page-kicker">ค้นหาทีมใกล้พื้นที่โครงการ</span><h2>{page.introTitle}</h2><p>{page.intro}</p><p className="search-intent-line">คำที่เกี่ยวข้อง: {page.searchPhrase}</p><div className="seo-grid">{page.scopes.map(item => <article className="seo-card" key={item.title}><h3>{item.title}</h3><p>{item.body}</p></article>)}</div></div></section>
+      <section className="section local-area-intro"><div className="container seo-content"><span className="page-kicker">เริ่มจากหน้างานจริง</span><h2>{page.introTitle}</h2><p>{page.intro}</p><div className="seo-grid">{page.scopes.map(item => <article className="seo-card" key={item.title}><h3>{item.title}</h3><p>{item.body}</p></article>)}</div></div></section>
 
       <section className="section local-planning"><div className="container local-planning-grid"><div className="seo-content"><span className="page-kicker">ส่งข้อมูลให้ประเมินเร็วขึ้น</span><h2>เตรียม 4 อย่างก่อนคุยกับทีม</h2><p>ข้อมูลครบตั้งแต่ครั้งแรกช่วยให้แยกสิ่งที่ประเมินได้ทันที สิ่งที่ต้องสำรวจ และสิ่งที่ต้องทำแบบเพิ่มได้ชัดเจน</p><ol className="local-checklist">{page.checklist.map((item, index) => <li key={item}><span>{String(index + 1).padStart(2, "0")}</span><b>{item}</b></li>)}</ol></div><aside className="local-lead-box"><span>คุยกับทีมวิศวกร</span><h2>มีรูป แบบ หรือพิกัดแล้ว ส่งให้ทีมดูได้เลย</h2><p>แจ้งประเภทงาน พื้นที่ และงบคร่าว ๆ ทีมจะช่วยบอกขั้นตอนถัดไปก่อนนัดหมาย</p><Link className="btn btn-primary" href={`/contact?source=${page.slug}-cta`}>ให้ทีมติดต่อกลับ</Link><a href={`tel:${site.phone}`}>โทร {site.phoneDisplay}</a></aside></div></section>
 
@@ -52,6 +52,6 @@ export function LocalServicePage({ slug }: { slug: LocalServiceSlug }) {
       <section className="closing-cta"><div className="container"><div><span>เริ่มจากข้อมูลจริงของหน้างาน</span><h2>ส่งรูปและพิกัดให้ทีมช่วยดูขอบเขต</h2></div><Link className="btn btn-dark" href={`/contact?source=${page.slug}-bottom`}>ขอประเมินโครงการ</Link></div></section>
     </main>
     {React.createElement("nge-footer")}
-    <LegacyRuntimeScripts sources={["/legacy/site-config.js?v=20260921-3", "/legacy/site-shell.js?v=20260921-4", "/legacy/app.js?v=20260921-4"]} />
+    <LegacyRuntimeScripts sources={["/legacy/site-config.js?v=20260921-3", "/legacy/site-shell.js?v=20260922-1", "/legacy/app.js?v=20260921-4"]} />
   </div>;
 }

@@ -8,6 +8,13 @@ export const site = {
   email: "nextgenengineering.th@gmail.com",
   area: "นนทบุรี กรุงเทพฯ และปริมณฑล",
   legalId: "0103528028423",
+  legalName: "ห้างหุ้นส่วนจำกัด รวมพลชัย เอ็นจิเนียริ่ง",
+  engineerLicense: "ภย. 60575",
+  address: "98/72 หมู่บ้านกฤษดาลากูน นนทบุรี 11130",
+  streetAddress: "98/72 หมู่บ้านกฤษดาลากูน",
+  postalCode: "11130",
+  mapUrl: "https://maps.app.goo.gl/jKKSr42Ax6v7HqWRA",
+  facebook: "https://www.facebook.com/nextgenength/",
 };
 
 export const services = [
