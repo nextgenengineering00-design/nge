@@ -42,7 +42,7 @@ export function readLegacyDocument(relativeFile: string): LegacyDocument {
       return optimized;
     })
     .replace(/\r\n?/g, "\n");
-  const jsonLd = [...source.matchAll(/<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)].map(match => match[1].trim());
+  const jsonLd = [...source.matchAll(/<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)].map(match => match[1].trim().replaceAll("https://ngebuild.com/og-nonthaburi.jpg", "https://ngebuild.com/og-ngebuild-preview-20260922.jpg").replaceAll("https://ngebuild.com/og-ngebuild-cover-2026.jpg", "https://ngebuild.com/og-ngebuild-preview-20260922.jpg"));
   const styles = [...source.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/gi)].map(match => match[1].trim());
   return { title, description, html, bodyClass, page, jsonLd, styles };
 }
