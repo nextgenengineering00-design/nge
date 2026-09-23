@@ -800,6 +800,15 @@ body[data-page="home"] .reveal.is-visible{transform:none;filter:none}
 @media(max-width:600px){.about-swnp-intro{padding-top:30px}.about-swnp-copy h1{font-size:40px}.about-swnp-company{font-size:18px!important}.about-swnp-copy p{font-size:14px;line-height:1.82}.about-swnp-slider{height:290px}.about-swnp-services{margin-top:38px}.about-swnp-services article{min-height:0;padding:28px 24px}.about-swnp-services h2{font-size:19px}.about-swnp-history-head{padding:56px 0 40px}.about-swnp-history-head h2{font-size:36px}.about-swnp-history-head p{font-size:15px}.about-swnp-mosaic{grid-template-columns:1fr;gap:8px}.history-card{min-height:290px}.history-card-image,.history-card-dark,.history-experience,.history-projects,.history-value{padding:30px 24px}.history-card b,.history-experience b,.history-projects b,.history-value b{font-size:48px}.history-card-present{grid-column:1!important;min-height:430px;padding:42px 24px}.history-card-present h2{font-size:40px}.history-card-present p{font-size:14px}.about-swnp-links{align-items:stretch;flex-direction:column}.about-swnp-links .btn{width:100%}}
 @media(prefers-reduced-motion:reduce){.about-swnp-slider figure{animation:none}.about-swnp-slider figure:first-child{opacity:1}}
 
+/* About page: one real NGE meeting photo only. */
+.about-swnp-single-photo{height:auto;aspect-ratio:3/4;background:#171717;border-radius:4px;box-shadow:0 24px 60px rgba(0,0,0,.16)}
+.about-swnp-single-photo figure,.about-swnp-single-photo figure:first-child{position:absolute;inset:0;opacity:1;animation:none}
+.about-swnp-single-photo img{width:100%;height:100%;object-fit:cover;object-position:center center}
+.history-card-light{display:flex;align-items:flex-end;padding:38px;background:linear-gradient(145deg,#fff,#f5efe4);border:1px solid #e4d9c7}
+.history-card-present{background:linear-gradient(135deg,#f7f1e6,#fff);border:1px solid #e4d9c7}
+@media(max-width:900px){.about-swnp-single-photo{width:min(100%,620px);margin-inline:auto;aspect-ratio:3/4}}
+@media(max-width:600px){.about-swnp-single-photo{height:auto;aspect-ratio:3/4}.history-card-light{padding:30px 24px}}
+
 /* V23: Knowledge page follows the supplied editorial blog layout. */
 .knowledge-swnp-page{background:#fff;color:#282828}
 .knowledge-swnp-intro{padding:72px 0 62px}
@@ -878,3 +887,9 @@ nge-header{position:sticky;top:0;z-index:2000;isolation:isolate}
 }
 @media(max-width:380px){.brand span{display:none}.mobile-dock .mobile-dock-label{font-size:9px}.mobile-dock a{gap:4px}}
 @media(prefers-reduced-motion:reduce){.about-profile-download,.mobile-dock,.mobile-dock a{transition:none!important}}
+
+/* V27: keep the About page to one supplied photograph on every viewport. */
+.about-swnp-slider.about-swnp-single-photo{height:auto;max-height:none;aspect-ratio:3/4}
+.about-swnp-slider.about-swnp-single-photo figure{opacity:1;animation:none}
+.about-swnp-slider.about-swnp-single-photo img{object-fit:cover;object-position:center center}
+@media(max-width:600px){.about-swnp-slider.about-swnp-single-photo{height:auto;aspect-ratio:3/4}}
