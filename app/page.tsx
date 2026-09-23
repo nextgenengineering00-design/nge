@@ -1,2 +1,2 @@
 import { LegacyPage } from "@/components/legacy-page";
-export default function Home(){return <><link rel="preload" as="image" href="/assets/hero-nonthaburi-construction-2026.webp" type="image/webp" media="(min-width:641px)" fetchPriority="high"/><link rel="preload" as="image" href="/assets/hero-nonthaburi-construction-mobile-2026.webp" type="image/webp" media="(max-width:640px)" fetchPriority="high"/><LegacyPage file="index.html"/></>}
+export default function Home(){return <><link rel="preload" as="image" href="/assets/hero-home-modern-v2.webp" type="image/webp" fetchPriority="high"/><LegacyPage file="index.html"/></>}
