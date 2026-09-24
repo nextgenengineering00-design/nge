@@ -63,6 +63,39 @@
   .quick-contact.quick-visual .quick-card{flex-basis:82vw!important;max-width:360px!important;}
 }
 </style>
+
+<style>
+/* v13 mobile center + vertical stack, no-line image refs */
+@media(max-width:640px){
+  .quick-contact.quick-visual{
+    height:auto!important;
+    padding:0 0 22px!important;
+    overflow:visible!important;
+    background:#fff!important;
+  }
+  .quick-contact.quick-visual .quick-grid{
+    width:min(92vw,420px)!important;
+    max-width:420px!important;
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:14px!important;
+    padding:0!important;
+    margin:0 auto!important;
+    transform:translateY(-18px)!important;
+    overflow:visible!important;
+  }
+  .quick-contact.quick-visual .quick-card{
+    width:100%!important;
+    max-width:none!important;
+    flex:none!important;
+    scroll-snap-align:none!important;
+  }
+  .quick-contact.quick-visual .quick-card img{
+    width:100%!important;
+    height:auto!important;
+  }
+}
+</style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": ["Organization", "GeneralContractor"], "@id": "https://ngebuild.com/#organization", "name": "Next Gen Engineering", "alternateName": "NGE", "legalName": "ห้างหุ้นส่วนจำกัด รวมพลชัย เอ็นจิเนียริ่ง", "url": "https://ngebuild.com/", "telephone": "+66982799145", "logo": "https://ngebuild.com/assets/nge-9b58beeb765ab627.png", "image": "https://ngebuild.com/og-nonthaburi.jpg", "description": "ผู้รับเหมาก่อสร้างครบวงจร ให้บริการนนทบุรี กรุงเทพฯ และปริมณฑล จดทะเบียนตั้งแต่ปี 2528 ประสบการณ์กว่า 40 ปี มากกว่า 500 ผลงาน มูลค่ารวม 400+ ล้านบาท", "foundingDate": "1985-11-05", "address": {"@type": "PostalAddress", "streetAddress": "98/72 หมู่บ้านกฤษดาลากูน", "addressLocality": "นนทบุรี", "addressRegion": "นนทบุรี", "postalCode": "11130", "addressCountry": "TH"}, "areaServed": [{"@type": "AdministrativeArea", "name": "นนทบุรี"}, {"@type": "AdministrativeArea", "name": "กรุงเทพมหานคร"}, {"@type": "AdministrativeArea", "name": "ปริมณฑล"}], "contactPoint": {"@type": "ContactPoint", "telephone": "+66982799145", "contactType": "customer service", "areaServed": "TH", "availableLanguage": ["Thai"]}, "sameAs": ["https://lin.ee/u45yvnc", "https://www.facebook.com/nextgenength/", "https://www.dataforthai.com/company/0103528028423/"], "serviceType": ["รับเหมาก่อสร้าง นนทบุรี", "สร้างบ้าน", "ก่อสร้างอาคาร", "รีโนเวท", "ซ่อมแซม", "งานโครงสร้าง", "งานระบบอาคาร", "บริหารโครงการ"], "hasMap": "https://maps.app.goo.gl/jKKSr42Ax6v7HqWRA", "openingHours": "Mo-Su 00:00-23:59"}, {"@type": "WebSite", "@id": "https://ngebuild.com/#website", "url": "https://ngebuild.com/", "name": "Next Gen Engineering", "inLanguage": "th-TH", "publisher": {"@id": "https://ngebuild.com/#organization"}}, {"@type": "WebPage", "@id": "https://ngebuild.com/#webpage", "url": "https://ngebuild.com/", "name": "รับเหมาก่อสร้าง นนทบุรี | สร้างบ้าน สร้างอาคาร รีโนเวท | NGE", "inLanguage": "th-TH", "isPartOf": {"@id": "https://ngebuild.com/#website"}, "about": {"@id": "https://ngebuild.com/#organization"}}]}</script>
   <script defer src="./site-config.js"></script><script defer src="./site-shell.js"></script><script defer src="./app.js"></script>
 <link rel="stylesheet" href="/service-seo.css"><script defer src="/performance.js"></script></head>
@@ -74,15 +107,15 @@
     <section class="quick-contact quick-visual" id="start-project" aria-label="เริ่มต้นโครงการ">
       <div class="quick-grid">
         <a class="quick-card reveal" href="/build-home-nonthaburi" aria-label="กำลังจะสร้างใหม่ บ้านและอาคาร">
-          <img src="./assets/home-quick/home-quick-01-clean.png" alt="" width="2030" height="775" loading="eager" decoding="async">
+          <img src="./assets/home-quick/home-quick-01-noline.png" alt="" width="2030" height="775" loading="eager" decoding="async">
           <span class="sr-only">กำลังจะสร้างใหม่ บ้านและอาคาร</span>
         </a>
         <a class="quick-card reveal" href="/renovation-service-nonthaburi" aria-label="อยากปรับพื้นที่เดิม ต่อเติมและรีโนเวท">
-          <img src="./assets/home-quick/home-quick-02-clean.png" alt="" width="2030" height="775" loading="lazy" decoding="async">
+          <img src="./assets/home-quick/home-quick-02-noline.png" alt="" width="2030" height="775" loading="lazy" decoding="async">
           <span class="sr-only">อยากปรับพื้นที่เดิม ต่อเติมและรีโนเวท</span>
         </a>
         <a class="quick-card reveal" href="#booking" aria-label="ยังไม่แน่ใจว่าจะเริ่มตรงไหน ให้ทีมงานช่วยดู">
-          <img src="./assets/home-quick/home-quick-03-clean.png" alt="" width="2030" height="775" loading="lazy" decoding="async">
+          <img src="./assets/home-quick/home-quick-03-noline.png" alt="" width="2030" height="775" loading="lazy" decoding="async">
           <span class="sr-only">ยังไม่แน่ใจว่าจะเริ่มตรงไหน ให้ทีมงานช่วยดู</span>
         </a>
       </div>
