@@ -539,23 +539,24 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap:16px;
-      min-height:58px;
-      width:min(100%, 380px);
-      padding:14px 24px 14px 30px;
+      gap:10px;
+      min-height:48px;
+      width:fit-content;
+      max-width:100%;
+      padding:10px 14px 10px 20px;
       border-radius:999px;
-      border:3px solid #ff8f00;
+      border:2px solid #ff8f00;
       background:
         linear-gradient(180deg,#ffcf42 0%,#ffb300 14%,#ff9500 38%,#ff6a00 72%,#ef3c00 100%);
       color:#fff;
-      font:800 17px/1.15 'Kanit',var(--font-display),sans-serif;
+      font:800 14px/1 'Kanit',var(--font-display),sans-serif;
       letter-spacing:.1px;
       text-shadow:0 2px 10px rgba(0,0,0,.18);
       box-shadow:
         inset 0 2px 0 rgba(255,244,205,.72),
         inset 0 -5px 10px rgba(170,36,0,.18),
-        0 14px 26px rgba(236,88,0,.24),
-        0 4px 0 #db4c00;
+        0 10px 20px rgba(236,88,0,.20),
+        0 3px 0 #db4c00;
       overflow:hidden;
       isolation:isolate;
       transition:transform .16s ease, box-shadow .18s ease, filter .18s ease;
@@ -563,8 +564,8 @@
     .services-reference-page .sv-card a.sv-card-cta::before{
       content:"";
       position:absolute;
-      left:12px; right:12px; top:7px;
-      height:42%;
+      left:10px; right:10px; top:5px;
+      height:40%;
       border-radius:999px;
       background:linear-gradient(180deg,rgba(255,255,255,.78),rgba(255,255,255,.26) 58%,rgba(255,255,255,0));
       opacity:.92;
@@ -586,8 +587,8 @@
       box-shadow:
         inset 0 2px 0 rgba(255,244,205,.78),
         inset 0 -5px 10px rgba(170,36,0,.2),
-        0 18px 30px rgba(236,88,0,.3),
-        0 5px 0 #db4c00;
+        0 14px 24px rgba(236,88,0,.26),
+        0 4px 0 #db4c00;
       filter:saturate(1.03);
     }
     .services-reference-page .sv-card a.sv-card-cta:hover::after{transform:translateX(130%) skewX(-18deg)}
@@ -600,18 +601,18 @@
         0 1px 0 #db4c00;
     }
     .services-reference-page .sv-card a.sv-card-cta:focus-visible{outline:3px solid rgba(255,179,0,.35);outline-offset:3px}
-    .services-reference-page .sv-card a.sv-card-cta span{display:block;white-space:normal}
+    .services-reference-page .sv-card a.sv-card-cta span{display:block;white-space:nowrap;overflow:hidden;text-overflow:clip}
     .services-reference-page .sv-card a.sv-card-cta i{
       display:grid;
       place-items:center;
       flex:0 0 auto;
-      width:54px;
-      height:54px;
+      width:38px;
+      height:38px;
       border-radius:50%;
       background:rgba(255,255,255,.12);
       box-shadow:inset 0 1px 0 rgba(255,255,255,.45);
       font-style:normal;
-      font-size:42px;
+      font-size:31px;
       font-weight:800;
       line-height:1;
       transform:translateX(0);
@@ -619,8 +620,75 @@
     }
     .services-reference-page .sv-card a.sv-card-cta:hover i{transform:translateX(2px);background:rgba(255,255,255,.16)}
     @media(max-width:760px){
-      .services-reference-page .sv-card a.sv-card-cta{width:100%;min-height:56px;padding:13px 18px 13px 22px;font-size:16px;gap:12px}
-      .services-reference-page .sv-card a.sv-card-cta i{width:48px;height:48px;font-size:38px}
+      .services-reference-page .sv-card a.sv-card-cta{width:fit-content;max-width:100%;min-height:46px;padding:9px 12px 9px 16px;font-size:12.5px;gap:8px}
+      .services-reference-page .sv-card a.sv-card-cta i{width:34px;height:34px;font-size:28px}
+      .services-reference-page .sv-card a.sv-card-cta span{white-space:nowrap}
+    }
+    @media(max-width:420px){
+      .services-reference-page .sv-card a.sv-card-cta{font-size:11.5px;padding-left:13px;padding-right:9px;gap:6px}
+      .services-reference-page .sv-card a.sv-card-cta i{width:31px;height:31px;font-size:25px}
+    }
+
+
+    /* v8 compact single-line service CTA */
+    .services-reference-page .sv-card a.sv-card-cta{
+      width:auto!important;
+      max-width:100%;
+      min-height:50px!important;
+      padding:10px 14px 10px 18px!important;
+      gap:10px!important;
+      font-size:13px!important;
+      line-height:1!important;
+      border-width:2px!important;
+      box-shadow:
+        inset 0 2px 0 rgba(255,244,205,.68),
+        inset 0 -4px 8px rgba(170,36,0,.15),
+        0 10px 20px rgba(236,88,0,.20),
+        0 3px 0 #db4c00!important;
+    }
+    .services-reference-page .sv-card a.sv-card-cta span{
+      white-space:nowrap!important;
+      overflow:visible;
+      text-overflow:clip;
+      font-size:inherit!important;
+      line-height:1!important;
+    }
+    .services-reference-page .sv-card a.sv-card-cta i{
+      width:36px!important;
+      height:36px!important;
+      font-size:30px!important;
+    }
+    .services-reference-page .sv-card a.sv-card-cta:hover{
+      transform:translateY(-2px) scale(1.008)!important;
+    }
+    .services-reference-page .sv-card a.sv-card-cta:active{
+      transform:translateY(2px) scale(.996)!important;
+    }
+    @media(max-width:900px){
+      .services-reference-page .sv-card a.sv-card-cta{
+        width:fit-content!important;
+        max-width:100%;
+        padding:9px 12px 9px 15px!important;
+        gap:8px!important;
+        font-size:12px!important;
+      }
+      .services-reference-page .sv-card a.sv-card-cta i{
+        width:32px!important;
+        height:32px!important;
+        font-size:27px!important;
+      }
+    }
+    @media(max-width:420px){
+      .services-reference-page .sv-card a.sv-card-cta{
+        font-size:10.8px!important;
+        padding-left:12px!important;
+        padding-right:10px!important;
+      }
+      .services-reference-page .sv-card a.sv-card-cta i{
+        width:29px!important;
+        height:29px!important;
+        font-size:24px!important;
+      }
     }
 
   </style>
