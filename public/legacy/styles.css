@@ -651,7 +651,7 @@ body{font-weight:400;color:#202020;background:#fffdf9}
 /* V20: cinematic construction-home motion, mixed with the existing NGE identity. */
 body[data-page="home"] .hero-cinematic{height:min(810px,calc(100svh - 110px));min-height:690px;background:#12110f}
 body[data-page="home"] .hero-cinematic::before{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,rgba(245,164,0,.12),transparent 34%,rgba(255,255,255,.03) 76%,transparent);mix-blend-mode:screen;pointer-events:none}
-body[data-page="home"] .hero-cinematic::after{content:"";position:absolute;z-index:4;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,rgba(245,164,0,.9),transparent);transform-origin:left;animation:ngeHeroLine 1.4s .65s cubic-bezier(.2,.7,.2,1) both;pointer-events:none}
+
 body[data-page="home"] .hero-cinematic .hero-media img{transform:scale(1.055);animation:ngeHeroZoom 13s cubic-bezier(.2,.6,.3,1) both;will-change:transform}
 body[data-page="home"] .hero-cinematic .hero-bg{background:linear-gradient(90deg,rgba(10,9,8,.95) 0%,rgba(10,9,8,.83) 37%,rgba(10,9,8,.31) 66%,rgba(10,9,8,.16) 100%)}
 body[data-page="home"] .hero-blueprint{position:absolute;z-index:-2;inset:0;opacity:.13;background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);background-size:78px 78px;mask-image:linear-gradient(90deg,#000 0,#000 36%,transparent 76%);animation:ngeBlueprintDrift 18s linear infinite;pointer-events:none}
@@ -663,7 +663,7 @@ body[data-page="home"] .hero-copy>p:not(.hero-eyebrow){animation-delay:.36s}
 body[data-page="home"] .hero-copy .hero-actions{animation-delay:.5s}
 body[data-page="home"] .hero-copy .hero-trust{animation-delay:.64s}
 body[data-page="home"] .hero-copy h1 em{display:inline-block;position:relative}
-body[data-page="home"] .hero-copy h1 em::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:4px;border-radius:99px;background:linear-gradient(90deg,var(--orange),rgba(245,164,0,0));transform:scaleX(0);transform-origin:left;animation:ngeAccentLine .9s .95s ease forwards}
+
 body[data-page="home"] .hero-engineer{isolation:isolate;opacity:0;transform:translate3d(36px,32px,0);animation:ngeEngineerIn 1s .28s cubic-bezier(.16,.78,.24,1) forwards}
 body[data-page="home"] .hero-engineer img{position:relative;z-index:2;filter:saturate(1.02) contrast(1.02);transform-origin:center bottom;animation:ngeEngineerFloat 6s 1.35s ease-in-out infinite}
 body[data-page="home"] .engineer-halo{position:absolute;z-index:1;left:50%;top:46%;width:82%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(245,164,0,.28) 0,rgba(245,164,0,.09) 42%,transparent 70%);transform:translate(-50%,-50%);filter:blur(4px);animation:ngeHaloPulse 5s ease-in-out infinite}
@@ -702,7 +702,7 @@ body[data-page="home"] .reveal.is-visible{transform:none;filter:none}
 
 @media(max-width:1100px){body[data-page="home"] .hero-side-note{display:none}}
 @media(max-width:900px){body[data-page="home"] .hero-cinematic{height:760px;min-height:720px}body[data-page="home"] .hero-copy{bottom:62px}}
-@media(max-width:640px){body[data-page="home"] .hero-cinematic{height:780px;min-height:740px}body[data-page="home"] .hero-blueprint{opacity:.08;background-size:48px 48px}body[data-page="home"] .hero-engineer{top:8px;left:50%;right:auto;width:284px;height:432px;transform:translate3d(-50%,32px,0);animation-name:ngeEngineerInMobile}body[data-page="home"] .hero-copy{bottom:54px}body[data-page="home"] .hero-copy h1 em::after{height:3px;bottom:-4px}body[data-page="home"] .quick-card{animation:none;opacity:1;transform:none}}
+@media(max-width:640px){body[data-page="home"] .hero-cinematic{height:780px;min-height:740px}body[data-page="home"] .hero-blueprint{opacity:.08;background-size:48px 48px}body[data-page="home"] .hero-engineer{top:8px;left:50%;right:auto;width:284px;height:432px;transform:translate3d(-50%,32px,0);animation-name:ngeEngineerInMobile}body[data-page="home"] .hero-copy{bottom:54px}body[data-page="home"] .quick-card{animation:none;opacity:1;transform:none}}
 @keyframes ngeEngineerInMobile{to{opacity:1;transform:translate3d(-50%,0,0)}}
 @media(prefers-reduced-motion:reduce){body[data-page="home"] .hero-cinematic .hero-media img,body[data-page="home"] .hero-cinematic::after,body[data-page="home"] .hero-blueprint,body[data-page="home"] .hero-copy>*,body[data-page="home"] .hero-copy h1 em::after,body[data-page="home"] .hero-engineer,body[data-page="home"] .hero-engineer img,body[data-page="home"] .engineer-halo,body[data-page="home"] .hero-side-note,body[data-page="home"] .quick-card{animation:none!important;opacity:1;transform:none}}
 @media(max-width:640px) and (prefers-reduced-motion:reduce){body[data-page="home"] .hero-engineer{transform:translateX(-50%)}}
