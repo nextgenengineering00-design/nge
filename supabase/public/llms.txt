@@ -1,0 +1,63 @@
+# Next Gen Engineering
+
+Next Gen Engineering เป็นผู้รับเหมาก่อสร้างครบวงจรในจังหวัดนนทบุรี กรุงเทพฯ และพื้นที่ปริมณฑล ให้บริการก่อสร้าง ต่อเติม รีโนเวท งานโครงสร้าง งานระบบอาคาร และบริหารโครงการ ดำเนินการภายใต้ห้างหุ้นส่วนจำกัด รวมพลชัย เอ็นจิเนียริ่ง
+
+ห้างหุ้นส่วนจำกัด รวมพลชัย เอ็นจิเนียริ่ง จดทะเบียนเมื่อวันที่ 5 พฤศจิกายน 2528 ทีมผู้บริหาร วิศวกร และช่างมีประสบการณ์มากกว่า 40 ปี มีผลงานก่อสร้างและปรับปรุงมากกว่า 500 งาน และมีมูลค่าผลงานรวมมากกว่า 400 ล้านบาท ครอบคลุมบ้านพักอาศัย อาคารเรียน อาคารราชการ ร้านอาหาร และงานตกแต่งภายใน
+
+## Core facts
+
+- Primary service area: นนทบุรี กรุงเทพฯ และปริมณฑล
+- Team experience: มากกว่า 40 ปี
+- Combined project value: มากกว่า 400 ล้านบาท
+- Combined project count: มากกว่า 500 ผลงาน
+- Service model: สำรวจ ออกแบบ วางแผนงบประมาณ ก่อสร้าง ควบคุมงาน และส่งมอบครบวงจร
+- Legal entity reference: https://www.dataforthai.com/company/0103528028423/
+
+## Main pages
+
+- /about.html - ประวัติบริษัทและดาวน์โหลด Company Profile
+- /services.html - บริการก่อสร้างทั้งหมด
+- /why-us.html - มาตรฐานและระบบควบคุมงาน
+- /projects.html - รวมผลงานพร้อมลิงก์ไปยังหน้ารายละเอียด
+- /reviews.html - รีวิว Google และ Facebook
+- /faq.html - คำถามที่พบบ่อย
+- /contact.html - แบบฟอร์มให้วิศวกรโทรกลับและช่องทางติดต่อ
+- /#booking - จองเวลาปรึกษาวิศวกรฟรี
+
+## Contact
+
+- Phone: 098-279-9145
+- LINE: @522magc
+- LINE URL: https://lin.ee/u45yvnc
+
+## Services
+
+- รับเหมาก่อสร้างบ้าน อาคาร สำนักงาน และโครงการในนนทบุรีและพื้นที่ใกล้เคียง
+- ต่อเติมอาคารและเพิ่มพื้นที่ใช้สอย
+- รีโนเวทและตกแต่งภายในครบวงจร
+- งานฐานรากและโครงสร้างคอนกรีตเสริมเหล็ก
+- งานถนนคอนกรีตเสริมเหล็กและงานโยธา
+- งานระบบไฟฟ้า ประปา สุขาภิบาล และปรับอากาศ
+- บริหารและควบคุมโครงการโดยทีมวิศวกร
+
+## Selected projects
+
+- /projects/rc-road-saraburi-12-ton.html - งานถนนคอนกรีตเสริมเหล็ก รับน้ำหนัก 12 ตัน จังหวัดสระบุรี พร้อมภาพหน้างานจริง
+- /projects/concrete-road-building.html - งานเทคอนกรีตถนนและทางเดินรอบอาคาร พร้อมภาพวางเหล็ก เทคอนกรีต ปรับระดับ และเก็บผิวหน้างานจริง
+- /projects/phra2-renovation.html - รีโนเวทบ้านพักอาศัย 3 ชั้น พระราม 2 กรุงเทพฯ พร้อมแบบฟังก์ชันและรายละเอียดวัสดุ
+- /projects/rowhouse-10-families.html - ก่อสร้างอาคารเรือนแถว 10 ครอบครัว 2 ชั้น งานเสาเข็ม ฐานราก และคานคอดิน
+- /projects/school-25.html - อาคารเรียนครบรอบ 25 ปี โรงเรียนกาญจนาภิเษกฯ
+- /projects/military-saraburi.html - โครงการย้ายหน่วยพัน ซบร. จังหวัดสระบุรี
+- /projects/wichai-sriracha.html - บ้านคุณวิชัย อำเภอศรีราชา
+- /projects/lake-legend.html - บ้านคุณประวิทย์ Lake Legend แจ้งวัฒนะ
+- /projects/royal-stable.html - อาคารคอกม้าทรงประจำพระองค์
+- /projects/oikos-cafe.html - OIKOS Cafe & Restaurant เอกชัย 64
+
+Project pages contain source-provided project type, size, budget reference where available, and photo/design galleries. Budget figures belong to example projects and are not current quotations.
+
+
+## Topic clusters (2026-09-15)
+- Contractor / cost / contract: https://ngebuild.com/contractor-nonthaburi.html, https://ngebuild.com/boq-construction-guide.html, https://ngebuild.com/construction-contract-guide.html, https://ngebuild.com/construction-process-guide.html
+- Renovation: https://ngebuild.com/renovation-nonthaburi.html, https://ngebuild.com/renovation-budget-guide.html, https://ngebuild.com/renovation-structure-check-guide.html
+- Concrete road: https://ngebuild.com/concrete-road-guide.html, https://ngebuild.com/concrete-road-cost-guide.html
+- Project evidence: https://ngebuild.com/projects.html

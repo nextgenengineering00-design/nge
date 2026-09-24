@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="theme-color" content="#151515">
+  <title>NGE CRM | ระบบดูแลลูกค้า</title>
+  <link rel="icon" href="./assets/nge-9b58beeb765ab627.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600;700&family=Sarabun:wght@300;400;500;600&display=swap" rel="preload" as="style" data-async-fonts><noscript><link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600;700&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
+  <link rel="stylesheet" href="./crm.css">
+  <script defer src="./site-config.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.4/dist/umd/supabase.min.js" integrity="sha384-yiVMs0R/Jyz7OhoXa/DsEMUSBLjEhr/QJta2ONO+zB6I8/GmNg/7AUFrZmAJV7KV" crossorigin="anonymous"></script>
+  <script defer src="./crm.js"></script>
+<script defer src="/performance.js"></script></head>
+<body>
+  <div class="crm-shell">
+    <aside class="crm-sidebar" id="crmSidebar">
+      <a class="crm-brand" href="/" aria-label="กลับหน้าเว็บไซต์ NGE">
+        <img src="./assets/nge-9b58beeb765ab627-fast.webp" alt="NGE">
+        <span><b>NGE CRM</b><small>MARKETING WORKSPACE</small></span>
+      </a>
+      <nav class="crm-nav" aria-label="เมนู CRM">
+        <a class="active" href="#today"><span>01</span> งานที่ต้องทำ</a>
+        <a href="#leads"><span>02</span> รายชื่อลูกค้า</a>
+        <a href="#pipeline"><span>03</span> สถานะการขาย</a>
+      </nav>
+      <div class="crm-live-card">
+        <span class="live-dot" id="liveDot"></span>
+        <div><small>SUPABASE REALTIME</small><b id="liveText">กำลังตรวจสอบระบบ</b></div>
+      </div>
+      <a class="crm-back-link" href="/">← กลับเว็บไซต์หลัก</a>
+    </aside>
+
+    <main class="crm-main">
+      <header class="crm-topbar">
+        <button class="mobile-menu" id="mobileMenuButton" type="button" aria-controls="crmSidebar" aria-expanded="false" aria-label="เปิดเมนู">☰</button>
+        <div class="topbar-title"><span class="crm-eyebrow">NGE INTERNAL SYSTEM</span><h1>ระบบดูแลลูกค้า</h1></div>
+        <div class="crm-account"><span id="accountName">ยังไม่เข้าสู่ระบบ</span><button id="signOutButton" type="button" hidden>ออกจากระบบ</button></div>
+      </header>
+
+      <section class="setup-banner" id="setupBanner" hidden>
+        <div><b>ระบบยังไม่พร้อม</b><span>ตรวจสอบ Supabase URL, Publishable Key และการโหลด Supabase client</span></div>
+        <a href="./START_HERE_NGE_COMPLETE_GUIDE_TH.txt">เปิดคู่มือฉบับเดียว</a>
+      </section>
+
+      <section class="crm-login" id="loginView" hidden aria-labelledby="loginTitle">
+        <div class="login-card">
+          <span>AUTHORIZED STAFF ONLY</span>
+          <h2 id="loginTitle">เข้าสู่ระบบ CRM</h2>
+          <p>ใช้บัญชี Supabase ของทีมงาน (อีเมลและรหัสผ่าน) ไม่ใช่ AI Admin Token</p>
+          <form id="loginForm">
+            <label>อีเมล<input id="loginEmail" name="email" type="email" autocomplete="username" required placeholder="name@company.com"></label>
+            <label>รหัสผ่าน<input id="loginPassword" name="password" type="password" autocomplete="current-password" minlength="8" required placeholder="••••••••"></label>
+            <button type="submit">เข้าสู่ระบบ <span>→</span></button>
+            <p class="login-status" id="loginStatus" role="status"></p>
+          </form>
+        </div>
+      </section>
+
+      <section class="access-denied" id="accessDeniedView" hidden aria-labelledby="accessDeniedTitle">
+        <div><span>ACCESS DENIED</span><h2 id="accessDeniedTitle">บัญชีนี้ยังไม่มีสิทธิ์ CRM</h2><p>ให้ผู้ดูแลกำหนดบทบาท <code>crm_staff</code> หรือ <code>crm_admin</code> แล้วออกจากระบบและเข้าใหม่</p><button id="deniedSignOutButton" type="button">กลับไปเข้าสู่ระบบ</button></div>
+      </section>
+
+      <div id="dashboardView" hidden>
+        <section class="crm-intro" id="today">
+          <div><span class="crm-kicker">TODAY'S WORK</span><h2>งานที่ต้องทำวันนี้</h2><p>เริ่มจากลูกค้าใหม่ งานเกินกำหนด และงานที่ยังไม่มีผู้รับผิดชอบ</p></div>
+          <div class="crm-updated"><span>ข้อมูลล่าสุด</span><b id="lastUpdated">—</b></div>
+        </section>
+
+        <section class="queue-grid" aria-label="ทางลัดคิวงาน">
+          <button class="queue-card queue-new" type="button" data-queue="new"><span>ลูกค้าใหม่</span><b id="metricNew">0</b><small>รอติดต่อครั้งแรก</small><i>เปิดคิว →</i></button>
+          <button class="queue-card queue-overdue" type="button" data-queue="overdue"><span>เกินกำหนด</span><b id="metricOverdue">0</b><small>ควรติดต่อลูกค้าทันที</small><i>เปิดคิว →</i></button>
+          <button class="queue-card queue-today" type="button" data-queue="today"><span>ติดตามวันนี้</span><b id="metricToday">0</b><small>นัดหมายภายในวันนี้</small><i>เปิดคิว →</i></button>
+          <button class="queue-card queue-unassigned" type="button" data-queue="unassigned"><span>ยังไม่มอบหมาย</span><b id="metricUnassigned">0</b><small>เลือกผู้รับผิดชอบ</small><i>เปิดคิว →</i></button>
+        </section>
+
+        <section class="summary-strip" aria-label="สรุปยอดขาย">
+          <div><span>กำลังติดตาม</span><b id="metricActive">0</b></div>
+          <div><span>งานด่วน</span><b id="metricUrgent">0</b></div>
+          <div><span>รอติดต่อเกิน 2 ชม.</span><b id="metricSla">0</b></div>
+          <div><span>ปิดงานสำเร็จ</span><b id="metricWon">0</b></div>
+        </section>
+
+        <section class="leads-panel" id="leads">
+          <div class="panel-heading leads-heading">
+            <div><span>CUSTOMER INBOX</span><h2>รายชื่อลูกค้า</h2><p id="activeQueueText">แสดงลูกค้าทั้งหมด</p></div>
+            <div class="heading-actions"><button class="button-ghost" id="exportButton" type="button">ส่งออก CSV</button><button class="button-refresh" id="refreshButton" type="button">↻ รีเฟรช</button></div>
+          </div>
+
+          <div class="queue-tabs" id="queueTabs" role="group" aria-label="เลือกคิวงาน">
+            <button class="active" type="button" data-queue="all">ทั้งหมด</button>
+            <button type="button" data-queue="new">ใหม่</button>
+            <button type="button" data-queue="today">วันนี้</button>
+            <button type="button" data-queue="overdue">เกินกำหนด</button>
+            <button type="button" data-queue="unassigned">ยังไม่มอบหมาย</button>
+            <button type="button" data-queue="urgent">งานด่วน</button>
+          </div>
+
+          <div class="crm-toolbar">
+            <label class="search-field"><span aria-hidden="true">⌕</span><input id="leadSearch" type="search" placeholder="ค้นหาชื่อ เบอร์โทร อีเมล พื้นที่ หรืองาน"></label>
+            <select id="statusFilter" aria-label="กรองตามสถานะ"><option value="">ทุกสถานะ</option><option value="new">ลูกค้าใหม่</option><option value="contacted">ติดต่อแล้ว</option><option value="qualified">ประเมินงาน</option><option value="won">ปิดงานสำเร็จ</option><option value="lost">ไม่ดำเนินการ</option><option value="spam">สแปม</option></select>
+            <select id="ownerFilter" aria-label="กรองตามผู้รับผิดชอบ"><option value="">ทุกคน</option><option value="unassigned">ยังไม่มอบหมาย</option></select>
+            <select id="serviceFilter" aria-label="กรองตามบริการ"><option value="">ทุกประเภทงาน</option></select>
+            <select id="sourceFilter" aria-label="กรองตามแหล่งที่มา"><option value="">ทุกช่องทาง</option></select>
+            <button class="clear-filters" id="clearFiltersButton" type="button">ล้างตัวกรอง</button>
+          </div>
+
+          <div class="table-summary"><span><b id="resultCount">0</b> รายการ</span><small id="pageSummary">หน้า 1</small></div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>ลูกค้า</th><th>ช่องทางติดต่อ</th><th>ประเภทงาน</th><th>ผู้รับผิดชอบ</th><th>ติดตามครั้งถัดไป</th><th>สถานะ</th><th></th></tr></thead>
+              <tbody id="leadRows"></tbody>
+            </table>
+            <div class="empty-state" id="emptyState" hidden><b>ไม่พบข้อมูลในคิวนี้</b><span>ลองเปลี่ยนคำค้นหา หรือล้างตัวกรอง</span></div>
+          </div>
+          <div class="pagination" id="pagination" hidden><button id="prevPageButton" type="button">← ก่อนหน้า</button><span id="pageNumber">หน้า 1</span><button id="nextPageButton" type="button">ถัดไป →</button></div>
+        </section>
+
+        <section class="pipeline-panel" id="pipeline">
+          <div class="panel-heading"><div><span>SALES PIPELINE</span><h2>สถานะการขาย</h2></div><small>คลิกแต่ละสถานะเพื่อกรองลูกค้า</small></div>
+          <div class="pipeline-grid" id="pipelineGrid"></div>
+        </section>
+
+        <section class="crm-help-card">
+          <div><span>เพิ่งเริ่มใช้ CRM?</span><h2>คู่มือฉบับเดียว เรียงจากติดตั้งจนใช้งาน</h2><p>เปิดส่วน B เพื่อดูงานประจำวัน การมอบหมาย ติดตาม และส่งออกข้อมูล</p></div>
+          <a href="./START_HERE_NGE_COMPLETE_GUIDE_TH.txt" target="_blank" rel="noopener">เปิดคู่มือฉบับเดียว →</a>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <dialog class="lead-dialog" id="leadDialog">
+    <form method="dialog" class="dialog-shell" id="leadEditor">
+      <header><div><span>LEAD DETAILS</span><h2 id="detailName">—</h2><p id="detailMeta">—</p></div><button class="dialog-close" value="cancel" aria-label="ปิด">×</button></header>
+
+      <div class="contact-actions">
+        <a class="action-call" id="detailPhone" href="#">โทรหาลูกค้า</a>
+        <a id="detailEmail" href="#">ส่งอีเมล</a>
+        <button id="copyPhoneButton" type="button">คัดลอกเบอร์</button>
+      </div>
+
+      <dl class="detail-grid">
+        <div><dt>เบอร์โทร</dt><dd id="detailPhoneText">—</dd></div><div><dt>อีเมล</dt><dd id="detailEmailText">—</dd></div>
+        <div><dt>ประเภทงาน</dt><dd id="detailService">—</dd></div><div><dt>พื้นที่</dt><dd id="detailLocation">—</dd></div>
+        <div><dt>งบประมาณ</dt><dd id="detailBudget">—</dd></div><div><dt>แหล่งที่มา</dt><dd id="detailSource">—</dd></div><div><dt>คะแนนลีดอัตโนมัติ</dt><dd id="detailScore">—</dd></div>
+      </dl>
+      <div class="detail-message"><span>รายละเอียดจากลูกค้า</span><p id="detailMessage">—</p></div>
+
+      <input id="detailId" type="hidden">
+      <div class="editor-grid">
+        <label>สถานะ<select id="detailStatus"><option value="new">ลูกค้าใหม่</option><option value="contacted">ติดต่อแล้ว</option><option value="qualified">ประเมินงาน</option><option value="won">ปิดงานสำเร็จ</option><option value="lost">ไม่ดำเนินการ</option><option value="spam">สแปม</option></select></label>
+        <label>ความสำคัญ<select id="detailPriority"><option value="normal">ปกติ</option><option value="high">สำคัญ</option><option value="urgent">ด่วน</option><option value="low">ต่ำ</option></select></label>
+        <label>ผู้รับผิดชอบ<select id="detailOwner"><option value="">ยังไม่มอบหมาย</option></select></label>
+        <label>กำหนดติดตามครั้งถัดไป<input id="detailFollowup" type="datetime-local"></label>
+      </div>
+      <label id="lostReasonField" hidden>เหตุผลที่ไม่ดำเนินการ<input id="detailLostReason" type="text" maxlength="300" placeholder="เช่น งบประมาณไม่ตรง เลื่อนโครงการ หรือติดต่อไม่ได้"></label>
+      <label>บันทึกภายใน<textarea id="detailNote" rows="4" maxlength="3000" placeholder="สรุปการพูดคุย ขั้นตอนถัดไป หรือข้อมูลสำคัญ"></textarea></label>
+      <label class="contact-check"><input id="markContacted" type="checkbox"><span><b>บันทึกว่าเพิ่งติดต่อลูกค้า</b><small>ติ๊กหลังโทรหรือส่งอีเมล ระบบจะบันทึกเวลาติดต่อล่าสุด</small></span></label>
+      <p class="editor-status" id="editorStatus" role="status"></p>
+      <footer><button class="button-secondary" value="cancel">ยกเลิก</button><button class="button-primary" id="saveLeadButton" type="button">บันทึกข้อมูล</button></footer>
+
+      <section class="activity-panel" aria-labelledby="activityTitle"><div><span>ACTIVITY HISTORY</span><h3 id="activityTitle">ประวัติการดูแลลูกค้า</h3></div><div id="activityList" class="activity-list"><p>กำลังโหลด…</p></div></section>
+    </form>
+  </dialog>
+
+  <div class="crm-toast" id="crmToast" role="status" aria-live="polite"></div>
+</body>
+</html>
