@@ -380,6 +380,74 @@
       .services-reference-page .sv-quicknav-item{padding:15px 15px}
     }
 
+
+    /* v4 requested refinements */
+    .services-reference-page .sv-hero-grid,.services-reference-page .sv-hero-orb,.services-reference-page .sv-hero-line,.services-reference-page .sv-quicknav,.services-reference-page .sv-process{display:none!important}
+    .services-reference-page .sv-hero{min-height:720px;align-items:flex-end;background:#121212}
+    .services-reference-page .sv-hero-media img{object-position:center center}
+    .services-reference-page .sv-hero:before{background:linear-gradient(90deg,rgba(7,8,10,.72) 0%,rgba(7,8,10,.52) 40%,rgba(7,8,10,.38) 100%),linear-gradient(180deg,rgba(0,0,0,.16),rgba(0,0,0,.44));}
+    .services-reference-page .sv-hero-inner{display:flex;justify-content:flex-start;align-items:flex-end;padding:120px 0 92px}
+    .services-reference-page .sv-hero-copy{max-width:720px;animation:svHeroZoom .95s cubic-bezier(.2,.85,.24,1) both}
+    .services-reference-page .sv-hero h1{font-size:clamp(44px,5.9vw,78px);line-height:1.02}
+    .services-reference-page .sv-hero p{max-width:640px;font-size:clamp(16px,1.55vw,20px)}
+    .services-reference-page .sv-actions{margin-top:34px}
+    .services-reference-page .sv-action{position:relative;overflow:hidden}
+    .services-reference-page .sv-action:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 0%,rgba(255,255,255,.24) 45%,transparent 70%);transform:translateX(-130%);transition:transform .7s ease}
+    .services-reference-page .sv-action:hover:after{transform:translateX(130%)}
+    .services-reference-page .sv-divider{margin:18px 0 24px}
+
+    .services-reference-page .sv-coverage{padding:88px 0 42px;background:#fff}
+    .services-reference-page .sv-coverage-head{max-width:860px;margin:0 auto 34px;text-align:left}
+    .services-reference-page .sv-coverage-head .sv-kicker{margin-bottom:10px}
+    .services-reference-page .sv-coverage-head h2{font-size:clamp(32px,4vw,50px);font-weight:600;line-height:1.18;letter-spacing:-.8px}
+    .services-reference-page .sv-coverage-accent{display:block;width:56px;height:3px;background:#e53b2f;margin:18px 0 0}
+    .services-reference-page .sv-coverage-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+    .services-reference-page .sv-coverage-card{padding:42px 24px 32px;background:#f2f2f2;border:1px solid #e8e8e8;text-align:center;transition:transform .28s ease,box-shadow .28s ease}
+    .services-reference-page .sv-coverage-card:hover{transform:translateY(-6px);box-shadow:0 20px 38px rgba(0,0,0,.08)}
+    .services-reference-page .sv-coverage-card img{width:106px;height:106px;object-fit:contain;margin:0 auto 26px}
+    .services-reference-page .sv-coverage-card h3{font-size:22px;font-weight:700;margin-bottom:14px;color:#181818}
+    .services-reference-page .sv-coverage-card p{font-size:15px;line-height:1.75;color:#55514d}
+
+    .services-reference-page .sv-services{padding:18px 0 106px;background:var(--sv-soft)}
+    .services-reference-page .sv-section-head{margin:0 auto 34px;text-align:left;max-width:none}
+    .services-reference-page .sv-section-head h2{font-size:clamp(34px,4vw,52px)}
+    .services-reference-page .sv-section-head p{max-width:760px;color:#5f5a54}
+    .services-reference-page .sv-card-heading{display:block;margin-bottom:12px}
+    .services-reference-page .sv-card-icon,.services-reference-page .sv-card-thumb{display:none!important}
+    .services-reference-page .sv-card-number{display:inline-block;margin-bottom:10px;font-family:'Kanit',var(--font-display),sans-serif;font-weight:700;font-size:15px;letter-spacing:.8px;color:#8f5f00}
+    .services-reference-page .sv-card h3{font-size:26px}
+
+    .services-reference-page .sv-cta{padding:82px 0;background:linear-gradient(135deg,#f7b000,#f5a400 38%,#eb9c0a)}
+    .services-reference-page .sv-cta-inner{display:flex;align-items:center;justify-content:space-between;gap:34px}
+    .services-reference-page .sv-cta .sv-action{box-shadow:0 16px 30px rgba(0,0,0,.18);transform:translateY(0);transition:transform .28s ease,box-shadow .28s ease}
+    .services-reference-page .sv-cta .sv-action:hover{transform:translateY(-4px);box-shadow:0 22px 36px rgba(0,0,0,.22)}
+
+    .services-reference-page .site-footer{position:relative;overflow:hidden;border-top:1px solid rgba(245,164,0,.18);background:#020202!important;background-image:none!important;color:#fff!important}
+    .services-reference-page .site-footer:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 16% 18%,rgba(245,164,0,.08),transparent 18%),linear-gradient(180deg,rgba(255,255,255,.015),rgba(0,0,0,.08));pointer-events:none;display:block!important}
+    .services-reference-page .site-footer:after{display:none!important}
+    .services-reference-page .site-footer .footer-brand-light .footer-logo-disc{background:#fff!important;border-radius:50%;padding:10px;box-shadow:0 0 0 6px rgba(245,164,0,.12),0 18px 40px rgba(0,0,0,.34)!important}
+    .services-reference-page .site-footer .footer-about span,.services-reference-page .site-footer .footer-links h3,.services-reference-page .site-footer .footer-contact h3,.services-reference-page .site-footer .footer-license{color:#f5a400!important}
+    .services-reference-page .site-footer .footer-about p,.services-reference-page .site-footer .footer-contact p,.services-reference-page .site-footer .footer-links a,.services-reference-page .site-footer .footer-contact small,.services-reference-page .site-footer .footer-map-link,.services-reference-page .site-footer .footer-profile-link,.services-reference-page .site-footer .footer-bottom,.services-reference-page .site-footer .footer-bottom-meta a{color:#d9d9d9!important}
+    .services-reference-page .site-footer .footer-contact a b,.services-reference-page .site-footer .footer-about h2{color:#fff!important}
+    .services-reference-page .site-footer .footer-bottom{border-top:1px solid rgba(255,255,255,.1)!important}
+    .services-reference-page .site-footer .footer-links a:hover,.services-reference-page .site-footer .footer-contact a:hover,.services-reference-page .site-footer .footer-profile-link:hover,.services-reference-page .site-footer .footer-map-link:hover,.services-reference-page .site-footer .footer-bottom-meta a:hover{color:#f5a400!important}
+
+    @keyframes svHeroZoom{0%{opacity:0;transform:scale(.94) translateY(18px)}100%{opacity:1;transform:scale(1) translateY(0)}}
+
+    @media(max-width:1100px){
+      .services-reference-page .sv-coverage-grid,.services-reference-page .sv-service-grid,.services-reference-page .sv-project-grid{grid-template-columns:repeat(2,1fr)}
+      .services-reference-page .sv-hero-inner{padding-top:106px}
+    }
+    @media(max-width:760px){
+      .services-reference-page .sv-hero{min-height:620px}
+      .services-reference-page .sv-hero:before{background:linear-gradient(180deg,rgba(7,8,10,.34) 0%,rgba(7,8,10,.74) 58%,rgba(7,8,10,.88) 100%)}
+      .services-reference-page .sv-hero-inner{padding:92px 0 66px}
+      .services-reference-page .sv-coverage{padding:66px 0 24px}
+      .services-reference-page .sv-coverage-grid,.services-reference-page .sv-service-grid,.services-reference-page .sv-project-grid{grid-template-columns:1fr}
+      .services-reference-page .sv-coverage-card{padding:34px 18px 26px}
+      .services-reference-page .sv-section-head{text-align:left}
+    }
+
   </style>
   <script defer src="./site-config.js"></script>
   <script defer src="./site-shell.js"></script>
@@ -436,7 +504,7 @@
     
     <section class="sv-hero" aria-labelledby="services-main-title">
       <div class="sv-hero-media">
-        <img src="./assets/hero-nonthaburi-construction-2026.webp" alt="หน้างานก่อสร้างและงานโยธาที่ทีม Next Gen Engineering ดูแล" width="1600" height="1200" fetchpriority="high" decoding="async">
+        <img src="./assets/services/service-hero-house-team.png" alt="หน้างานก่อสร้างและงานโยธาที่ทีม Next Gen Engineering ดูแล" width="1600" height="1200" fetchpriority="high" decoding="async">
       </div>
       <div class="sv-container sv-hero-inner">
         <div class="sv-hero-copy reveal">
@@ -451,32 +519,45 @@
         </div>
       </div>
     </section>
-
-    <section class="sv-quicknav" aria-labelledby="service-quicknav-title">
+    <section class="sv-coverage" aria-labelledby="service-coverage-title">
       <div class="sv-container">
-        <h2 id="service-quicknav-title" class="reveal">6 หมวดบริการ</h2>
-        <div class="sv-quicknav-grid">
-          <a class="sv-quicknav-item reveal" href="#service-construction"><span class="sv-thumb-badge"><img src="./assets/services/service-general-construction-fast.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><b>รับเหมาก่อสร้าง</b></a>
-          <a class="sv-quicknav-item reveal" href="#service-extension"><span class="sv-thumb-badge"><img src="./assets/services/service-building-extension-fast.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><b>ต่อเติมอาคาร</b></a>
-          <a class="sv-quicknav-item reveal" href="#service-renovation"><span class="sv-thumb-badge"><img src="./assets/services/service-renovation-fast.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><b>รีโนเวทครบวงจร</b></a>
-          <a class="sv-quicknav-item reveal" href="#service-structure"><span class="sv-thumb-badge"><img src="./assets/services/service-structure-fast.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><b>งานโครงสร้าง</b></a>
-          <a class="sv-quicknav-item reveal" href="#service-mep"><span class="sv-thumb-badge"><img src="./assets/services/service-mep-fast.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><b>งานระบบอาคาร</b></a>
-          <a class="sv-quicknav-item reveal" href="#service-management"><span class="sv-thumb-badge"><img src="./assets/services/service-project-management-fast.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><b>บริหารโครงการ</b></a>
+        <div class="sv-coverage-head reveal">
+          <span class="sv-kicker">OUR SERVICE</span>
+          <h2 id="service-coverage-title">เราดูแลเรื่อง <strong>“งานก่อสร้าง”</strong> ให้คุณได้อย่างครอบคลุม</h2>
+          <span class="sv-coverage-accent" aria-hidden="true"></span>
+        </div>
+        <div class="sv-coverage-grid">
+          <article class="sv-coverage-card reveal">
+            <img src="./assets/services/icon-design.png" alt="ไอคอนการออกแบบ" width="160" height="160" loading="lazy" decoding="async">
+            <h3>การออกแบบ</h3>
+            <p>เรามีทีมออกแบบงานก่อสร้างที่เป็นมืออาชีพ</p>
+          </article>
+          <article class="sv-coverage-card reveal">
+            <img src="./assets/services/icon-consult.png" alt="ไอคอนการให้คำปรึกษา" width="160" height="160" loading="lazy" decoding="async">
+            <h3>การให้คำปรึกษา</h3>
+            <p>เรามีทีมให้คำปรึกษาในการทำยื่นเอกสารต่างๆ</p>
+          </article>
+          <article class="sv-coverage-card reveal">
+            <img src="./assets/services/icon-construction.png" alt="ไอคอนการรับเหมาก่อสร้าง" width="160" height="160" loading="lazy" decoding="async">
+            <h3>การรับเหมาก่อสร้าง</h3>
+            <p>เรามีทีมงานผู้เชี่ยวชาญในการทำงานก่อสร้าง</p>
+          </article>
         </div>
       </div>
     </section>
 
+
     <section class="sv-services" aria-labelledby="service-list-title">
       <div class="sv-container">
         <div class="sv-section-head reveal">
+          <span class="sv-kicker">OUR SERVICE</span>
           <h2 id="service-list-title">บริการของเรา</h2>
-          <p>ครอบคลุมงานสร้างใหม่ ต่อเติม รีโนเวท งานโครงสร้าง งานระบบอาคาร และบริหารโครงการ</p>
         </div>
         <div class="sv-service-grid">
           <article class="sv-card reveal" id="service-construction">
             <div class="sv-card-media"><img src="./assets/services/service-general-construction-fast.webp" alt="รับเหมาก่อสร้างบ้านและอาคารโดยทีมวิศวกร NGE" width="720" height="480" loading="lazy" decoding="async"></div>
             <div class="sv-card-body">
-              <div class="sv-card-heading"><span class="sv-card-thumb"><img src="./assets/services/service-general-construction-fast.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><div><span class="sv-card-number">01 • CONSTRUCTION</span><h3>รับเหมาก่อสร้าง</h3></div></div>
+              <div class="sv-card-heading"><div><span class="sv-card-number">1 | CONSTRUCTION</span><h3>รับเหมาก่อสร้าง</h3></div></div>
               <p>บ้าน อาคาร สำนักงาน โรงเรียน ร้านค้า และโครงการหลายขนาด ดูแลตั้งแต่สำรวจพื้นที่ ประสานแบบ วางแผนงาน ประเมินราคา ควบคุมคุณภาพ จนถึงส่งมอบ</p>
               <a href="/build-home-nonthaburi">ดูรายละเอียดรับสร้างบ้านและอาคาร</a>
             </div>
@@ -484,7 +565,7 @@
           <article class="sv-card reveal" id="service-extension">
             <div class="sv-card-media"><img src="./assets/services/service-building-extension-fast.webp" alt="บริการต่อเติมบ้านและอาคาร ตรวจสอบโครงสร้างเดิมก่อนเริ่มงาน" width="720" height="480" loading="lazy" decoding="async"></div>
             <div class="sv-card-body">
-              <div class="sv-card-heading"><span class="sv-card-thumb"><img src="./assets/services/service-building-extension-fast.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><div><span class="sv-card-number">02 • EXTENSION</span><h3>ต่อเติมอาคาร</h3></div></div>
+              <div class="sv-card-heading"><div><span class="sv-card-number">2 | EXTENSION</span><h3>ต่อเติมอาคาร</h3></div></div>
               <p>เพิ่มห้อง เพิ่มพื้นที่ใช้สอย ต่อเติมครัว หลังคา โรงจอดรถ หรือส่วนใช้งานอื่น โดยตรวจโครงสร้างเดิม จุดเชื่อมต่อ และข้อจำกัดของพื้นที่ก่อนเลือกวิธีทำงาน</p>
               <a href="/extend-home-nonthaburi">ดูรายละเอียดงานต่อเติม</a>
             </div>
@@ -492,7 +573,7 @@
           <article class="sv-card reveal" id="service-renovation">
             <div class="sv-card-media"><img src="./assets/services/service-renovation-fast.webp" alt="บริการรีโนเวทบ้าน อาคาร สำนักงาน และพื้นที่ธุรกิจ" width="720" height="480" loading="lazy" decoding="async"></div>
             <div class="sv-card-body">
-              <div class="sv-card-heading"><span class="sv-card-thumb"><img src="./assets/services/service-renovation-fast.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><div><span class="sv-card-number">03 • RENOVATION</span><h3>รีโนเวทครบวงจร</h3></div></div>
+              <div class="sv-card-heading"><div><span class="sv-card-number">3 | RENOVATION</span><h3>รีโนเวทครบวงจร</h3></div></div>
               <p>ปรับปรุงบ้าน อาคาร สำนักงาน ร้านค้า และพื้นที่เดิม โดยจัดลำดับงานรื้อ ซ่อมโครงสร้าง งานระบบ และงานตกแต่งให้ทำต่อเนื่องกันและควบคุมงบได้ง่ายขึ้น</p>
               <a href="/renovation-service-nonthaburi">ดูรายละเอียดงานรีโนเวท</a>
             </div>
@@ -500,7 +581,7 @@
           <article class="sv-card reveal" id="service-structure">
             <div class="sv-card-media"><img src="./assets/services/service-structure-fast.webp" alt="งานฐานราก เสา คาน พื้น และโครงสร้างคอนกรีตเสริมเหล็ก" width="720" height="480" loading="lazy" decoding="async"></div>
             <div class="sv-card-body">
-              <div class="sv-card-heading"><span class="sv-card-thumb"><img src="./assets/services/service-structure-fast.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><div><span class="sv-card-number">04 • STRUCTURE</span><h3>งานโครงสร้าง</h3></div></div>
+              <div class="sv-card-heading"><div><span class="sv-card-number">4 | STRUCTURE</span><h3>งานโครงสร้าง</h3></div></div>
               <p>ฐานราก เสา คาน พื้น คอนกรีต เหล็ก และงานโครงสร้างที่เกี่ยวข้อง ดำเนินงานตามแบบและหลักวิศวกรรม พร้อมตรวจสอบคุณภาพในแต่ละช่วงงาน</p>
               <a href="/contact">ส่งแบบหรือรูปหน้างานให้ประเมิน</a>
             </div>
@@ -508,7 +589,7 @@
           <article class="sv-card reveal" id="service-mep">
             <div class="sv-card-media"><img src="./assets/services/service-mep-fast.webp" alt="งานระบบอาคาร ไฟฟ้า ประปา สุขาภิบาล และปรับอากาศ" width="720" height="405" loading="lazy" decoding="async"></div>
             <div class="sv-card-body">
-              <div class="sv-card-heading"><span class="sv-card-thumb"><img src="./assets/services/service-mep-fast.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><div><span class="sv-card-number">05 • MEP SYSTEM</span><h3>งานระบบอาคาร</h3></div></div>
+              <div class="sv-card-heading"><div><span class="sv-card-number">5 | MEP SYSTEM</span><h3>งานระบบอาคาร</h3></div></div>
               <p>งานไฟฟ้า ประปา สุขาภิบาล ปรับอากาศ และระบบประกอบอาคาร โดยประสานตำแหน่งงานระบบกับงานสถาปัตยกรรมและโครงสร้างเพื่อลดปัญหาหน้างาน</p>
               <a href="/contact">ปรึกษางานระบบอาคาร</a>
             </div>
@@ -516,7 +597,7 @@
           <article class="sv-card reveal" id="service-management">
             <div class="sv-card-media"><img src="./assets/services/service-project-management-fast.webp" alt="บริการบริหารและควบคุมโครงการก่อสร้าง" width="720" height="480" loading="lazy" decoding="async"></div>
             <div class="sv-card-body">
-              <div class="sv-card-heading"><span class="sv-card-thumb"><img src="./assets/services/service-project-management-fast.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><div><span class="sv-card-number">06 • MANAGEMENT</span><h3>บริหารโครงการ</h3></div></div>
+              <div class="sv-card-heading"><div><span class="sv-card-number">6 | MANAGEMENT</span><h3>บริหารโครงการ</h3></div></div>
               <p>วางแผนและติดตามความคืบหน้า ประสานผู้เกี่ยวข้อง ควบคุมคุณภาพ งบประมาณ และจุดตรวจรับ เพื่อให้เจ้าของโครงการเห็นสถานะงานและประเด็นสำคัญได้ชัดเจน</p>
               <a href="/contact">คุยขอบเขตการบริหารโครงการ</a>
             </div>
@@ -525,20 +606,6 @@
       </div>
     </section>
 
-    <section class="sv-process" aria-labelledby="service-process-title">
-      <div class="sv-container">
-        <div class="sv-process-head reveal">
-          <div><span class="sv-kicker">WORK PROCESS</span><h2 id="service-process-title">จากคุยครั้งแรก<br>จนถึงเริ่มงานจริง</h2></div>
-          <p>เราใช้ข้อมูลหน้างาน แบบ และความต้องการใช้งานเป็นฐานในการกำหนดขอบเขต เพื่อให้สิ่งที่เสนอราคาและสิ่งที่จะก่อสร้างสอดคล้องกันมากที่สุด</p>
-        </div>
-        <div class="sv-process-grid">
-          <article class="reveal"><span class="sv-process-number">01</span><h3>รับข้อมูลเบื้องต้น</h3><p>ประเภทงาน สถานที่ รูปหน้างาน แบบที่มี และช่วงงบประมาณโดยประมาณ</p></article>
-          <article class="reveal"><span class="sv-process-number">02</span><h3>สำรวจและตรวจพื้นที่</h3><p>ดูสภาพเดิม ข้อจำกัด ทางเข้า ระบบเดิม และรายละเอียดที่มีผลต่อวิธีทำงาน</p></article>
-          <article class="reveal"><span class="sv-process-number">03</span><h3>สรุปขอบเขตและราคา</h3><p>จัดรายการงาน แนวทางดำเนินการ งบประมาณ และระยะเวลาให้ตรวจสอบก่อนเริ่ม</p></article>
-          <article class="reveal"><span class="sv-process-number">04</span><h3>ควบคุมงานและส่งมอบ</h3><p>ติดตามแผน ตรวจคุณภาพ ประสานงาน และสรุปความคืบหน้าตลอดการดำเนินงาน</p></article>
-        </div>
-      </div>
-    </section>
 
     <section class="sv-projects" aria-labelledby="service-project-title">
       <div class="sv-container">
@@ -580,9 +647,9 @@
 
 
     <section class="sv-cta" aria-labelledby="service-cta-title">
-      <div class="sv-container sv-cta-inner">
+      <div class="sv-container sv-cta-inner reveal">
         <div><small>START YOUR PROJECT</small><h2 id="service-cta-title">มีรูปหน้างานหรือแบบแล้ว ส่งมาให้ทีม NGE ช่วยดูได้เลย</h2><p>แจ้งประเภทงาน สถานที่ ขนาดพื้นที่โดยประมาณ รูปหน้างาน และงบประมาณเบื้องต้น เพื่อให้ทีมงานประเมินขอบเขตและติดต่อกลับได้เร็วขึ้น</p></div>
-        <a class="sv-action" href="/contact">ส่งรายละเอียดโครงการ</a>
+        <a class="sv-action reveal" href="/contact">ส่งรายละเอียดโครงการ</a>
       </div>
     </section>
   </main>
