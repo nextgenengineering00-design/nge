@@ -332,6 +332,54 @@
     @media(prefers-reduced-motion:reduce){
       .services-reference-page .sv-card,.services-reference-page .sv-card-media img,.services-reference-page .sv-intro-media img,.services-reference-page .sv-project-card img,.services-reference-page .sv-action,.services-reference-page .sv-local-links a,.services-reference-page .sv-icon-card,.services-reference-page .sv-hero-panel,.services-reference-page .sv-hero-orb,.services-reference-page .sv-hero-line:after{transition:none!important;animation:none!important}
     }
+
+    /* user refinement overrides */
+    .services-reference-page .sv-hero{min-height:620px}
+    .services-reference-page .sv-hero-grid,.services-reference-page .sv-hero-orb,.services-reference-page .sv-hero-line,.services-reference-page .sv-hero-panel,.services-reference-page .sv-proof,.services-reference-page .sv-intro,.services-reference-page .sv-overview,.services-reference-page .sv-guides{display:none!important}
+    .services-reference-page .sv-hero:before{background:linear-gradient(180deg,rgba(5,7,10,.54) 0%,rgba(5,7,10,.72) 38%,rgba(5,7,10,.82) 100%)}
+    .services-reference-page .sv-hero-inner{display:block;padding:112px 0 92px;text-align:center}
+    .services-reference-page .sv-hero-copy{max-width:860px;margin-inline:auto}
+    .services-reference-page .sv-hero p{max-width:760px;margin-left:auto;margin-right:auto}
+    .services-reference-page .sv-actions{justify-content:center}
+    .services-reference-page .sv-kicker{margin-bottom:10px}
+    .services-reference-page .sv-divider{margin:16px auto 24px}
+
+    .services-reference-page .sv-quicknav{padding:70px 0 28px;background:#fff}
+    .services-reference-page .sv-quicknav h2{font-size:clamp(30px,3.8vw,48px);font-weight:600;letter-spacing:-.8px;text-align:center;margin-bottom:30px}
+    .services-reference-page .sv-quicknav-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .services-reference-page .sv-quicknav-item{display:flex;align-items:center;gap:16px;padding:18px 18px;background:#fff;border:1px solid #e6ddd1;box-shadow:0 12px 28px rgba(25,23,20,.05);transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+    .services-reference-page .sv-quicknav-item:hover{transform:translateY(-4px);border-color:#d3c1a2;box-shadow:0 16px 36px rgba(25,23,20,.1)}
+    .services-reference-page .sv-thumb-badge,.services-reference-page .sv-card-thumb{display:block;flex:0 0 auto;overflow:hidden;background:#f3f0ea;border:1px solid #eadfce}
+    .services-reference-page .sv-thumb-badge{width:74px;height:74px;border-radius:18px}
+    .services-reference-page .sv-thumb-badge img,.services-reference-page .sv-card-thumb img{width:100%;height:100%;object-fit:cover}
+    .services-reference-page .sv-quicknav-item b{display:block;font-size:17px;line-height:1.45;color:#161616}
+
+    .services-reference-page .sv-services{padding:38px 0 106px;background:var(--sv-soft)}
+    .services-reference-page .sv-section-head{max-width:860px}
+    .services-reference-page .sv-section-head h2{font-size:clamp(34px,4vw,52px)}
+    .services-reference-page .sv-section-head p{margin-top:10px}
+    .services-reference-page .sv-card-thumb{width:62px;height:62px;border-radius:16px}
+    .services-reference-page .sv-card-heading{align-items:center}
+    .services-reference-page .sv-card-icon{display:none!important}
+
+    .services-reference-page .site-footer{background:#fff!important;background-image:none!important;color:#1b1b1b!important;border-top:1px solid #ece3d7}
+    .services-reference-page .site-footer:before,.services-reference-page .site-footer:after{display:none!important}
+    .services-reference-page .site-footer .footer-brand-light .footer-logo-disc{background:#fff;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06),0 10px 22px rgba(0,0,0,.06)}
+    .services-reference-page .site-footer .footer-about span,.services-reference-page .site-footer .footer-links h3,.services-reference-page .site-footer .footer-contact h3,.services-reference-page .site-footer .footer-license{color:#a46a00}
+    .services-reference-page .site-footer .footer-about p,.services-reference-page .site-footer .footer-contact p,.services-reference-page .site-footer .footer-links a,.services-reference-page .site-footer .footer-contact small,.services-reference-page .site-footer .footer-bottom,.services-reference-page .site-footer .footer-meta,.services-reference-page .site-footer .footer-map-link,.services-reference-page .site-footer .footer-profile-link{color:#4e4b46}
+    .services-reference-page .site-footer .footer-contact a b,.services-reference-page .site-footer .footer-about h2{color:#161616}
+    .services-reference-page .site-footer .footer-bottom{border-top:1px solid rgba(0,0,0,.08)}
+
+    @media(max-width:1100px){
+      .services-reference-page .sv-quicknav-grid,.services-reference-page .sv-service-grid,.services-reference-page .sv-project-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:760px){
+      .services-reference-page .sv-hero-inner{padding:88px 0 64px}
+      .services-reference-page .sv-quicknav{padding-top:56px}
+      .services-reference-page .sv-quicknav-grid,.services-reference-page .sv-service-grid,.services-reference-page .sv-project-grid,.services-reference-page .sv-process-grid{grid-template-columns:1fr}
+      .services-reference-page .sv-quicknav-item{padding:15px 15px}
+    }
+
   </style>
   <script defer src="./site-config.js"></script>
   <script defer src="./site-shell.js"></script>
@@ -385,13 +433,11 @@
       </symbol>
     </svg>
 
+    
     <section class="sv-hero" aria-labelledby="services-main-title">
       <div class="sv-hero-media">
         <img src="./assets/hero-nonthaburi-construction-2026.webp" alt="หน้างานก่อสร้างและงานโยธาที่ทีม Next Gen Engineering ดูแล" width="1600" height="1200" fetchpriority="high" decoding="async">
       </div>
-      <div class="sv-hero-grid" aria-hidden="true"></div>
-      <div class="sv-hero-orb" aria-hidden="true"></div>
-      <div class="sv-hero-line" aria-hidden="true"></div>
       <div class="sv-container sv-hero-inner">
         <div class="sv-hero-copy reveal">
           <span class="sv-kicker">OUR SERVICE</span>
@@ -403,93 +449,19 @@
             <a class="sv-action sv-action-ghost" href="/projects">ดูผลงานก่อสร้างจริง</a>
           </div>
         </div>
-        <aside class="sv-hero-panel reveal" aria-label="ภาพรวมบริการหลักของ NGE">
-          <span class="sv-panel-label">บริการหลักของ NGE</span>
-          <h2>ครบ 6 หมวดบริการหลัก</h2>
-          <p>ใช้ไอคอนช่วยให้เห็นภาพขอบเขตงานได้เร็วขึ้น และกดดูแต่ละบริการที่คุณสนใจได้ทันที</p>
-          <div class="sv-hero-service-list">
-            <a href="#service-construction"><span class="sv-mini-icon"><svg viewBox="0 0 64 64"><use href="#sv-i-engineer"/></svg></span><b>รับเหมาก่อสร้าง</b></a>
-            <a href="#service-extension"><span class="sv-mini-icon"><svg viewBox="0 0 64 64"><use href="#sv-i-ruler"/></svg></span><b>ต่อเติมอาคาร</b></a>
-            <a href="#service-renovation"><span class="sv-mini-icon"><svg viewBox="0 0 64 64"><use href="#sv-i-renovation"/></svg></span><b>รีโนเวทครบวงจร</b></a>
-            <a href="#service-structure"><span class="sv-mini-icon"><svg viewBox="0 0 64 64"><use href="#sv-i-structure"/></svg></span><b>งานโครงสร้าง</b></a>
-            <a href="#service-mep"><span class="sv-mini-icon"><svg viewBox="0 0 64 64"><use href="#sv-i-mep"/></svg></span><b>งานระบบอาคาร</b></a>
-            <a href="#service-management"><span class="sv-mini-icon"><svg viewBox="0 0 64 64"><use href="#sv-i-management"/></svg></span><b>บริหารโครงการ</b></a>
-          </div>
-        </aside>
       </div>
     </section>
 
-    <section class="sv-proof" aria-label="ภาพรวมบริการ Next Gen Engineering">
-      <div class="sv-container sv-proof-grid">
-        <article><b>6 หมวดบริการ</b><span>ครอบคลุมงานก่อสร้างหลัก</span></article>
-        <article><b>ทีมวิศวกร</b><span>วางแผนและควบคุมหน้างานจริง</span></article>
-        <article><b>40+ ปี</b><span>ประสบการณ์งานก่อสร้างต่อเนื่อง</span></article>
-        <article><b>ภาครัฐ + เอกชน</b><span>ประสบการณ์หลากหลายประเภทโครงการ</span></article>
-      </div>
-    </section>
-
-    <section class="sv-intro" aria-labelledby="service-intro-title">
-      <div class="sv-container sv-intro-grid">
-        <div class="sv-intro-copy reveal">
-          <span class="sv-badge"><i></i>ครบทั้งงานสร้างใหม่ ต่อเติม รีโนเวท และงานระบบ</span>
-          <span class="sv-divider" aria-hidden="true"></span>
-          <h2 id="service-intro-title">งานก่อสร้างมีหลายรายละเอียด<br><em>เราเลยดูให้เป็นภาพเดียวกัน</em></h2>
-          <p class="sv-copy">บริการของเราครอบคลุมตั้งแต่งานสร้างใหม่ งานต่อเติมและรีโนเวท ไปจนถึงงานโครงสร้าง งานระบบอาคาร และการบริหารโครงการ เพื่อให้เจ้าของโครงการประสานงานได้ง่ายและติดตามความคืบหน้าได้เป็นขั้นตอน</p>
-          <p class="sv-copy">ไม่ว่าจะเป็นบ้าน อาคาร สำนักงาน โรงเรียน ร้านค้า หรือพื้นที่ธุรกิจ เราช่วยสรุปขอบเขตงาน แนวทางดำเนินการ และลำดับการทำงานให้ชัดก่อนเริ่มโครงการ</p>
-          <a class="sv-intro-link" href="/why-us">ดูมาตรฐานการทำงานของ NGE →</a>
-        </div>
-        <div class="sv-intro-media reveal" aria-label="ตัวอย่างภาพบริการรับเหมาก่อสร้างของ NGE">
-          <figure><img src="./assets/services/service-general-construction-fast.webp" alt="ทีมงานตรวจและควบคุมงานก่อสร้างอาคาร" width="720" height="480" decoding="async"></figure>
-          <figure><img src="./assets/services/service-building-extension-fast.webp" alt="งานต่อเติมอาคารและเพิ่มพื้นที่ใช้สอย" width="720" height="480" loading="lazy" decoding="async"></figure>
-          <figure><img src="./assets/services/service-renovation-fast.webp" alt="งานรีโนเวทบ้านและอาคารครบวงจร" width="720" height="480" loading="lazy" decoding="async"></figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="sv-overview" aria-labelledby="service-overview-title">
+    <section class="sv-quicknav" aria-labelledby="service-quicknav-title">
       <div class="sv-container">
-        <div class="sv-section-head reveal">
-          <span class="sv-kicker">OUR SERVICE</span>
-          <h2 id="service-overview-title">บริการที่เราดูแลครบตั้งแต่ต้นจนจบ</h2>
-          <p>แต่ละบริการมีขอบเขตและวิธีทำงานต่างกัน เราเลยใส่ไอคอนและคำอธิบายสั้น ๆ เพื่อให้คุณเลือกดูงานที่ตรงกับโครงการได้ง่ายขึ้น</p>
-        </div>
-        <div class="sv-icon-grid">
-          <article class="sv-icon-card reveal">
-            <span class="sv-service-icon"><svg viewBox="0 0 64 64"><use href="#sv-i-engineer"/></svg></span>
-            <h3>รับเหมาก่อสร้าง</h3>
-            <p>ดูแลงานสร้างบ้าน อาคาร สำนักงาน โรงเรียน ร้านค้า และโครงการหลายขนาด ตั้งแต่สำรวจ วางแผน ควบคุมงาน จนถึงส่งมอบ</p>
-            <a href="/build-home-nonthaburi">ดูรายละเอียดงานก่อสร้าง</a>
-          </article>
-          <article class="sv-icon-card reveal">
-            <span class="sv-service-icon"><svg viewBox="0 0 64 64"><use href="#sv-i-ruler"/></svg></span>
-            <h3>ต่อเติมอาคาร</h3>
-            <p>เพิ่มพื้นที่ใช้สอย เช่น ห้องครัว หลังคา โรงจอดรถ หรือส่วนใช้งานอื่น โดยตรวจโครงสร้างเดิมและข้อจำกัดของพื้นที่ก่อนเริ่มงาน</p>
-            <a href="/extend-home-nonthaburi">ดูรายละเอียดงานต่อเติม</a>
-          </article>
-          <article class="sv-icon-card reveal">
-            <span class="sv-service-icon"><svg viewBox="0 0 64 64"><use href="#sv-i-renovation"/></svg></span>
-            <h3>รีโนเวทครบวงจร</h3>
-            <p>ปรับปรุงบ้าน อาคาร สำนักงาน หรือพื้นที่เดิม โดยจัดลำดับงานรื้อ ซ่อมโครงสร้าง งานระบบ และงานตกแต่งให้เดินต่อเนื่องกัน</p>
-            <a href="/renovation-service-nonthaburi">ดูรายละเอียดงานรีโนเวท</a>
-          </article>
-          <article class="sv-icon-card reveal">
-            <span class="sv-service-icon"><svg viewBox="0 0 64 64"><use href="#sv-i-structure"/></svg></span>
-            <h3>งานโครงสร้าง</h3>
-            <p>ฐานราก เสา คาน พื้น คอนกรีต และงานเสริมกำลังโครงสร้าง ดำเนินงานตามแบบและหลักวิศวกรรม พร้อมตรวจสอบคุณภาพทุกช่วงงาน</p>
-            <a href="/contact">ส่งแบบให้ประเมินงานโครงสร้าง</a>
-          </article>
-          <article class="sv-icon-card reveal">
-            <span class="sv-service-icon"><svg viewBox="0 0 64 64"><use href="#sv-i-mep"/></svg></span>
-            <h3>งานระบบอาคาร</h3>
-            <p>งานไฟฟ้า ประปา สุขาภิบาล ปรับอากาศ และระบบประกอบอาคาร โดยประสานงานระบบกับสถาปัตยกรรมและโครงสร้างเพื่อลดปัญหาหน้างาน</p>
-            <a href="/contact">ปรึกษางานระบบอาคาร</a>
-          </article>
-          <article class="sv-icon-card reveal">
-            <span class="sv-service-icon"><svg viewBox="0 0 64 64"><use href="#sv-i-management"/></svg></span>
-            <h3>บริหารโครงการ</h3>
-            <p>วางแผน ติดตามความคืบหน้า ประสานผู้เกี่ยวข้อง ควบคุมคุณภาพ และงบประมาณ เพื่อให้เจ้าของโครงการเห็นสถานะงานอย่างชัดเจน</p>
-            <a href="/contact">คุยขอบเขตการบริหารโครงการ</a>
-          </article>
+        <h2 id="service-quicknav-title" class="reveal">6 หมวดบริการ</h2>
+        <div class="sv-quicknav-grid">
+          <a class="sv-quicknav-item reveal" href="#service-construction"><span class="sv-thumb-badge"><img src="./assets/services/service-general-construction-fast.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><b>รับเหมาก่อสร้าง</b></a>
+          <a class="sv-quicknav-item reveal" href="#service-extension"><span class="sv-thumb-badge"><img src="./assets/services/service-building-extension-fast.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><b>ต่อเติมอาคาร</b></a>
+          <a class="sv-quicknav-item reveal" href="#service-renovation"><span class="sv-thumb-badge"><img src="./assets/services/service-renovation-fast.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><b>รีโนเวทครบวงจร</b></a>
+          <a class="sv-quicknav-item reveal" href="#service-structure"><span class="sv-thumb-badge"><img src="./assets/services/service-structure-fast.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><b>งานโครงสร้าง</b></a>
+          <a class="sv-quicknav-item reveal" href="#service-mep"><span class="sv-thumb-badge"><img src="./assets/services/service-mep-fast.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><b>งานระบบอาคาร</b></a>
+          <a class="sv-quicknav-item reveal" href="#service-management"><span class="sv-thumb-badge"><img src="./assets/services/service-project-management-fast.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><b>บริหารโครงการ</b></a>
         </div>
       </div>
     </section>
@@ -497,15 +469,14 @@
     <section class="sv-services" aria-labelledby="service-list-title">
       <div class="sv-container">
         <div class="sv-section-head reveal">
-          <span class="sv-kicker">OUR SERVICE</span>
           <h2 id="service-list-title">บริการของเรา</h2>
-          <p>ภาพรวมบริการหลักทั้ง 6 หมวด พร้อมรูปประกอบจริงจากงานของ NGE เพื่อให้เห็นทั้งลักษณะงานและขอบเขตที่เราดูแล</p>
+          <p>ครอบคลุมงานสร้างใหม่ ต่อเติม รีโนเวท งานโครงสร้าง งานระบบอาคาร และบริหารโครงการ</p>
         </div>
         <div class="sv-service-grid">
           <article class="sv-card reveal" id="service-construction">
             <div class="sv-card-media"><img src="./assets/services/service-general-construction-fast.webp" alt="รับเหมาก่อสร้างบ้านและอาคารโดยทีมวิศวกร NGE" width="720" height="480" loading="lazy" decoding="async"></div>
             <div class="sv-card-body">
-              <div class="sv-card-heading"><span class="sv-card-icon"><svg viewBox="0 0 64 64"><use href="#sv-i-engineer"/></svg></span><div><span class="sv-card-number">01 • CONSTRUCTION</span><h3>รับเหมาก่อสร้าง</h3></div></div>
+              <div class="sv-card-heading"><span class="sv-card-thumb"><img src="./assets/services/service-general-construction-fast.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><div><span class="sv-card-number">01 • CONSTRUCTION</span><h3>รับเหมาก่อสร้าง</h3></div></div>
               <p>บ้าน อาคาร สำนักงาน โรงเรียน ร้านค้า และโครงการหลายขนาด ดูแลตั้งแต่สำรวจพื้นที่ ประสานแบบ วางแผนงาน ประเมินราคา ควบคุมคุณภาพ จนถึงส่งมอบ</p>
               <a href="/build-home-nonthaburi">ดูรายละเอียดรับสร้างบ้านและอาคาร</a>
             </div>
@@ -513,7 +484,7 @@
           <article class="sv-card reveal" id="service-extension">
             <div class="sv-card-media"><img src="./assets/services/service-building-extension-fast.webp" alt="บริการต่อเติมบ้านและอาคาร ตรวจสอบโครงสร้างเดิมก่อนเริ่มงาน" width="720" height="480" loading="lazy" decoding="async"></div>
             <div class="sv-card-body">
-              <div class="sv-card-heading"><span class="sv-card-icon"><svg viewBox="0 0 64 64"><use href="#sv-i-ruler"/></svg></span><div><span class="sv-card-number">02 • EXTENSION</span><h3>ต่อเติมอาคาร</h3></div></div>
+              <div class="sv-card-heading"><span class="sv-card-thumb"><img src="./assets/services/service-building-extension-fast.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><div><span class="sv-card-number">02 • EXTENSION</span><h3>ต่อเติมอาคาร</h3></div></div>
               <p>เพิ่มห้อง เพิ่มพื้นที่ใช้สอย ต่อเติมครัว หลังคา โรงจอดรถ หรือส่วนใช้งานอื่น โดยตรวจโครงสร้างเดิม จุดเชื่อมต่อ และข้อจำกัดของพื้นที่ก่อนเลือกวิธีทำงาน</p>
               <a href="/extend-home-nonthaburi">ดูรายละเอียดงานต่อเติม</a>
             </div>
@@ -521,7 +492,7 @@
           <article class="sv-card reveal" id="service-renovation">
             <div class="sv-card-media"><img src="./assets/services/service-renovation-fast.webp" alt="บริการรีโนเวทบ้าน อาคาร สำนักงาน และพื้นที่ธุรกิจ" width="720" height="480" loading="lazy" decoding="async"></div>
             <div class="sv-card-body">
-              <div class="sv-card-heading"><span class="sv-card-icon"><svg viewBox="0 0 64 64"><use href="#sv-i-renovation"/></svg></span><div><span class="sv-card-number">03 • RENOVATION</span><h3>รีโนเวทครบวงจร</h3></div></div>
+              <div class="sv-card-heading"><span class="sv-card-thumb"><img src="./assets/services/service-renovation-fast.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><div><span class="sv-card-number">03 • RENOVATION</span><h3>รีโนเวทครบวงจร</h3></div></div>
               <p>ปรับปรุงบ้าน อาคาร สำนักงาน ร้านค้า และพื้นที่เดิม โดยจัดลำดับงานรื้อ ซ่อมโครงสร้าง งานระบบ และงานตกแต่งให้ทำต่อเนื่องกันและควบคุมงบได้ง่ายขึ้น</p>
               <a href="/renovation-service-nonthaburi">ดูรายละเอียดงานรีโนเวท</a>
             </div>
@@ -529,7 +500,7 @@
           <article class="sv-card reveal" id="service-structure">
             <div class="sv-card-media"><img src="./assets/services/service-structure-fast.webp" alt="งานฐานราก เสา คาน พื้น และโครงสร้างคอนกรีตเสริมเหล็ก" width="720" height="480" loading="lazy" decoding="async"></div>
             <div class="sv-card-body">
-              <div class="sv-card-heading"><span class="sv-card-icon"><svg viewBox="0 0 64 64"><use href="#sv-i-structure"/></svg></span><div><span class="sv-card-number">04 • STRUCTURE</span><h3>งานโครงสร้าง</h3></div></div>
+              <div class="sv-card-heading"><span class="sv-card-thumb"><img src="./assets/services/service-structure-fast.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><div><span class="sv-card-number">04 • STRUCTURE</span><h3>งานโครงสร้าง</h3></div></div>
               <p>ฐานราก เสา คาน พื้น คอนกรีต เหล็ก และงานโครงสร้างที่เกี่ยวข้อง ดำเนินงานตามแบบและหลักวิศวกรรม พร้อมตรวจสอบคุณภาพในแต่ละช่วงงาน</p>
               <a href="/contact">ส่งแบบหรือรูปหน้างานให้ประเมิน</a>
             </div>
@@ -537,7 +508,7 @@
           <article class="sv-card reveal" id="service-mep">
             <div class="sv-card-media"><img src="./assets/services/service-mep-fast.webp" alt="งานระบบอาคาร ไฟฟ้า ประปา สุขาภิบาล และปรับอากาศ" width="720" height="405" loading="lazy" decoding="async"></div>
             <div class="sv-card-body">
-              <div class="sv-card-heading"><span class="sv-card-icon"><svg viewBox="0 0 64 64"><use href="#sv-i-mep"/></svg></span><div><span class="sv-card-number">05 • MEP SYSTEM</span><h3>งานระบบอาคาร</h3></div></div>
+              <div class="sv-card-heading"><span class="sv-card-thumb"><img src="./assets/services/service-mep-fast.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><div><span class="sv-card-number">05 • MEP SYSTEM</span><h3>งานระบบอาคาร</h3></div></div>
               <p>งานไฟฟ้า ประปา สุขาภิบาล ปรับอากาศ และระบบประกอบอาคาร โดยประสานตำแหน่งงานระบบกับงานสถาปัตยกรรมและโครงสร้างเพื่อลดปัญหาหน้างาน</p>
               <a href="/contact">ปรึกษางานระบบอาคาร</a>
             </div>
@@ -545,7 +516,7 @@
           <article class="sv-card reveal" id="service-management">
             <div class="sv-card-media"><img src="./assets/services/service-project-management-fast.webp" alt="บริการบริหารและควบคุมโครงการก่อสร้าง" width="720" height="480" loading="lazy" decoding="async"></div>
             <div class="sv-card-body">
-              <div class="sv-card-heading"><span class="sv-card-icon"><svg viewBox="0 0 64 64"><use href="#sv-i-management"/></svg></span><div><span class="sv-card-number">06 • MANAGEMENT</span><h3>บริหารโครงการ</h3></div></div>
+              <div class="sv-card-heading"><span class="sv-card-thumb"><img src="./assets/services/service-project-management-fast.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><div><span class="sv-card-number">06 • MANAGEMENT</span><h3>บริหารโครงการ</h3></div></div>
               <p>วางแผนและติดตามความคืบหน้า ประสานผู้เกี่ยวข้อง ควบคุมคุณภาพ งบประมาณ และจุดตรวจรับ เพื่อให้เจ้าของโครงการเห็นสถานะงานและประเด็นสำคัญได้ชัดเจน</p>
               <a href="/contact">คุยขอบเขตการบริหารโครงการ</a>
             </div>
@@ -607,16 +578,6 @@
       </div>
     </section>
 
-    <section class="sv-guides" aria-labelledby="service-guides-title">
-      <div class="sv-container sv-guides-grid">
-        <div class="reveal"><span class="sv-kicker">BEFORE YOU START</span><h2 id="service-guides-title">เตรียมข้อมูลก่อนขอราคา<br>ให้คุยงานได้เร็วขึ้น</h2></div>
-        <nav class="sv-guide-links reveal" aria-label="คู่มือก่อนเริ่มงานก่อสร้าง">
-          <a href="/boq-construction-guide"><small>01 • BOQ</small>อ่าน BOQ และเทียบราคาก่อสร้าง</a>
-          <a href="/renovation-budget-guide"><small>02 • RENOVATION</small>วางงบรีโนเวทไม่ให้บานปลาย</a>
-          <a href="/construction-contract-guide"><small>03 • CONTRACT</small>สัญญารับเหมาก่อสร้างควรมีอะไร</a>
-        </nav>
-      </div>
-    </section>
 
     <section class="sv-cta" aria-labelledby="service-cta-title">
       <div class="sv-container sv-cta-inner">
