@@ -448,6 +448,89 @@
       .services-reference-page .sv-section-head{text-align:left}
     }
 
+
+    .services-reference-page .sv-hero .sv-divider{margin:18px auto 24px!important;}
+
+    /* v6 hero refinement */
+    .services-reference-page .sv-hero{overflow:hidden}
+    .services-reference-page .sv-hero:before{background:linear-gradient(90deg,rgba(7,8,10,.72) 0%,rgba(7,8,10,.54) 38%,rgba(7,8,10,.40) 100%),linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.44));}
+    .services-reference-page .sv-hero:after{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:-2;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at 16% 22%, rgba(255,215,120,.10) 0%, rgba(255,215,120,.05) 16%, rgba(255,215,120,0) 34%),
+        radial-gradient(circle at 82% 18%, rgba(255,240,205,.08) 0%, rgba(255,240,205,.02) 14%, rgba(255,240,205,0) 28%),
+        linear-gradient(112deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.02) 32%, rgba(255,223,150,.14) 47%, rgba(255,255,255,.05) 52%, rgba(255,255,255,0) 68%),
+        linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.34) 72%, rgba(0,0,0,.48));
+      background-size: auto, auto, 240% 100%, auto;
+      background-position: center, center, -135% 0, center;
+      animation: svHeroLightSweep 11.5s ease-in-out infinite;
+      mix-blend-mode: screen;
+      opacity:.95;
+    }
+    .services-reference-page .sv-hero-copy{animation:none!important}
+    .services-reference-page .sv-hero-copy > .sv-kicker,
+    .services-reference-page .sv-hero-copy > .sv-divider,
+    .services-reference-page .sv-hero-copy > h1,
+    .services-reference-page .sv-hero-copy > p,
+    .services-reference-page .sv-hero-copy > .sv-actions{
+      opacity:0;
+      transform:translateY(22px) scale(.975);
+      filter:blur(10px);
+      will-change:transform,opacity,filter;
+      animation:svHeroTextIn 1.18s cubic-bezier(.2,.82,.2,1) forwards;
+    }
+    .services-reference-page .sv-hero-copy > .sv-kicker{animation-delay:.08s}
+    .services-reference-page .sv-hero-copy > .sv-divider{animation-delay:.18s}
+    .services-reference-page .sv-hero-copy > h1{animation-delay:.28s}
+    .services-reference-page .sv-hero-copy > p{animation-delay:.48s}
+    .services-reference-page .sv-hero-copy > .sv-actions{animation-delay:.68s}
+    .services-reference-page .sv-hero h1,.services-reference-page .sv-hero p{backface-visibility:hidden}
+    .services-reference-page .sv-hero .sv-action{transition:transform .28s ease,box-shadow .28s ease,background .28s ease,color .28s ease}
+
+    @keyframes svHeroTextIn{
+      0%{opacity:0;transform:translateY(22px) scale(.975);filter:blur(10px)}
+      65%{opacity:1;filter:blur(0)}
+      100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}
+    }
+    @keyframes svHeroLightSweep{
+      0%,100%{background-position:center, center, -135% 0, center; opacity:.82}
+      45%{background-position:center, center, 10% 0, center; opacity:.96}
+      70%{background-position:center, center, 36% 0, center; opacity:.9}
+    }
+
+    @media(max-width:760px){
+      .services-reference-page .sv-hero:after{
+        background:
+          radial-gradient(circle at 22% 16%, rgba(255,215,120,.10) 0%, rgba(255,215,120,.05) 16%, rgba(255,215,120,0) 34%),
+          linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.30) 72%, rgba(0,0,0,.46));
+        background-size:auto, auto;
+        background-position:center, center;
+        animation:svHeroGlowMobile 9s ease-in-out infinite;
+        mix-blend-mode:screen;
+      }
+      .services-reference-page .sv-hero-copy > .sv-kicker,
+      .services-reference-page .sv-hero-copy > .sv-divider,
+      .services-reference-page .sv-hero-copy > h1,
+      .services-reference-page .sv-hero-copy > p,
+      .services-reference-page .sv-hero-copy > .sv-actions{animation-duration:1.05s}
+    }
+    @keyframes svHeroGlowMobile{
+      0%,100%{opacity:.78;transform:scale(1)}
+      50%{opacity:.92;transform:scale(1.03)}
+    }
+    @media(prefers-reduced-motion:reduce){
+      .services-reference-page .sv-hero:after{animation:none!important}
+      .services-reference-page .sv-hero-copy > .sv-kicker,
+      .services-reference-page .sv-hero-copy > .sv-divider,
+      .services-reference-page .sv-hero-copy > h1,
+      .services-reference-page .sv-hero-copy > p,
+      .services-reference-page .sv-hero-copy > .sv-actions{animation:none!important;opacity:1!important;transform:none!important;filter:none!important}
+    }
+
   </style>
   <script defer src="./site-config.js"></script>
   <script defer src="./site-shell.js"></script>
