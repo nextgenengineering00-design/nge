@@ -531,6 +531,98 @@
       .services-reference-page .sv-hero-copy > .sv-actions{animation:none!important;opacity:1!important;transform:none!important;filter:none!important}
     }
 
+
+    /* v7 service CTA buttons */
+    .services-reference-page .sv-card a.sv-card-cta{
+      position:relative;
+      margin-top:auto;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:16px;
+      min-height:58px;
+      width:min(100%, 380px);
+      padding:14px 24px 14px 30px;
+      border-radius:999px;
+      border:3px solid #ff8f00;
+      background:
+        linear-gradient(180deg,#ffcf42 0%,#ffb300 14%,#ff9500 38%,#ff6a00 72%,#ef3c00 100%);
+      color:#fff;
+      font:800 17px/1.15 'Kanit',var(--font-display),sans-serif;
+      letter-spacing:.1px;
+      text-shadow:0 2px 10px rgba(0,0,0,.18);
+      box-shadow:
+        inset 0 2px 0 rgba(255,244,205,.72),
+        inset 0 -5px 10px rgba(170,36,0,.18),
+        0 14px 26px rgba(236,88,0,.24),
+        0 4px 0 #db4c00;
+      overflow:hidden;
+      isolation:isolate;
+      transition:transform .16s ease, box-shadow .18s ease, filter .18s ease;
+    }
+    .services-reference-page .sv-card a.sv-card-cta::before{
+      content:"";
+      position:absolute;
+      left:12px; right:12px; top:7px;
+      height:42%;
+      border-radius:999px;
+      background:linear-gradient(180deg,rgba(255,255,255,.78),rgba(255,255,255,.26) 58%,rgba(255,255,255,0));
+      opacity:.92;
+      z-index:-1;
+      pointer-events:none;
+    }
+    .services-reference-page .sv-card a.sv-card-cta::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(110deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.18) 42%,rgba(255,255,255,.54) 49%,rgba(255,255,255,.12) 58%,rgba(255,255,255,0) 72%);
+      transform:translateX(-135%) skewX(-18deg);
+      transition:transform .72s ease;
+      pointer-events:none;
+      mix-blend-mode:screen;
+    }
+    .services-reference-page .sv-card a.sv-card-cta:hover{
+      transform:translateY(-2px) scale(1.012);
+      box-shadow:
+        inset 0 2px 0 rgba(255,244,205,.78),
+        inset 0 -5px 10px rgba(170,36,0,.2),
+        0 18px 30px rgba(236,88,0,.3),
+        0 5px 0 #db4c00;
+      filter:saturate(1.03);
+    }
+    .services-reference-page .sv-card a.sv-card-cta:hover::after{transform:translateX(130%) skewX(-18deg)}
+    .services-reference-page .sv-card a.sv-card-cta:active{
+      transform:translateY(3px) scale(.995);
+      box-shadow:
+        inset 0 2px 0 rgba(255,244,205,.7),
+        inset 0 -4px 8px rgba(170,36,0,.18),
+        0 8px 14px rgba(236,88,0,.24),
+        0 1px 0 #db4c00;
+    }
+    .services-reference-page .sv-card a.sv-card-cta:focus-visible{outline:3px solid rgba(255,179,0,.35);outline-offset:3px}
+    .services-reference-page .sv-card a.sv-card-cta span{display:block;white-space:normal}
+    .services-reference-page .sv-card a.sv-card-cta i{
+      display:grid;
+      place-items:center;
+      flex:0 0 auto;
+      width:54px;
+      height:54px;
+      border-radius:50%;
+      background:rgba(255,255,255,.12);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.45);
+      font-style:normal;
+      font-size:42px;
+      font-weight:800;
+      line-height:1;
+      transform:translateX(0);
+      transition:transform .18s ease, background .18s ease;
+    }
+    .services-reference-page .sv-card a.sv-card-cta:hover i{transform:translateX(2px);background:rgba(255,255,255,.16)}
+    @media(max-width:760px){
+      .services-reference-page .sv-card a.sv-card-cta{width:100%;min-height:56px;padding:13px 18px 13px 22px;font-size:16px;gap:12px}
+      .services-reference-page .sv-card a.sv-card-cta i{width:48px;height:48px;font-size:38px}
+    }
+
   </style>
   <script defer src="./site-config.js"></script>
   <script defer src="./site-shell.js"></script>
@@ -642,7 +734,7 @@
             <div class="sv-card-body">
               <div class="sv-card-heading"><div><span class="sv-card-number">1 | CONSTRUCTION</span><h3>รับเหมาก่อสร้าง</h3></div></div>
               <p>บ้าน อาคาร สำนักงาน โรงเรียน ร้านค้า และโครงการหลายขนาด ดูแลตั้งแต่สำรวจพื้นที่ ประสานแบบ วางแผนงาน ประเมินราคา ควบคุมคุณภาพ จนถึงส่งมอบ</p>
-              <a href="/build-home-nonthaburi">ดูรายละเอียดรับสร้างบ้านและอาคาร</a>
+              <a class="sv-card-cta" href="/build-home-nonthaburi"><span>ดูรายละเอียดรับสร้างบ้านและอาคาร</span><i aria-hidden="true">›</i></a>
             </div>
           </article>
           <article class="sv-card reveal" id="service-extension">
@@ -650,7 +742,7 @@
             <div class="sv-card-body">
               <div class="sv-card-heading"><div><span class="sv-card-number">2 | EXTENSION</span><h3>ต่อเติมอาคาร</h3></div></div>
               <p>เพิ่มห้อง เพิ่มพื้นที่ใช้สอย ต่อเติมครัว หลังคา โรงจอดรถ หรือส่วนใช้งานอื่น โดยตรวจโครงสร้างเดิม จุดเชื่อมต่อ และข้อจำกัดของพื้นที่ก่อนเลือกวิธีทำงาน</p>
-              <a href="/extend-home-nonthaburi">ดูรายละเอียดงานต่อเติม</a>
+              <a class="sv-card-cta" href="/extend-home-nonthaburi"><span>ดูรายละเอียดงานต่อเติม</span><i aria-hidden="true">›</i></a>
             </div>
           </article>
           <article class="sv-card reveal" id="service-renovation">
@@ -658,7 +750,7 @@
             <div class="sv-card-body">
               <div class="sv-card-heading"><div><span class="sv-card-number">3 | RENOVATION</span><h3>รีโนเวทครบวงจร</h3></div></div>
               <p>ปรับปรุงบ้าน อาคาร สำนักงาน ร้านค้า และพื้นที่เดิม โดยจัดลำดับงานรื้อ ซ่อมโครงสร้าง งานระบบ และงานตกแต่งให้ทำต่อเนื่องกันและควบคุมงบได้ง่ายขึ้น</p>
-              <a href="/renovation-service-nonthaburi">ดูรายละเอียดงานรีโนเวท</a>
+              <a class="sv-card-cta" href="/renovation-service-nonthaburi"><span>ดูรายละเอียดงานรีโนเวท</span><i aria-hidden="true">›</i></a>
             </div>
           </article>
           <article class="sv-card reveal" id="service-structure">
@@ -666,7 +758,7 @@
             <div class="sv-card-body">
               <div class="sv-card-heading"><div><span class="sv-card-number">4 | STRUCTURE</span><h3>งานโครงสร้าง</h3></div></div>
               <p>ฐานราก เสา คาน พื้น คอนกรีต เหล็ก และงานโครงสร้างที่เกี่ยวข้อง ดำเนินงานตามแบบและหลักวิศวกรรม พร้อมตรวจสอบคุณภาพในแต่ละช่วงงาน</p>
-              <a href="/contact">ส่งแบบหรือรูปหน้างานให้ประเมิน</a>
+              <a class="sv-card-cta" href="/contact"><span>ส่งแบบหรือรูปหน้างานให้ประเมิน</span><i aria-hidden="true">›</i></a>
             </div>
           </article>
           <article class="sv-card reveal" id="service-mep">
@@ -674,7 +766,7 @@
             <div class="sv-card-body">
               <div class="sv-card-heading"><div><span class="sv-card-number">5 | MEP SYSTEM</span><h3>งานระบบอาคาร</h3></div></div>
               <p>งานไฟฟ้า ประปา สุขาภิบาล ปรับอากาศ และระบบประกอบอาคาร โดยประสานตำแหน่งงานระบบกับงานสถาปัตยกรรมและโครงสร้างเพื่อลดปัญหาหน้างาน</p>
-              <a href="/contact">ปรึกษางานระบบอาคาร</a>
+              <a class="sv-card-cta" href="/contact"><span>ปรึกษางานระบบอาคาร</span><i aria-hidden="true">›</i></a>
             </div>
           </article>
           <article class="sv-card reveal" id="service-management">
@@ -682,7 +774,7 @@
             <div class="sv-card-body">
               <div class="sv-card-heading"><div><span class="sv-card-number">6 | MANAGEMENT</span><h3>บริหารโครงการ</h3></div></div>
               <p>วางแผนและติดตามความคืบหน้า ประสานผู้เกี่ยวข้อง ควบคุมคุณภาพ งบประมาณ และจุดตรวจรับ เพื่อให้เจ้าของโครงการเห็นสถานะงานและประเด็นสำคัญได้ชัดเจน</p>
-              <a href="/contact">คุยขอบเขตการบริหารโครงการ</a>
+              <a class="sv-card-cta" href="/contact"><span>คุยขอบเขตการบริหารโครงการ</span><i aria-hidden="true">›</i></a>
             </div>
           </article>
         </div>
