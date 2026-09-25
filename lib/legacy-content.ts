@@ -14,7 +14,7 @@ export type LegacyDocument = {
   image?: string;
 };
 
-export const legacySlugs=["boq-construction-guide","build-home-nonthaburi","choose-contractor-nonthaburi","concrete-road-cost-guide","concrete-road-guide","construction-contract-guide","construction-process-guide","building-permit-guide","home-extension-law-guide","construction-payment-inspection-guide","build-house-first-step-guide","renovation-mep-guide",...localAreaSlugs,...localServiceSlugs,"extend-home-nonthaburi","faq","renovation-budget-guide","renovation-nonthaburi","renovation-service-nonthaburi","renovation-structure-check-guide","why-us"] as const;
+export const legacySlugs=["boq-construction-guide","build-home-nonthaburi","choose-contractor-nonthaburi","concrete-road-cost-guide","concrete-road-guide","construction-contract-guide","construction-process-guide","building-permit-guide","home-extension-law-guide","construction-payment-inspection-guide","build-house-first-step-guide","renovation-mep-guide",...localAreaSlugs,...localServiceSlugs,"extend-home-nonthaburi","faq","renovation-budget-guide","renovation-nonthaburi","renovation-service-nonthaburi","renovation-structure-check-guide"] as const;
 
 export function readLegacyDocument(relativeFile: string): LegacyDocument {
   const source = legacyHtml[relativeFile.replaceAll("\\", "/")];

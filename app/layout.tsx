@@ -9,8 +9,8 @@ const display = Anuphan({ subsets: ["thai", "latin"], weight: ["400", "500", "60
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: { default: "Next Gen Engineering | สร้าง ต่อเติม รีโนเวท โดยทีมวิศวกร", template: "%s | NGE" },
-  description: "Next Gen Engineering ดูแลงานสร้างบ้าน อาคาร ต่อเติม รีโนเวท งานโยธาและงานระบบในนนทบุรี กรุงเทพฯ และปริมณฑล โดยทีมวิศวกรโยธา",
+  title: { default: "Next Gen Engineering | รับเหมาก่อสร้างครบวงจร นนทบุรี", template: "%s | NGE" },
+  description: "Next Gen Engineering รับเหมาก่อสร้างครบวงจรในนนทบุรี กรุงเทพฯ และปริมณฑล ครอบคลุมงานสร้างบ้าน อาคาร ต่อเติม รีโนเวท งานโยธาและงานระบบ",
   alternates: { canonical: "/" },
   openGraph: { type: "website", locale: "th_TH", siteName: site.name, url: "/", images: [{ url: "/og-ngebuild-preview-20260922.jpg", width: 1200, height: 630, alt: "Next Gen Engineering รับเหมาก่อสร้าง ต่อเติม และรีโนเวทครบวงจร" }] },
   twitter: { card: "summary_large_image", images: ["/og-ngebuild-preview-20260922.jpg"] },
