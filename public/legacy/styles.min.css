@@ -15,5 +15,46 @@
 .quote-shell-icons{display:none!important}
 
 /* NGE language switcher v27 */
-.nge-language-switch{display:inline-flex;align-items:center;gap:3px;flex:0 0 auto;padding:4px;border:1px solid rgba(22,28,35,.12);border-radius:999px;background:rgba(255,255,255,.88);box-shadow:0 7px 18px rgba(0,0,0,.05);font-family:var(--font-legacy-display,Arial,sans-serif);white-space:nowrap}.nge-language-label{padding:0 5px 0 7px;font-size:8px;font-weight:700;letter-spacing:1.25px;color:#7a7f86}.nge-language-switch button{appearance:none;border:0;background:transparent;min-width:31px;height:28px;padding:0 7px;border-radius:999px;color:#4b5159;font:600 10px/1 var(--font-legacy-display,Arial,sans-serif);cursor:pointer;transition:background .18s ease,color .18s ease,transform .18s ease}.nge-language-switch button:hover{background:#f4f1eb;color:#171717}.nge-language-switch button:active{transform:scale(.95)}.nge-language-switch button.is-active{background:#171717;color:#fff}.nge-language-switch button[data-nge-language="zh-CN"]{min-width:38px}.nge-language-switch--mobile{display:flex;width:100%;justify-content:center;margin:7px 0 12px;padding:7px;background:#fff;border-radius:15px}.nge-language-switch--mobile .nge-language-label{margin-right:5px;font-size:10px}.nge-language-switch--mobile button{height:36px;min-width:52px;font-size:12px}.nge-google-translate-root{position:fixed!important;left:-99999px!important;top:-99999px!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important}.goog-te-banner-frame.skiptranslate,.goog-te-balloon-frame,#goog-gt-tt{display:none!important}body{top:0!important}.goog-text-highlight{background:none!important;box-shadow:none!important}@media(max-width:1120px){.header-inner>.nge-language-switch{display:none}}@media(min-width:1121px){.mobile-panel .nge-language-switch--mobile{display:none}}@media(prefers-reduced-motion:reduce){.nge-language-switch button{transition:none}}
+
 .VIpgJd-ZVi9od-ORHb-OEVmcd,.VIpgJd-ZVi9od-aZ2wEe-wOHMyf,.VIpgJd-yAWNEb-L7lbkb{display:none!important}html.translated-ltr,html.translated-rtl{margin-top:0!important}html.translated-ltr body,html.translated-rtl body{top:0!important}
+
+
+/* V28 2026-09-25: flag language switcher, clear mobile menu button, fast multilingual layout hardening. */
+.nge-language-switch{display:inline-flex;align-items:center;gap:5px;flex:0 0 auto;padding:4px;border:1px solid rgba(23,23,23,.1);border-radius:999px;background:rgba(255,255,255,.92);box-shadow:0 7px 18px rgba(0,0,0,.055);white-space:nowrap;isolation:isolate}
+.nge-language-switch--mobile-header{display:none}
+.nge-language-flag{appearance:none;width:34px;height:30px;min-width:34px;padding:0;border:0;border-radius:999px;background:transparent;display:grid;place-items:center;cursor:pointer;transition:background .16s ease,transform .16s ease,box-shadow .16s ease;touch-action:manipulation}
+.nge-language-flag:hover{background:#f1eee8}.nge-language-flag:active{transform:scale(.92)}.nge-language-flag:focus-visible{outline:3px solid rgba(245,164,0,.32);outline-offset:2px}.nge-language-flag:disabled{cursor:wait;opacity:.7}
+.nge-flag-frame{display:block;width:24px;height:16px;overflow:hidden;border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.14),0 2px 5px rgba(0,0,0,.12);transition:transform .16s ease,box-shadow .16s ease}.nge-flag-frame svg{width:100%;height:100%;display:block}
+.nge-language-flag.is-active{background:#171717}.nge-language-flag.is-active .nge-flag-frame{transform:scale(1.05);box-shadow:0 0 0 2px #f5a400,0 3px 7px rgba(0,0,0,.2)}
+.nge-google-translate-root{position:fixed!important;left:-99999px!important;top:-99999px!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important}.goog-te-banner-frame.skiptranslate,.goog-te-balloon-frame,#goog-gt-tt,.goog-te-spinner-pos{display:none!important}body{top:0!important}.goog-text-highlight{background:none!important;box-shadow:none!important}
+html.nge-language-switching{cursor:progress}html.nge-language-switching body{cursor:progress}
+
+/* Make mobile navigation unmistakably a menu control instead of an abstract 3-line icon. */
+.menu-toggle{width:78px!important;min-width:78px!important;height:42px!important;min-height:42px!important;padding:0 11px!important;border-radius:999px!important;flex-direction:row!important;gap:8px!important;background:#171717!important;box-shadow:0 8px 20px rgba(0,0,0,.16)!important}
+.menu-toggle::before{display:none!important}.menu-toggle-lines{display:flex;flex-direction:column;gap:4px;align-items:flex-start;justify-content:center;width:17px;flex:0 0 17px}.menu-toggle-lines i{display:block!important;width:17px!important;height:2px!important;flex:0 0 2px!important;border-radius:99px!important;background:#f5a400!important;margin:0!important;transition:transform .25s ease,opacity .16s ease,width .2s ease!important}.menu-toggle-lines i:nth-child(2){width:12px!important}.menu-toggle-label{font:700 9px/1 var(--font-legacy-display),Arial,sans-serif;letter-spacing:1.2px;color:#fff;white-space:nowrap;pointer-events:none}
+.menu-toggle[aria-expanded="true"]{border-radius:999px!important}.menu-toggle[aria-expanded="true"] .menu-toggle-lines i:nth-child(1){transform:translateY(6px) rotate(45deg)}.menu-toggle[aria-expanded="true"] .menu-toggle-lines i:nth-child(2){opacity:0;width:4px!important}.menu-toggle[aria-expanded="true"] .menu-toggle-lines i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+/* Translation-safe layout: translated strings can be much longer than Thai. */
+html.nge-translated :where(main,section,article,aside,header,footer,nav,div,form,fieldset){min-width:0}
+html.nge-translated :where(h1,h2,h3,h4,h5,h6,p,li,dt,dd,label,figcaption,blockquote,.page-lead,.section-heading,.project-body,.service-copy,.knowledge-swnp-card,.footer-about,.footer-links,.footer-contact){overflow-wrap:anywhere;word-break:normal}
+html.nge-translated .btn{height:auto;min-height:52px;padding-top:11px;padding-bottom:11px;white-space:normal;text-align:center;line-height:1.35}
+html.nge-translated .desktop-nav{gap:clamp(10px,1.4vw,24px)}html.nge-translated .desktop-nav a{white-space:normal;text-align:center;line-height:1.2;font-size:12px}
+html.nge-translated .header-call{height:auto;min-height:44px}html.nge-translated .header-call span{min-width:0}
+html.nge-translated .quick-card{height:auto;min-height:82px}html.nge-translated .quick-card b,html.nge-translated .quick-card small{white-space:normal;line-height:1.35}
+html.nge-translated .mobile-panel nav a{white-space:normal;line-height:1.35}
+html.nge-translated .mobile-dock-label{white-space:normal;text-align:center;line-height:1.08}
+html.nge-translated :where([class$="-grid"],[class*="-grid "])>*{min-width:0}
+html.nge-translated table{table-layout:auto;max-width:100%}html.nge-translated th,html.nge-translated td{overflow-wrap:anywhere}
+html[data-nge-language="zh-CN"] body{font-family:"Noto Sans SC","Microsoft YaHei","PingFang SC",system-ui,sans-serif}html[data-nge-language="zh-CN"] h1,html[data-nge-language="zh-CN"] h2,html[data-nge-language="zh-CN"] h3,html[data-nge-language="zh-CN"] .btn,html[data-nge-language="zh-CN"] nav{font-family:"Noto Sans SC","Microsoft YaHei","PingFang SC",system-ui,sans-serif}
+
+@media(max-width:1240px) and (min-width:901px){.header-inner{gap:18px}.header-call{display:none}.brand{min-width:190px}}
+@media(max-width:900px){
+  .header-inner>.nge-language-switch--desktop{display:none!important}.header-inner>.nge-language-switch--mobile-header{display:inline-flex!important;margin-left:auto}
+  .nge-language-switch--mobile-header{padding:3px;gap:3px}.nge-language-switch--mobile-header .nge-language-flag{width:31px;height:30px;min-width:31px}.nge-language-switch--mobile-header .nge-flag-frame{width:23px;height:15px}
+  .menu-toggle{display:flex!important;flex:0 0 76px!important;width:76px!important;min-width:76px!important}
+  .header-inner{justify-content:flex-start!important;gap:8px!important}
+}
+@media(min-width:901px){.header-inner>.nge-language-switch--desktop{display:inline-flex}.header-inner>.nge-language-switch--mobile-header{display:none!important}}
+@media(max-width:520px){.brand span{display:none!important}.brand{flex:0 0 auto}.header-inner{width:calc(100% - 18px)}.nge-language-switch--mobile-header{margin-left:auto}.menu-toggle{flex-basis:72px!important;width:72px!important;min-width:72px!important;padding:0 9px!important}.menu-toggle-label{font-size:8px}.nge-language-switch--mobile-header .nge-language-flag{width:29px;min-width:29px}.nge-language-switch--mobile-header .nge-flag-frame{width:22px;height:15px}}
+@media(max-width:350px){.nge-language-switch--mobile-header{gap:1px;padding:2px}.nge-language-switch--mobile-header .nge-language-flag{width:27px;min-width:27px}.nge-language-switch--mobile-header .nge-flag-frame{width:20px;height:14px}.menu-toggle{flex-basis:68px!important;width:68px!important;min-width:68px!important;gap:6px!important}}
+@media(prefers-reduced-motion:reduce){.nge-language-flag,.nge-flag-frame,.menu-toggle-lines i{transition:none!important}}

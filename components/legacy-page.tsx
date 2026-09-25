@@ -15,7 +15,7 @@ export function LegacyPage({ file, project = false }: { file: string; project?: 
     {page.styles.map((value, index) => <style key={`style-${index}`} dangerouslySetInnerHTML={{ __html: value }} />)}
     <div dangerouslySetInnerHTML={{ __html: page.html }} />
     <LegacyRuntimeScripts sources={project
-      ? ["/legacy/site-config.js","/legacy/project-detail.js","/legacy/language-switcher.js?v=20260925-1"]
-      : ["/legacy/site-config.js?v=20260925-1","/legacy/site-shell.js?v=20260925-1","/legacy/app.js?v=20260925-1","/legacy/language-switcher.js?v=20260925-1"]} />
+      ? ["/legacy/site-config.js","/legacy/project-detail.js","/legacy/language-switcher.js?v=20260925-2"]
+      : ["/legacy/site-config.js?v=20260925-1","/legacy/site-shell.js?v=20260925-2","/legacy/app.js?v=20260925-1","/legacy/language-switcher.js?v=20260925-2"]} />
   </div>;
 }
