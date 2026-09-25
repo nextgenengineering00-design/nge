@@ -81,6 +81,69 @@
     </div>`;
   }
 
+  const UI_COPY = {
+    th: {
+      nav: { home: 'หน้าหลัก', about: 'ประวัติบริษัท', services: 'บริการ', projects: 'ผลงาน', knowledge: 'ความรู้', faq: 'คำถามที่พบบ่อย', contact: 'ติดต่อเรา', reviews: 'รีวิว' },
+      consult: 'คุยกับทีมงาน', menu: 'เมนู', estimate: 'เริ่มส่งข้อมูล', linePhotos: 'ส่งรูปทาง LINE'
+    },
+    en: {
+      nav: { home: 'Home', about: 'Company', services: 'Services', projects: 'Projects', knowledge: 'Knowledge', faq: 'FAQ', contact: 'Contact', reviews: 'Reviews' },
+      consult: 'Talk to us', menu: 'MENU', estimate: 'Start estimate', linePhotos: 'Send photos via LINE'
+    },
+    'zh-CN': {
+      nav: { home: '首页', about: '公司简介', services: '服务', projects: '项目案例', knowledge: '知识中心', faq: '常见问题', contact: '联系我们', reviews: '客户评价' },
+      consult: '咨询团队', menu: '菜单', estimate: '开始提交资料', linePhotos: '通过 LINE 发送照片'
+    }
+  };
+
+  function setTextKeepingChildren(element, text) {
+    if (!element) return;
+    const keep = Array.from(element.children);
+    Array.from(element.childNodes).forEach(node => {
+      if (node.nodeType === Node.TEXT_NODE) node.remove();
+      else if (node.nodeType === Node.ELEMENT_NODE && !keep.includes(node)) node.remove();
+    });
+    element.insertBefore(document.createTextNode(`${text} `), element.firstChild);
+  }
+
+  function applyStableUiCopy(language) {
+    const copy = UI_COPY[language] || UI_COPY.th;
+    const navKey = link => {
+      const explicit = link.getAttribute('data-nav');
+      if (explicit) return explicit;
+      let path = '';
+      try { path = new URL(link.getAttribute('href') || '', window.location.href).pathname; } catch (_) {}
+      const raw = link.getAttribute('href') || '';
+      if (raw.includes('/projects#reviews')) return 'reviews';
+      if (path === '/' || path === '') return 'home';
+      if (path.startsWith('/about')) return 'about';
+      if (path.startsWith('/services')) return 'services';
+      if (path.startsWith('/projects')) return 'projects';
+      if (path.startsWith('/knowledge')) return 'knowledge';
+      if (path.startsWith('/faq')) return 'faq';
+      if (path.startsWith('/contact')) return 'contact';
+      return '';
+    };
+    document.querySelectorAll('.desktop-nav a[href], .mobile-panel nav a[href]').forEach(link => {
+      const key = navKey(link);
+      if (copy.nav[key]) link.textContent = copy.nav[key];
+    });
+    const consult = document.querySelector('.header-call small');
+    if (consult) consult.textContent = copy.consult;
+    const menuLabel = document.querySelector('.menu-toggle-label');
+    if (menuLabel) menuLabel.textContent = copy.menu;
+
+    document.querySelectorAll('.photo-estimate-actions .js-estimate-link').forEach(link => setTextKeepingChildren(link, copy.estimate));
+    document.querySelectorAll('.photo-estimate-actions .js-line-link').forEach(link => { link.textContent = copy.linePhotos; });
+  }
+
+  function protectStableInteractiveUi() {
+    document.querySelectorAll('.site-header, .photo-estimate-actions, .nge-language-switch, .menu-toggle, .mobile-dock, .floating-actions').forEach(node => {
+      node.classList.add('notranslate');
+      node.setAttribute('translate', 'no');
+    });
+  }
+
   function setState(language) {
     const translated = language !== 'th';
     document.documentElement.lang = language === 'zh-CN' ? 'zh-CN' : language;
@@ -91,6 +154,8 @@
       button.classList.toggle('is-active', active);
       button.setAttribute('aria-pressed', active ? 'true' : 'false');
     });
+    protectStableInteractiveUi();
+    applyStableUiCopy(language);
     scheduleLayoutRepair();
   }
 
@@ -217,7 +282,7 @@
       await applyCombo(language);
       // Google Translate updates text in multiple short DOM batches. Repair after each likely batch.
       [40, 120, 260, 520, 900].forEach(delay => setTimeout(scheduleLayoutRepair, delay));
-      setTimeout(endSwitch, 120);
+      setTimeout(endSwitch, 900);
     } catch (error) {
       console.warn('[NGE language]', error);
       // Cookie is already set, so a normal reload is the most reliable fallback.
@@ -226,6 +291,8 @@
   }
 
   function protectBrandContent(header) {
+    header.classList.add('notranslate');
+    header.setAttribute('translate', 'no');
     header.querySelectorAll('.brand, .js-phone-text, .js-phone-secondary-text, .js-line-text, .phone-glyph, .menu-toggle-label, .nge-language-switch').forEach(node => {
       node.classList.add('notranslate');
       node.setAttribute('translate', 'no');
@@ -263,45 +330,9 @@
     return true;
   }
 
-  function closeMobileMenuForNavigation() {
-    const toggle = document.querySelector('.menu-toggle');
-    const panel = document.getElementById('mobilePanel');
-    if (toggle) toggle.setAttribute('aria-expanded', 'false');
-    if (panel) {
-      panel.classList.remove('is-open');
-      panel.setAttribute('aria-hidden', 'true');
-    }
-    document.body.classList.remove('menu-open');
-  }
-
-  function isPlainLeftClick(event) {
-    return event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey;
-  }
-
-  // Google Translate mutates the live DOM. A hard same-origin navigation prevents those mutations
-  // from confusing Next/React during a client-side route transition and fixes links that appeared dead.
-  function bindStableNavigation() {
-    document.addEventListener('click', event => {
-      if (!isPlainLeftClick(event)) return;
-      if (event.target.closest?.('[data-nge-language]')) return;
-      const link = event.target.closest?.('a[href]');
-      if (!link || link.hasAttribute('download') || link.target === '_blank') return;
-      const raw = (link.getAttribute('href') || '').trim();
-      if (!raw || raw.startsWith('#') || /^(?:tel:|mailto:|sms:|javascript:)/i.test(raw)) return;
-
-      let url;
-      try { url = new URL(link.href, window.location.href); } catch (_) { return; }
-      if (url.origin !== window.location.origin) return;
-
-      const sameDocument = url.pathname === window.location.pathname && url.search === window.location.search;
-      if (sameDocument && url.hash) return;
-
-      event.preventDefault();
-      event.stopImmediatePropagation();
-      closeMobileMenuForNavigation();
-      window.location.assign(url.href);
-    }, true);
-  }
+  // Navigation intentionally uses native <a href> behavior.
+  // Do not intercept same-origin links here: Google Translate mutates the DOM and a
+  // global capture-phase click handler can make ordinary navigation unreliable.
 
   function bindFlags() {
     document.addEventListener('click', event => {
@@ -363,8 +394,8 @@
 
   function init() {
     migrateLegacyStorage();
-    bindStableNavigation();
     bindFlags();
+    protectStableInteractiveUi();
     restoreScroll();
 
     if (!injectSwitchers()) {

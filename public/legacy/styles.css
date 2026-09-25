@@ -1039,3 +1039,58 @@ html[data-nge-language="en"] .quote-hero h1{font-size:clamp(38px,4.8vw,64px);let
   html.nge-translated .page-actions .btn{width:100%}
   html.nge-translated .knowledge-search{grid-template-columns:minmax(0,1fr) 74px}
 }
+
+/* V30 2026-09-25: native navigation + translation-safe interactive UI. */
+/* Google Translate must never mutate clickable navigation/CTA controls. Their labels are translated by language-switcher.js. */
+.site-header.notranslate :where(a,button),
+.photo-estimate-actions.notranslate :where(a,button){translate:no}
+
+/* The estimate CTA must remain structurally stable when English/Chinese text is longer. */
+.photo-estimate-inner{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center}
+.photo-estimate-copy{min-width:0}
+.photo-estimate-actions{min-width:0;max-width:430px;display:flex;flex-wrap:wrap;justify-content:flex-end;align-items:center}
+.photo-estimate-actions .btn{flex:0 1 auto;max-width:100%;min-width:0;height:auto;min-height:52px;white-space:normal!important;line-height:1.3;text-align:center;padding-top:11px;padding-bottom:11px}
+html[data-nge-language="en"] .photo-estimate-actions{max-width:390px}
+html[data-nge-language="en"] .photo-estimate-actions .btn{font-size:12px;letter-spacing:0}
+html[data-nge-language="zh-CN"] .photo-estimate-actions .btn{font-family:"Noto Sans SC","Microsoft YaHei",Arial,sans-serif;letter-spacing:0}
+
+/* Translation batches should not restart or visually corrupt hover/reveal transforms. */
+html.nge-language-switching .reveal.is-visible,
+html.nge-language-switching .photo-estimate-actions .btn,
+html.nge-language-switching .menu-toggle,
+html.nge-language-switching .nge-language-flag{transition:none!important;animation:none!important}
+html.nge-language-switching .photo-estimate-actions .btn:hover{transform:none!important}
+
+/* Remove every known Google Translate UI layer from hit-testing; only our flag controls are interactive. */
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+iframe.goog-te-banner-frame,
+iframe.skiptranslate,
+#goog-gt-tt,
+.goog-te-balloon-frame,
+.goog-te-spinner-pos,
+.VIpgJd-ZVi9od-ORHb-OEVmcd,
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
+.VIpgJd-ZVi9od-l4eHX-hSRGPd,
+.VIpgJd-yAWNEb-L7lbkb,
+.VIpgJd-ZVi9od-vH1Gmf-ibnC6b,
+#goog-gt-vt{display:none!important;visibility:hidden!important;pointer-events:none!important}
+html,body{top:0!important}
+
+@media(max-width:1100px){
+  html.nge-translated .photo-estimate-inner{grid-template-columns:1fr;gap:18px}
+  html.nge-translated .photo-estimate-actions{max-width:none;justify-content:flex-start;width:100%}
+}
+@media(max-width:640px){
+  .photo-estimate-inner{grid-template-columns:1fr!important}
+  .photo-estimate-actions{display:grid!important;grid-template-columns:1fr!important;width:100%;max-width:none!important}
+  .photo-estimate-actions .btn{width:100%;max-width:none!important}
+}
+
+/* In translated modes, content changes asynchronously. Keep reveal blocks static so text reflow cannot retrigger/jump animations. */
+html.nge-translated .reveal,
+html.nge-translated .reveal.is-visible{opacity:1!important;transform:none!important;transition:none!important;animation:none!important}
+html.nge-translated .photo-estimate-cta,
+html.nge-translated .photo-estimate-inner,
+html.nge-translated .photo-estimate-actions{transform:none!important;animation:none!important}
+.site-header.notranslate a,.site-header.notranslate button{pointer-events:auto!important}
