@@ -1,0 +1,22 @@
+NGE v24 — Why Us bug fix + SEO keyword update
+Date: 2026-09-25
+
+Changed:
+- Rebuilt /why-us with a simpler stable layout and removed the dark/gradient hero background.
+- Hero is now white/clean with a project proof card instead of a background image.
+- Removed custom v23 tilt/hero JavaScript; reused the existing site reveal/counter/project-deck logic.
+- Reduced repeated claims: company-year, engineer license and project reference stats are each concentrated in one proof strip.
+- Added real project-reference cards using existing Company Profile project assets.
+- SEO focus: “รับเหมาก่อสร้างครบวงจร” added naturally to homepage, services, Why Us support copy, FAQ, structured data and internal anchor text.
+- Homepage target: “รับเหมาก่อสร้างครบวงจร นนทบุรี”.
+- Services page target: “รับเหมาก่อสร้างครบวงจร นนทบุรี | สร้างบ้าน ต่อเติม รีโนเวท”.
+- Updated public/llms.txt to remove outdated review URL and reduce unverified/repetitive claims.
+- Regenerated lib/legacy-content.generated.ts.
+
+Validation:
+- 43 legacy pages regenerated successfully.
+- Changed pages contain one H1 each.
+- JSON-LD parses successfully.
+- No duplicate IDs found on changed pages.
+- No missing local static assets found on changed pages.
+- why-us contains no legacy v23 class references.
