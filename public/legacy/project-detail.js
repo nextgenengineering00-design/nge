@@ -7,14 +7,6 @@
   const phoneDisplay = config.phoneDisplay || '098-279-9145';
   const lineUrl = config.lineUrl || 'https://lin.ee/u45yvnc';
   const lineDisplay = config.lineDisplay || '@522magc';
-  const locale = /^\/en(?:\/|$)/.test(location.pathname) ? 'en' : (/^\/zh(?:\/|$)/.test(location.pathname) ? 'zh' : 'th');
-  const prefix = locale === 'th' ? '' : `/${locale}`;
-  const localPath = href => !href.startsWith('/') || href.startsWith('//') ? href : (href === '/' ? (prefix || '/') : `${prefix}${href}`);
-  const copy = {
-    th: { back: 'กลับหน้าผลงาน', backAria: 'กลับไปหน้าผลงาน', call: 'โทรเลย', line: 'LINE', book: 'จองคิว', bookAria: 'จองคิวปรึกษา', open: 'เปิดเมนู', close: 'ปิดเมนู' },
-    en: { back: 'Back to projects', backAria: 'Back to projects', call: 'Call', line: 'LINE', book: 'Book', bookAria: 'Book a consultation', open: 'Open menu', close: 'Close menu' },
-    zh: { back: '返回项目案例', backAria: '返回项目案例', call: '电话', line: 'LINE', book: '预约', bookAria: '预约咨询', open: '打开菜单', close: '关闭菜单' }
-  }[locale];
 
   const iconPhone = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24c1.1.37 2.3.56 3.5.56a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.6 21 3 13.4 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.2.2 2.4.56 3.5a1 1 0 0 1-.25 1z"/></svg>';
   const iconLine = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10.7c0-4-4-7.2-9-7.2s-9 3.2-9 7.2c0 3.6 3.2 6.6 7.5 7.1.3.07.7.22.8.5.1.27.07.7.03.97l-.16.92c-.05.27-.22 1.06.78.58 1-.48 5.43-3.2 7.4-5.48A6.4 6.4 0 0 0 21 10.7Z"/></svg>';
@@ -24,9 +16,9 @@
   if (main && !$('.project-mobile-back')) {
     const back = document.createElement('a');
     back.className = 'project-mobile-back';
-    back.href = localPath('/projects');
-    back.setAttribute('aria-label', copy.backAria);
-    back.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>${copy.back}</span>`;
+    back.href = '/projects';
+    back.setAttribute('aria-label', 'กลับไปหน้าผลงาน');
+    back.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>กลับหน้าผลงาน</span>';
     main.prepend(back);
   }
 
@@ -34,16 +26,16 @@
   const dockLinks = mobileDock ? $$('a', mobileDock) : [];
   if (dockLinks[0]) {
     dockLinks[0].setAttribute('aria-label', 'โทรหา Next Gen Engineering');
-    dockLinks[0].innerHTML = `${iconPhone}<span>${copy.call}</span>`;
+    dockLinks[0].innerHTML = `${iconPhone}<span>โทรเลย</span>`;
   }
   if (dockLinks[1]) {
     dockLinks[1].setAttribute('aria-label', 'ติดต่อทาง LINE');
-    dockLinks[1].innerHTML = `${iconLine}<span>${copy.line}</span>`;
+    dockLinks[1].innerHTML = `${iconLine}<span>LINE</span>`;
   }
   if (dockLinks[2]) {
-    dockLinks[2].href = localPath('/#booking');
-    dockLinks[2].setAttribute('aria-label', copy.bookAria);
-    dockLinks[2].innerHTML = `${iconClock}<span>${copy.book}</span>`;
+    dockLinks[2].href = '/#booking';
+    dockLinks[2].setAttribute('aria-label', 'จองคิวปรึกษา');
+    dockLinks[2].innerHTML = `${iconClock}<span>จองคิว</span>`;
   }
 
   $$('.js-phone-text').forEach(node => node.textContent = phoneDisplay);
@@ -58,7 +50,7 @@
   function closeMenu() {
     if (!toggle || !panel) return;
     toggle.setAttribute('aria-expanded', 'false');
-    toggle.setAttribute('aria-label', copy.open);
+    toggle.setAttribute('aria-label', 'เปิดเมนู');
     panel.classList.remove('is-open');
     document.body.classList.remove('menu-open');
     setTimeout(() => {
@@ -72,7 +64,7 @@
       return;
     }
     toggle.setAttribute('aria-expanded', 'true');
-    toggle.setAttribute('aria-label', copy.close);
+    toggle.setAttribute('aria-label', 'ปิดเมนู');
     panel.hidden = false;
     document.body.classList.add('menu-open');
     requestAnimationFrame(() => panel.classList.add('is-open'));
