@@ -7,4 +7,7 @@ on conflict (id) do update set public=false,file_size_limit=excluded.file_size_l
 alter table storage.objects enable row level security;
 drop policy if exists "crm may read lead photos" on storage.objects;
 create policy "crm may read lead photos" on storage.objects for select to authenticated
-using (bucket_id='lead-photos' and public.is_crm_user());
+using (
+  bucket_id='lead-photos'
+  and coalesce((auth.jwt() -> 'app_metadata' ->> 'role'), '') in ('crm_admin','crm_staff')
+);
