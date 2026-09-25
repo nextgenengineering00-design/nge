@@ -1,0 +1,10 @@
+NGE v31 — Static Languages (TH / EN / ZH)
+
+- Google Translate runtime has been removed from the website.
+- English and Simplified Chinese use real Next.js routes: /en/... and /zh/...
+- Language flags are normal anchor links; they do not mutate the current DOM.
+- Header/footer navigation is rendered for the active route language.
+- Main marketing pages are translated from an authored static dictionary before HTML reaches the browser.
+- Translated routes are noindex,follow for now so incomplete long-form localizations cannot compete with the Thai SEO pages.
+- Thai remains the canonical SEO source.
+- No Google Translate cookie, iframe, DOM wrapper, or translate widget is required for language switching.

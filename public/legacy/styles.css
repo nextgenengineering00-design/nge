@@ -1087,10 +1087,49 @@ html,body{top:0!important}
   .photo-estimate-actions .btn{width:100%;max-width:none!important}
 }
 
-/* In translated modes, content changes asynchronously. Keep reveal blocks static so text reflow cannot retrigger/jump animations. */
-html.nge-translated .reveal,
-html.nge-translated .reveal.is-visible{opacity:1!important;transform:none!important;transition:none!important;animation:none!important}
-html.nge-translated .photo-estimate-cta,
-html.nge-translated .photo-estimate-inner,
-html.nge-translated .photo-estimate-actions{transform:none!important;animation:none!important}
-.site-header.notranslate a,.site-header.notranslate button{pointer-events:auto!important}
+/* V31 — static local translations (no Google Translate runtime) */
+html.nge-translated,html.nge-translated body{max-width:100%;overflow-x:hidden}
+html.nge-translated :where(main,section,article,aside,header,footer,nav,div,form,fieldset,figure){min-width:0}
+html.nge-translated :where(h1,h2,h3,h4,h5,h6,p,li,dt,dd,label,figcaption,blockquote,a,button,b,strong,small,span,em){min-width:0;overflow-wrap:break-word;word-break:normal}
+html[data-nge-language="en"] :where(h1,h2,h3,h4,h5,h6,p,li,dt,dd,label,figcaption,blockquote,a,button,b,strong,small,span,em){hyphens:auto;-webkit-hyphens:auto}
+html[data-nge-language="zh-CN"] :where(h1,h2,h3,h4,h5,h6,p,li,dt,dd,label,figcaption,blockquote,a,button,b,strong,small,span,em){line-break:strict;word-break:normal}
+html[data-nge-language="zh-CN"] body{font-family:"Noto Sans SC","Microsoft YaHei","PingFang SC",var(--font-legacy-body),sans-serif}
+html[data-nge-language="zh-CN"] :where(h1,h2,h3,h4,h5,h6,.btn,nav){font-family:"Noto Sans SC","Microsoft YaHei","PingFang SC",var(--font-legacy-display),sans-serif}
+
+/* English/Chinese navigation uses short, pre-written labels, so do not squeeze them. */
+@media(min-width:901px){
+  html.nge-translated .header-inner{gap:clamp(12px,1.4vw,24px)!important}
+  html.nge-translated .desktop-nav{gap:clamp(14px,1.7vw,26px)!important;min-width:0}
+  html.nge-translated .desktop-nav a{max-width:none!important;white-space:nowrap!important;font-size:13px!important;line-height:1.15!important;padding-inline:0!important;overflow-wrap:normal!important;hyphens:none!important}
+  html.nge-translated .header-call{max-width:none!important;padding-inline:14px!important}
+}
+
+/* Local translations only replace text nodes; cards are allowed to grow naturally. */
+html.nge-translated :where(.quick-card,.home-route-card,.process-step,.review-card,.about-ref-service,.about-swnp-services article,.history-card,.seo-card,.cluster-card,.page-proof div,.contact-method,.service-copy,.project-body,.knowledge-swnp-card>a>div){height:auto!important;max-height:none!important}
+html.nge-translated .quick-card{min-height:96px}
+html.nge-translated .quick-card :where(b,small){white-space:normal!important;line-height:1.32}
+html.nge-translated :where(.btn,.submit-btn,.footer-profile-link,.facebook-post-card>a,.quote-phone){height:auto!important;min-height:48px;max-height:none!important;white-space:normal!important;line-height:1.28!important;text-align:center}
+html.nge-translated table{display:block;width:100%;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+html.nge-translated th,html.nge-translated td{white-space:normal;overflow-wrap:break-word}
+html.nge-translated .nge-text-overflow{height:auto!important;max-height:none!important;min-width:0!important;max-width:100%!important;white-space:normal!important;overflow:visible!important;overflow-wrap:break-word!important}
+
+/* Keep the photo-estimate CTA stable after language changes. */
+html.nge-translated .photo-estimate-inner{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(260px,auto)!important;gap:22px!important;align-items:center!important}
+html.nge-translated .photo-estimate-copy{min-width:0;max-width:none}
+html.nge-translated .photo-estimate-actions{display:grid!important;grid-template-columns:repeat(2,minmax(132px,1fr))!important;gap:10px!important;width:min(100%,390px)!important;max-width:390px!important;justify-self:end!important}
+html.nge-translated .photo-estimate-actions .btn{width:100%!important;max-width:none!important;min-width:0!important;padding-inline:14px!important;font-size:12px!important;letter-spacing:0!important}
+
+/* Translation is instantaneous and local. Disable only transition frames while switching. */
+html.nge-language-switching *{transition-duration:0s!important;animation-play-state:paused!important}
+html.nge-language-switching .photo-estimate-actions .btn:hover{transform:none!important}
+
+@media(max-width:900px){
+  html.nge-translated .photo-estimate-inner{grid-template-columns:1fr!important}
+  html.nge-translated .photo-estimate-actions{justify-self:start!important;width:100%!important;max-width:430px!important}
+}
+@media(max-width:640px){
+  html.nge-translated .photo-estimate-actions{grid-template-columns:1fr!important;max-width:none!important}
+  html.nge-translated .photo-estimate-actions .btn{font-size:13px!important}
+  html.nge-translated .hero-actions,html.nge-translated .page-actions{grid-template-columns:1fr!important}
+  html.nge-translated .hero-actions .btn,html.nge-translated .page-actions .btn{width:100%!important}
+}
