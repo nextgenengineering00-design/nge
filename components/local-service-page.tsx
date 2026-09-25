@@ -52,6 +52,6 @@ export function LocalServicePage({ slug }: { slug: LocalServiceSlug }) {
       <section className="closing-cta"><div className="container"><div><span>เริ่มจากข้อมูลจริงของหน้างาน</span><h2>ส่งรูปและพิกัดให้ทีมช่วยดูขอบเขต</h2></div><Link className="btn btn-dark" href={`/contact?source=${page.slug}-bottom`}>ขอประเมินโครงการ</Link></div></section>
     </main>
     {React.createElement("nge-footer")}
-    <LegacyRuntimeScripts sources={["/legacy/site-config.js?v=20260925-1", "/legacy/site-shell.js?v=20260925-1", "/legacy/app.js?v=20260925-1"]} />
+    <LegacyRuntimeScripts sources={["/legacy/site-config.js?v=20260925-1", "/legacy/site-shell.js?v=20260925-1", "/legacy/app.js?v=20260925-1", "/legacy/language-switcher.js?v=20260925-1"]} />
   </div>;
 }
