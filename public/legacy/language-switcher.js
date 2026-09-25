@@ -1,11 +1,13 @@
 (() => {
   'use strict';
 
-  const STORAGE_KEY = 'nge-language-v2';
+  const STORAGE_KEY = 'nge-language-v3';
+  const LEGACY_KEYS = ['nge-language-v1', 'nge-language-v2'];
   const SUPPORTED = ['th', 'en', 'zh-CN'];
   const host = window.location.hostname;
   let enginePromise = null;
   let switching = false;
+  let layoutTimer = 0;
 
   const FLAGS = {
     th: `<svg viewBox="0 0 36 24" aria-hidden="true" focusable="false"><rect width="36" height="24" fill="#A51931"/><rect y="4" width="36" height="16" fill="#F4F5F8"/><rect y="8" width="36" height="8" fill="#2D2A4A"/></svg>`,
@@ -21,8 +23,19 @@
     try { localStorage.setItem(STORAGE_KEY, value); } catch (_) {}
   }
 
-  function removeLegacyStorage() {
-    try { localStorage.removeItem('nge-language-v1'); } catch (_) {}
+  function migrateLegacyStorage() {
+    try {
+      if (!localStorage.getItem(STORAGE_KEY)) {
+        for (const key of LEGACY_KEYS) {
+          const value = localStorage.getItem(key);
+          if (SUPPORTED.includes(value)) {
+            localStorage.setItem(STORAGE_KEY, value);
+            break;
+          }
+        }
+      }
+      LEGACY_KEYS.forEach(key => localStorage.removeItem(key));
+    } catch (_) {}
   }
 
   function cookieLanguage() {
@@ -32,8 +45,8 @@
 
   function clearTranslateCookie() {
     const expired = 'Thu, 01 Jan 1970 00:00:00 GMT';
-    const candidates = ['', `domain=${host};`, 'domain=.ngebuild.com;'];
-    candidates.forEach(domain => {
+    const domains = ['', `domain=${host};`, 'domain=.ngebuild.com;'];
+    domains.forEach(domain => {
       document.cookie = `googtrans=;expires=${expired};path=/;${domain}SameSite=Lax`;
     });
   }
@@ -61,7 +74,7 @@
   }
 
   function languageMarkup(mode = 'desktop') {
-    return `<div class="nge-language-switch nge-language-switch--${mode} notranslate" role="group" aria-label="เลือกภาษา">
+    return `<div class="nge-language-switch nge-language-switch--${mode} notranslate" role="group" aria-label="เลือกภาษา" translate="no">
       ${flagButton('th', 'ภาษาไทย')}
       ${flagButton('en', 'English')}
       ${flagButton('zh-CN', '简体中文')}
@@ -78,6 +91,7 @@
       button.classList.toggle('is-active', active);
       button.setAttribute('aria-pressed', active ? 'true' : 'false');
     });
+    scheduleLayoutRepair();
   }
 
   function injectTranslateRoot() {
@@ -86,11 +100,12 @@
     root.id = 'nge-google-translate';
     root.className = 'nge-google-translate-root notranslate';
     root.setAttribute('aria-hidden', 'true');
+    root.setAttribute('translate', 'no');
     document.body.appendChild(root);
   }
 
   function warmConnections() {
-    ['https://translate.google.com', 'https://translate.googleapis.com'].forEach(href => {
+    ['https://translate.google.com', 'https://translate.googleapis.com', 'https://translate-pa.googleapis.com'].forEach(href => {
       if (document.querySelector(`link[rel="preconnect"][href="${href}"]`)) return;
       const link = document.createElement('link');
       link.rel = 'preconnect';
@@ -122,20 +137,18 @@
     enginePromise = new Promise((resolve, reject) => {
       injectTranslateRoot();
       window.ngeGoogleTranslateInit = () => {
-        try {
-          createTranslateElement();
-          resolve();
-        } catch (error) { reject(error); }
+        try { createTranslateElement(); resolve(); }
+        catch (error) { reject(error); }
       };
       const existing = document.getElementById('nge-google-translate-script');
       if (existing) {
         const wait = setInterval(() => {
-          if (window.google?.translate?.TranslateElement) {
-            clearInterval(wait);
-            try { createTranslateElement(); resolve(); } catch (error) { reject(error); }
-          }
-        }, 40);
-        setTimeout(() => { clearInterval(wait); reject(new Error('Translation service timed out')); }, 6000);
+          if (!window.google?.translate?.TranslateElement) return;
+          clearInterval(wait);
+          try { createTranslateElement(); resolve(); }
+          catch (error) { reject(error); }
+        }, 35);
+        setTimeout(() => { clearInterval(wait); reject(new Error('Translation service timed out')); }, 6500);
         return;
       }
       const script = document.createElement('script');
@@ -150,7 +163,7 @@
 
   function applyCombo(language, attempts = 0) {
     return new Promise((resolve, reject) => {
-      const run = (count) => {
+      const run = count => {
         const combo = document.querySelector('.goog-te-combo');
         if (combo) {
           if (!['en', 'zh-CN'].includes(language)) return resolve(false);
@@ -159,8 +172,8 @@
           resolve(true);
           return;
         }
-        if (count >= 80) return reject(new Error('Translation selector unavailable'));
-        setTimeout(() => run(count + 1), 35);
+        if (count >= 90) return reject(new Error('Translation selector unavailable'));
+        setTimeout(() => run(count + 1), 30);
       };
       run(attempts);
     });
@@ -169,14 +182,15 @@
   function beginSwitch(language) {
     switching = true;
     document.documentElement.classList.add('nge-language-switching');
-    document.querySelectorAll('[data-nge-language]').forEach(button => button.disabled = true);
+    document.querySelectorAll('[data-nge-language]').forEach(button => { button.disabled = true; });
     setState(language);
   }
 
   function endSwitch() {
     switching = false;
     document.documentElement.classList.remove('nge-language-switching');
-    document.querySelectorAll('[data-nge-language]').forEach(button => button.disabled = false);
+    document.querySelectorAll('[data-nge-language]').forEach(button => { button.disabled = false; });
+    scheduleLayoutRepair();
   }
 
   async function selectLanguage(language) {
@@ -193,7 +207,7 @@
     if (language === 'th') {
       clearTranslateCookie();
       try { sessionStorage.setItem('nge-restore-scroll', String(window.scrollY || 0)); } catch (_) {}
-      window.location.replace(window.location.href);
+      window.location.reload();
       return;
     }
 
@@ -201,15 +215,18 @@
     try {
       await ensureEngine();
       await applyCombo(language);
-      setTimeout(endSwitch, 140);
+      // Google Translate updates text in multiple short DOM batches. Repair after each likely batch.
+      [40, 120, 260, 520, 900].forEach(delay => setTimeout(scheduleLayoutRepair, delay));
+      setTimeout(endSwitch, 120);
     } catch (error) {
       console.warn('[NGE language]', error);
-      window.location.replace(window.location.href);
+      // Cookie is already set, so a normal reload is the most reliable fallback.
+      window.location.reload();
     }
   }
 
   function protectBrandContent(header) {
-    header.querySelectorAll('.brand, .js-phone-text, .js-phone-secondary-text, .js-line-text, .phone-glyph, .menu-toggle-label').forEach(node => {
+    header.querySelectorAll('.brand, .js-phone-text, .js-phone-secondary-text, .js-line-text, .phone-glyph, .menu-toggle-label, .nge-language-switch').forEach(node => {
       node.classList.add('notranslate');
       node.setAttribute('translate', 'no');
     });
@@ -221,7 +238,6 @@
     const inner = header.querySelector('.header-inner');
     if (!inner) return false;
 
-    // v27 placed a second selector inside the open mobile panel. Remove it permanently.
     header.querySelectorAll('.mobile-panel .nge-language-switch').forEach(node => node.remove());
 
     if (!inner.querySelector('.nge-language-switch--desktop')) {
@@ -243,16 +259,96 @@
     }
 
     protectBrandContent(header);
+    setState(currentLanguage());
     return true;
   }
 
-  function bind() {
+  function closeMobileMenuForNavigation() {
+    const toggle = document.querySelector('.menu-toggle');
+    const panel = document.getElementById('mobilePanel');
+    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+    if (panel) {
+      panel.classList.remove('is-open');
+      panel.setAttribute('aria-hidden', 'true');
+    }
+    document.body.classList.remove('menu-open');
+  }
+
+  function isPlainLeftClick(event) {
+    return event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey;
+  }
+
+  // Google Translate mutates the live DOM. A hard same-origin navigation prevents those mutations
+  // from confusing Next/React during a client-side route transition and fixes links that appeared dead.
+  function bindStableNavigation() {
+    document.addEventListener('click', event => {
+      if (!isPlainLeftClick(event)) return;
+      if (event.target.closest?.('[data-nge-language]')) return;
+      const link = event.target.closest?.('a[href]');
+      if (!link || link.hasAttribute('download') || link.target === '_blank') return;
+      const raw = (link.getAttribute('href') || '').trim();
+      if (!raw || raw.startsWith('#') || /^(?:tel:|mailto:|sms:|javascript:)/i.test(raw)) return;
+
+      let url;
+      try { url = new URL(link.href, window.location.href); } catch (_) { return; }
+      if (url.origin !== window.location.origin) return;
+
+      const sameDocument = url.pathname === window.location.pathname && url.search === window.location.search;
+      if (sameDocument && url.hash) return;
+
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      closeMobileMenuForNavigation();
+      window.location.assign(url.href);
+    }, true);
+  }
+
+  function bindFlags() {
     document.addEventListener('click', event => {
       const button = event.target.closest?.('[data-nge-language]');
       if (!button) return;
       event.preventDefault();
+      event.stopPropagation();
       selectLanguage(button.getAttribute('data-nge-language'));
     });
+  }
+
+  function repairTranslatedLayout() {
+    layoutTimer = 0;
+    if (currentLanguage() === 'th') return;
+
+    const candidates = document.querySelectorAll([
+      '.btn', '.submit-btn', '.desktop-nav a', '.mobile-panel nav a',
+      '.quick-card', '.home-route-card', '.service-copy', '.project-body',
+      '.knowledge-featured> a>div', '.knowledge-swnp-card> a>div', '.page-proof div',
+      '.process-step', '.review-card', '.about-ref-service', '.about-swnp-services article',
+      '.history-card', '.quote-proof', '.quote-proof-card span', '.footer-grid>*',
+      '.footer-actions>a', '.ppm-side-actions>a', '.contact-method', '.seo-card', '.cluster-card'
+    ].join(','));
+
+    candidates.forEach(node => {
+      node.classList.remove('nge-text-overflow');
+      if (!(node instanceof HTMLElement) || node.offsetParent === null) return;
+      const overflowX = node.scrollWidth > node.clientWidth + 3;
+      const overflowY = node.scrollHeight > node.clientHeight + 3;
+      if (overflowX || overflowY) node.classList.add('nge-text-overflow');
+    });
+  }
+
+  function scheduleLayoutRepair() {
+    if (layoutTimer) clearTimeout(layoutTimer);
+    layoutTimer = window.setTimeout(repairTranslatedLayout, 45);
+  }
+
+  function observeTranslationChanges() {
+    const observer = new MutationObserver(mutations => {
+      if (currentLanguage() === 'th') return;
+      // Ignore mutations inside the hidden Google control itself.
+      if (mutations.every(m => m.target.closest?.('#nge-google-translate'))) return;
+      scheduleLayoutRepair();
+    });
+    observer.observe(document.body, { subtree: true, childList: true, characterData: true });
+    window.addEventListener('resize', scheduleLayoutRepair, { passive: true });
   }
 
   function restoreScroll() {
@@ -266,9 +362,11 @@
   }
 
   function init() {
-    removeLegacyStorage();
-    bind();
+    migrateLegacyStorage();
+    bindStableNavigation();
+    bindFlags();
     restoreScroll();
+
     if (!injectSwitchers()) {
       const observer = new MutationObserver(() => {
         if (injectSwitchers()) observer.disconnect();
@@ -280,15 +378,18 @@
     const selected = currentLanguage();
     safeStorageSet(selected);
     setState(selected);
+    observeTranslationChanges();
 
-    // Warm the engine immediately so the first flag tap is much faster.
     const preload = () => ensureEngine().catch(error => console.warn('[NGE language preload]', error));
     if ('requestIdleCallback' in window) requestIdleCallback(preload, { timeout: 650 });
     else setTimeout(preload, 80);
 
     if (selected !== 'th') {
       setTranslateCookie(selected);
-      ensureEngine().then(() => applyCombo(selected)).catch(error => console.warn('[NGE language]', error));
+      ensureEngine()
+        .then(() => applyCombo(selected))
+        .then(() => [80, 220, 500, 900].forEach(delay => setTimeout(scheduleLayoutRepair, delay)))
+        .catch(error => console.warn('[NGE language]', error));
     } else {
       clearTranslateCookie();
     }
