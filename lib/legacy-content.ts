@@ -11,9 +11,10 @@ export type LegacyDocument = {
   page: string;
   jsonLd: string[];
   styles: string[];
+  image?: string;
 };
 
-export const legacySlugs=["boq-construction-guide","build-home-nonthaburi","choose-contractor-nonthaburi","concrete-road-cost-guide","concrete-road-guide","construction-contract-guide","construction-process-guide",...localAreaSlugs,...localServiceSlugs,"extend-home-nonthaburi","faq","renovation-budget-guide","renovation-nonthaburi","renovation-service-nonthaburi","renovation-structure-check-guide","why-us"] as const;
+export const legacySlugs=["boq-construction-guide","build-home-nonthaburi","choose-contractor-nonthaburi","concrete-road-cost-guide","concrete-road-guide","construction-contract-guide","construction-process-guide","building-permit-guide","home-extension-law-guide","construction-payment-inspection-guide","build-house-first-step-guide","renovation-mep-guide",...localAreaSlugs,...localServiceSlugs,"extend-home-nonthaburi","faq","renovation-budget-guide","renovation-nonthaburi","renovation-service-nonthaburi","renovation-structure-check-guide","why-us"] as const;
 
 export function readLegacyDocument(relativeFile: string): LegacyDocument {
   const source = legacyHtml[relativeFile.replaceAll("\\", "/")];
@@ -22,6 +23,9 @@ export function readLegacyDocument(relativeFile: string): LegacyDocument {
   const description = source.match(/<meta\s+name=["']description["']\s+content=["']([^"']*)["']/i)?.[1]
     || source.match(/<meta\s+content=["']([^"']*)["']\s+name=["']description["']/i)?.[1]
     || "Next Gen Engineering";
+  const image = source.match(/<meta\s+property=["']og:image["']\s+content=["']([^"']*)["']/i)?.[1]
+    || source.match(/<meta\s+content=["']([^"']*)["']\s+property=["']og:image["']/i)?.[1]
+    || source.match(/<meta\s+name=["']twitter:image["']\s+content=["']([^"']*)["']/i)?.[1];
   const bodyMatch = source.match(/<body([^>]*)>([\s\S]*?)<\/body>/i);
   if (!bodyMatch) throw new Error(`Legacy page has no body: ${relativeFile}`);
   const attributes = bodyMatch[1];
@@ -44,7 +48,7 @@ export function readLegacyDocument(relativeFile: string): LegacyDocument {
     .replace(/\r\n?/g, "\n");
   const jsonLd = [...source.matchAll(/<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)].map(match => match[1].trim().replaceAll("https://ngebuild.com/og-nonthaburi.jpg", "https://ngebuild.com/og-ngebuild-preview-20260922.jpg").replaceAll("https://ngebuild.com/og-ngebuild-cover-2026.jpg", "https://ngebuild.com/og-ngebuild-preview-20260922.jpg"));
   const styles = [...source.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/gi)].map(match => match[1].trim());
-  return { title, description, html, bodyClass, page, jsonLd, styles };
+  return { title, description, html, bodyClass, page, jsonLd, styles, image };
 }
 
 export function legacyMetadata(relativeFile: string, canonical: string, noindex = false): Metadata {
@@ -53,8 +57,8 @@ export function legacyMetadata(relativeFile: string, canonical: string, noindex 
     title: { absolute: page.title },
     description: page.description,
     alternates: { canonical },
-    openGraph: { type: "website", locale: "th_TH", title: page.title, description: page.description, url: canonical },
-    twitter: { card: "summary_large_image", title: page.title, description: page.description },
+    openGraph: { type: "website", locale: "th_TH", title: page.title, description: page.description, url: canonical, images: page.image ? [{ url: page.image }] : undefined },
+    twitter: { card: "summary_large_image", title: page.title, description: page.description, images: page.image ? [page.image] : undefined },
     robots: noindex ? { index: false, follow: false } : undefined,
   };
 }

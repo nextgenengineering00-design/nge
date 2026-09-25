@@ -611,12 +611,67 @@
       });
       if (knowledgeStatus) knowledgeStatus.textContent = query
         ? `พบบทความ ${visible} เรื่องจากคำค้น “${knowledgeSearch.value.trim()}”`
-        : `มีบทความแนะนำ ${knowledgeCards.length} เรื่อง`;
+        : `บทความเด่น ${knowledgeCards.length} เรื่อง`;
       if (knowledgeEmpty) knowledgeEmpty.hidden = visible !== 0;
     }
 
     knowledgeSearch.addEventListener('input', filterKnowledge);
     filterKnowledge();
+  }
+
+
+  // Why Us reference-style reveal, counters and horizontal project deck.
+  if (document.querySelector('.why-ref')) {
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const whyReveal = $$('[data-why-reveal]');
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      whyReveal.forEach(el => el.classList.add('is-visible'));
+    } else {
+      const whyObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          whyObserver.unobserve(entry.target);
+        });
+      }, { threshold: .14 });
+      whyReveal.forEach(el => whyObserver.observe(el));
+    }
+
+    const counterElements = $$('[data-counter]');
+    const animateCounter = el => {
+      if (el.dataset.done === '1') return;
+      el.dataset.done = '1';
+      const target = Number(el.dataset.counter || 0);
+      const suffix = el.dataset.suffix || '';
+      if (!Number.isFinite(target)) return;
+      if (reduceMotion) { el.textContent = `${target}${suffix}`; return; }
+      let start = null;
+      const duration = 1100;
+      const step = time => {
+        if (start === null) start = time;
+        const progress = Math.min(1, (time - start) / duration);
+        const value = Math.round(target * (1 - Math.pow(1 - progress, 3)));
+        el.textContent = `${value}${suffix}`;
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    if ('IntersectionObserver' in window && !reduceMotion) {
+      const counterObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        animateCounter(entry.target);
+        counterObserver.unobserve(entry.target);
+      }), { threshold: .5 });
+      counterElements.forEach(el => counterObserver.observe(el));
+    } else counterElements.forEach(animateCounter);
+
+    const projectTrack = $('[data-project-track]');
+    const scrollProjectDeck = direction => {
+      if (!projectTrack) return;
+      projectTrack.scrollBy({ left: direction * Math.min(projectTrack.clientWidth * .85, 390), behavior: reduceMotion ? 'auto' : 'smooth' });
+    };
+    $('[data-prev]')?.addEventListener('click', () => scrollProjectDeck(-1));
+    $('[data-next]')?.addEventListener('click', () => scrollProjectDeck(1));
   }
 
   setContactLinks();
