@@ -1,0 +1,24 @@
+NGE Meta Ads / GA4 / GTM tracking
+
+GA4 ที่ตั้งไว้ใน public/legacy/site-config.js: G-QV4QE05VM1
+GTM: ใส่ Container ID รูปแบบ GTM-XXXXXXX ที่ googleTagManagerId
+Meta Pixel: ใส่ Pixel ID ที่ metaPixelId
+
+URL Parameters ที่แนะนำใน Meta Ads:
+utm_source=meta&utm_medium=paid_social&utm_campaign={{campaign.name}}&utm_content={{ad.name}}&utm_term={{adset.name}}
+
+Event ที่เว็บส่ง:
+- click_phone
+- click_line
+- generate_lead
+- company_profile_download
+- project_click
+- photo_estimate_cta
+- meta_landing_view
+
+Landing Pages สำหรับ Ads:
+- /construction-quote
+- /renovation-quote
+- /home-extension-quote
+
+หมายเหตุ: Landing Page ทั้ง 3 ตั้ง noindex,follow เพื่อไม่แย่งอันดับกับหน้าบริการ SEO หลัก

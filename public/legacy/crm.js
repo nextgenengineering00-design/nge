@@ -14,7 +14,7 @@
   const priorityLabels = { low: 'ต่ำ', normal: 'ปกติ', high: 'สำคัญ', urgent: 'ด่วน' };
   const queueLabels = { all: 'แสดงลูกค้าทั้งหมด', new: 'คิวลูกค้าใหม่ที่รอติดต่อ', today: 'คิวที่ต้องติดตามภายในวันนี้', overdue: 'คิวติดตามที่เกินกำหนด', unassigned: 'คิวที่ยังไม่มีผู้รับผิดชอบ', urgent: 'คิวงานด่วน' };
   const activityLabels = { status_changed: 'เปลี่ยนสถานะ', owner_changed: 'เปลี่ยนผู้รับผิดชอบ', follow_up_changed: 'เปลี่ยนวันติดตาม', contact_recorded: 'บันทึกการติดต่อ', lead_updated: 'แก้ไขข้อมูล' };
-  const leadColumns = 'id,created_at,updated_at,name,phone,email,service,location,budget,message,status,internal_note,next_follow_up_at,last_contacted_at,first_response_at,closed_at,assigned_to,priority,lead_score,auto_priority_reason,lost_reason,page_path,referrer_host,utm_source,utm_medium,utm_campaign,utm_content,utm_term';
+  const leadColumns = 'id,created_at,updated_at,name,phone,email,service,location,budget,message,status,internal_note,next_follow_up_at,last_contacted_at,first_response_at,closed_at,assigned_to,priority,lead_score,auto_priority_reason,lost_reason,page_path,referrer_host,utm_source,utm_medium,utm_campaign,utm_content,utm_term,photo_paths';
   const $ = selector => document.querySelector(selector);
   const $$ = selector => [...document.querySelectorAll(selector)];
   const els = {
@@ -32,7 +32,7 @@
     dialog: $('#leadDialog'), detailId: $('#detailId'), detailName: $('#detailName'), detailMeta: $('#detailMeta'),
     detailPhone: $('#detailPhone'), detailPhoneText: $('#detailPhoneText'), detailEmail: $('#detailEmail'), detailEmailText: $('#detailEmailText'),
     detailService: $('#detailService'), detailLocation: $('#detailLocation'), detailBudget: $('#detailBudget'), detailSource: $('#detailSource'), detailScore: $('#detailScore'),
-    detailMessage: $('#detailMessage'), detailStatus: $('#detailStatus'), detailPriority: $('#detailPriority'), detailOwner: $('#detailOwner'),
+    detailMessage: $('#detailMessage'), detailPhotos: $('#detailPhotos'), detailStatus: $('#detailStatus'), detailPriority: $('#detailPriority'), detailOwner: $('#detailOwner'),
     detailFollowup: $('#detailFollowup'), lostReasonField: $('#lostReasonField'), detailLostReason: $('#detailLostReason'),
     detailNote: $('#detailNote'), markContacted: $('#markContacted'), copyPhone: $('#copyPhoneButton'), save: $('#saveLeadButton'),
     editorStatus: $('#editorStatus'), activityList: $('#activityList'), toast: $('#crmToast')
@@ -258,6 +258,19 @@
     els.detailLostReason.required = isLost;
   }
 
+  async function renderLeadPhotos(paths) {
+    if (!els.detailPhotos) return;
+    const items = Array.isArray(paths) ? paths.filter(Boolean) : [];
+    if (!items.length) { els.detailPhotos.innerHTML = '<p class="crm-photo-empty">ไม่มีรูปแนบ</p>'; return; }
+    els.detailPhotos.innerHTML = '<p class="crm-photo-empty">กำลังโหลดรูป…</p>';
+    const signed = await Promise.all(items.map(async path => {
+      const { data, error } = await client.storage.from('lead-photos').createSignedUrl(path, 1800);
+      return error || !data?.signedUrl ? null : { path, url: data.signedUrl };
+    }));
+    const valid = signed.filter(Boolean);
+    els.detailPhotos.innerHTML = valid.length ? valid.map((item,index) => `<a href="${escapeHtml(item.url)}" target="_blank" rel="noopener" aria-label="เปิดรูปหน้างาน ${index+1}"><img src="${escapeHtml(item.url)}" alt="รูปหน้างาน ${index+1}" loading="lazy"></a>`).join('') : '<p class="crm-photo-empty">โหลดรูปไม่สำเร็จ หรือยังไม่ได้รัน migration ของระบบรูปหน้างาน</p>';
+  }
+
   function openLead(id) {
     const lead = leads.find(item => item.id === id);
     if (!lead) return;
@@ -276,6 +289,7 @@
     els.detailSource.textContent = [sourceLabel(lead), lead.utm_campaign].filter(Boolean).join(' / ');
     els.detailScore.textContent = `${Number(lead.lead_score || 0)}/100${lead.auto_priority_reason ? ` · ${lead.auto_priority_reason}` : ''}`;
     els.detailMessage.textContent = lead.message || 'ลูกค้าไม่ได้ระบุรายละเอียดเพิ่มเติม';
+    renderLeadPhotos(lead.photo_paths);
     els.detailStatus.value = lead.status || 'new';
     els.detailPriority.value = lead.priority || 'normal';
     els.detailOwner.value = lead.assigned_to || '';

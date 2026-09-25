@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
       { source: "/projects.html", destination: "/projects", permanent: true },
       { source: "/knowledge.html", destination: "/knowledge", permanent: true },
       { source: "/contact.html", destination: "/contact", permanent: true },
-      { source: "/reviews.html", destination: "/reviews", permanent: true },
+      { source: "/reviews.html", destination: "/projects#reviews", permanent: true },
       { source: "/privacy.html", destination: "/privacy", permanent: true },
       { source: "/projects/:slug.html", destination: "/projects/:slug", permanent: true },
       { source: "/:slug(boq-construction-guide|build-home-nonthaburi|choose-contractor-nonthaburi|concrete-road-cost-guide|concrete-road-guide|construction-contract-guide|construction-process-guide|contractor-nonthaburi|extend-home-nonthaburi|faq|renovation-budget-guide|renovation-nonthaburi|renovation-service-nonthaburi|renovation-structure-check-guide|why-us).html", destination: "/:slug", permanent: true }

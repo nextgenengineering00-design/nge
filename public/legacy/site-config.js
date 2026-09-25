@@ -22,5 +22,7 @@ window.NGE_CONFIG = Object.freeze({
 
   // ไม่บังคับ: สคริปต์จะโหลดต่อเมื่อผู้ใช้ยินยอมคุกกี้ประเภทนั้นแล้วเท่านั้น
   googleAnalyticsId: "G-QV4QE05VM1",
+  // ใส่ GTM-XXXXXXX เมื่อสร้าง Google Tag Manager container แล้ว
+  googleTagManagerId: "",
   metaPixelId: ""
 });

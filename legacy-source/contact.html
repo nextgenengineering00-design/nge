@@ -16,12 +16,12 @@
   <main id="main-content" class="ppm-contact-page">
     <section class="ppm-contact-hero" aria-labelledby="contact-title">
       <div class="ppm-contact-hero-bg" aria-hidden="true"></div>
-      <div class="container ppm-contact-hero-copy"><span>CONTACT US</span><h1 id="contact-title">ติดต่อเรา</h1><p>มีแบบ มีรูป หรือกำลังเริ่มวางแผน ส่งข้อมูลมาให้ทีมวิศวกรช่วยดูได้</p></div>
+      <div class="container ppm-contact-hero-copy"><span>PHOTO ESTIMATE</span><h1 id="contact-title">ขอประเมินเบื้องต้นจากรูปหน้างาน</h1><p>ส่งประเภทงาน พื้นที่ ขนาด งบประมาณ และรูปหน้างาน ทีมวิศวกรจะช่วยดูข้อมูลก่อนติดต่อกลับ</p></div>
       <svg class="ppm-contact-wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 42C239 95 456 2 724 44c280 44 470 45 716-7v53H0Z" fill="#fff"/></svg>
     </section>
 
     <section class="ppm-form-section section" aria-labelledby="contact-form-title"><div class="container">
-      <div class="ppm-contact-heading"><span>เริ่มคุยโครงการ</span><h2 id="contact-form-title">ฟอร์มติดต่อ</h2><p>บอกข้อมูลเท่าที่มี ทีมงานจะช่วยดูว่าควรเริ่มสำรวจหรือเตรียมรายละเอียดส่วนไหนก่อน</p></div>
+      <div class="ppm-contact-heading"><span>ใช้เวลาประมาณ 1–2 นาที</span><h2 id="contact-form-title">ส่งข้อมูลเพื่อประเมินเบื้องต้น</h2><p>ข้อมูลยิ่งครบ ทีมยิ่งช่วยแยกสิ่งที่ประเมินได้ทันที และสิ่งที่ต้องสำรวจเพิ่มได้เร็วขึ้น</p></div>
       <div class="ppm-contact-layout">
         <form id="leadForm" class="ppm-contact-form" data-lead-form novalidate>
           <div class="ppm-form-grid">
@@ -29,16 +29,16 @@
             <div class="form-row"><label for="leadPhone">เบอร์โทรศัพท์ *</label><input id="leadPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" minlength="9" maxlength="20" required placeholder="เช่น 0982799145"></div>
             <div class="form-row"><label for="leadEmail">อีเมล</label><input id="leadEmail" name="email" type="email" autocomplete="email" maxlength="150" placeholder="name@example.com"></div>
             <div class="form-row"><label for="leadService">ประเภทงาน *</label><select id="leadService" name="service" required><option value="">เลือกประเภทงาน</option><option>รับเหมาก่อสร้าง</option><option>สร้างบ้านหรืออาคาร</option><option>ต่อเติมอาคาร</option><option>รีโนเวท</option><option>งานโครงสร้าง</option><option>งานระบบอาคาร</option><option>งานโยธาและถนน</option><option>อื่น ๆ</option></select></div>
-            <div class="form-row"><label for="leadLocation">พื้นที่หน้างาน *</label><select id="leadLocation" name="location" required><option value="">เลือกพื้นที่</option><option>นนทบุรี</option><option>กรุงเทพมหานคร</option><option>ปทุมธานี</option><option>สมุทรปราการ</option><option>นครปฐม</option><option>จังหวัดอื่น ๆ</option></select></div>
+            <div class="form-row"><label for="leadLocation">พื้นที่หน้างาน *</label><select id="leadLocation" name="location" required><option value="">เลือกพื้นที่</option><option>นนทบุรี</option><option>กรุงเทพมหานคร</option><option>ปทุมธานี</option><option>สมุทรปราการ</option><option>นครปฐม</option><option>จังหวัดอื่น ๆ</option></select></div><div class="form-row"><label for="leadSize">ขนาดพื้นที่โดยประมาณ</label><input id="leadSize" name="project_size" type="text" maxlength="100" placeholder="เช่น 180 ตร.ม. / 2 ชั้น / ถนน 600 ตร.ม."></div>
             <div class="form-row"><label for="leadBudget">งบประมาณ</label><select id="leadBudget" name="budget"><option value="">ยังไม่ระบุ</option><option>ต่ำกว่า 500,000 บาท</option><option>500,000–1,000,000 บาท</option><option>1–3 ล้านบาท</option><option>3–10 ล้านบาท</option><option>มากกว่า 10 ล้านบาท</option></select></div>
-            <div class="form-row ppm-form-full"><label for="leadMessage">รายละเอียดโครงการ</label><textarea id="leadMessage" name="message" maxlength="1500" rows="5" placeholder="ประเภทงาน ขนาดพื้นที่ พิกัด หรือช่วงเวลาที่ต้องการเริ่มงาน"></textarea></div>
+            <div class="form-row ppm-form-full"><label for="leadMessage">รายละเอียดโครงการ</label><textarea id="leadMessage" name="message" maxlength="1500" rows="5" placeholder="สิ่งที่ต้องการทำ ปัญหาที่พบ หรือช่วงเวลาที่อยากเริ่ม"></textarea></div><div class="form-row ppm-form-full photo-upload-field"><label for="leadPhotos">รูปหน้างาน (สูงสุด 5 รูป)</label><input id="leadPhotos" name="photos" type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" multiple data-photo-input><small>แนะนำ 3–5 รูป: ภาพกว้างพื้นที่ จุดที่ต้องการทำ และจุดที่มีปัญหา ไฟล์ละไม่เกิน 8 MB</small></div>
           </div>
           <input type="hidden" name="privacy_consent" value="on">
           <div class="hp-field" aria-hidden="true"><label for="companyWebsite">เว็บไซต์บริษัท</label><input id="companyWebsite" name="company_website" type="text" tabindex="-1" autocomplete="off"></div>
-          <div class="ppm-form-footer"><p>ข้อมูลของคุณใช้เพื่อติดต่อกลับเกี่ยวกับโครงการนี้เท่านั้น อ่าน <a href="/privacy">นโยบายความเป็นส่วนตัว</a></p><button class="submit-btn" type="submit"><span>ส่งข้อมูลให้ทีมงาน</span><svg><use href="#i-arrow"/></svg></button></div>
+          <div class="ppm-form-footer"><p>ข้อมูลของคุณใช้เพื่อติดต่อกลับเกี่ยวกับโครงการนี้เท่านั้น อ่าน <a href="/privacy">นโยบายความเป็นส่วนตัว</a></p><button class="submit-btn" type="submit"><span>ขอประเมินเบื้องต้น</span><svg><use href="#i-arrow"/></svg></button></div>
           <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
         </form>
-        <aside class="ppm-contact-side"><span class="page-kicker">NEXT GEN ENGINEERING</span><h2>คุยกับทีมงานโดยตรง</h2><p>งานก่อสร้างแต่ละที่ไม่เหมือนกัน ส่งรูป แบบ หรือพิกัดมาก่อนได้ ทีมจะช่วยแยกข้อมูลที่ต้องใช้ก่อนนัดสำรวจ</p><div class="ppm-side-actions"><a class="js-phone-link" href="tel:0982799145"><small>โทรศัพท์</small><b class="js-phone-text">098-279-9145</b></a><a class="js-phone-secondary-link" href="tel:0968814033"><small>โทรศัพท์สำรอง</small><b class="js-phone-secondary-text">096-881-4033</b></a><a class="js-line-link" href="https://lin.ee/u45yvnc"><small>LINE Official</small><b class="js-line-text">@522magc</b></a></div><div class="ppm-side-note"><b>เตรียมไว้ก่อนคุย</b><ul><li>รูปหรือวิดีโอหน้างาน</li><li>พิกัดและขนาดพื้นที่</li><li>สิ่งที่ต้องการทำและช่วงงบ</li></ul></div></aside>
+        <aside class="ppm-contact-side"><span class="page-kicker">NEXT GEN ENGINEERING</span><h2>คุยกับทีมงานโดยตรง</h2><p>ถ้าสะดวกส่งรูปผ่าน LINE มากกว่า สามารถส่งรูป 3–5 รูป พร้อมพิกัดและช่วงงบได้โดยตรง</p><div class="ppm-side-actions"><a class="js-phone-link" href="tel:0982799145"><small>โทรศัพท์</small><b class="js-phone-text">098-279-9145</b></a><a class="js-phone-secondary-link" href="tel:0968814033"><small>โทรศัพท์สำรอง</small><b class="js-phone-secondary-text">096-881-4033</b></a><a class="js-line-link" href="https://lin.ee/u45yvnc"><small>LINE Official</small><b class="js-line-text">@522magc</b></a></div><div class="ppm-side-note"><b>เตรียมไว้ก่อนคุย</b><ul><li>รูปหรือวิดีโอหน้างาน</li><li>พิกัดและขนาดพื้นที่</li><li>สิ่งที่ต้องการทำและช่วงงบ</li></ul></div></aside>
       </div>
     </div></section>
 

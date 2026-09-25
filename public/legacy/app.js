@@ -23,6 +23,12 @@
     try { return JSON.parse(value) ?? fallback; } catch { return fallback; }
   }
 
+  function trackEvent(name, params = {}) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: name, ...params });
+    if (window.gtag) window.gtag('event', name, params);
+  }
+
   function normalizePhone(value) {
     return String(value || '').replace(/[^0-9+]/g, '');
   }
@@ -45,7 +51,7 @@
       if (phone) {
         link.href = `tel:${phone}`;
         link.addEventListener('click', () => {
-          if (window.gtag) window.gtag('event', 'click_phone', { contact_method: 'phone' });
+          trackEvent('click_phone', { contact_method: 'phone' });
           if (window.fbq) window.fbq('track', 'Contact', { contact_method: 'phone' });
         });
       }
@@ -58,7 +64,7 @@
       if (phoneSecondary) {
         link.href = `tel:${phoneSecondary}`;
         link.addEventListener('click', () => {
-          if (window.gtag) window.gtag('event', 'click_phone', { contact_method: 'phone_secondary' });
+          trackEvent('click_phone', { contact_method: 'phone_secondary' });
           if (window.fbq) window.fbq('track', 'Contact', { contact_method: 'phone_secondary' });
         });
       }
@@ -69,7 +75,7 @@
         link.target = '_blank';
         link.rel = 'noopener noreferrer';
         link.addEventListener('click', () => {
-          if (window.gtag) window.gtag('event', 'click_line', { contact_method: 'line' });
+          trackEvent('click_line', { contact_method: 'line' });
           if (window.fbq) window.fbq('track', 'Contact', { contact_method: 'line' });
         });
       } else link.addEventListener('click', () => showToast('กรุณาตั้งค่า LINE URL จริงในไฟล์ site-config.js'));
@@ -80,10 +86,10 @@
         link.target = '_blank';
         link.rel = 'noopener noreferrer';
         link.addEventListener('click', () => {
-          if (window.gtag) window.gtag('event', 'click_facebook', { contact_method: 'facebook' });
+          trackEvent('click_facebook', { contact_method: 'facebook' });
           if (window.fbq) window.fbq('track', 'Contact', { contact_method: 'facebook' });
         });
-      } else link.href = '/reviews';
+      } else link.href = '/projects#reviews';
     });
     $$('.js-facebook-reviews-link').forEach(link => {
       if (!facebookReviewsUrl) return;
@@ -91,7 +97,7 @@
       link.target = '_blank';
       link.rel = 'noopener noreferrer';
       link.addEventListener('click', () => {
-        if (window.gtag) window.gtag('event', 'click_facebook_reviews');
+        trackEvent('click_facebook_reviews');
       });
     });
     $$('.js-google-business-link').forEach(link => {
@@ -100,7 +106,7 @@
       link.target = '_blank';
       link.rel = 'noopener noreferrer';
       link.addEventListener('click', () => {
-        if (window.gtag) window.gtag('event', 'click_google_business');
+        trackEvent('click_google_business');
       });
     });
   }
@@ -207,16 +213,26 @@
   let loadedMarketing = false;
 
   function loadAnalytics() {
-    if (loadedAnalytics || !config.googleAnalyticsId) return;
+    if (loadedAnalytics || (!config.googleAnalyticsId && !config.googleTagManagerId)) return;
     loadedAnalytics = true;
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(config.googleAnalyticsId)}`;
-    document.head.appendChild(script);
     window.dataLayer = window.dataLayer || [];
-    window.gtag = function () { window.dataLayer.push(arguments); };
-    window.gtag('js', new Date());
-    window.gtag('config', config.googleAnalyticsId, { anonymize_ip: true });
+    if (config.googleAnalyticsId) {
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(config.googleAnalyticsId)}`;
+      document.head.appendChild(script);
+      window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+      window.gtag('js', new Date());
+      window.gtag('config', config.googleAnalyticsId, { anonymize_ip: true });
+    }
+    if (config.googleTagManagerId && !document.querySelector('script[data-nge-gtm]')) {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      const gtm = document.createElement('script');
+      gtm.async = true; gtm.dataset.ngeGtm = 'true';
+      gtm.src = `https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(config.googleTagManagerId)}`;
+      document.head.appendChild(gtm);
+    }
   }
 
   function loadMarketing() {
@@ -261,9 +277,25 @@
     if (line && link.matches('.js-line-link')) return;
     if (!phone && !line) return;
     const method = phone ? 'phone' : 'line';
-    if (window.gtag) window.gtag('event', phone ? 'click_phone' : 'click_line', { contact_method: method });
+    trackEvent(phone ? 'click_phone' : 'click_line', { contact_method: method });
     if (window.fbq) window.fbq('track', 'Contact', { contact_method: method });
   });
+
+  document.addEventListener('click', event => {
+    const link = event.target.closest?.('a[href]');
+    if (!link) return;
+    const href = link.getAttribute('href') || '';
+    if (/NGE-Company-Profile\.pdf/i.test(href)) trackEvent('company_profile_download', { link_url: href, page_path: location.pathname });
+    if (/^\/projects(?:\/|$)/.test(href)) trackEvent('project_click', { link_url: href, project_name: link.textContent.trim().slice(0, 120), page_path: location.pathname });
+    if (link.matches('.js-estimate-link,[data-estimate-source]')) trackEvent('photo_estimate_cta', { source: link.dataset.estimateSource || link.closest('[data-estimate-cta]')?.dataset.estimateCta || 'website', page_path: location.pathname });
+  });
+
+  // Track paid social landing sessions without overwriting first-touch attribution.
+  const landingParams = new URLSearchParams(location.search);
+  const paidSource = (landingParams.get('utm_source') || '').toLowerCase();
+  if (['meta','facebook','instagram','fb','ig'].includes(paidSource) || landingParams.has('fbclid')) {
+    trackEvent('meta_landing_view', { utm_source: paidSource || 'meta', utm_campaign: landingParams.get('utm_campaign') || '', utm_content: landingParams.get('utm_content') || '', landing_page: location.pathname });
+  }
 
   // Project lightbox
   const lightbox = $('#lightbox');
@@ -380,6 +412,7 @@
       const appointment = [formData.get('preferred_date'), formData.get('preferred_time')].filter(Boolean).join(' ');
       const messageParts = [];
       if (appointment) messageParts.push(`วันและเวลาที่สะดวก: ${appointment}`);
+      if (formData.get('project_size')) messageParts.push(`ขนาดโดยประมาณ: ${String(formData.get('project_size')).trim()}`);
       if (formData.get('message')) messageParts.push(String(formData.get('message')).trim());
       const payload = {
         name: String(formData.get('name') || '').trim(),
@@ -397,24 +430,38 @@
       };
 
       try {
-        const response = await fetch('/api/leads', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(payload)
-        });
+        const photos = formData.getAll('photos').filter(file => file instanceof File && file.size > 0);
+        if (photos.length > 5) {
+          setFormStatus(leadForm, 'แนบรูปได้สูงสุด 5 รูป', 'error');
+          submitButton.disabled = false;
+          return;
+        }
+        if (photos.some(file => file.size > 8 * 1024 * 1024)) {
+          setFormStatus(leadForm, 'รูปแต่ละไฟล์ต้องไม่เกิน 8 MB', 'error');
+          submitButton.disabled = false;
+          return;
+        }
+        let response;
+        if (photos.length) {
+          const multipart = new FormData();
+          Object.entries(payload).forEach(([key, value]) => { if (value !== null && value !== undefined) multipart.append(key, String(value)); });
+          photos.forEach(file => multipart.append('photos', file, file.name));
+          response = await fetch('/api/leads', { method: 'POST', body: multipart });
+        } else {
+          response = await fetch('/api/leads', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+        }
+        const result = await response.json().catch(() => ({}));
         if (!response.ok) {
-          const result = await response.json().catch(() => ({}));
           const requestError = new Error(result.error || `Lead API ${response.status}`);
           requestError.status = response.status;
           throw requestError;
         }
         leadForm.reset();
         $$('[data-min-today]', leadForm).forEach(input => { input.min = minDate; });
-        setFormStatus(leadForm, isBooking ? 'รับคำขอจองแล้ว ทีมงานจะโทรกลับเพื่อยืนยันนัดหมาย' : 'ส่งข้อมูลสำเร็จ ทีมงานจะติดต่อกลับโดยเร็วที่สุด', 'success');
-        if (window.gtag) window.gtag('event', 'generate_lead', { service: payload.service, form_id: leadForm.id || 'leadForm', lead_type: isBooking ? 'consultation_booking' : 'callback_request' });
-        if (window.fbq) window.fbq('track', 'Lead');
+        const photoNotice = result.photosRequested > 0 && result.photosUploaded === 0 ? ' รับข้อมูลแล้ว แต่รูปยังไม่ถูกอัปโหลด กรุณาส่งรูปซ้ำทาง LINE @522magc' : '';
+        setFormStatus(leadForm, (isBooking ? 'รับคำขอแล้ว ทีมงานจะโทรกลับเพื่อยืนยันรายละเอียด' : 'ส่งข้อมูลสำเร็จ ทีมงานจะติดต่อกลับโดยเร็วที่สุด') + photoNotice, 'success');
+        trackEvent('generate_lead', { service: payload.service, form_id: leadForm.id || 'leadForm', lead_type: leadForm.dataset.photoEstimate === 'true' ? 'photo_estimate' : (isBooking ? 'consultation_booking' : 'callback_request'), photo_count: result.photosUploaded || 0, utm_source: payload.utm_source || '', utm_campaign: payload.utm_campaign || '' });
+        if (window.fbq) window.fbq('track', 'Lead', { content_name: payload.service || 'Website Lead' });
       } catch (error) {
         console.error('Lead submission failed:', error);
         setFormStatus(
