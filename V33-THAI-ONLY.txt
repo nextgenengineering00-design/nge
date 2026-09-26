@@ -1,6 +1,0 @@
-NGE v33 — Thai only
-- Removed language switcher buttons
-- Removed Google Translate remnants
-- Removed static EN/ZH routes and translation runtime
-- Removed translation-specific CSS
-- Kept the clearer mobile MENU button
