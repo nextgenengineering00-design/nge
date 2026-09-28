@@ -85,3 +85,54 @@
 @media(max-width:980px){.renovation-hero .seo-split{grid-template-columns:1fr;gap:0}.renovation-hero-copy{padding:80px 0 40px}.renovation-hero-photo{height:620px}.renovation-hero-photo .renovation-watermark,.renovation-hero-photo img{min-height:620px}.renovation-hero-photo::after{background:linear-gradient(0deg,rgba(5,8,10,.65),transparent 42%)}.renovation-hero-badge{left:18px;top:20px}.renovation-gallery{grid-template-columns:repeat(2,1fr)}.renovation-showcase-heading,.renovation-more-work{grid-template-columns:1fr;gap:16px}.renovation-jump{top:58px}}
 @media(max-width:640px){.renovation-hero{min-height:0}.renovation-hero .seo-split{min-height:0}.renovation-hero-copy{padding:56px 0 34px}.renovation-hero h1{font-size:42px!important;letter-spacing:-1.7px}.renovation-hero h1 em{font-size:22px}.renovation-hero-photo{height:520px;margin-inline:calc(50% - 50vw)!important}.renovation-hero-photo .renovation-watermark,.renovation-hero-photo img{min-height:520px}.renovation-hero-photo figcaption{left:20px;right:20px;bottom:20px}.renovation-marquee{overflow:auto}.renovation-jump{position:relative;top:auto;overflow-x:auto;flex-wrap:nowrap;justify-content:flex-start}.renovation-jump a{white-space:nowrap}.renovation-gallery{grid-template-columns:1fr;grid-auto-rows:320px}.renovation-gallery-card,.renovation-gallery-card:nth-child(n),.renovation-gallery-featured,.renovation-gallery-wide{grid-column:span 1;grid-row:span 1}.renovation-gallery-card:nth-child(4){height:250px}.renovation-showcase{padding-top:75px}.renovation-showcase-heading h2,.renovation-more-work h2{font-size:34px}.renovation-more-work{margin-top:72px}.renovation-steps{grid-template-columns:1fr}.renovation-lightbox{width:94vw}.renovation-lightbox>button{right:0}}
 @media(prefers-reduced-motion:reduce){.renovation-hero-photo img{animation:none}.renovation-gallery-card img{transition:none}.renovation-gallery-card:hover img{transform:none}}
+
+/* Renovation reference layout — follows the supplied ROOVTECT page structure. */
+.renovation-landing,.renovation-landing button,.renovation-landing input,.renovation-landing textarea,.renovation-landing select{font-family:"Kanit",Tahoma,sans-serif}
+.renovation-ref-hero{position:relative;min-height:calc(100svh - 98px);overflow:hidden;background:#111;color:#fff}
+.renovation-ref-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 46%;animation:renovationRefHero 14s ease-in-out infinite alternate}
+.renovation-ref-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.12) 48%,rgba(0,0,0,.82) 92%)}
+.renovation-ref-hero-copy{position:relative;z-index:2;display:flex;min-height:calc(100svh - 98px);flex-direction:column;align-items:flex-start;justify-content:flex-end;padding-top:64px;padding-bottom:64px}
+.renovation-ref-hero h1{max-width:720px;margin:0;color:#fff;font-size:clamp(38px,4.5vw,66px);font-weight:400;line-height:1.08}
+.renovation-ref-hero h1 span{display:block;margin-bottom:8px;font-family:"Poppins","Kanit",sans-serif;font-size:clamp(28px,3.1vw,44px);font-weight:400}
+.renovation-ref-hero p{margin:14px 0 22px;font-size:clamp(17px,1.6vw,24px);font-weight:300}
+.renovation-ref-hero a{display:inline-flex;padding:9px 23px;border:2px solid #fff;border-radius:999px;color:#fff;text-decoration:none;font-size:18px;font-weight:400;transition:.25s ease}
+.renovation-ref-hero a:hover{background:#fff;color:#002a3e;transform:translateY(-2px)}
+@keyframes renovationRefHero{from{transform:scale(1)}to{transform:scale(1.035)}}
+.renovation-ref-intro{padding:72px 0;background:#002a3e;color:#fff}
+.renovation-ref-copy{max-width:1040px;margin:0 auto 44px;text-align:center}
+.renovation-ref-copy h2{margin:0 0 24px;font-size:clamp(30px,3.5vw,50px);font-weight:400;line-height:1.25}
+.renovation-ref-copy p{margin:10px auto;max-width:920px;color:#d9e1e5;font-size:17px;font-weight:300;line-height:1.85}
+.renovation-ref-benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.renovation-ref-benefits article{overflow:hidden;background:#fff;color:#002a3e}
+.renovation-ref-benefits img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;transition:transform .6s ease}
+.renovation-ref-benefits article:hover img{transform:scale(1.04)}
+.renovation-ref-benefits h3{margin:20px 20px 8px;font-size:21px;font-weight:500}.renovation-ref-benefits p{margin:0;padding:0 20px 24px;color:#53636c;font-size:14px;font-weight:300;line-height:1.7}
+.renovation-landing .renovation-budget{padding:80px 0;background:#e8e7e6;color:#002a3e}
+.renovation-budget .seo-content{max-width:1180px}.renovation-budget .page-kicker{color:#d63637}.renovation-budget .seo-content>p{color:#344a55}
+.renovation-budget .renovation-cost-table{border:0;border-radius:0;box-shadow:0 12px 34px rgba(0,42,62,.1)}
+.renovation-budget .renovation-cost-table table{background:#fff;color:#002a3e}.renovation-budget .renovation-cost-table caption{background:#d63637;color:#fff}.renovation-budget .renovation-cost-table thead{background:#002a3e}.renovation-budget .renovation-cost-table th,.renovation-budget .renovation-cost-table td{border-color:#d9d9d7}.renovation-budget a{color:#9d2223!important}
+.renovation-ref-process{padding:72px 0;background:#f5f5f3;color:#002a3e}
+.renovation-ref-process h2,.renovation-ref-service-head h2{margin:0 0 40px;text-align:center;font-size:clamp(30px,3.4vw,48px);font-weight:400}
+.renovation-ref-process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:#e8e7e6}
+.renovation-ref-process-grid article{min-height:250px;padding:34px 32px;background:#002a3e;color:#fff;text-align:center;transition:transform .28s ease,background .28s ease}
+.renovation-ref-process-grid article:hover{z-index:2;background:#063a52;transform:translateY(-5px)}
+.renovation-ref-process-grid img{width:62px;height:62px;object-fit:contain;margin-bottom:19px;transition:transform .35s ease}
+.renovation-ref-process-grid article:hover img{transform:translateY(-4px) rotate(-4deg)}
+.renovation-ref-process-grid h3{margin:0 0 10px;font-size:21px;font-weight:400}.renovation-ref-process-grid p{margin:0;color:#d3dde2;font-size:14px;font-weight:300;line-height:1.7}
+.renovation-icon-credit{display:block;margin-top:12px;text-align:right;color:#7b858a;font-size:10px}.renovation-icon-credit a{color:inherit}
+.renovation-showcase{padding:76px 0;background:#e8e7e6}
+.renovation-ref-service-head{max-width:900px;margin:0 auto 40px;text-align:center}.renovation-ref-service-head h2{margin-bottom:12px}.renovation-ref-service-head p{margin:0;color:#4b5c65;font-size:17px;font-weight:300}
+.renovation-gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:500px;gap:24px}
+.renovation-gallery-card,.renovation-gallery-card:nth-child(n),.renovation-gallery-featured,.renovation-gallery-wide{grid-column:span 1;grid-row:span 1}
+.renovation-gallery-card{background:#002a3e}.renovation-gallery-card::after{inset:52% 0 0;background:linear-gradient(transparent,rgba(0,28,42,.92))}
+.renovation-gallery-card>b{left:28px;bottom:48px;font-size:22px;font-weight:400}.renovation-gallery-card>small{left:28px;bottom:24px;font-size:13px;font-weight:300}
+.renovation-watermark>span,.renovation-watermark>i{top:auto;right:16px;bottom:16px;padding:6px 8px;background:rgba(0,42,62,.58);font-size:7px;opacity:.8}
+.renovation-gallery-card>b,.renovation-gallery-card>small{right:165px}
+.renovation-more-work{display:block;margin:74px 0 24px;text-align:center}.renovation-more-work h2{font-size:32px;font-weight:400}
+.renovation-projects .seo-card{border:0}.renovation-projects .seo-card h3{font-weight:400}
+.renovation-area-simple{background:#fff}.renovation-address{border-left-color:#d63637}
+.renovation-estimate{background:#e8e7e6}.renovation-form-layout .quote-lead-form{box-shadow:none;border:1px solid #d1d1ce}.renovation-estimate .page-kicker{color:#d63637}
+.renovation-landing .closing-cta{background:#002a3e}.renovation-landing .closing-cta .btn{border:2px solid #fff;background:transparent;color:#fff;border-radius:999px}
+@media(max-width:900px){.renovation-ref-benefits{grid-template-columns:1fr 1fr}.renovation-ref-process-grid{grid-template-columns:1fr 1fr}.renovation-gallery{grid-auto-rows:430px}}
+@media(max-width:640px){.renovation-ref-hero{min-height:calc(95svh - 68px)}.renovation-ref-hero-copy{min-height:calc(95svh - 68px);padding:24px 20px 40px}.renovation-ref-hero>img{object-position:center center}.renovation-ref-hero h1{font-size:38px}.renovation-ref-hero h1 span{font-size:26px}.renovation-ref-hero p{font-size:16px}.renovation-ref-intro{padding:54px 0}.renovation-ref-copy{text-align:left}.renovation-ref-copy h2{font-size:30px}.renovation-ref-copy p{font-size:15px}.renovation-ref-benefits{grid-template-columns:1fr;gap:16px}.renovation-ref-benefits article{display:grid;grid-template-columns:132px 1fr;grid-template-rows:auto 1fr}.renovation-ref-benefits img{grid-row:1/3;width:132px;height:100%;aspect-ratio:auto}.renovation-ref-benefits h3{margin:18px 16px 4px;font-size:18px}.renovation-ref-benefits p{padding:0 16px 16px;font-size:12px}.renovation-ref-process{padding:54px 0}.renovation-ref-process-grid{grid-template-columns:1fr}.renovation-ref-process-grid article{min-height:0;padding:28px 24px}.renovation-gallery{grid-template-columns:1fr;grid-auto-rows:430px;gap:14px}.renovation-gallery-card>b,.renovation-gallery-card>small{right:20px}.renovation-watermark>span,.renovation-watermark>i{top:14px;right:14px;bottom:auto}.renovation-showcase{padding-top:54px}.renovation-ref-service-head{text-align:left}.renovation-ref-service-head h2{text-align:left;font-size:30px}.renovation-more-work{text-align:left}.renovation-more-work h2{font-size:28px}}
+@media(prefers-reduced-motion:reduce){.renovation-ref-hero>img{animation:none}.renovation-ref-hero a,.renovation-ref-benefits img,.renovation-ref-process-grid article,.renovation-ref-process-grid img{transition:none}}
