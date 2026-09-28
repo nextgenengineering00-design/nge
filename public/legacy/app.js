@@ -686,6 +686,29 @@
     $('[data-next]')?.addEventListener('click', () => scrollProjectDeck(1));
   }
 
+  // Renovation work gallery: native dialog, keyboard friendly and dependency free.
+  const renovationGallery = $('[data-renovation-gallery]');
+  const renovationLightbox = $('[data-renovation-lightbox]');
+  if (renovationGallery && renovationLightbox) {
+    const lightboxImage = $('img', renovationLightbox);
+    const lightboxCaption = $('figcaption', renovationLightbox);
+    const closeLightbox = () => renovationLightbox.open && renovationLightbox.close();
+
+    renovationGallery.addEventListener('click', event => {
+      const card = event.target.closest('[data-gallery-src]');
+      if (!card || !renovationGallery.contains(card)) return;
+      lightboxImage.src = card.dataset.gallerySrc || '';
+      lightboxImage.alt = card.dataset.galleryAlt || '';
+      lightboxCaption.textContent = card.dataset.galleryAlt || '';
+      renovationLightbox.showModal();
+      trackEvent('view_renovation_photo', { photo: card.dataset.gallerySrc || '' });
+    });
+    $('[data-lightbox-close]', renovationLightbox)?.addEventListener('click', closeLightbox);
+    renovationLightbox.addEventListener('click', event => {
+      if (event.target === renovationLightbox) closeLightbox();
+    });
+  }
+
   setContactLinks();
   const year = $('#year');
   if (year) year.textContent = new Date().getFullYear();
