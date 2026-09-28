@@ -9,7 +9,7 @@ export function LegacyPage({ file, project = false, includeJsonLd = true }: { fi
   return <div className={page.bodyClass} data-legacy-page={page.page}>
     <LegacyBodyState page={page.page} bodyClass={page.bodyClass} />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" />
-    <link rel="stylesheet" href="/legacy/styles.min.css?v=20260925-7" />
+    <link rel="stylesheet" href="/legacy/styles.min.css?v=20260928-8" />
     {!project && <link rel="stylesheet" href="/legacy/service-seo.css?v=20260928-4" />}
     {project && <link rel="stylesheet" href="/legacy/project-detail.css?v=20260920" />}
     {includeJsonLd && page.jsonLd.map((value, index) => <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: value.replace(/</g, "\\u003c") }} />)}
