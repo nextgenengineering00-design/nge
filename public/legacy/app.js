@@ -24,6 +24,7 @@
   }
 
   function trackEvent(name, params = {}) {
+    params = { page_path: location.pathname, ...params };
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: name, ...params });
     if (window.gtag) window.gtag('event', name, params);
@@ -329,7 +330,18 @@
   });
 
   // Supabase contact and consultation booking forms
+  const renovationDock = $('#renovation-estimate') && $('.mobile-dock-book');
+  if (renovationDock) {
+    renovationDock.href = '#renovation-estimate';
+    renovationDock.setAttribute('aria-label', 'ส่งรูปขอประเมินงานรีโนเวท');
+    renovationDock.dataset.estimateSource = 'renovation-nonthaburi-mobile';
+    const label = $('.mobile-dock-label', renovationDock);
+    if (label) label.textContent = 'ส่งรูป';
+  }
   const leadForms = $$('[data-lead-form], #leadForm');
+  leadForms.forEach(form => form.addEventListener('input', () => {
+    trackEvent('lead_form_start', { form_id: form.id || 'leadForm', service: $('[name="service"]', form)?.value || '' });
+  }, { once: true }));
   function setFormStatus(form, message, type = '') {
     const formStatus = $('.form-status', form) || $('#formStatus');
     if (!formStatus) return;

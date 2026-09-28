@@ -59,6 +59,6 @@ export function legacyMetadata(relativeFile: string, canonical: string, noindex 
     alternates: { canonical },
     openGraph: { type: "website", locale: "th_TH", title: page.title, description: page.description, url: canonical, images: page.image ? [{ url: page.image }] : undefined },
     twitter: { card: "summary_large_image", title: page.title, description: page.description, images: page.image ? [page.image] : undefined },
-    robots: noindex ? { index: false, follow: false } : undefined,
+    robots: noindex ? { index: false, follow: true } : { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
   };
 }

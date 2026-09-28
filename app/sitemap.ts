@@ -3,11 +3,13 @@ import { projects, site } from "@/lib/site-data";
 import { legacySlugs } from "@/lib/legacy-content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
-  return [
-    { url: site.url, lastModified: now, changeFrequency: "weekly", priority: 1 },
-    ...["about", "services", "projects", "knowledge", "contact", "privacy"].map(path => ({ url: `${site.url}/${path}`, lastModified: now, changeFrequency: "monthly" as const, priority: path === "contact" ? .8 : .9 })),
-    ...projects.map(p => ({ url: `${site.url}/projects/${p.slug}`, lastModified: now, changeFrequency: "monthly" as const, priority: .8 })),
-    ...legacySlugs.map(slug => ({ url: `${site.url}/${slug}`, lastModified: now, changeFrequency: "monthly" as const, priority: .75 }))
-  ];
+  // Only report a modification date when the page content actually changed.
+  const updated = new Set(["", "services", "renovation-service-nonthaburi", "renovation-nonthaburi", "renovation-budget-guide", "renovation-structure-check-guide", "renovation-mep-guide"]);
+  const paths = ["", "about", "services", "projects", "knowledge", "contact", "privacy", ...projects.map(p => `projects/${p.slug}`), ...legacySlugs];
+  return [...new Set(paths)].map(path => ({
+    url: path ? `${site.url}/${path}` : `${site.url}/`,
+    ...(updated.has(path) ? { lastModified: "2026-09-28" } : {}),
+    changeFrequency: path ? "monthly" : "weekly",
+    priority: !path ? 1 : path === "renovation-service-nonthaburi" ? .9 : .75,
+  }));
 }
