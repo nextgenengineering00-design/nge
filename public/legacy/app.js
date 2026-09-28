@@ -709,6 +709,34 @@
     });
   }
 
+  // Build-home gallery: lightweight full-screen viewer.
+  const buildGallery = $('[data-build-gallery]');
+  const buildLightbox = $('[data-build-lightbox]');
+  if (buildGallery && buildLightbox) {
+    const buildImage = $('img', buildLightbox);
+    const closeBuildLightbox = () => {
+      buildLightbox.hidden = true;
+      buildImage.src = '';
+      document.body.style.overflow = '';
+    };
+    buildGallery.addEventListener('click', event => {
+      const card = event.target.closest('[data-gallery-src]');
+      if (!card || !buildGallery.contains(card)) return;
+      buildImage.src = card.dataset.gallerySrc || '';
+      buildImage.alt = card.dataset.galleryAlt || '';
+      buildLightbox.hidden = false;
+      document.body.style.overflow = 'hidden';
+      trackEvent('view_build_home_photo', { photo: card.dataset.gallerySrc || '' });
+    });
+    $('button', buildLightbox)?.addEventListener('click', closeBuildLightbox);
+    buildLightbox.addEventListener('click', event => {
+      if (event.target === buildLightbox) closeBuildLightbox();
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && !buildLightbox.hidden) closeBuildLightbox();
+    });
+  }
+
   setContactLinks();
   const year = $('#year');
   if (year) year.textContent = new Date().getFullYear();
