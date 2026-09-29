@@ -698,19 +698,20 @@
       isolation:isolate;
       overflow:hidden;
       padding:92px 0 92px!important;
-      background:#fff!important;
+      background:#ead8c5!important;
       font-family:'Kanit',var(--font-display),sans-serif;
     }
     .services-reference-page .sv-services:before{
       content:"";
       position:absolute;
       z-index:-2;
-      inset:0 0 auto;
-      height:370px;
+      inset:0;
+      height:auto;
       background:
-        linear-gradient(180deg,rgba(255,255,255,.02) 0%,rgba(255,255,255,.08) 78%,#fff 100%),
-        url("./assets/services/ref-v2/services-complete-hero-v2.webp") center top/cover no-repeat;
-      transform:scale(1.015);
+        linear-gradient(180deg,rgba(255,255,255,.04) 0%,rgba(248,239,230,.12) 50%,rgba(226,207,187,.34) 100%),
+        url("./assets/services/ref-v2/services-complete-hero-v2.webp") center/cover no-repeat;
+      filter:saturate(.92) brightness(1.04);
+      transform:scale(1.035);
       animation:svShowcaseBackground 18s ease-in-out infinite alternate;
     }
     .services-reference-page .sv-services:after{
@@ -771,32 +772,35 @@
       .services-reference-page .sv-service-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
     }
     @media(max-width:700px){
-      .services-reference-page .sv-services{padding:70px 0 78px!important}
-      .services-reference-page .sv-services:before{height:350px;background:linear-gradient(180deg,rgba(255,255,255,.30),rgba(255,255,255,.78) 76%,#fff),url("./assets/services/ref-v2/services-complete-hero-v2.webp") 52% top/auto 350px no-repeat;animation:none}
-      .services-reference-page .sv-showcase-head{margin-bottom:24px}
-      .services-reference-page .sv-showcase-head h2{font-size:clamp(36px,11vw,50px);letter-spacing:-1.3px}
+      .services-reference-page .sv-services{padding:56px 0 64px!important;background:#ead8c5!important}
+      .services-reference-page .sv-services:before{inset:0;height:auto;background-color:#ead8c5;background-image:linear-gradient(180deg,rgba(255,255,255,.18) 0%,rgba(238,221,204,.42) 31%,rgba(226,205,183,.68) 100%),url("./assets/services/ref-v2/services-complete-hero-v2.webp");background-position:center top;background-size:auto 350px;background-repeat:no-repeat;filter:saturate(.88) brightness(1.04);transform:none;animation:none}
+      .services-reference-page .sv-showcase-head{margin-bottom:18px;padding-inline:4px}
+      .services-reference-page .sv-showcase-head h2{font-size:clamp(28px,8.7vw,39px);line-height:1.08;letter-spacing:-1.15px}
       .services-reference-page .sv-showcase-head h2 span{display:block}
-      .services-reference-page .sv-showcase-flow{display:flex;justify-content:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-20px;padding:15px 20px;scrollbar-width:none}
+      .services-reference-page .sv-showcase-flow{display:flex;justify-content:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -20px 22px;padding:11px 20px 14px;scrollbar-width:none}
       .services-reference-page .sv-showcase-flow::-webkit-scrollbar{display:none}
-      .services-reference-page .sv-showcase-flow li{flex:0 0 138px;scroll-snap-align:center;padding:4px 14px;white-space:normal;text-align:center;flex-direction:column}
+      .services-reference-page .sv-showcase-flow li{flex:0 0 112px;scroll-snap-align:center;padding:3px 9px;gap:6px;white-space:normal;text-align:center;flex-direction:column;font-size:13px}
+      .services-reference-page .sv-showcase-flow svg{width:27px;height:27px}
       .services-reference-page .sv-showcase-flow li+li:before{top:4px;bottom:4px}
       .services-reference-page .sv-service-grid{grid-template-columns:1fr!important;gap:15px!important}
-      .services-reference-page .sv-card{min-height:286px!important;aspect-ratio:auto}
+      .services-reference-page .sv-card{min-height:0!important;aspect-ratio:1.5/1}
       .services-reference-page .sv-card:after{clip-path:polygon(39% 0,100% 0,100% 100%,26% 100%)}
       .services-reference-page .sv-card:before{left:34%}
-      .services-reference-page .sv-card-body{width:64%;margin-left:36%;padding:31px 21px 20px!important}
-      .services-reference-page .sv-showcase-icon{width:52px;height:52px;border-radius:12px}
-      .services-reference-page .sv-showcase-icon svg{width:28px;height:28px}
-      .services-reference-page .sv-card-number{font-size:25px!important}
-      .services-reference-page .sv-card h3{font-size:24px!important}
-      .services-reference-page .sv-card a.sv-card-cta{width:48px!important;height:48px!important;min-height:48px!important}
+      .services-reference-page .sv-card-body{width:65%;margin-left:35%;padding:21px 16px 15px!important}
+      .services-reference-page .sv-card-heading{margin-bottom:10px!important}
+      .services-reference-page .sv-showcase-icon{width:44px;height:44px;border-radius:11px}
+      .services-reference-page .sv-showcase-icon svg{width:25px;height:25px}
+      .services-reference-page .sv-card-number{font-size:22px!important}
+      .services-reference-page .sv-card h3{font-size:clamp(18px,5vw,21px)!important;padding-bottom:17px!important;letter-spacing:-.3px}
+      .services-reference-page .sv-card a.sv-card-cta{width:42px!important;height:42px!important;min-height:42px!important}
+      .services-reference-page .sv-card a.sv-card-cta i{font-size:31px!important}
     }
     @media(max-width:420px){
-      .services-reference-page .sv-card{min-height:270px!important}
+      .services-reference-page .sv-card{min-height:225px!important;aspect-ratio:auto}
       .services-reference-page .sv-card:after{clip-path:polygon(34% 0,100% 0,100% 100%,22% 100%)}
       .services-reference-page .sv-card:before{left:30%}
-      .services-reference-page .sv-card-body{width:69%;margin-left:31%;padding:28px 18px 18px!important}
-      .services-reference-page .sv-card h3{font-size:21px!important}
+      .services-reference-page .sv-card-body{width:69%;margin-left:31%;padding:19px 14px 14px!important}
+      .services-reference-page .sv-card h3{font-size:18px!important}
     }
     @media(prefers-reduced-motion:reduce){
       .services-reference-page .sv-services:before{animation:none!important}
