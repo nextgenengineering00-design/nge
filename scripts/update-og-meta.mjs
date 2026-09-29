@@ -3,10 +3,11 @@ import { join } from "node:path";
 
 const root = process.cwd();
 const specs = {
-  "about.html": { image: "og-about-2026.jpg", alt: "ประวัติบริษัท Next Gen Engineering" },
-  "services.html": { image: "og-services-2026.jpg", alt: "บริการรับเหมาก่อสร้างครบวงจร Next Gen Engineering" },
-  "projects.html": { image: "og-projects-2026.jpg", alt: "ผลงานก่อสร้างจริงของ Next Gen Engineering" },
-  "knowledge.html": { image: "og-knowledge-2026.jpg", alt: "ความรู้ก่อสร้างจาก Next Gen Engineering" },
+  "about.html": { image: "og-about-2026-v2.jpg", alt: "ประวัติบริษัท Next Gen Engineering" },
+  "services.html": { image: "og-services-2026-v2.jpg", alt: "บริการรับเหมาก่อสร้างครบวงจร Next Gen Engineering" },
+  "projects.html": { image: "og-projects-2026-v2.jpg", alt: "ผลงานก่อสร้างจริงของ Next Gen Engineering" },
+  "knowledge.html": { image: "og-knowledge-2026-v2.jpg", alt: "ความรู้ก่อสร้างจาก Next Gen Engineering" },
+  "contact.html": { image: "og-contact-2026-v2.jpg", alt: "ติดต่อทีมงาน Next Gen Engineering" },
 };
 
 for (const [file, spec] of Object.entries(specs)) {

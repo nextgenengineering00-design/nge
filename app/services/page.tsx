@@ -9,7 +9,7 @@ export const metadata = {
     ...baseMetadata.openGraph,
     images: [
       {
-        url: "/og-services-2026.jpg",
+        url: "/og-services-2026-v2.jpg",
         width: 1200,
         height: 630,
         alt: "Next Gen Engineering บริการรับเหมาก่อสร้างครบวงจร",
@@ -18,7 +18,7 @@ export const metadata = {
   },
   twitter: {
     ...baseMetadata.twitter,
-    images: ["/og-services-2026.jpg"],
+    images: ["/og-services-2026-v2.jpg"],
   },
 };
 
