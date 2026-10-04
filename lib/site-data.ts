@@ -25,6 +25,7 @@ export const services = [
 ];
 
 export const projects = [
+  { slug: "gpo-yotse-pharmacy", title: "ปรับปรุงร้านขายยาองค์การเภสัชกรรม สาขายศเส", type: "รีโนเวท / ปรับปรุงอาคารภาครัฐ", location: "ยศเส กรุงเทพมหานคร", image: "/assets/projects/gpo-yotse-pharmacy/cover.webp", summary: "ปรับปรุงพื้นที่ร้านขายยาและงานตกแต่งภายใน พื้นที่ประมาณ 150 ตร.ม. มูลค่างานประมาณ 4 ล้านบาท" },
   { slug: "rc-road-saraburi-12-ton", title: "ถนนคอนกรีตเสริมเหล็ก รับน้ำหนัก 12 ตัน", type: "งานโยธาและถนน", location: "จังหวัดสระบุรี", image: "/assets/projects/rc-road-saraburi-12-ton/01-road-roller.webp", summary: "ออกแบบลำดับงานชั้นทาง เหล็กเสริม รอยต่อ และการระบายน้ำสำหรับการใช้งานรถหนัก" },
   { slug: "phra2-renovation", title: "รีโนเวทบ้านพักอาศัย พระราม 2", type: "รีโนเวท", location: "กรุงเทพฯ", image: "/assets/projects/phra2-renovation/01-cover.webp", summary: "ปรับฟังก์ชันและภาพรวมบ้าน โดยวางแผนงานรื้อ งานระบบ และงานตกแต่งให้ต่อเนื่อง" },
   { slug: "rowhouse-10-families", title: "อาคารเรือนแถว 10 ครอบครัว", type: "ก่อสร้างอาคาร", location: "ประเทศไทย", image: "/assets/projects/rowhouse-10-families/05-foundation-rebar.webp", summary: "งานอาคารสองชั้นที่เน้นมาตรฐานโครงสร้างและการควบคุมคุณภาพเป็นงวด" },

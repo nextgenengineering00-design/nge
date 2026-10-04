@@ -718,9 +718,14 @@
       display:none;
     }
     .services-reference-page .sv-services>.sv-container{position:relative;z-index:1}
-    .services-reference-page .sv-showcase-head{text-align:center;max-width:1240px;margin:0 auto 20px}
-    .services-reference-page .sv-showcase-head h2{font-family:'Kanit',var(--font-display),sans-serif;font-size:clamp(40px,4.05vw,62px);font-weight:800;line-height:1.05;letter-spacing:-2.5px;color:#081622;text-shadow:0 2px 0 rgba(255,255,255,.72);white-space:nowrap}
-    .services-reference-page .sv-showcase-head h2 span{display:inline;color:#ef4e0b;margin-left:.22em}
+    .services-reference-page .sv-showcase-head{display:flex;align-items:flex-end;justify-content:space-between;gap:25px;text-align:left;max-width:1160px;margin:0 auto 24px}
+    .services-reference-page .sv-showcase-head>div{max-width:790px}
+    .services-reference-page .sv-showcase-head>div>span{display:block;margin:0 0 8px;color:#ef8d00;font:600 12px/1.3 var(--font-display);letter-spacing:4px}
+    .services-reference-page .sv-showcase-head h2{font-family:var(--font-display);font-size:clamp(35px,4vw,52px);font-weight:700;line-height:1.17;letter-spacing:-1.1px;color:#081622;text-shadow:none;white-space:normal}
+    .services-reference-page .sv-showcase-head p{max-width:760px;margin:12px 0 0;color:#514a43;font-size:16px;line-height:1.8}
+    .services-reference-page .sv-showcase-head h2 span{display:inline;color:inherit;margin:0}
+    .services-reference-page .sv-showcase-head>a{flex:0 0 auto;display:inline-flex;align-items:center;gap:8px;padding:12px 0;border-bottom:1px solid #222;color:#171717;font-size:15px;font-weight:600;white-space:nowrap}
+    .services-reference-page .sv-showcase-head>a svg{width:16px;height:16px;color:var(--sv-accent-deep)}
     .services-reference-page .sv-showcase-flow{list-style:none;display:grid;grid-template-columns:repeat(6,1fr);max-width:910px;margin:0 auto 28px;padding:12px 0;border:0;background:transparent;box-shadow:none}
     .services-reference-page .sv-showcase-flow li{position:relative;display:flex;align-items:center;justify-content:center;gap:11px;min-width:0;padding:3px 14px;color:#302318;font:600 15px/1.3 'Kanit',var(--font-display),sans-serif;white-space:nowrap}
     .services-reference-page .sv-showcase-flow li+li:before{content:"";position:absolute;left:0;top:2px;bottom:2px;width:1px;background:#b9afa5}
@@ -747,15 +752,14 @@
     .services-reference-page .sv-card-media:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.05),rgba(0,0,0,.38))}
     .services-reference-page .sv-card-media img{width:100%!important;height:100%!important;object-fit:cover!important;transform:scale(1.01);transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .45s ease!important}
     .services-reference-page .sv-card:hover .sv-card-media img{transform:scale(1.08)!important;filter:saturate(1.08) contrast(1.03)}
-    .services-reference-page .sv-card-body{position:relative!important;z-index:3!important;width:58%;height:100%;margin-left:42%;padding:25px 18px 17px!important;background:transparent!important;color:#fff;display:flex!important;flex-direction:column!important}
-    .services-reference-page .sv-card-heading{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:12px!important;margin:0 0 13px!important}
-    .services-reference-page .sv-showcase-icon{display:grid;place-items:center;width:48px;height:48px;border-radius:12px;background:linear-gradient(145deg,#ff9d18,#ff4d00);box-shadow:inset 0 1px 0 rgba(255,255,255,.48),0 8px 18px rgba(255,85,0,.25);color:#fff}
+    .services-reference-page .sv-card-body{position:relative!important;z-index:3!important;width:58%;height:100%;margin-left:42%;padding:40px 18px 17px!important;background:transparent!important;color:#fff;display:flex!important;flex-direction:column!important;justify-content:center!important}
+    .services-reference-page .sv-card-heading{position:absolute!important;inset:0 0 auto!important;height:0!important;display:block!important;margin:0!important;pointer-events:none}
+    .services-reference-page .sv-showcase-icon{display:none!important}
     .services-reference-page .sv-showcase-icon svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-    .services-reference-page .sv-card-number{display:block!important;margin:0!important;color:#ff9624!important;font:800 25px/1 'Kanit',var(--font-display),sans-serif!important;letter-spacing:0!important}
-    .services-reference-page .sv-card h3{position:relative;margin:0!important;padding:0 0 20px!important;color:#fff!important;font-family:'Kanit',var(--font-display),sans-serif!important;font-size:clamp(18px,1.55vw,24px)!important;font-weight:700!important;line-height:1.18!important;white-space:nowrap}
-    @media(min-width:701px){.services-reference-page .sv-card:first-child h3{font-size:17.5px!important;letter-spacing:-.4px}}
+    .services-reference-page .sv-card-number{position:absolute!important;top:25px!important;right:18px!important;display:block!important;margin:0!important;color:#ff9624!important;font-family:'Kanit',sans-serif!important;font-size:25px!important;font-weight:800!important;line-height:1!important;letter-spacing:0!important}
+    .services-reference-page .sv-card h3{position:relative;margin:0!important;padding:0 0 18px!important;color:#fff!important;font-family:'Kanit',var(--font-display),sans-serif!important;font-size:clamp(21px,1.65vw,25px)!important;font-weight:700!important;line-height:1.12!important;letter-spacing:-.35px!important;white-space:normal!important}
     .services-reference-page .sv-card h3:after{content:"";position:absolute;left:0;bottom:9px;width:86px;height:2px;background:linear-gradient(90deg,#ff8c19,rgba(255,140,25,0))}
-    .services-reference-page .sv-card p{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+    .services-reference-page .sv-card p{position:relative!important;width:auto!important;height:auto!important;padding:0!important;margin:0!important;overflow:visible!important;clip:auto!important;color:#f5eadd!important;font:400 13px/1.45 'Kanit',var(--font-display),sans-serif!important;display:block!important;white-space:normal!important;border:0!important}
     .services-reference-page .sv-card a.sv-card-cta{align-self:flex-end!important;display:grid!important;place-items:center!important;width:46px!important;height:46px!important;min-height:46px!important;margin:auto 0 0!important;padding:0!important;border:0!important;border-radius:50%!important;background:linear-gradient(145deg,#ff9717,#ff4b00)!important;box-shadow:inset 0 2px 0 rgba(255,255,255,.42),0 10px 20px rgba(240,70,0,.28)!important;transition:transform .25s ease,box-shadow .25s ease!important}
     .services-reference-page .sv-card a.sv-card-cta:before{content:"";position:absolute;inset:-5px;border:1px solid rgba(255,122,15,.28);border-radius:50%;transform:scale(.8);opacity:0;transition:transform .25s ease,opacity .25s ease}
     .services-reference-page .sv-card a.sv-card-cta:hover{transform:translateX(4px) scale(1.08)!important;box-shadow:inset 0 2px 0 rgba(255,255,255,.5),0 16px 28px rgba(240,70,0,.38)!important}
@@ -774,8 +778,11 @@
     @media(max-width:700px){
       .services-reference-page .sv-services{padding:56px 0 64px!important;background:#ead8c5!important}
       .services-reference-page .sv-services:before{inset:0;height:auto;background-color:#ead8c5;background-image:linear-gradient(180deg,rgba(255,255,255,.18) 0%,rgba(238,221,204,.42) 31%,rgba(226,205,183,.68) 100%),url("./assets/services/ref-v2/services-complete-hero-v2.webp");background-position:center top;background-size:auto 350px;background-repeat:no-repeat;filter:saturate(.88) brightness(1.04);transform:none;animation:none}
-      .services-reference-page .sv-showcase-head{margin-bottom:18px;padding-inline:4px}
-      .services-reference-page .sv-showcase-head h2{font-size:clamp(28px,8.7vw,39px);line-height:1.08;letter-spacing:-1.15px}
+      .services-reference-page .sv-showcase-head{align-items:flex-start;flex-direction:column;gap:14px;margin-bottom:18px;padding-inline:4px}
+      .services-reference-page .sv-showcase-head>div{max-width:none}
+      .services-reference-page .sv-showcase-head h2{font-size:35px;line-height:1.17;letter-spacing:-.8px}
+      .services-reference-page .sv-showcase-head p{margin-top:10px;font-size:15px;line-height:1.7}
+      .services-reference-page .sv-showcase-head>a{padding:3px 0 8px;font-size:14px}
       .services-reference-page .sv-showcase-head h2 span{display:block}
       .services-reference-page .sv-showcase-flow{display:flex;justify-content:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -20px 22px;padding:11px 20px 14px;scrollbar-width:none}
       .services-reference-page .sv-showcase-flow::-webkit-scrollbar{display:none}
@@ -787,12 +794,10 @@
       .services-reference-page .sv-card:after{clip-path:polygon(39% 0,100% 0,100% 100%,26% 100%)}
       .services-reference-page .sv-card:before{left:34%}
       .services-reference-page .sv-card-body{width:67%;margin-left:33%;padding:18px 15px 13px!important}
-      .services-reference-page .sv-card-heading{margin-bottom:8px!important}
-      .services-reference-page .sv-showcase-icon{width:50px;height:50px;border-radius:12px}
-      .services-reference-page .sv-showcase-icon svg{width:29px;height:29px}
-      .services-reference-page .sv-card-number{font-size:25px!important}
-      .services-reference-page .sv-card h3{font-size:clamp(21px,5.3vw,24px)!important;padding-bottom:17px!important;letter-spacing:-.35px}
-      .services-reference-page .sv-card:first-child h3{font-size:20px!important}
+      .services-reference-page .sv-card-body{padding:40px 15px 13px!important}
+      .services-reference-page .sv-card-number{top:18px!important;right:15px!important;font-size:25px!important}
+      .services-reference-page .sv-card h3{font-size:34px!important;padding-bottom:14px!important;letter-spacing:-.6px;white-space:normal;line-height:1.02!important}
+      .services-reference-page .sv-card p{font-size:12px!important;line-height:1.3!important}
       .services-reference-page .sv-card a.sv-card-cta{width:48px!important;height:48px!important;min-height:48px!important}
       .services-reference-page .sv-card a.sv-card-cta i{font-size:35px!important}
     }
@@ -800,9 +805,8 @@
       .services-reference-page .sv-card{min-height:225px!important;aspect-ratio:auto}
       .services-reference-page .sv-card:after{clip-path:polygon(34% 0,100% 0,100% 100%,22% 100%)}
       .services-reference-page .sv-card:before{left:30%}
-      .services-reference-page .sv-card-body{width:69%;margin-left:31%;padding:19px 14px 14px!important}
-      .services-reference-page .sv-card h3{font-size:21px!important}
-      .services-reference-page .sv-card:first-child h3{font-size:19px!important}
+      .services-reference-page .sv-card-body{width:69%;margin-left:31%;padding:39px 14px 14px!important}
+      .services-reference-page .sv-card h3{font-size:34px!important}
     }
     @media(prefers-reduced-motion:reduce){
       .services-reference-page .sv-services:before{animation:none!important}
@@ -959,8 +963,13 @@
 
     <section class="sv-services" aria-labelledby="service-list-title">
       <div class="sv-container">
-        <div class="sv-showcase-head reveal">
-          <h2 id="service-list-title">บริการรับเหมาก่อสร้าง<span>ครบวงจรของ NGE</span></h2>
+        <div class="sv-showcase-head split-heading reveal">
+          <div>
+            <span>งานที่เราดูแล</span>
+            <h2 id="service-list-title">บริการรับเหมาก่อสร้างครบวงจรของ NGE</h2>
+            <p>ดูแลงานก่อสร้างใหม่ ต่อเติม รีโนเวท โครงสร้าง งานระบบ และบริหารโครงการ พร้อมวางขอบเขตและงบให้ชัดก่อนเริ่มงาน</p>
+          </div>
+          <a href="/construction-quote?source=services">ส่งข้อมูลประเมินโครงการ <svg aria-hidden="true"><use href="#sv-i-handover"/></svg></a>
         </div>
         <ol class="sv-showcase-flow reveal" aria-label="ขั้นตอนการให้บริการของ NGE">
           <li><svg aria-hidden="true"><use href="#sv-i-survey"/></svg><span>สำรวจพื้นที่</span></li>
@@ -976,7 +985,7 @@
             <div class="sv-card-body">
               <div class="sv-card-heading"><span class="sv-showcase-icon"><svg aria-hidden="true"><use href="#sv-i-card-construction"/></svg></span><span class="sv-card-number">01</span></div>
               <h3>รับเหมาก่อสร้างครบวงจร</h3>
-              <p>บ้าน อาคาร สำนักงาน โรงเรียน ร้านค้า และโครงการหลายขนาด ดูแลตั้งแต่สำรวจพื้นที่ ประสานแบบ วางแผนงาน ประเมินราคา ควบคุมคุณภาพ จนถึงส่งมอบ</p>
+              <p>บ้าน อาคาร สำนักงาน และโครงการทุกขนาด</p>
               <a class="sv-card-cta" href="/build-home-nonthaburi"><span>ดูรายละเอียดรับสร้างบ้านและอาคาร</span><i aria-hidden="true">›</i></a>
             </div>
           </article>
@@ -985,7 +994,7 @@
             <div class="sv-card-body">
               <div class="sv-card-heading"><span class="sv-showcase-icon"><svg aria-hidden="true"><use href="#sv-i-card-extension"/></svg></span><span class="sv-card-number">02</span></div>
               <h3>ต่อเติมอาคาร</h3>
-              <p>เพิ่มห้อง เพิ่มพื้นที่ใช้สอย ต่อเติมครัว หลังคา โรงจอดรถ หรือส่วนใช้งานอื่น โดยตรวจโครงสร้างเดิม จุดเชื่อมต่อ และข้อจำกัดของพื้นที่ก่อนเลือกวิธีทำงาน</p>
+              <p>เพิ่มพื้นที่ใช้งานและตรวจสอบโครงสร้างเดิม</p>
               <a class="sv-card-cta" href="/extend-home-nonthaburi"><span>ดูรายละเอียดงานต่อเติม</span><i aria-hidden="true">›</i></a>
             </div>
           </article>
@@ -994,7 +1003,7 @@
             <div class="sv-card-body">
               <div class="sv-card-heading"><span class="sv-showcase-icon"><svg aria-hidden="true"><use href="#sv-i-card-renovation"/></svg></span><span class="sv-card-number">03</span></div>
               <h3>รีโนเวท นนทบุรี</h3>
-              <p>ปรับปรุงบ้าน อาคาร สำนักงาน ร้านค้า และพื้นที่เดิม โดยจัดลำดับงานรื้อ ซ่อมโครงสร้าง งานระบบ และงานตกแต่งให้ทำต่อเนื่องกันและควบคุมงบได้ง่ายขึ้น</p>
+              <p>ดูผลงาน ขอบเขตงาน และส่งรูปขอประเมิน</p>
               <a class="sv-card-cta" href="/renovation-service-nonthaburi"><span>รีโนเวท นนทบุรี — ดูผลงานและขอประเมิน</span><i aria-hidden="true">›</i></a>
             </div>
           </article>
@@ -1003,7 +1012,7 @@
             <div class="sv-card-body">
               <div class="sv-card-heading"><span class="sv-showcase-icon"><svg aria-hidden="true"><use href="#sv-i-card-structure"/></svg></span><span class="sv-card-number">04</span></div>
               <h3>งานโครงสร้าง</h3>
-              <p>ฐานราก เสา คาน พื้น คอนกรีต เหล็ก และงานโครงสร้างที่เกี่ยวข้อง ดำเนินงานตามแบบและหลักวิศวกรรม พร้อมตรวจสอบคุณภาพในแต่ละช่วงงาน</p>
+              <p>ฐานราก คอนกรีต เหล็ก และงานเสริมกำลัง</p>
               <a class="sv-card-cta" href="/contact"><span>ส่งแบบหรือรูปหน้างานให้ประเมิน</span><i aria-hidden="true">›</i></a>
             </div>
           </article>
@@ -1012,7 +1021,7 @@
             <div class="sv-card-body">
               <div class="sv-card-heading"><span class="sv-showcase-icon"><svg aria-hidden="true"><use href="#sv-i-card-mep"/></svg></span><span class="sv-card-number">05</span></div>
               <h3>งานระบบอาคาร</h3>
-              <p>งานไฟฟ้า ประปา สุขาภิบาล ปรับอากาศ และระบบประกอบอาคาร โดยประสานตำแหน่งงานระบบกับงานสถาปัตยกรรมและโครงสร้างเพื่อลดปัญหาหน้างาน</p>
+              <p>ไฟฟ้า ประปา สุขาภิบาล และปรับอากาศ</p>
               <a class="sv-card-cta" href="/contact"><span>ปรึกษางานระบบอาคาร</span><i aria-hidden="true">›</i></a>
             </div>
           </article>
@@ -1021,7 +1030,7 @@
             <div class="sv-card-body">
               <div class="sv-card-heading"><span class="sv-showcase-icon"><svg aria-hidden="true"><use href="#sv-i-card-management"/></svg></span><span class="sv-card-number">06</span></div>
               <h3>บริหารโครงการ</h3>
-              <p>วางแผนและติดตามความคืบหน้า ประสานผู้เกี่ยวข้อง ควบคุมคุณภาพ งบประมาณ และจุดตรวจรับ เพื่อให้เจ้าของโครงการเห็นสถานะงานและประเด็นสำคัญได้ชัดเจน</p>
+              <p>ควบคุมแผนงาน คุณภาพ และการประสานงาน</p>
               <a class="sv-card-cta" href="/contact"><span>คุยขอบเขตการบริหารโครงการ</span><i aria-hidden="true">›</i></a>
             </div>
           </article>

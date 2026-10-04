@@ -10,6 +10,7 @@ export function LegacyPage({ file, project = false, includeJsonLd = true }: { fi
     <LegacyBodyState page={page.page} bodyClass={page.bodyClass} />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" />
     <link rel="stylesheet" href="/legacy/styles.min.css?v=20260929-11" />
+    {(page.page === "home" || page.page === "projects") && <link rel="stylesheet" href="/portfolio-reference.css?v=20260930-12" />}
     {!project && <link rel="stylesheet" href="/legacy/service-seo.css?v=20260928-4" />}
     {project && <link rel="stylesheet" href="/legacy/project-detail.css?v=20260920" />}
     {includeJsonLd && page.jsonLd.map((value, index) => <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: value.replace(/</g, "\\u003c") }} />)}
