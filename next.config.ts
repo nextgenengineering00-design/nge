@@ -35,6 +35,15 @@ const nextConfig: NextConfig = {
       source: "/assets/:path*",
       headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }]
     }, {
+      source: "/legacy/app.js",
+      headers: [{ key: "Cache-Control", value: "public, max-age=0, must-revalidate" }]
+    }, {
+      source: "/legacy/crm.js",
+      headers: [{ key: "Cache-Control", value: "private, max-age=0, must-revalidate" }]
+    }, {
+      source: "/legacy/site-config.js",
+      headers: [{ key: "Cache-Control", value: "public, max-age=0, must-revalidate" }]
+    }, {
       source: "/legacy/:path*",
       headers: [{ key: "Cache-Control", value: "public, max-age=604800, stale-while-revalidate=86400" }]
     }];

@@ -286,9 +286,15 @@
     const link = event.target.closest?.('a[href]');
     if (!link) return;
     const href = link.getAttribute('href') || '';
+    if (href.startsWith('mailto:')) trackEvent('click_email', { contact_method: 'email' });
+    if (/google\.(?:com|co\.th)\/maps|maps\.app\.goo\.gl/i.test(href)) trackEvent('click_map', { contact_method: 'map', link_url: href });
     if (/NGE-Company-Profile\.pdf/i.test(href)) trackEvent('company_profile_download', { link_url: href, page_path: location.pathname });
     if (/^\/projects(?:\/|$)/.test(href)) trackEvent('project_click', { link_url: href, project_name: link.textContent.trim().slice(0, 120), page_path: location.pathname });
-    if (link.matches('.js-estimate-link,[data-estimate-source]')) trackEvent('photo_estimate_cta', { source: link.dataset.estimateSource || link.closest('[data-estimate-cta]')?.dataset.estimateCta || 'website', page_path: location.pathname });
+    if (link.matches('.js-estimate-link,[data-estimate-source]')) {
+      const source = link.dataset.estimateSource || link.closest('[data-estimate-cta]')?.dataset.estimateCta || 'website';
+      trackEvent('photo_estimate_cta', { source, page_path: location.pathname });
+      trackEvent('request_survey', { source, request_type: 'photo_estimate', page_path: location.pathname });
+    }
   });
 
   // Track paid social landing sessions without overwriting first-touch attribution.
@@ -472,7 +478,9 @@
         $$('[data-min-today]', leadForm).forEach(input => { input.min = minDate; });
         const photoNotice = result.photosRequested > 0 && result.photosUploaded === 0 ? ' รับข้อมูลแล้ว แต่รูปยังไม่ถูกอัปโหลด กรุณาส่งรูปซ้ำทาง LINE @522magc' : '';
         setFormStatus(leadForm, (isBooking ? 'รับคำขอแล้ว ทีมงานจะโทรกลับเพื่อยืนยันรายละเอียด' : 'ส่งข้อมูลสำเร็จ ทีมงานจะติดต่อกลับโดยเร็วที่สุด') + photoNotice, 'success');
-        trackEvent('generate_lead', { service: payload.service, form_id: leadForm.id || 'leadForm', lead_type: leadForm.dataset.photoEstimate === 'true' ? 'photo_estimate' : (isBooking ? 'consultation_booking' : 'callback_request'), photo_count: result.photosUploaded || 0, utm_source: payload.utm_source || '', utm_campaign: payload.utm_campaign || '' });
+        const leadType = leadForm.dataset.photoEstimate === 'true' ? 'photo_estimate' : (isBooking ? 'consultation_booking' : 'callback_request');
+        trackEvent('generate_lead', { lead_id: result.leadId || '', service: payload.service, form_id: leadForm.id || 'leadForm', lead_type: leadType, photo_count: result.photosUploaded || 0, utm_source: payload.utm_source || '', utm_campaign: payload.utm_campaign || '' });
+        if (isBooking) trackEvent('book_survey_request', { lead_id: result.leadId || '', service: payload.service, preferred_slot: appointment, utm_source: payload.utm_source || '', utm_campaign: payload.utm_campaign || '' });
         if (window.fbq) window.fbq('track', 'Lead', { content_name: payload.service || 'Website Lead' });
       } catch (error) {
         console.error('Lead submission failed:', error);

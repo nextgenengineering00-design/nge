@@ -81,7 +81,7 @@
           <div><span>กำลังติดตาม</span><b id="metricActive">0</b></div>
           <div><span>งานด่วน</span><b id="metricUrgent">0</b></div>
           <div><span>รอติดต่อเกิน 2 ชม.</span><b id="metricSla">0</b></div>
-          <div><span>ปิดงานสำเร็จ</span><b id="metricWon">0</b></div>
+          <div><span>งานที่ปิดได้จริง</span><b id="metricWon">0</b></div>
         </section>
 
         <section class="leads-panel" id="leads">
@@ -101,7 +101,7 @@
 
           <div class="crm-toolbar">
             <label class="search-field"><span aria-hidden="true">⌕</span><input id="leadSearch" type="search" placeholder="ค้นหาชื่อ เบอร์โทร อีเมล พื้นที่ หรืองาน"></label>
-            <select id="statusFilter" aria-label="กรองตามสถานะ"><option value="">ทุกสถานะ</option><option value="new">ลูกค้าใหม่</option><option value="contacted">ติดต่อแล้ว</option><option value="qualified">ประเมินงาน</option><option value="won">ปิดงานสำเร็จ</option><option value="lost">ไม่ดำเนินการ</option><option value="spam">สแปม</option></select>
+            <select id="statusFilter" aria-label="กรองตามสถานะ"><option value="">ทุกสถานะ</option><option value="new">ลูกค้าใหม่</option><option value="contacted">ติดต่อแล้ว</option><option value="qualified">นัดสำรวจ / ประเมินงาน</option><option value="won">ปิดงานสำเร็จ</option><option value="lost">ไม่ดำเนินการ</option><option value="spam">สแปม</option></select>
             <select id="ownerFilter" aria-label="กรองตามผู้รับผิดชอบ"><option value="">ทุกคน</option><option value="unassigned">ยังไม่มอบหมาย</option></select>
             <select id="serviceFilter" aria-label="กรองตามบริการ"><option value="">ทุกประเภทงาน</option></select>
             <select id="sourceFilter" aria-label="กรองตามแหล่งที่มา"><option value="">ทุกช่องทาง</option></select>
@@ -151,7 +151,7 @@
 
       <input id="detailId" type="hidden">
       <div class="editor-grid">
-        <label>สถานะ<select id="detailStatus"><option value="new">ลูกค้าใหม่</option><option value="contacted">ติดต่อแล้ว</option><option value="qualified">ประเมินงาน</option><option value="won">ปิดงานสำเร็จ</option><option value="lost">ไม่ดำเนินการ</option><option value="spam">สแปม</option></select></label>
+        <label>สถานะ<select id="detailStatus"><option value="new">ลูกค้าใหม่</option><option value="contacted">ติดต่อแล้ว</option><option value="qualified">นัดสำรวจ / ประเมินงาน</option><option value="won">ปิดงานสำเร็จ</option><option value="lost">ไม่ดำเนินการ</option><option value="spam">สแปม</option></select></label>
         <label>ความสำคัญ<select id="detailPriority"><option value="normal">ปกติ</option><option value="high">สำคัญ</option><option value="urgent">ด่วน</option><option value="low">ต่ำ</option></select></label>
         <label>ผู้รับผิดชอบ<select id="detailOwner"><option value="">ยังไม่มอบหมาย</option></select></label>
         <label>กำหนดติดตามครั้งถัดไป<input id="detailFollowup" type="datetime-local"></label>

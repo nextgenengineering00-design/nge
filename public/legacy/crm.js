@@ -10,7 +10,7 @@
   const activeStatuses = ['new', 'contacted', 'qualified'];
   const closedStatuses = ['won', 'lost', 'spam'];
   const allowedRoles = ['crm_admin', 'crm_staff'];
-  const statusLabels = { new: 'ลูกค้าใหม่', contacted: 'ติดต่อแล้ว', qualified: 'ประเมินงาน', won: 'ปิดงานสำเร็จ', lost: 'ไม่ดำเนินการ', spam: 'สแปม' };
+  const statusLabels = { new: 'ลูกค้าใหม่', contacted: 'ติดต่อแล้ว', qualified: 'นัดสำรวจ / ประเมินงาน', won: 'ปิดงานสำเร็จ', lost: 'ไม่ดำเนินการ', spam: 'สแปม' };
   const priorityLabels = { low: 'ต่ำ', normal: 'ปกติ', high: 'สำคัญ', urgent: 'ด่วน' };
   const queueLabels = { all: 'แสดงลูกค้าทั้งหมด', new: 'คิวลูกค้าใหม่ที่รอติดต่อ', today: 'คิวที่ต้องติดตามภายในวันนี้', overdue: 'คิวติดตามที่เกินกำหนด', unassigned: 'คิวที่ยังไม่มีผู้รับผิดชอบ', urgent: 'คิวงานด่วน' };
   const activityLabels = { status_changed: 'เปลี่ยนสถานะ', owner_changed: 'เปลี่ยนผู้รับผิดชอบ', follow_up_changed: 'เปลี่ยนวันติดตาม', contact_recorded: 'บันทึกการติดต่อ', lead_updated: 'แก้ไขข้อมูล' };

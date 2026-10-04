@@ -3,9 +3,9 @@ import { JsonLd } from "@/components/json-ld";
 import { LegacyPage } from "@/components/legacy-page";
 import { absoluteUrl, site } from "@/lib/site-data";
 
-const homeTitle = "รับเหมาก่อสร้างครบวงจร นนทบุรี | NGE";
+const homeTitle = "รับเหมาก่อสร้างครบวงจร นนทบุรี | ทีมวิศวกร NGE";
 const homeDescription =
-  "NGE รับเหมาก่อสร้างครบวงจร นนทบุรี สร้างบ้าน อาคาร ต่อเติม รีโนเวท งานโครงสร้าง งานระบบและงานโยธา ดูแลโดยทีมวิศวกร ประสบการณ์กว่า 40 ปี";
+  "ผู้รับเหมาก่อสร้างครบวงจรในนนทบุรี โดยทีมวิศวกรประสบการณ์กว่า 40 ปี รับสร้างบ้าน อาคาร ต่อเติม รีโนเวท งานระบบและงานโยธา ส่งรูปหน้างานเพื่อประเมินเบื้องต้น";
 
 export const metadata: Metadata = {
   title: { absolute: homeTitle },
