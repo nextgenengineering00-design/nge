@@ -12,6 +12,7 @@ out/
 /dist/
 .vinext/
 .wrangler/
+tmp/
 
 *.rar
 *.zip
