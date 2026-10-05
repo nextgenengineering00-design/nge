@@ -12,6 +12,7 @@ import { absoluteUrl, projects, site } from "@/lib/site-data";
 export function LocalAreaPage({ slug }: { slug: LocalAreaSlug }) {
   const page = localAreas[slug];
   const isNonthaburi = slug === "contractor-nonthaburi";
+  const areaName = isNonthaburi || page.area.includes("นนทบุรี") ? page.area : `${page.area} นนทบุรี`;
   const featuredProjects = ["lake-legend", "phra2-renovation", "rc-road-saraburi-12-ton"].map(projectSlug => projects.find(project => project.slug === projectSlug)!);
   const siblings = Object.values(localAreas).filter(item => item.slug !== slug);
   const schema = {
@@ -24,7 +25,7 @@ export function LocalAreaPage({ slug }: { slug: LocalAreaSlug }) {
         url: absoluteUrl(`/${slug}`),
         description: page.description,
         provider: { "@type": "GeneralContractor", "@id": `${site.url}/#organization`, name: site.name, telephone: site.phone, address: { "@type": "PostalAddress", streetAddress: site.streetAddress, addressLocality: "นนทบุรี", postalCode: site.postalCode, addressCountry: "TH" } },
-        areaServed: { "@type": "AdministrativeArea", name: isNonthaburi ? "นนทบุรี" : `${page.area} นนทบุรี` },
+        areaServed: { "@type": "AdministrativeArea", name: areaName },
         serviceType: ["รับเหมาก่อสร้าง", "สร้างบ้าน", "ต่อเติม", "รีโนเวท", "งานโครงสร้าง", "งานระบบอาคาร"],
       },
       {
@@ -58,7 +59,7 @@ export function LocalAreaPage({ slug }: { slug: LocalAreaSlug }) {
             <h1>{page.h1}</h1>
             <p>{page.lead}</p>
             <div className="seo-actions"><Link className="btn btn-dark" href="/contact?service=construction">ขอประเมินโครงการ</Link><a className="btn btn-dark js-line-link" href="https://lin.ee/u45yvnc">ส่งรูปทาง LINE</a></div>
-            <p className="local-coverage">พื้นที่บริการ: {isNonthaburi ? "นนทบุรีและพื้นที่ใกล้เคียง" : `${page.area} นนทบุรีและพื้นที่ใกล้เคียง`}</p>
+            <p className="local-coverage">พื้นที่บริการ: {areaName} และพื้นที่ใกล้เคียง</p>
             {isNonthaburi && <div className="local-proof-row" aria-label="ข้อมูลผู้รับเหมา"><span>วิศวกรโยธา {site.engineerLicense}</span><span>จดทะเบียนนิติบุคคล {site.legalId}</span></div>}
           </div>
           <figure className="seo-photo"><Image src={page.image} alt={page.imageAlt} width={800} height={600} priority sizes="(max-width: 760px) 100vw, 48vw" /><figcaption>{page.imageAlt} · <Link href="/projects">ดูผลงานจริงทั้งหมด</Link></figcaption></figure>

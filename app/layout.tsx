@@ -31,8 +31,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     address: { "@type": "PostalAddress", streetAddress: site.streetAddress, addressLocality: "นนทบุรี", addressRegion: "นนทบุรี", postalCode: site.postalCode, addressCountry: "TH" },
     hasMap: site.mapUrl,
     identifier: [{ "@type": "PropertyValue", name: "เลขทะเบียนนิติบุคคล", value: site.legalId }, { "@type": "PropertyValue", name: "ใบอนุญาตวิศวกรโยธา", value: site.engineerLicense }],
-    areaServed: ["นนทบุรี", "บางใหญ่", "บางกรวย", "บางบัวทอง", "ไทรน้อย", "ปากเกร็ด", "กรุงเทพมหานคร", "ปทุมธานี", "ปริมณฑล"], priceRange: "฿฿฿",
-    sameAs: [site.facebook, `https://www.dataforthai.com/company/${site.legalId}/`]
+    areaServed: ["นนทบุรี", "เมืองนนทบุรี", "บางใหญ่", "บางกรวย", "บางบัวทอง", "ไทรน้อย", "ปากเกร็ด", "กรุงเทพมหานคร", "ปทุมธานี", "ปริมณฑล"], priceRange: "฿฿฿",
+    sameAs: [site.facebook, site.mapUrl, `https://www.dataforthai.com/company/${site.legalId}/`]
   }, { "@context": "https://schema.org", "@type": "WebSite", "@id": `${site.url}/#website`, name: site.name, url: site.url, inLanguage: "th-TH", publisher: { "@id": `${site.url}/#organization` } }];
   return <html lang="th"><body className={`${thai.variable} ${display.variable}`}><JsonLd data={schema} />{children}</body></html>;
 }
