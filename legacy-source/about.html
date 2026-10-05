@@ -30,6 +30,73 @@
     outline:3px solid rgba(245,164,0,.35);
     outline-offset:4px;
   }
+  .about-why-nge{
+    margin-top:52px;
+    padding:42px;
+    color:#fff;
+    background:linear-gradient(135deg,#171717 0%,#292929 100%);
+    border-radius:28px;
+    box-shadow:0 24px 70px rgba(0,0,0,.16);
+  }
+  .about-why-nge-head{
+    max-width:780px;
+    margin-bottom:28px;
+  }
+  .about-why-nge-kicker{
+    display:block;
+    margin-bottom:7px;
+    color:#f5a400;
+    font:700 .82rem/1.2 "Anuphan",sans-serif;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+  }
+  .about-why-nge h2{
+    margin:0 0 10px;
+    color:#fff;
+    font-size:clamp(1.7rem,3.2vw,2.65rem);
+    line-height:1.2;
+  }
+  .about-why-nge-head p{
+    margin:0;
+    color:rgba(255,255,255,.75);
+    font-size:1.02rem;
+  }
+  .about-why-nge-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:18px;
+  }
+  .about-why-nge-card{
+    padding:26px;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:20px;
+    background:rgba(255,255,255,.055);
+  }
+  .about-why-nge-card strong{
+    display:block;
+    margin-bottom:10px;
+    color:#f5a400;
+    font:700 clamp(1.55rem,3vw,2.2rem)/1.05 "Anuphan",sans-serif;
+  }
+  .about-why-nge-card h3{
+    margin:0 0 8px;
+    color:#fff;
+    font-size:1.2rem;
+  }
+  .about-why-nge-card p{
+    margin:0;
+    color:rgba(255,255,255,.78);
+    line-height:1.72;
+  }
+  .about-why-nge-assurance{
+    margin:20px 0 0;
+    padding:18px 22px;
+    color:#1b1b1b;
+    background:#f5a400;
+    border-radius:16px;
+    font-weight:600;
+    line-height:1.65;
+  }
   @media(max-width:600px){
     .about-profile-download-placement{
       margin-top:22px;
@@ -38,6 +105,13 @@
       width:min(100%,280px);
       max-width:280px;
     }
+    .about-why-nge{
+      margin-top:34px;
+      padding:26px 20px;
+      border-radius:22px;
+    }
+    .about-why-nge-grid{grid-template-columns:1fr}
+    .about-why-nge-card{padding:22px 20px}
   }
   @media(prefers-reduced-motion:reduce){
     .about-profile-download-image{transition:none}
@@ -74,6 +148,37 @@
       <article class="reveal"><h2>เรามีบริการออกแบบและวางแผนก่อสร้าง</h2><p>ประสานงานสถาปัตยกรรม โครงสร้าง และงานระบบ ให้แบบ งบประมาณ และขั้นตอนก่อสร้างไปในทิศทางเดียวกัน</p><a href="/services">ดูบริการออกแบบก่อสร้าง</a></article>
     </div>
 
+    <section class="container about-why-nge reveal" aria-labelledby="why-nge-title">
+      <div class="about-why-nge-head">
+        <span class="about-why-nge-kicker">WHY CHOOSE NGE</span>
+        <h2 id="why-nge-title">ทำไมต้องเลือก NGE</h2>
+        <p>เราไม่ได้ขายแค่ราคาก่อสร้าง แต่ส่งมอบประสบการณ์ มาตรฐาน และความรับผิดชอบที่พิสูจน์จากงานจริง</p>
+      </div>
+      <div class="about-why-nge-grid">
+        <article class="about-why-nge-card">
+          <strong>40+ ปี</strong>
+          <h3>ประสบการณ์โครงการภาครัฐ</h3>
+          <p>ผ่านระบบงานที่ต้องควบคุมแบบ ข้อกำหนด วัสดุ ระยะเวลา และการตรวจรับอย่างเป็นขั้นตอน จึงเข้าใจงานที่ต้องการมาตรฐานและความถูกต้องสูง</p>
+        </article>
+        <article class="about-why-nge-card">
+          <strong>300+ ผลงาน</strong>
+          <h3>ผลงานรวมมูลค่าหลายร้อยล้านบาท</h3>
+          <p>มีประสบการณ์ทั้งอาคารราชการ อาคารพักอาศัย โรงเรียน สำนักงาน งานรีโนเวท และงานระบบ ตั้งแต่งานขนาดเล็กถึงโครงการขนาดใหญ่</p>
+        </article>
+        <article class="about-why-nge-card">
+          <strong>มาตรฐานภาครัฐ</strong>
+          <h3>คุณภาพที่ตรวจสอบได้</h3>
+          <p>วางแผนงาน ตรวจสอบวัสดุ ควบคุมหน้างาน และตรวจคุณภาพก่อนส่งมอบด้วยหลักการเดียวกับงานภาครัฐ พร้อมรายงานความคืบหน้าที่เจ้าของงานติดตามได้</p>
+        </article>
+        <article class="about-why-nge-card">
+          <strong>รับผิดชอบหลังส่งมอบ</strong>
+          <h3>ลดความเสี่ยงปัญหาภายหลัง</h3>
+          <p>ตรวจเก็บรายละเอียดก่อนส่งมอบ รับประกันคุณภาพตามขอบเขตสัญญา และมีทีมดูแลหากพบข้อบกพร่องจากงานก่อสร้าง</p>
+        </article>
+      </div>
+      <p class="about-why-nge-assurance">เลือก NGE คือเลือกทีมที่นำมาตรฐานจากโครงการภาครัฐมาใช้กับทุกงาน เพื่อให้งานแข็งแรง เรียบร้อย ตรวจสอบได้ และใช้งานได้อย่างมั่นใจในระยะยาว</p>
+    </section>
+
     <div class="container about-swnp-history-head reveal">
       <h2>จากจุดเริ่มต้น – ปัจจุบัน</h2>
       <p>กว่าจะมาเป็น Next Gen Engineering</p>
@@ -87,8 +192,8 @@
       <article class="history-card history-card-dark history-work reveal"><div><b>จุดเริ่มต้น</b><p>ทำงานจากประสบการณ์หน้างานจริง ทั้งงานบ้าน อาคาร และงานปรับปรุงซ่อมแซม</p></div></article>
       <article class="history-card history-card-light history-experience reveal"><div><b>40+ ปี</b><p>ประสบการณ์ที่สั่งสมจากงานก่อสร้างหลายประเภท ทำให้เราเข้าใจข้อจำกัดของแต่ละโครงการและเลือกวิธีทำงานได้เหมาะกับหน้างาน</p></div></article>
       <article class="history-card history-card-dark history-variety reveal"><div><b>หลายประเภทงาน</b><p>บ้าน อาคารราชการ โรงเรียน ร้านค้า ร้านอาหาร งานต่อเติม รีโนเวท โครงสร้าง และงานระบบ</p></div></article>
-      <article class="history-card history-card-light history-projects reveal"><div><b>500+ ผลงาน</b><p>ผ่านทั้งโครงการขนาดเล็กและขนาดใหญ่ โดยยึดขอบเขตงาน คุณภาพ และการประสานงานเป็นหลัก</p></div></article>
-      <article class="history-card history-card-light history-value reveal"><div><b>400+ ล้านบาท</b><p>มูลค่าผลงานรวมจากงานก่อสร้างและปรับปรุงที่ดำเนินการมาอย่างต่อเนื่อง</p></div></article>
+      <article class="history-card history-card-light history-projects reveal"><div><b>300+ ผลงาน</b><p>ผ่านทั้งโครงการขนาดเล็กและขนาดใหญ่ โดยยึดขอบเขตงาน คุณภาพ และการประสานงานเป็นหลัก</p></div></article>
+      <article class="history-card history-card-light history-value reveal"><div><b>หลายร้อยล้านบาท</b><p>มูลค่าผลงานรวมจากงานก่อสร้างและปรับปรุงที่ดำเนินการมาอย่างต่อเนื่อง</p></div></article>
       <article class="history-card history-card-dark history-next reveal"><div><b>NGE</b><p>ต่อยอดประสบการณ์เดิมสู่ Next Gen Engineering พร้อมระบบวางแผนและติดตามงานที่ชัดขึ้น</p></div></article>
       <article class="history-card history-card-light history-system reveal"><div><b>วันนี้</b><p>ดูแลโครงการตั้งแต่สำรวจ วางแผน ประเมินราคา ประสานแบบ ควบคุมงาน ตรวจสอบ และส่งมอบ</p></div></article>
       <article class="history-card history-card-dark history-area reveal"><div><b>นนทบุรี</b><p>รับงานในนนทบุรี กรุงเทพฯ และพื้นที่ปริมณฑล</p></div></article>
