@@ -23,5 +23,8 @@ export const metadata = {
 };
 
 export default function Page() {
-  return <LegacyPage file="services.html" />;
+  return <>
+    <link rel="preload" as="image" href="/assets/services/service-hero-house-team.webp" type="image/webp" fetchPriority="high" />
+    <LegacyPage file="services.html" />
+  </>;
 }
