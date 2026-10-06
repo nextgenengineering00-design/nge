@@ -1,11 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Anuphan, Sarabun } from "next/font/google";
+import { Anuphan, Kanit, Sarabun } from "next/font/google";
 import "./globals.css";
 import { JsonLd } from "@/components/json-ld";
 import { absoluteUrl, site } from "@/lib/site-data";
 
 const thai = Sarabun({ subsets: ["thai", "latin"], weight: ["300", "400", "500", "600"], variable: "--font-legacy-body", display: "swap", preload: false });
 const display = Anuphan({ subsets: ["thai", "latin"], weight: ["400", "500", "600", "700"], variable: "--font-legacy-display", display: "swap", preload: false });
+const kanit = Kanit({ subsets: ["thai", "latin"], weight: ["300", "400", "500", "600", "700", "800"], variable: "--font-kanit", display: "swap", preload: false });
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -34,5 +35,5 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     areaServed: ["นนทบุรี", "เมืองนนทบุรี", "บางใหญ่", "บางกรวย", "บางบัวทอง", "ไทรน้อย", "ปากเกร็ด", "กรุงเทพมหานคร", "ปทุมธานี", "ปริมณฑล"], priceRange: "฿฿฿",
     sameAs: [site.facebook, site.mapUrl, `https://www.dataforthai.com/company/${site.legalId}/`]
   }, { "@context": "https://schema.org", "@type": "WebSite", "@id": `${site.url}/#website`, name: site.name, url: site.url, inLanguage: "th-TH", publisher: { "@id": `${site.url}/#organization` } }];
-  return <html lang="th"><body className={`${thai.variable} ${display.variable}`}><JsonLd data={schema} />{children}</body></html>;
+  return <html lang="th"><body className={`${thai.variable} ${display.variable} ${kanit.variable}`}><JsonLd data={schema} />{children}</body></html>;
 }

@@ -38,7 +38,7 @@ body[data-page="projects"] .projects-portfolio-reference > .container { position
 }
 .portfolio-reference-heading > span {
   color: #dc5d08;
-  font: 600 12px/1.2 "Kanit", sans-serif;
+  font: 600 12px/1.2 var(--font-kanit), sans-serif;
   letter-spacing: .18em;
   text-transform: uppercase;
 }
@@ -46,13 +46,13 @@ body[data-page="projects"] .projects-portfolio-reference > .container { position
 .portfolio-reference-heading h2 {
   margin: 7px 0 0;
   color: #171717;
-  font: 600 clamp(34px, 4.2vw, 54px)/1.13 "Kanit", sans-serif;
+  font: 600 clamp(34px, 4.2vw, 54px)/1.13 var(--font-kanit), sans-serif;
   letter-spacing: -.025em;
 }
 .portfolio-reference-heading p {
   margin: 4px 0 0;
   color: #5a4a3e;
-  font: 400 clamp(16px, 1.7vw, 20px)/1.4 "Kanit", sans-serif;
+  font: 400 clamp(16px, 1.7vw, 20px)/1.4 var(--font-kanit), sans-serif;
 }
 .portfolio-reference-heading .portfolio-view-all {
   display: inline-flex;
@@ -60,7 +60,7 @@ body[data-page="projects"] .projects-portfolio-reference > .container { position
   gap: 9px;
   margin-top: 15px;
   color: #a74705;
-  font: 500 14px/1.2 "Kanit", sans-serif;
+  font: 500 14px/1.2 var(--font-kanit), sans-serif;
   text-decoration: none;
 }
 .portfolio-reference-heading .portfolio-view-all:hover { color: #171717; }
@@ -82,7 +82,7 @@ body[data-page="projects"] .projects-portfolio-reference .project-filter-copy {
 .home-projects-editorial .project-filter-copy > span,
 body[data-page="projects"] .projects-portfolio-reference .project-filter-copy > span {
   color: #302319;
-  font: 500 13px/1.2 "Kanit", sans-serif;
+  font: 500 13px/1.2 var(--font-kanit), sans-serif;
   letter-spacing: .04em;
 }
 .home-projects-editorial .project-filter-copy > b,
@@ -97,7 +97,7 @@ body[data-page="projects"] .projects-portfolio-reference .project-filter-btn {
   border-radius: 2px;
   background: rgba(255,255,255,.68);
   color: #35291f;
-  font: 400 13px/1 "Kanit", sans-serif;
+  font: 400 13px/1 var(--font-kanit), sans-serif;
 }
 .home-projects-editorial .project-filter-btn[aria-pressed="true"],
 body[data-page="projects"] .projects-portfolio-reference .project-filter-btn[aria-pressed="true"] {
@@ -113,14 +113,14 @@ body[data-page="projects"] .projects-portfolio-reference .project-filter-btn > s
   padding: 0 4px;
   background: rgba(255,255,255,.16);
   color: inherit;
-  font: 400 10px/1 "Kanit", sans-serif;
+  font: 400 10px/1 var(--font-kanit), sans-serif;
 }
 .home-projects-editorial .project-filter-status,
 body[data-page="projects"] .projects-portfolio-reference .project-filter-status {
   margin: 8px 0 15px;
   text-align: center;
   color: #62584f;
-  font: 400 12px/1.4 "Kanit", sans-serif;
+  font: 400 12px/1.4 var(--font-kanit), sans-serif;
 }
 .home-projects-editorial .project-grid,
 body[data-page="projects"] .projects-portfolio-reference .project-grid {
@@ -149,7 +149,7 @@ body[data-page="projects"] .projects-portfolio-reference .project-card::before {
   top: 16px;
   right: 18px;
   color: #ff8a19;
-  font: 700 clamp(19px, 2vw, 27px)/1 "Kanit", sans-serif;
+  font: 700 clamp(19px, 2vw, 27px)/1 var(--font-kanit), sans-serif;
   pointer-events: none;
 }
 .home-projects-editorial .project-card:hover,
@@ -224,7 +224,7 @@ body[data-page="projects"] .projects-portfolio-reference .project-body > h3 {
   min-height: 0;
   margin: 9px 0 0;
   color: #fff;
-  font: 600 clamp(18px, 1.75vw, 24px)/1.25 "Kanit", sans-serif;
+  font: 600 clamp(18px, 1.75vw, 24px)/1.25 var(--font-kanit), sans-serif;
   letter-spacing: -.02em;
 }
 .home-projects-editorial .project-body > h3::after,
@@ -243,7 +243,7 @@ body[data-page="projects"] .projects-portfolio-reference .project-body > p {
   margin: 10px 0 0;
   overflow: hidden;
   color: rgba(255,255,255,.86);
-  font: 400 clamp(11px, 1.08vw, 14px)/1.55 "Kanit", sans-serif;
+  font: 400 clamp(11px, 1.08vw, 14px)/1.55 var(--font-kanit), sans-serif;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -261,7 +261,7 @@ body[data-page="projects"] .projects-portfolio-reference .project-body .project-
   order: 2;
   margin-top: 10px;
   color: rgba(255,255,255,.86);
-  font: 400 clamp(11px, 1.08vw, 14px)/1.5 "Kanit", sans-serif;
+  font: 400 clamp(11px, 1.08vw, 14px)/1.5 var(--font-kanit), sans-serif;
 }
 body[data-page="projects"] .projects-portfolio-reference .project-body .project-facts span:nth-child(n+3) { display: none; }
 body[data-page="projects"] .projects-portfolio-reference .project-body .project-facts span {
@@ -269,7 +269,7 @@ body[data-page="projects"] .projects-portfolio-reference .project-body .project-
   border: 0;
   background: transparent;
   color: rgba(255,255,255,.86);
-  font: 400 clamp(11px, 1.08vw, 14px)/1.5 "Kanit", sans-serif;
+  font: 400 clamp(11px, 1.08vw, 14px)/1.5 var(--font-kanit), sans-serif;
 }
 .home-projects-editorial .project-body > a,
 body[data-page="projects"] .projects-portfolio-reference .project-body > a {
@@ -298,14 +298,14 @@ body[data-page="projects"] .projects-portfolio-reference .project-body > a::afte
   border-radius: 50%;
   background: linear-gradient(145deg, #ff8b18, #ff6208);
   color: #fff;
-  font: 500 38px/1 "Kanit", sans-serif;
+  font: 500 38px/1 var(--font-kanit), sans-serif;
   box-shadow: 0 5px 13px rgba(255,99,0,.24);
   transition: transform .25s ease, box-shadow .25s ease;
 }
 .home-projects-editorial .project-card:hover .project-body > a::after,
 body[data-page="projects"] .projects-portfolio-reference .project-card:hover .project-body > a::after { transform: translateX(3px); box-shadow: 0 8px 19px rgba(255,99,0,.36); }
 .home-projects-editorial .project-value-note,
-body[data-page="projects"] .projects-portfolio-reference .project-value-note { color: #5e554b; font-family: "Kanit", sans-serif; }
+body[data-page="projects"] .projects-portfolio-reference .project-value-note { color: #5e554b; font-family: var(--font-kanit), sans-serif; }
 body[data-page="projects"] .projects-hero {
   height: clamp(340px, 29vw, 470px);
   min-height: 0;
@@ -321,9 +321,9 @@ body[data-page="projects"] .projects-hero::before { display: none; }
 body[data-page="projects"] .projects-hero::after { display: none; }
 body[data-page="projects"] .projects-hero .page-hero-layout { position: relative; z-index: 1; display: block; min-height: 0; width: 100%; }
 body[data-page="projects"] .projects-hero .page-hero-copy { width: 100%; padding: 0; text-align: center; animation: portfolioTitleIn .8s .12s both; }
-body[data-page="projects"] .projects-hero .page-kicker { position: static; display: block; margin: 0 auto; color: #ffd096; font: 600 15px/1.2 "Kanit", sans-serif; letter-spacing: .2em; }
-body[data-page="projects"] .projects-hero h1 { width: 100%; max-width: none; margin: 12px auto 0; color: #fff; font: 700 clamp(54px, 6vw, 86px)/1.08 "Kanit", sans-serif; text-align: center; text-shadow: 0 4px 22px rgba(0,0,0,.36); }
-body[data-page="projects"] .projects-hero .project-detail-line { color: #fff; font: 500 clamp(22px, 2vw, 28px)/1.3 "Kanit", sans-serif; text-shadow: 0 2px 10px rgba(0,0,0,.5); }
+body[data-page="projects"] .projects-hero .page-kicker { position: static; display: block; margin: 0 auto; color: #ffd096; font: 600 15px/1.2 var(--font-kanit), sans-serif; letter-spacing: .2em; }
+body[data-page="projects"] .projects-hero h1 { width: 100%; max-width: none; margin: 12px auto 0; color: #fff; font: 700 clamp(54px, 6vw, 86px)/1.08 var(--font-kanit), sans-serif; text-align: center; text-shadow: 0 4px 22px rgba(0,0,0,.36); }
+body[data-page="projects"] .projects-hero .project-detail-line { color: #fff; font: 500 clamp(22px, 2vw, 28px)/1.3 var(--font-kanit), sans-serif; text-shadow: 0 2px 10px rgba(0,0,0,.5); }
 body[data-page="projects"] .projects-hero .page-lead,
 body[data-page="projects"] .projects-hero .page-actions,
 body[data-page="projects"] .projects-hero .page-hero-visual,
@@ -447,7 +447,7 @@ body[data-page="projects"] .projects-hero .page-kicker {
   align-items: center;
   gap: 17px;
   color: #ff9a2e;
-  font: 700 18px/1.2 "Kanit", sans-serif;
+  font: 700 18px/1.2 var(--font-kanit), sans-serif;
   letter-spacing: .035em;
 }
 body[data-page="projects"] .projects-hero .page-kicker::after {
@@ -462,7 +462,7 @@ body[data-page="projects"] .projects-hero h1 {
   width: auto;
   margin: 19px 0 0;
   color: #fff;
-  font: 700 clamp(48px, 4vw, 76px)/1.05 "Kanit", sans-serif;
+  font: 700 clamp(48px, 4vw, 76px)/1.05 var(--font-kanit), sans-serif;
   letter-spacing: -.025em;
   text-align: left;
   text-shadow: 0 4px 24px rgba(0,0,0,.3);
@@ -476,7 +476,7 @@ body[data-page="projects"] .projects-hero .page-lead {
   display: block !important;
   margin: 19px 0 0;
   color: rgba(255,255,255,.91);
-  font: 400 clamp(17px, 1.22vw, 22px)/1.62 "Kanit", sans-serif;
+  font: 400 clamp(17px, 1.22vw, 22px)/1.62 var(--font-kanit), sans-serif;
 }
 body[data-page="projects"] .projects-hero .page-actions,
 body[data-page="projects"] .projects-hero .page-hero-visual,
@@ -488,7 +488,7 @@ body[data-page="projects"] .projects-hero-note {
   right: 35%;
   bottom: 48px;
   color: #fff;
-  font: italic 500 clamp(17px, 1.55vw, 27px)/1.15 "Kanit", sans-serif;
+  font: italic 500 clamp(17px, 1.55vw, 27px)/1.15 var(--font-kanit), sans-serif;
   text-align: center;
   transform: rotate(-8deg);
   text-shadow: 0 2px 10px rgba(0,0,0,.7);
@@ -532,7 +532,7 @@ body[data-page="projects"] .projects-portfolio-reference .project-filter-btn {
   border-radius: 999px;
   background: rgba(255,255,255,.88);
   color: #18222d;
-  font: 600 16px/1 "Kanit", sans-serif;
+  font: 600 16px/1 var(--font-kanit), sans-serif;
   box-shadow: 0 5px 16px rgba(22,38,52,.08);
   transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
 }
@@ -541,7 +541,7 @@ body[data-page="projects"] .projects-portfolio-reference .project-filter-btn::be
   width: 21px;
   place-items: center;
   color: currentColor;
-  font: 700 19px/1 "Kanit", sans-serif;
+  font: 700 19px/1 var(--font-kanit), sans-serif;
 }
 body[data-page="projects"] .projects-portfolio-reference .project-filter-btn:nth-child(1)::before { content: "▦"; }
 body[data-page="projects"] .projects-portfolio-reference .project-filter-btn:nth-child(2)::before { content: "⚒"; }
@@ -563,7 +563,7 @@ body[data-page="projects"] .projects-portfolio-reference .project-filter-btn > s
   border-radius: 50%;
   background: rgba(13,26,39,.07);
   color: inherit;
-  font: 600 13px/23px "Kanit", sans-serif;
+  font: 600 13px/23px var(--font-kanit), sans-serif;
 }
 body[data-page="projects"] .projects-portfolio-reference .project-filter-btn[aria-pressed="true"] > span { background: rgba(255,255,255,.3); }
 body[data-page="projects"] .projects-portfolio-reference .project-filter-status { display: none; }
@@ -594,7 +594,7 @@ body[data-page="projects"] .projects-portfolio-reference .project-card::before {
   top: 14px;
   right: 17px;
   color: #fff;
-  font: 700 28px/1 "Kanit", sans-serif;
+  font: 700 28px/1 var(--font-kanit), sans-serif;
   text-shadow: 0 2px 9px rgba(0,0,0,.4);
 }
 body[data-page="projects"] .projects-portfolio-reference .project-card::after {
@@ -635,7 +635,7 @@ body[data-page="projects"] .projects-portfolio-reference .project-body > small {
   border-radius: 999px;
   background: linear-gradient(105deg, #ff7b00, #ffae00);
   color: #fff;
-  font: 500 14px/1.2 "Kanit", sans-serif;
+  font: 500 14px/1.2 var(--font-kanit), sans-serif;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -647,7 +647,7 @@ body[data-page="projects"] .projects-portfolio-reference .project-card[data-cate
 body[data-page="projects"] .projects-portfolio-reference .project-body > h3 {
   margin: 0;
   padding-right: 4px;
-  font: 600 clamp(19px, 1.4vw, 25px)/1.22 "Kanit", sans-serif;
+  font: 600 clamp(19px, 1.4vw, 25px)/1.22 var(--font-kanit), sans-serif;
   letter-spacing: -.015em;
   text-shadow: 0 2px 7px rgba(0,0,0,.4);
 }
@@ -657,7 +657,7 @@ body[data-page="projects"] .projects-portfolio-reference .project-body > p {
   order: 2;
   margin: 6px 0 11px;
   color: rgba(255,255,255,.93);
-  font: 400 16px/1.35 "Kanit", sans-serif;
+  font: 400 16px/1.35 var(--font-kanit), sans-serif;
   text-overflow: clip;
   -webkit-line-clamp: 1;
 }
@@ -683,7 +683,7 @@ body[data-page="projects"] .projects-portfolio-reference .project-body > a {
   border: 0;
   border-bottom: 1px solid #ff930c;
   color: #fff;
-  font: 500 17px/1.25 "Kanit", sans-serif;
+  font: 500 17px/1.25 var(--font-kanit), sans-serif;
   text-decoration: none;
   pointer-events: auto;
 }
@@ -714,10 +714,10 @@ body[data-page="projects"] .projects-portfolio-reference .project-card:hover .pr
   border-radius: 999px;
   background: rgba(255,255,255,.88);
   color: #18222d;
-  font: 600 16px/1 "Kanit", sans-serif;
+  font: 600 16px/1 var(--font-kanit), sans-serif;
   box-shadow: 0 5px 16px rgba(22,38,52,.08);
 }
-.home-projects-editorial .project-filter-btn::before { display: inline-grid; width: 21px; place-items: center; color: currentColor; font: 700 19px/1 "Kanit", sans-serif; }
+.home-projects-editorial .project-filter-btn::before { display: inline-grid; width: 21px; place-items: center; color: currentColor; font: 700 19px/1 var(--font-kanit), sans-serif; }
 .home-projects-editorial .project-filter-btn:nth-child(1)::before { content: "▦"; }
 .home-projects-editorial .project-filter-btn:nth-child(2)::before { content: "⚒"; }
 .home-projects-editorial .project-filter-btn:nth-child(3)::before { content: "▦"; }
@@ -725,7 +725,7 @@ body[data-page="projects"] .projects-portfolio-reference .project-card:hover .pr
 .home-projects-editorial .project-filter-btn:nth-child(5)::before { content: "⌂"; }
 .home-projects-editorial .project-filter-btn:nth-child(6)::before { content: "▥"; }
 .home-projects-editorial .project-filter-btn[aria-pressed="true"] { border-color: transparent; background: linear-gradient(110deg, #ff7a00, #ffb900); color: #fff; box-shadow: 0 8px 19px rgba(255,133,0,.24); }
-.home-projects-editorial .project-filter-btn > span { min-width: 23px; height: 23px; padding: 0 5px; border-radius: 50%; background: rgba(13,26,39,.07); color: inherit; font: 600 13px/23px "Kanit", sans-serif; }
+.home-projects-editorial .project-filter-btn > span { min-width: 23px; height: 23px; padding: 0 5px; border-radius: 50%; background: rgba(13,26,39,.07); color: inherit; font: 600 13px/23px var(--font-kanit), sans-serif; }
 .home-projects-editorial .project-filter-btn[aria-pressed="true"] > span { background: rgba(255,255,255,.3); }
 .home-projects-editorial .project-filter-status { display: none; }
 .home-projects-editorial .project-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); grid-auto-flow: row; gap: 20px; counter-reset: portfolio-card; }
@@ -744,20 +744,20 @@ body[data-page="projects"] .projects-portfolio-reference .project-card:hover .pr
 .home-projects-editorial .project-card:nth-child(n) { grid-column: auto !important; height: auto !important; margin: 0 !important; }
 .home-projects-editorial .project-card:nth-child(3n + 2) { animation-delay: .08s; }
 .home-projects-editorial .project-card:nth-child(3n) { animation-delay: .16s; }
-.home-projects-editorial .project-card::before { content: counter(portfolio-card, decimal-leading-zero); top: 14px; right: 17px; left: auto; color: #fff; font: 700 28px/1 "Kanit", sans-serif; text-shadow: 0 2px 9px rgba(0,0,0,.4); }
+.home-projects-editorial .project-card::before { content: counter(portfolio-card, decimal-leading-zero); top: 14px; right: 17px; left: auto; color: #fff; font: 700 28px/1 var(--font-kanit), sans-serif; text-shadow: 0 2px 9px rgba(0,0,0,.4); }
 .home-projects-editorial .project-card::after { inset: auto -1px -1px auto; width: 76px; height: 55px; background: #ff8000; clip-path: polygon(100% 0,100% 100%,0 100%); transform: none; box-shadow: none; }
 .home-projects-editorial .project-image { z-index: 0; }
 .home-projects-editorial .project-image::after { content: ""; position: absolute; z-index: 1; inset: 0; background: linear-gradient(180deg, rgba(6,15,23,.04) 24%, rgba(6,15,23,.08) 43%, rgba(6,15,23,.91) 100%); opacity: 1; }
 .home-projects-editorial .project-body { inset: 0; justify-content: flex-end; padding: 64px 20px 18px !important; pointer-events: none; }
-.home-projects-editorial .project-body > small { display: inline-flex; position: absolute; top: 15px; left: 16px; max-width: calc(100% - 74px); align-items: center; min-height: 30px; padding: 2px 13px; overflow: hidden; border-radius: 999px; background: linear-gradient(105deg, #ff7b00, #ffae00); color: #fff !important; font: 500 14px/1.2 "Kanit", sans-serif !important; letter-spacing: normal !important; text-overflow: ellipsis; white-space: nowrap; }
+.home-projects-editorial .project-body > small { display: inline-flex; position: absolute; top: 15px; left: 16px; max-width: calc(100% - 74px); align-items: center; min-height: 30px; padding: 2px 13px; overflow: hidden; border-radius: 999px; background: linear-gradient(105deg, #ff7b00, #ffae00); color: #fff !important; font: 500 14px/1.2 var(--font-kanit), sans-serif !important; letter-spacing: normal !important; text-overflow: ellipsis; white-space: nowrap; }
 .home-projects-editorial .project-body > small::before { margin-right: 7px; font-size: 16px; line-height: 1; }
 .home-projects-editorial .project-card[data-category="building"] .project-body > small::before { content: "▦"; }
 .home-projects-editorial .project-card[data-category="civil"] .project-body > small::before { content: "⚒"; }
 .home-projects-editorial .project-card[data-category="renovation"] .project-body > small::before { content: "↻"; }
 .home-projects-editorial .project-card[data-category="house"] .project-body > small::before { content: "⌂"; }
-.home-projects-editorial .project-body > h3 { margin: 0; padding-right: 4px; font: 600 clamp(19px, 1.4vw, 25px)/1.22 "Kanit", sans-serif; letter-spacing: -.015em; text-shadow: 0 2px 7px rgba(0,0,0,.4); }
+.home-projects-editorial .project-body > h3 { margin: 0; padding-right: 4px; font: 600 clamp(19px, 1.4vw, 25px)/1.22 var(--font-kanit), sans-serif; letter-spacing: -.015em; text-shadow: 0 2px 7px rgba(0,0,0,.4); }
 .home-projects-editorial .project-body > h3::after { display: none; }
-.home-projects-editorial .project-body > p { display: block; order: 2; margin: 6px 0 11px; color: rgba(255,255,255,.93); font: 400 16px/1.35 "Kanit", sans-serif; -webkit-line-clamp: 1; }
+.home-projects-editorial .project-body > p { display: block; order: 2; margin: 6px 0 11px; color: rgba(255,255,255,.93); font: 400 16px/1.35 var(--font-kanit), sans-serif; -webkit-line-clamp: 1; }
 .home-projects-editorial .project-body > p::before { content: "📍"; margin-right: 7px; color: #ff8a12; font-size: 17px; vertical-align: -1px; }
 .home-projects-editorial .project-body > h3,
 .home-projects-editorial .project-body > p,
@@ -765,7 +765,7 @@ body[data-page="projects"] .projects-portfolio-reference .project-card:hover .pr
 .home-projects-editorial .project-body > small,
 .home-projects-editorial .project-value { text-shadow: 0 1px 2px rgba(0,0,0,.9), 0 0 8px rgba(0,0,0,.48); }
 .home-projects-editorial .portfolio-reference-heading > p { max-width: 760px; margin-inline: auto; line-height: 1.75; }
-.home-projects-editorial .project-body > a { position: relative; inset: auto; z-index: 4; align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; width: auto; padding: 0 0 3px; margin: 0; border: 0; border-bottom: 1px solid #ff930c; color: #fff; font: 500 17px/1.25 "Kanit", sans-serif; text-decoration: none; pointer-events: auto; }
+.home-projects-editorial .project-body > a { position: relative; inset: auto; z-index: 4; align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; width: auto; padding: 0 0 3px; margin: 0; border: 0; border-bottom: 1px solid #ff930c; color: #fff; font: 500 17px/1.25 var(--font-kanit), sans-serif; text-decoration: none; pointer-events: auto; }
 .home-projects-editorial .project-body > a svg { display: block; width: 18px; height: 18px; color: #fff; }
 .home-projects-editorial .project-body > a::after { display: none; }
 .home-projects-editorial .project-card:hover { transform: translateY(-5px); box-shadow: 0 17px 30px rgba(12,25,36,.23); }
