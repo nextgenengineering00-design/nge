@@ -40,7 +40,7 @@ export function CrmRuntime() {
     }
 
     async function load() {
-      for (const src of ["/legacy/site-config.js?v=20260925-1", "/legacy/crm.js?v=20260925-1"]) {
+      for (const src of ["/legacy/site-config.js?v=20260925-1", "/legacy/crm.js?v=20261006-1"]) {
         if (cancelled) return;
         await loadScript(src);
       }
