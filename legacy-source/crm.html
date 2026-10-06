@@ -81,6 +81,7 @@
           <div><span>กำลังติดตาม</span><b id="metricActive">0</b></div>
           <div><span>งานด่วน</span><b id="metricUrgent">0</b></div>
           <div><span>รอติดต่อเกิน 2 ชม.</span><b id="metricSla">0</b></div>
+          <div><span>ส่งใบเสนอราคาแล้ว</span><b id="metricQuoted">0</b></div>
           <div><span>งานที่ปิดได้จริง</span><b id="metricWon">0</b></div>
         </section>
 
@@ -139,7 +140,7 @@
       <div class="contact-actions">
         <a class="action-call" id="detailPhone" href="#">โทรหาลูกค้า</a>
         <a id="detailEmail" href="#">ส่งอีเมล</a>
-        <a href="https://g.page/r/CUjthO-ZgF-iEBM/review" target="_blank" rel="noopener noreferrer">ส่งลิงก์รีวิว Google</a>
+        <button id="copyReviewRequest" type="button" hidden>คัดลอกข้อความขอรีวิว</button>
         <button id="copyPhoneButton" type="button">คัดลอกเบอร์</button>
       </div>
 
@@ -159,6 +160,7 @@
       </div>
       <label id="lostReasonField" hidden>เหตุผลที่ไม่ดำเนินการ<input id="detailLostReason" type="text" maxlength="300" placeholder="เช่น งบประมาณไม่ตรง เลื่อนโครงการ หรือติดต่อไม่ได้"></label>
       <label>บันทึกภายใน<textarea id="detailNote" rows="4" maxlength="3000" placeholder="สรุปการพูดคุย ขั้นตอนถัดไป หรือข้อมูลสำคัญ"></textarea></label>
+      <label class="contact-check"><input id="quoteSent" type="checkbox"><span><b>ส่งใบเสนอราคาให้ลูกค้าแล้ว</b><small>ใช้วัดผลจากนัดสำรวจ → เสนอราคา → ปิดงาน</small></span></label>
       <label class="contact-check"><input id="markContacted" type="checkbox"><span><b>บันทึกว่าเพิ่งติดต่อลูกค้า</b><small>ติ๊กหลังโทรหรือส่งอีเมล ระบบจะบันทึกเวลาติดต่อล่าสุด</small></span></label>
       <p class="editor-status" id="editorStatus" role="status"></p>
       <footer><button class="button-secondary" value="cancel">ยกเลิก</button><button class="button-primary" id="saveLeadButton" type="button">บันทึกข้อมูล</button></footer>

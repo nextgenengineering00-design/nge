@@ -11,6 +11,10 @@
   const closedStatuses = ['won', 'lost', 'spam'];
   const allowedRoles = ['crm_admin', 'crm_staff'];
   const statusLabels = { new: 'ลูกค้าใหม่', contacted: 'ติดต่อแล้ว', qualified: 'นัดสำรวจ / ประเมินงาน', won: 'ปิดงานสำเร็จ', lost: 'ไม่ดำเนินการ', spam: 'สแปม' };
+  const reviewUrl = 'https://g.page/r/CUjthO-ZgF-iEAE/review';
+  const quoteTag = /^\[QUOTE_SENT:(\d{4}-\d{2}-\d{2})\]\n?/;
+  const hasQuote = lead => quoteTag.test(lead.internal_note || '');
+  const cleanNote = note => String(note || '').replace(quoteTag, '');
   const priorityLabels = { low: 'ต่ำ', normal: 'ปกติ', high: 'สำคัญ', urgent: 'ด่วน' };
   const queueLabels = { all: 'แสดงลูกค้าทั้งหมด', new: 'คิวลูกค้าใหม่ที่รอติดต่อ', today: 'คิวที่ต้องติดตามภายในวันนี้', overdue: 'คิวติดตามที่เกินกำหนด', unassigned: 'คิวที่ยังไม่มีผู้รับผิดชอบ', urgent: 'คิวงานด่วน' };
   const activityLabels = { status_changed: 'เปลี่ยนสถานะ', owner_changed: 'เปลี่ยนผู้รับผิดชอบ', follow_up_changed: 'เปลี่ยนวันติดตาม', contact_recorded: 'บันทึกการติดต่อ', lead_updated: 'แก้ไขข้อมูล' };
@@ -28,13 +32,13 @@
     pipeline: $('#pipelineGrid'), activeQueueText: $('#activeQueueText'), queueTabs: $('#queueTabs'), pagination: $('#pagination'),
     prevPage: $('#prevPageButton'), nextPage: $('#nextPageButton'), pageNumber: $('#pageNumber'),
     metricNew: $('#metricNew'), metricActive: $('#metricActive'), metricToday: $('#metricToday'), metricOverdue: $('#metricOverdue'),
-    metricUnassigned: $('#metricUnassigned'), metricUrgent: $('#metricUrgent'), metricSla: $('#metricSla'), metricWon: $('#metricWon'),
+    metricUnassigned: $('#metricUnassigned'), metricUrgent: $('#metricUrgent'), metricSla: $('#metricSla'), metricQuoted: $('#metricQuoted'), metricWon: $('#metricWon'),
     dialog: $('#leadDialog'), detailId: $('#detailId'), detailName: $('#detailName'), detailMeta: $('#detailMeta'),
     detailPhone: $('#detailPhone'), detailPhoneText: $('#detailPhoneText'), detailEmail: $('#detailEmail'), detailEmailText: $('#detailEmailText'),
     detailService: $('#detailService'), detailLocation: $('#detailLocation'), detailBudget: $('#detailBudget'), detailSource: $('#detailSource'), detailScore: $('#detailScore'),
     detailMessage: $('#detailMessage'), detailPhotos: $('#detailPhotos'), detailStatus: $('#detailStatus'), detailPriority: $('#detailPriority'), detailOwner: $('#detailOwner'),
     detailFollowup: $('#detailFollowup'), lostReasonField: $('#lostReasonField'), detailLostReason: $('#detailLostReason'),
-    detailNote: $('#detailNote'), markContacted: $('#markContacted'), copyPhone: $('#copyPhoneButton'), save: $('#saveLeadButton'),
+    detailNote: $('#detailNote'), quoteSent: $('#quoteSent'), markContacted: $('#markContacted'), copyPhone: $('#copyPhoneButton'), copyReview: $('#copyReviewRequest'), save: $('#saveLeadButton'),
     editorStatus: $('#editorStatus'), activityList: $('#activityList'), toast: $('#crmToast')
   };
 
@@ -144,7 +148,7 @@
         <td><span class="service-stack"><b>${escapeHtml(lead.service || '—')}</b><small>${escapeHtml(lead.budget || 'ยังไม่ระบุงบ')} · คะแนน ${Number(lead.lead_score || 0)}/100</small></span></td>
         <td><span class="owner-pill ${lead.assigned_to ? '' : 'unassigned'}">${escapeHtml(ownerName(lead.assigned_to))}</span></td>
         <td><span class="followup-time ${followupClass}">${escapeHtml(thaiShortDate(lead.next_follow_up_at))}</span></td>
-        <td><span class="status-pill status-${escapeHtml(lead.status)}">${escapeHtml(statusLabels[lead.status] || lead.status)}</span>${lead.priority !== 'normal' ? `<small class="priority priority-${escapeHtml(lead.priority)}">${escapeHtml(priorityLabels[lead.priority] || lead.priority)}</small>` : ''}</td>
+        <td><span class="status-pill status-${escapeHtml(lead.status)}">${escapeHtml(statusLabels[lead.status] || lead.status)}</span>${hasQuote(lead) ? '<small class="priority priority-quoted">ส่งใบเสนอราคาแล้ว</small>' : ''}${lead.priority !== 'normal' ? `<small class="priority priority-${escapeHtml(lead.priority)}">${escapeHtml(priorityLabels[lead.priority] || lead.priority)}</small>` : ''}</td>
         <td><button class="row-action" type="button" data-lead-id="${escapeHtml(lead.id)}">เปิดข้อมูล</button></td>
       </tr>`;
     }).join('');
@@ -167,6 +171,7 @@
     els.metricUnassigned.textContent = Number(metrics.unassigned || 0).toLocaleString('th-TH');
     els.metricUrgent.textContent = Number(metrics.urgent || 0).toLocaleString('th-TH');
     els.metricSla.textContent = Number(metrics.first_response_overdue || 0).toLocaleString('th-TH');
+    els.metricQuoted.textContent = metrics.quoted == null ? '—' : Number(metrics.quoted).toLocaleString('th-TH');
     els.metricWon.textContent = Number(metrics.won || 0).toLocaleString('th-TH');
     els.lastUpdated.textContent = new Intl.DateTimeFormat('th-TH', { hour: '2-digit', minute: '2-digit', second: '2-digit' }).format(new Date());
   }
@@ -192,9 +197,12 @@
   }
 
   async function loadMetrics() {
-    const { data, error } = await client.rpc('get_crm_dashboard_metrics');
+    const [{ data, error }, quoteResult] = await Promise.all([
+      client.rpc('get_crm_dashboard_metrics'),
+      client.from('contact_leads').select('id', { count: 'exact', head: true }).like('internal_note', '[QUOTE_SENT:%')
+    ]);
     if (error) throw error;
-    metrics = data || {};
+    metrics = { ...(data || {}), quoted: quoteResult.error ? null : quoteResult.count };
     renderMetrics();
     renderPipeline();
   }
@@ -295,7 +303,9 @@
     els.detailOwner.value = lead.assigned_to || '';
     els.detailFollowup.value = inputDate(lead.next_follow_up_at);
     els.detailLostReason.value = lead.lost_reason || '';
-    els.detailNote.value = lead.internal_note || '';
+    els.detailNote.value = cleanNote(lead.internal_note);
+    els.quoteSent.checked = hasQuote(lead);
+    els.copyReview.hidden = lead.status !== 'won';
     els.markContacted.checked = false;
     els.editorStatus.textContent = '';
     els.save.disabled = false;
@@ -322,7 +332,7 @@
       status,
       priority: els.detailPriority.value,
       assigned_to: els.detailOwner.value || null,
-      internal_note: els.detailNote.value.trim() || null,
+      internal_note: (els.quoteSent.checked ? `[QUOTE_SENT:${(currentLead.internal_note || '').match(quoteTag)?.[1] || now.slice(0, 10)}]\n` : '') + els.detailNote.value.trim() || null,
       next_follow_up_at: els.detailFollowup.value ? new Date(els.detailFollowup.value).toISOString() : null,
       lost_reason: status === 'lost' ? lostReason : null
     };
@@ -373,8 +383,8 @@
         offset += batchSize;
       }
       if (!exported.length) { showToast('ไม่มีข้อมูลสำหรับส่งออก'); return; }
-      const headers = ['วันที่รับข้อมูล', 'ชื่อลูกค้า', 'โทรศัพท์', 'อีเมล', 'ประเภทงาน', 'พื้นที่', 'งบประมาณ', 'สถานะ', 'ความสำคัญ', 'ผู้รับผิดชอบ', 'ติดตามครั้งถัดไป', 'ติดต่อล่าสุด', 'แหล่งที่มา', 'แคมเปญ', 'บันทึกภายใน'];
-      const rows = exported.map(lead => [lead.created_at, lead.name, lead.phone, lead.email, lead.service, lead.location, lead.budget, statusLabels[lead.status], priorityLabels[lead.priority], ownerName(lead.assigned_to), lead.next_follow_up_at, lead.last_contacted_at, sourceLabel(lead), lead.utm_campaign, lead.internal_note].map(csvCell).join(','));
+      const headers = ['วันที่รับข้อมูล', 'ชื่อลูกค้า', 'โทรศัพท์', 'อีเมล', 'ประเภทงาน', 'พื้นที่', 'งบประมาณ', 'สถานะ', 'ส่งใบเสนอราคาแล้ว', 'ความสำคัญ', 'ผู้รับผิดชอบ', 'ติดตามครั้งถัดไป', 'ติดต่อล่าสุด', 'แหล่งที่มา', 'แคมเปญ', 'บันทึกภายใน'];
+      const rows = exported.map(lead => [lead.created_at, lead.name, lead.phone, lead.email, lead.service, lead.location, lead.budget, statusLabels[lead.status], hasQuote(lead) ? 'ใช่' : 'ไม่', priorityLabels[lead.priority], ownerName(lead.assigned_to), lead.next_follow_up_at, lead.last_contacted_at, sourceLabel(lead), lead.utm_campaign, cleanNote(lead.internal_note)].map(csvCell).join(','));
       const blob = new Blob(['\uFEFF' + [headers.map(csvCell).join(','), ...rows].join('\r\n')], { type: 'text/csv;charset=utf-8' });
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
@@ -504,6 +514,13 @@
   els.detailPhone.addEventListener('click', () => { els.markContacted.checked = true; });
   els.detailEmail.addEventListener('click', () => { els.markContacted.checked = true; });
   els.copyPhone.addEventListener('click', copyPhone);
+  els.copyReview.addEventListener('click', async () => {
+    if (!currentLead || currentLead.status !== 'won') return;
+    const firstName = String(currentLead.name || '').trim().split(/\s+/)[0];
+    const message = `สวัสดีคุณ${firstName} ขอบคุณที่ไว้วางใจให้ NGE ดูแลงาน${currentLead.service ? ` ${currentLead.service}` : ''}นะครับ หากสะดวก รบกวนรีวิวประสบการณ์ทำงานกับทีมของเราตามจริงผ่าน Google ที่ลิงก์นี้ได้เลยครับ ${reviewUrl}`;
+    try { await navigator.clipboard.writeText(message); showToast('คัดลอกข้อความขอรีวิวแล้ว'); }
+    catch { showToast('คัดลอกไม่สำเร็จ กรุณาลองใหม่', 'error'); }
+  });
   els.save.addEventListener('click', saveLead);
 
   if (!isConfigured || !window.supabase?.createClient) {
