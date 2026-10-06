@@ -926,3 +926,8 @@ nge-header{position:sticky;top:0;z-index:2000;isolation:isolate}
 .photo-estimate-actions .btn{flex:0 1 auto;max-width:100%;min-width:0;height:auto;min-height:52px;white-space:normal!important;line-height:1.3;text-align:center;padding-top:11px;padding-bottom:11px}
 @media(max-width:640px){.photo-estimate-inner{grid-template-columns:1fr!important}.photo-estimate-actions{display:grid!important;grid-template-columns:1fr!important;width:100%;max-width:none!important}.photo-estimate-actions .btn{width:100%;max-width:none!important}}
 
+/* Keep the three homepage proof points balanced after removing the value claim. */
+body[data-page="home"] .credibility-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+body[data-page="home"] .credibility-intro,body[data-page="home"] .credibility-item{text-align:center;justify-items:center}
+@media (max-width:1100px){body[data-page="home"] .credibility-grid{grid-template-columns:repeat(3,minmax(0,1fr))}body[data-page="home"] .credibility-intro{grid-column:1/-1}}
+@media (max-width:640px){body[data-page="home"] .credibility-grid{grid-template-columns:repeat(2,minmax(0,1fr))}body[data-page="home"] .credibility-item:last-child{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.1)}}
