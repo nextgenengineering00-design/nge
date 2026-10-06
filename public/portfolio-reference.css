@@ -837,3 +837,12 @@ body[data-page="projects"] .projects-portfolio-reference .project-card:hover .pr
   body[data-page="projects"] .projects-hero .page-hero-copy,
   body[data-page="projects"] .projects-portfolio-reference .project-card { animation: none !important; }
 }
+
+body[data-page="home"] .portfolio-reference-heading > span{display:inline-flex;align-items:center;gap:9px}
+body[data-page="home"] .portfolio-heading-icon{width:20px;height:20px;filter:brightness(0) saturate(100%) invert(41%) sepia(91%) saturate(2340%) hue-rotate(359deg) brightness(97%) contrast(105%)}
+
+/* Google Material PNG icons in the homepage portfolio. */
+.home-projects-editorial .project-filter-btn::before,.home-projects-editorial .project-body > small::before{display:none!important}
+.home-projects-editorial .project-category-icon{display:inline-block;width:19px;height:19px;flex:none;object-fit:contain;margin-right:7px}
+.home-projects-editorial .project-filter-btn[aria-pressed="true"] .project-category-icon,.home-projects-editorial .project-body > small .project-category-icon{filter:brightness(0) invert(1)}
+.home-projects-editorial .project-body > small .project-category-icon{width:16px;height:16px}
