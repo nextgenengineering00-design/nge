@@ -339,10 +339,10 @@
   const renovationDock = $('#renovation-estimate') && $('.mobile-dock-book');
   if (renovationDock) {
     renovationDock.href = '#renovation-estimate';
-    renovationDock.setAttribute('aria-label', 'ส่งรูปขอประเมินงานรีโนเวท');
+    renovationDock.setAttribute('aria-label', 'กรอกข้อมูลเพื่อประเมินงานรีโนเวท');
     renovationDock.dataset.estimateSource = 'renovation-nonthaburi-mobile';
     const label = $('.mobile-dock-label', renovationDock);
-    if (label) label.textContent = 'ส่งรูป';
+    if (label) label.textContent = 'ขอประเมิน';
   }
   const leadForms = $$('[data-lead-form], #leadForm');
   const photoInputs = $$('[data-photo-input]');
@@ -357,7 +357,7 @@
           const notice = document.createElement('p');
           notice.className = 'photo-upload-fallback';
           notice.setAttribute('role', 'status');
-          notice.append('กรอกข้อมูลโครงการได้ตามปกติ แล้วส่งรูปหน้างานทาง ');
+          notice.append('กรอกข้อมูลโครงการผ่านฟอร์ม แล้วส่งรูปพร้อมชื่อและเบอร์โทรเดียวกันทาง ');
           const link = document.createElement('a');
           link.href = config.lineUrl || 'https://lin.ee/u45yvnc';
           link.target = '_blank';
@@ -500,7 +500,11 @@
         }
         leadForm.reset();
         $$('[data-min-today]', leadForm).forEach(input => { input.min = minDate; });
-        const photoNotice = result.photosRequested > 0 && result.photosUploaded === 0 ? ' รับข้อมูลแล้ว แต่รูปยังไม่ถูกอัปโหลด กรุณาส่งรูปซ้ำทาง LINE @522magc' : '';
+        const photoNotice = result.photosRequested > 0 && result.photosUploaded === 0
+          ? ' รับข้อมูลแล้ว แต่รูปยังไม่ถูกอัปโหลด กรุณาส่งรูปทาง LINE @522magc พร้อมชื่อและเบอร์โทรเดียวกับในฟอร์ม'
+          : leadForm.querySelector('.photo-upload-fallback')
+            ? ' หากมีรูปหน้างาน กรุณาส่งทาง LINE @522magc พร้อมชื่อและเบอร์โทรเดียวกับในฟอร์ม'
+            : '';
         setFormStatus(leadForm, (isBooking ? 'รับคำขอแล้ว ทีมงานจะโทรกลับเพื่อยืนยันรายละเอียด' : 'ส่งข้อมูลสำเร็จ ทีมงานจะติดต่อกลับโดยเร็วที่สุด') + photoNotice, 'success');
         const leadType = leadForm.dataset.photoEstimate === 'true' ? 'photo_estimate' : (isBooking ? 'consultation_booking' : 'callback_request');
         trackEvent('generate_lead', { lead_id: result.leadId || '', service: payload.service, form_id: leadForm.id || 'leadForm', lead_type: leadType, photo_count: result.photosUploaded || 0, utm_source: payload.utm_source || '', utm_campaign: payload.utm_campaign || '' });

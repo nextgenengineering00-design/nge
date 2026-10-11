@@ -95,7 +95,7 @@ export function LocalAreaPage({ slug }: { slug: LocalAreaSlug }) {
           { image: "/assets/projects/rc-road-saraburi-12-ton/03-road-preparation.webp", slug: "rc-road-saraburi-12-ton", label: "งานเตรียมถนนคอนกรีต สระบุรี" },
         ].map(item => <Link href={`/projects/${item.slug}`} key={item.slug} aria-label={`ดูผลงาน ${item.label}`}><Image src={item.image} alt={item.label} width={460} height={380} loading="lazy" sizes="(max-width: 640px) 50vw, 22vw" /><ArrowUpRight size={17} aria-hidden="true" /></Link>)}</div></div></section>
 
-        <section className="section local-business-proof" id="contractor-contact"><div className="business-proof-grid"><div className="contractor-contact-story"><div className="contractor-contact-inner"><span className="page-kicker">ข้อมูลติดต่อที่ตรวจสอบได้</span><h2>ผู้รับเหมาอยู่ที่นนทบุรี<br /><em>คุยกับทีมงานได้โดยตรง</em></h2><p>ส่งรูปหน้างาน แบบแปลน หรือแจ้งงบประมาณคร่าว ๆ<br />เพื่อให้ทีมงานประเมินเบื้องต้นได้อย่างรวดเร็ว</p><div className="seo-actions"><a className="btn btn-primary" href={site.mapUrl} target="_blank" rel="noopener noreferrer"><MapPin size={20} aria-hidden="true" /> เปิดแผนที่ Google <ArrowRight size={18} aria-hidden="true" /></a><Link className="btn btn-dark" href="/contact"><Send size={19} aria-hidden="true" /> ส่งข้อมูลโครงการ</Link></div></div></div><dl className="contractor-contact-facts">{[
+        <section className="section local-business-proof" id="contractor-contact"><div className="business-proof-grid"><div className="contractor-contact-story"><div className="contractor-contact-inner"><span className="page-kicker">ข้อมูลติดต่อที่ตรวจสอบได้</span><h2>ผู้รับเหมาอยู่ที่นนทบุรี<br /><em>คุยกับทีมงานได้โดยตรง</em></h2><p>แจ้งขอบเขตและงบประมาณผ่านฟอร์ม<br />แล้วส่งรูปหน้างานหรือแบบแปลนทาง LINE ให้ทีมช่วยดูเบื้องต้น</p><div className="seo-actions"><a className="btn btn-primary" href={site.mapUrl} target="_blank" rel="noopener noreferrer"><MapPin size={20} aria-hidden="true" /> เปิดแผนที่ Google <ArrowRight size={18} aria-hidden="true" /></a><Link className="btn btn-dark" href="/contact"><Send size={19} aria-hidden="true" /> ส่งข้อมูลโครงการ</Link></div></div></div><dl className="contractor-contact-facts">{[
           { icon: Building2, label: "ชื่อบริษัท (จดทะเบียน)", value: site.legalName },
           { icon: MapPin, label: "ที่อยู่", value: site.address },
           { icon: HardHat, label: "วิศวกรควบคุมงาน", value: `เลข ${site.engineerLicense}` },
@@ -127,6 +127,6 @@ export function LocalAreaPage({ slug }: { slug: LocalAreaSlug }) {
       <section className="closing-cta"><div className="container"><div><span>เริ่มจากข้อมูลจริงของหน้างาน</span><h2>ให้ทีมช่วยจัดขอบเขตก่อนประเมินราคา</h2></div><Link className="btn btn-dark" href="/contact?source=local-area-cta">ให้ทีมติดต่อกลับ</Link></div></section>
     </main>
     {React.createElement("nge-footer")}
-    <LegacyRuntimeScripts sources={["/legacy/site-config.js?v=20260925-1", "/legacy/site-shell.js?v=20260925-4", "/legacy/app.js?v=20260925-1"]} />
+    <LegacyRuntimeScripts sources={["/legacy/site-config.js?v=20260925-1", "/legacy/site-shell.js?v=20260925-4", "/legacy/app.js?v=20261011-2"]} />
   </div>;
 }

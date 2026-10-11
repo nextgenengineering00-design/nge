@@ -49,9 +49,9 @@ export function LocalServicePage({ slug }: { slug: LocalServiceSlug }) {
       <section className="section local-area-links"><div className="container"><div className="section-heading centered"><span>บริการใกล้พื้นที่โครงการ</span><h2>เลือกประเภทงานที่ตรงกับสิ่งที่กำลังทำ</h2></div><div className="seo-grid seo-services">{related.map(item => <Link className="seo-card" href={`/${item.slug}`} key={item.slug}><small>NGE LOCAL SERVICE</small><h3>{item.serviceName}</h3><p>{item.lead}</p><b>ดูบริการ →</b></Link>)}</div><div className="nearby-area-links">{Object.values(localAreas).map(item => <Link href={`/${item.slug}`} key={item.slug}>รับเหมาก่อสร้าง {item.area}</Link>)}</div></div></section>
 
       <section className="section"><div className="container seo-content"><span className="page-kicker">คำถามที่พบบ่อย</span><h2>ก่อนนัดดูหน้างาน</h2><div className="seo-faq">{page.faq.map(item => <details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div></div></section>
-      <section className="closing-cta"><div className="container"><div><span>เริ่มจากข้อมูลจริงของหน้างาน</span><h2>ส่งรูปและพิกัดให้ทีมช่วยดูขอบเขต</h2></div><Link className="btn btn-dark" href={`/contact?source=${page.slug}-bottom`}>ขอประเมินโครงการ</Link></div></section>
+      <section className="closing-cta"><div className="container"><div><span>เริ่มจากข้อมูลจริงของหน้างาน</span><h2>กรอกข้อมูลโครงการ แล้วส่งรูปทาง LINE ให้ทีมช่วยดูขอบเขต</h2></div><Link className="btn btn-dark" href={`/contact?source=${page.slug}-bottom`}>ขอประเมินโครงการ</Link></div></section>
     </main>
     {React.createElement("nge-footer")}
-    <LegacyRuntimeScripts sources={["/legacy/site-config.js?v=20260925-1", "/legacy/site-shell.js?v=20260925-4", "/legacy/app.js?v=20260925-1"]} />
+    <LegacyRuntimeScripts sources={["/legacy/site-config.js?v=20260925-1", "/legacy/site-shell.js?v=20260925-4", "/legacy/app.js?v=20261011-2"]} />
   </div>;
 }
