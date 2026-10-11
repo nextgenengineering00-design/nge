@@ -1,7 +1,7 @@
 /* Screenshot-led treatment for the Nonthaburi contractor landing only. */
 .contractor-landing .local-area-hero{position:relative;isolation:isolate;min-height:520px;height:33.33vw;padding:0;overflow:hidden;background:#101a21}
 .contractor-landing .local-area-hero::before{z-index:-1;background:linear-gradient(90deg,rgba(9,17,22,.93) 0%,rgba(10,18,23,.88) 24%,rgba(10,18,23,.65) 39%,rgba(10,18,23,.15) 57%,transparent 78%),linear-gradient(0deg,rgba(9,15,19,.25),transparent 50%)}
-.contractor-landing .local-area-hero::after{content:"";position:absolute;z-index:1;left:0;right:auto;top:auto;bottom:0;width:190px;height:190px;border:0;box-shadow:none;background:linear-gradient(90deg,#f79513,#a86e1c);clip-path:polygon(0 0,100% 100%,80% 100%,0 20%);transform:none;pointer-events:none}
+.contractor-landing .local-area-hero::after{content:none;display:none}
 .contractor-hero-art{position:absolute;z-index:-2;inset:0;background:url('/assets/contractor-nonthaburi-hero-reference-v2.webp') center 47%/cover no-repeat;animation:contractorHeroReveal 1.4s ease-out both}
 .contractor-hero-tagline{position:absolute;z-index:2;top:clamp(28px,2.45vw,54px);right:3.2vw;display:flex;align-items:center;gap:17px;color:#83878a;font:700 11px/1.2 var(--font-display);letter-spacing:4px;white-space:nowrap}
 .contractor-hero-tagline::before{content:"";width:30px;height:2px;background:#f69a22}
@@ -47,11 +47,11 @@
 .contractor-landing .business-proof-grid dt{margin-bottom:5px;color:#78818c;font-size:14px}
 .contractor-landing .business-proof-grid dd{color:#172538;font-size:clamp(16px,1.22vw,22px);font-weight:500;overflow-wrap:anywhere}
 
-.contractor-scope{position:relative;min-height:455px;padding:78px 0 64px;overflow:hidden;background:linear-gradient(110deg,#f4faff,#fff 32%,#fbfaf8 100%)}
+.contractor-scope{position:relative;min-height:480px;padding:78px 0 64px;overflow:hidden;background:linear-gradient(110deg,#f4faff,#fff 32%,#fbfaf8 100%)}
 .contractor-scope::before{content:"";position:absolute;left:-85px;bottom:-96px;width:175px;height:210px;background:linear-gradient(90deg,rgba(244,144,19,.72) 0 28%,rgba(26,41,47,.86) 28% 52%,transparent 52%);transform:rotate(-41deg);pointer-events:none}
-.contractor-scope::after{content:"วางแผนดี\A งานจบด้วย";position:absolute;right:3.4%;bottom:27px;padding-bottom:5px;border-bottom:3px solid #f68e18;white-space:pre;color:#65707a;font-size:23px;font-style:italic;font-weight:700;line-height:1.1;text-align:right;transform:rotate(-9deg);pointer-events:none}
-.contractor-scope-photo{position:absolute;left:0;bottom:0;width:36%;height:60%;background:url('/assets/hero-home-modern-v2.webp') right 35%/cover no-repeat;mask-image:linear-gradient(90deg,#000 0%,#000 60%,transparent 100%)}
-.contractor-scope-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(255,255,255,.02),rgba(255,255,255,.63) 96%)}
+.contractor-scope::after{content:none;display:none}
+.contractor-scope-photo{position:absolute;left:0;bottom:0;width:36%;height:40%;background:url('/assets/hero-home-modern-v2.webp') right 42%/cover no-repeat;mask-image:linear-gradient(90deg,#000 0%,#000 60%,transparent 100%)}
+.contractor-scope-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#fff 0%,rgba(255,255,255,0) 28%)}
 .contractor-scope-layout{position:relative;display:grid;grid-template-columns:35% minmax(0,1fr);gap:24px;width:82%;max-width:none;margin-left:11%;margin-right:7%}
 .contractor-scope-heading .page-kicker{display:flex;align-items:center;gap:12px;color:#ee7f12;font-size:10px;letter-spacing:2.7px}
 .contractor-scope-heading .page-kicker::before{content:"";width:23px;height:3px;background:#f68e18}
@@ -105,4 +105,5 @@
 .contractor-scope-note svg *{fill:none!important;stroke:currentColor!important}
 @media(max-width:980px){.contractor-scope-right{padding-top:0}}
 @media(min-width:981px) and (max-width:1480px){.contractor-contact-story .seo-actions .btn{min-height:68px;padding:13px 18px;font-size:16px}.contractor-contact-story .seo-actions .btn:first-child,.contractor-contact-story .seo-actions .btn:last-child{width:auto}}
+@media(max-width:1300px){.contractor-scope-photo{display:none}}
 @media(max-width:760px){.contractor-contact-story .seo-actions .btn:first-child,.contractor-contact-story .seo-actions .btn:last-child{width:100%}.contractor-contact-story .seo-actions .btn{min-height:56px;padding:9px;font-size:12px}.contractor-area-intro h2{font-size:clamp(31px,7vw,40px);white-space:normal}}

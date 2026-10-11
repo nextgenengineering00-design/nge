@@ -57,7 +57,7 @@ export function LocalAreaPage({ slug }: { slug: LocalAreaSlug }) {
     <link rel="stylesheet" href="/legacy/styles.min.css?v=20260925-5" />
     <link rel="stylesheet" href="/legacy/service-seo.css?v=20261011-1" />
     {isNonthaburi && <link rel="stylesheet" href="/legacy/contractor-design.css?v=20261011-2" />}
-    {isNonthaburi && <link rel="stylesheet" href="/legacy/contractor-reference.css?v=20261011-4" />}
+    {isNonthaburi && <link rel="stylesheet" href="/legacy/contractor-reference.css?v=20261011-5" />}
     <JsonLd data={schema} />
     <a className="skip-link" href="#main-content">ข้ามไปเนื้อหาหลัก</a>
     {React.createElement("nge-header")}
