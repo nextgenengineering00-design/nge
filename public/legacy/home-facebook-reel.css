@@ -1,0 +1,13 @@
+/* Match the homepage Facebook card to the supplied vertical Reel embed. */
+body[data-page="home"] .home-story-showcase .facebook-post-card {
+  width: min(100%, 311px);
+}
+
+body[data-page="home"] .home-story-showcase .facebook-post-card iframe {
+  display: block;
+  width: 267px;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 267 / 476;
+  margin-inline: auto;
+}
