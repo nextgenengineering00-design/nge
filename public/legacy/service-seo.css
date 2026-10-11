@@ -22,6 +22,56 @@
 @media(max-width:900px){.local-service-list{grid-template-columns:1fr}.local-service-list article,.local-service-list article+article{padding:24px 0;border-right:0;border-bottom:1px solid #393939}.local-project-grid{grid-template-columns:1fr 1fr}.business-proof-grid{grid-template-columns:1fr;gap:38px}}
 @media(max-width:640px){.local-project-grid{grid-template-columns:1fr}.lake-gallery{grid-template-columns:1fr 1fr;margin-top:24px}.business-proof-grid dl>div{grid-template-columns:1fr;gap:4px}.local-proof-row span{width:100%;border-radius:10px}}
 .search-intent-line{padding:14px 18px;border-left:4px solid #f5a400;background:#f7f4ee;font-size:14px!important;color:#5b5143}.nearby-area-links{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:26px}.nearby-area-links a{padding:10px 14px;border:1px solid #ddd3c3;border-radius:999px;background:#fff;color:#5c4724;text-decoration:none;font-size:14px;font-weight:600}.nearby-area-links a:hover{border-color:#f5a400;color:#111}
+
+/* Contractor landing: NGE's dark editorial treatment, scoped to the province page. */
+.contractor-landing{background:#f7f5ef;color:#171717}
+.contractor-landing .local-area-hero{padding:0;background:#111820;color:#fff}
+.contractor-landing .local-area-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 12% 12%,rgba(245,164,0,.13),transparent 34%),linear-gradient(115deg,#111820,#19242d 70%,#10161c)}
+.contractor-landing .local-area-hero::after{right:-120px;bottom:-250px;width:590px;height:590px;border-color:rgba(245,164,0,.18);box-shadow:0 0 0 58px rgba(245,164,0,.025),0 0 0 116px rgba(245,164,0,.018)}
+.contractor-landing .local-area-hero .seo-split{min-height:650px;grid-template-columns:minmax(0,1fr) minmax(390px,.92fr);gap:68px}
+.contractor-landing .local-hero-copy{padding:80px 0 86px}
+.contractor-landing .local-area-hero .breadcrumb,.contractor-landing .local-area-hero .breadcrumb a{color:#aeb9c2}
+.contractor-landing .local-area-hero .page-kicker{display:inline-flex;align-items:center;gap:11px;margin-top:38px;color:#f5a400;font-size:11px;letter-spacing:2.2px}
+.contractor-landing .local-area-hero .page-kicker::before{content:"";width:32px;height:1px;background:#f5a400}
+.contractor-landing .local-area-hero h1{max-width:770px;margin:20px 0 18px;color:#fff;font-size:clamp(42px,4.9vw,72px);line-height:1.12;letter-spacing:-1.8px;text-wrap:balance}
+.contractor-landing .local-area-hero .contractor-area-line{max-width:650px;margin:0 0 14px;color:#f5a400!important;font-size:clamp(18px,1.65vw,24px)!important;font-weight:600;line-height:1.5!important}
+.contractor-landing .local-area-hero .local-hero-copy>p:not(.local-coverage){max-width:610px;color:#d4dce2;font-size:17px;line-height:1.8}
+.contractor-landing .local-area-hero .seo-actions{margin:30px 0 22px}
+.contractor-landing .local-area-hero .seo-actions .btn{min-height:50px;display:inline-flex;align-items:center;justify-content:center;gap:16px;padding:12px 22px}
+.contractor-landing .local-area-hero .seo-actions .btn-primary{background:#f5a400;color:#151515}
+.contractor-landing .local-area-hero .seo-actions .btn-dark{border:1px solid rgba(255,255,255,.48);background:transparent;color:#fff}
+.contractor-landing .local-area-hero .local-coverage{margin:0;padding:0;border:0;background:none;color:#b9c6ce;font-weight:500}
+.contractor-landing .local-area-hero .local-proof-row{gap:0;margin-top:26px;border-top:1px solid rgba(255,255,255,.18)}
+.contractor-landing .local-area-hero .local-proof-row span{padding:17px 20px 0 0;border:0;border-radius:0;background:none;color:#e8eef1;font-size:12px}
+.contractor-landing .local-area-hero .seo-photo{position:relative;align-self:stretch;min-height:650px;margin:0;padding:0;border:0;border-radius:0;background:#27313a;box-shadow:none;overflow:hidden}
+.contractor-landing .local-area-hero .seo-photo img{display:block;width:100%;height:100%;min-height:650px;border-radius:0;object-fit:cover;object-position:center}
+.contractor-landing .local-area-hero .seo-photo::after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,rgba(8,15,20,.86));pointer-events:none}
+.contractor-landing .local-area-hero .seo-photo figcaption{position:absolute;z-index:2;left:30px;right:25px;bottom:27px;margin:0;color:#f5f7f8;font-size:13px;line-height:1.7}
+.contractor-landing .local-area-hero .seo-photo figcaption span{display:block;color:#f5a400;font:700 10px/1.6 var(--font-display);letter-spacing:1.6px;text-transform:uppercase}
+.contractor-landing .local-area-hero .seo-photo figcaption a{color:#fff;text-decoration:underline;text-underline-offset:4px}
+.contractor-landing .local-area-intro{padding-top:92px;background:#f7f5ef}
+.contractor-landing .local-area-intro .seo-content{max-width:none}
+.contractor-landing .local-area-intro .seo-content>p{max-width:810px;color:#615f59}
+.contractor-landing .local-area-intro .seo-grid{gap:14px;margin-top:38px}
+.contractor-landing .local-area-intro .seo-card{min-height:218px;padding:29px 26px;border-radius:0;background:#fff;box-shadow:0 12px 36px rgba(30,28,22,.045)}
+.contractor-landing .local-area-intro .seo-card::before{height:3px}
+.contractor-landing .local-service-depth{background:#192128}
+.contractor-landing .local-service-list article{min-height:210px}
+.contractor-landing .local-project-proof{background:#ebe8e1}
+.contractor-landing .local-project-grid>a{display:block;overflow:hidden;background:#fff;text-decoration:none;transition:transform .25s ease,box-shadow .25s ease}
+.contractor-landing .local-project-grid>a:hover{transform:translateY(-5px);box-shadow:0 22px 42px rgba(26,24,19,.12)}
+.contractor-landing .local-project-grid img{display:block;border-radius:0}
+.contractor-landing .local-project-grid span,.contractor-landing .local-project-grid h3,.contractor-landing .local-project-grid p{margin-left:19px;margin-right:19px}
+.contractor-landing .local-project-grid span{margin-top:18px}
+.contractor-landing .local-project-grid p{margin-bottom:22px}
+.contractor-landing .lake-gallery{gap:9px}
+.contractor-landing .local-planning{background:#111820}
+.contractor-landing .local-checklist li,.contractor-landing .local-lead-box{border-radius:0}
+.contractor-landing .local-area-links{background:#f1eee7}
+.contractor-landing .local-area-links .seo-card{border-radius:0}
+@media(max-width:900px){.contractor-landing .local-area-hero .seo-split{grid-template-columns:1fr;gap:0}.contractor-landing .local-hero-copy{padding:50px 0 56px}.contractor-landing .local-area-hero .seo-photo,.contractor-landing .local-area-hero .seo-photo img{min-height:420px;max-height:540px}}
+@media(max-width:640px){.contractor-landing .local-area-hero h1{font-size:clamp(36px,9vw,48px);letter-spacing:-.8px}.contractor-landing .local-area-hero .page-kicker{margin-top:29px}.contractor-landing .local-area-hero .seo-actions{display:grid;grid-template-columns:1fr}.contractor-landing .local-area-hero .seo-actions .btn{width:100%}.contractor-landing .local-area-hero .local-proof-row span{width:auto;padding-right:14px}.contractor-landing .local-area-hero .seo-photo,.contractor-landing .local-area-hero .seo-photo img{min-height:310px;max-height:380px}.contractor-landing .local-area-hero .seo-photo figcaption{left:18px;bottom:18px}.contractor-landing .local-area-intro{padding-top:64px}.contractor-landing .local-area-intro .seo-card{min-height:0}.contractor-landing .local-service-list article{min-height:0}}
+@media(prefers-reduced-motion:reduce){.contractor-landing .local-project-grid>a{transition:none}.contractor-landing .local-project-grid>a:hover{transform:none}}
 .renovation-landing main section[id]{scroll-margin-top:100px}
 .renovation-contact{font-size:15px!important}.renovation-contact a{font-weight:700;color:#262017}
 .renovation-jump{display:flex;gap:10px;flex-wrap:wrap;padding-top:22px;padding-bottom:22px}.renovation-jump a{padding:10px 16px;border:1px solid #ded5c4;border-radius:24px;color:#493918;background:#fff;font-size:14px}
