@@ -345,6 +345,30 @@
     if (label) label.textContent = 'ส่งรูป';
   }
   const leadForms = $$('[data-lead-form], #leadForm');
+  const photoInputs = $$('[data-photo-input]');
+  if (photoInputs.length) {
+    fetch('/api/leads', { cache: 'no-store' })
+      .then(response => response.ok ? response.json() : null)
+      .then(capabilities => {
+        if (capabilities?.photoUploadEnabled !== false) return;
+        photoInputs.forEach(input => {
+          const field = input.closest('.photo-upload-field, .quote-photo-input, .booking-photo-row');
+          if (!field) return;
+          const notice = document.createElement('p');
+          notice.className = 'photo-upload-fallback';
+          notice.setAttribute('role', 'status');
+          notice.append('กรอกข้อมูลโครงการได้ตามปกติ แล้วส่งรูปหน้างานทาง ');
+          const link = document.createElement('a');
+          link.href = config.lineUrl || 'https://lin.ee/u45yvnc';
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          link.textContent = 'LINE @522magc';
+          notice.append(link);
+          field.replaceWith(notice);
+        });
+      })
+      .catch(() => undefined);
+  }
   leadForms.forEach(form => form.addEventListener('input', () => {
     trackEvent('lead_form_start', { form_id: form.id || 'leadForm', service: $('[name="service"]', form)?.value || '' });
   }, { once: true }));
