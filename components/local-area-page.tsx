@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowDownRight, ArrowRight, ArrowUpRight, Building2, ClipboardCheck, ClipboardList, DraftingCompass, FileCheck2, FileText, HardHat, House, Mail, MapPin, Phone, Ruler, Send, ShieldCheck } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Building2, ClipboardCheck, ClipboardList, DraftingCompass, FileCheck2, FileText, HardHat, House, Landmark, Mail, MapPin, Phone, Ruler, Send, ShieldCheck } from "lucide-react";
 import { JsonLd } from "@/components/json-ld";
 import { LegacyBodyState } from "@/components/legacy-body-state";
 import { LegacyRuntimeScripts } from "@/components/legacy-runtime-scripts";
@@ -57,27 +57,26 @@ export function LocalAreaPage({ slug }: { slug: LocalAreaSlug }) {
     <link rel="stylesheet" href="/legacy/styles.min.css?v=20260925-5" />
     <link rel="stylesheet" href="/legacy/service-seo.css?v=20261011-1" />
     {isNonthaburi && <link rel="stylesheet" href="/legacy/contractor-design.css?v=20261011-2" />}
-    {isNonthaburi && <link rel="stylesheet" href="/legacy/contractor-reference.css?v=20261011-2" />}
+    {isNonthaburi && <link rel="stylesheet" href="/legacy/contractor-reference.css?v=20261011-4" />}
     <JsonLd data={schema} />
     <a className="skip-link" href="#main-content">ข้ามไปเนื้อหาหลัก</a>
     {React.createElement("nge-header")}
     <main id="main-content">
       <section className="seo-hero local-area-hero">
         {isNonthaburi && <div className="contractor-hero-art" aria-hidden="true" />}
+        {isNonthaburi && <span className="contractor-hero-tagline">BUILDING A BETTER TOMORROW</span>}
         <div className="container seo-split">
           <div className="local-hero-copy">
             {!isNonthaburi && <nav className="breadcrumb" aria-label="เส้นทางหน้าเว็บ"><Link href="/">หน้าหลัก</Link> / <Link href="/services">บริการ</Link> / <span>{page.area}</span></nav>}
             <span className="page-kicker">NONTHABURI SERVICE AREA</span>
             <h1>{isNonthaburi ? <>รับเหมา<br /><em>ก่อสร้าง นนทบุรี</em></> : page.h1}</h1>
-            {isNonthaburi ? <><p className="contractor-hero-lead">ครบวงจรงานก่อสร้าง บ้าน อาคาร ต่อเติม รีโนเวท และระบบต่าง ๆ</p><p className="contractor-hero-support">งานคุณภาพ มาตรฐานวิศวกรรม ดูแลตั้งแต่วางแผนจนส่งมอบ</p><div className="contractor-hero-proof" aria-label="ข้อมูลทีมงาน"><span><ShieldCheck aria-hidden="true" /> ทีมวิศวกร<br />ควบคุมงาน</span><span><Building2 aria-hidden="true" /> จดทะเบียน<br />นิติบุคคล</span><span><MapPin aria-hidden="true" /> ดูหน้างาน<br />ในนนทบุรี</span></div></> : <p>{page.lead}</p>}
+            {isNonthaburi ? <><p className="contractor-hero-lead">ครบวงจรงานก่อสร้าง บ้าน อาคาร ต่อเติม รีโนเวท และระบบต่าง ๆ</p><p className="contractor-hero-support">งานคุณภาพ มาตรฐานภาครัฐ ด้วยประสบการณ์กว่า 40 ปี</p><div className="contractor-hero-proof" aria-label="ข้อมูลทีมงาน"><div><ShieldCheck aria-hidden="true" /><span>ประสบการณ์<small>กว่า 40 ปี</small></span></div><div><Landmark aria-hidden="true" /><span>ผลงานภาครัฐ<small>400+ ล้านบาท</small></span></div><div><MapPin aria-hidden="true" /><span>ดูหน้างานฟรี<small>ทีมงานติดต่อภายใน 1 วัน</small></span></div></div></> : <p>{page.lead}</p>}
             <div className="seo-actions"><Link className="btn btn-primary" href="/contact?service=construction">ขอประเมินโครงการ <ArrowRight size={18} aria-hidden="true" /></Link><a className="btn btn-dark js-line-link" href="https://lin.ee/u45yvnc">ติดต่อผ่าน LINE</a></div>
             {!isNonthaburi && <p className="local-coverage">พื้นที่บริการ: {areaName} และพื้นที่ใกล้เคียง</p>}
           </div>
           {!isNonthaburi && <figure className="seo-photo"><Image src={page.image} alt={page.imageAlt} width={800} height={600} priority sizes="(max-width: 760px) 100vw, 48vw" /><figcaption><span>ผลงานจริงของ NGE</span>{page.imageAlt} · <Link href="/projects">ดูผลงานทั้งหมด ↗</Link></figcaption></figure>}
         </div>
       </section>
-
-      {isNonthaburi && <nav className="contractor-jump" aria-label="ส่วนต่าง ๆ ของหน้านี้"><div className="container contractor-jump-inner"><span className="contractor-jump-label">EXPLORE NGE <ArrowDownRight size={17} aria-hidden="true" /></span><a href="#contractor-services">01 <span>งานที่เราดูแล</span></a><a href="#contractor-projects">02 <span>ผลงานจริง</span></a><a href="#contractor-contact">03 <span>ติดต่อทีมงาน</span></a><a href="#contractor-process">04 <span>เตรียมข้อมูล</span></a></div></nav>}
 
       <section className="section local-area-intro"><div className="container seo-content"><div className="contractor-section-top"><span className="page-kicker">วางขอบเขตก่อนเสนอราคา</span>{isNonthaburi && <span className="contractor-section-count">01 / APPROACH</span>}</div><h2>เริ่มจากข้อมูลหน้างาน ไม่ใช้ราคาเหมารวม</h2><p>{page.intro}</p><div className="seo-grid">{page.focus.map((item, index) => { const Icon = focusIcons[index]; return <article className="seo-card" key={item.title}>{isNonthaburi && <div className="contractor-focus-top"><Icon size={30} strokeWidth={1.5} aria-hidden="true" /><span>0{index + 1}</span></div>}<h3>{item.title}</h3><p>{item.body}</p></article>; })}</div></div></section>
 
@@ -114,14 +113,14 @@ export function LocalAreaPage({ slug }: { slug: LocalAreaSlug }) {
         { icon: ShieldCheck, title: "มาตรฐานและเงื่อนไข", body: "กำหนดมาตรฐานวัสดุ คุณภาพงาน และเงื่อนไขการรับประกัน", href: "/choose-contractor-nonthaburi" },
       ].map(item => { const Icon = item.icon; return <article key={item.title}><span className="contractor-scope-icon"><Icon size={30} strokeWidth={1.7} aria-hidden="true" /></span><h3>{item.title}</h3><p>{item.body}</p><Link href={item.href}>ดูรายละเอียด <ArrowRight size={15} aria-hidden="true" /></Link></article>; })}</div><p className="contractor-scope-note"><ShieldCheck size={22} aria-hidden="true" /> เอกสารครบ = ลดปัญหา · ลดค่าใช้จ่าย · งานเสร็จตามแผน</p></div></div></section> : <section className="section"><div className="container seo-content"><span className="page-kicker">CLEAR SCOPE</span><h2>ขอบเขตที่ควรอยู่ในเอกสารก่อนเริ่มงาน</h2><div className="seo-grid"><article className="seo-card"><h3>แบบและวัสดุ</h3><p>ระบุแบบอ้างอิง รุ่นหรือระดับวัสดุ และตัวเลือกที่มีผลต่อราคาให้ตรวจสอบร่วมกัน</p></article><article className="seo-card"><h3>ราคาและงวดงาน</h3><p>ผูก BOQ กับงวดตรวจรับ แยกงานรวม งานไม่รวม และวิธีอนุมัติงานเพิ่มลด</p></article><article className="seo-card"><h3>แผนงานและส่งมอบ</h3><p>กำหนดลำดับงาน ผู้ประสานงาน จุดตรวจ และรายการเอกสารหรือการรับประกันตอนส่งมอบ</p></article></div><p><Link href="/boq-construction-guide">อ่านวิธีตรวจ BOQ</Link> · <Link href="/construction-contract-guide">ดูรายการสำคัญในสัญญาก่อสร้าง</Link> · <Link href="/choose-contractor-nonthaburi">เช็กลิสต์เลือกผู้รับเหมา</Link></p></div></section>}
 
-      {isNonthaburi ? <section className="section local-area-links contractor-areas"><div className="contractor-area-intro"><span className="page-kicker">OUR SERVICES</span><h2>เลือกดูข้อมูลตามพื้นที่<br /><em>ที่คุณต้องการ</em></h2><p>เรามีทีมงานและประสบการณ์ในหลายพื้นที่ พร้อมให้คำปรึกษาและดูแลอย่างใกล้ชิด</p><a href="#contractor-contact" className="btn btn-primary"><MapPin size={18} aria-hidden="true" /> ดูพื้นที่ให้บริการทั้งหมด <ArrowRight size={17} aria-hidden="true" /></a></div><div className="contractor-area-cards">{[
-        { area: "นนทบุรี", slug: "contractor-nonthaburi", image: "/assets/hero-home-modern-v2.webp", detail: "รับเหมาสร้างบ้าน อาคาร ต่อเติม รีโนเวท" },
-        { area: "บางใหญ่", slug: "contractor-bang-yai", image: "/assets/project-heroes/wichai-sriracha-hero.webp", detail: "บ้านเดี่ยว งานต่อเติม อาคารพาณิชย์" },
-        { area: "บางกรวย", slug: "contractor-bang-kruai", image: "/assets/project-heroes/lake-legend-hero.webp", detail: "รีโนเวท ต่อเติม งานระบบครบวงจร" },
-        { area: "บางบัวทอง", slug: "contractor-bang-bua-thong", image: "/assets/services/service-building-extension-fast.webp", detail: "งานก่อสร้างทุกขนาด พร้อมดูแลตั้งแต่เริ่มจนจบ" },
-        { area: "ปากเกร็ด", slug: "contractor-pak-kret", image: "/assets/projects/gpo-yotse-pharmacy/cover.webp", detail: "ที่อยู่อาศัย อาคารพาณิชย์ และงานโครงสร้าง" },
-        { area: "ไทรน้อย", slug: "contractor-sai-noi", image: "/assets/project-heroes/rc-road-saraburi-12-ton-hero.webp", detail: "ต่อเติม รีโนเวท บ้านและอาคารทุกประเภท" },
-        { area: "เมืองนนทบุรี", slug: "contractor-mueang-nonthaburi", image: "/assets/project-heroes/school-25-hero.webp", detail: "งานในพื้นที่พักอาศัยและอาคารที่ใช้งานจริง" },
+      {isNonthaburi ? <section className="section local-area-links contractor-areas"><div className="contractor-area-intro"><span className="page-kicker">OUR SERVICES</span><h2>เลือกดูข้อมูลตามพื้นที่<br /><em>ที่คุณต้องการ</em></h2><p>เรามีทีมงานและประสบการณ์ในหลายพื้นที่ พร้อมให้คำปรึกษาและดูแลอย่างใกล้ชิด</p><a href="#contractor-area-grid" className="btn btn-primary"><MapPin size={18} aria-hidden="true" /> ดูพื้นที่ให้บริการทั้งหมด <ArrowRight size={17} aria-hidden="true" /></a></div><div className="contractor-area-cards" id="contractor-area-grid">{[
+        { area: "นนทบุรี", slug: "contractor-nonthaburi", image: "/assets/area-nonthaburi-reference.webp", detail: "รับเหมาสร้างบ้าน อาคาร ต่อเติม รีโนเวท" },
+        { area: "บางใหญ่", slug: "contractor-bang-yai", image: "/assets/area-bang-yai-reference.webp", detail: "บ้านเดี่ยว งานต่อเติม อาคารพาณิชย์" },
+        { area: "บางกรวย", slug: "contractor-bang-kruai", image: "/assets/area-bang-kruai-reference.webp", detail: "รีโนเวท ต่อเติม งานระบบครบวงจร" },
+        { area: "บางบัวทอง", slug: "contractor-bang-bua-thong", image: "/assets/area-bang-bua-thong-reference.webp", detail: "งานก่อสร้างทุกขนาด พร้อมดูแลตั้งแต่เริ่มจนจบ" },
+        { area: "ปากเกร็ด", slug: "contractor-pak-kret", image: "/assets/area-pak-kret-reference.webp", detail: "ที่อยู่อาศัย อาคารพาณิชย์ และงานโครงสร้าง" },
+        { area: "ไทรน้อย", slug: "contractor-sai-noi", image: "/assets/area-sai-noi-reference.webp", detail: "ต่อเติม รีโนเวท บ้านและอาคารทุกประเภท" },
+        { area: "กรุงเทพฯ และปริมณฑล", slug: "contact", image: "/assets/area-mueang-nonthaburi-reference.webp", detail: "รองรับงานในพื้นที่กรุงเทพฯ และพื้นที่ใกล้เคียง" },
       ].map(item => <Link className="contractor-area-card" href={`/${item.slug}`} key={item.slug}><div className="contractor-area-thumb"><Image src={item.image} alt="" width={420} height={180} loading="lazy" sizes="(max-width: 700px) 80vw, 25vw" /></div><div className="contractor-area-title"><MapPin size={17} aria-hidden="true" /><h3>{item.area}</h3></div><p>{item.detail}</p><ArrowRight className="contractor-area-arrow" size={17} aria-hidden="true" /></Link>)}<Link className="contractor-area-card contractor-area-other" href="/contact"><div className="contractor-area-thumb"><MapPin size={48} aria-hidden="true" /></div><div className="contractor-area-title"><MapPin size={17} aria-hidden="true" /><h3>พื้นที่อื่น ๆ</h3></div><p>ติดต่อสอบถามเพื่อประเมินหน้างานฟรี ไม่มีค่าใช้จ่าย</p><ArrowRight className="contractor-area-arrow" size={17} aria-hidden="true" /></Link></div></section> : <section className="section local-area-links"><div className="container"><div className="section-heading centered"><span>พื้นที่บริการนนทบุรี</span><h2>เลือกดูข้อมูลตามพื้นที่โครงการ</h2><p>แต่ละพื้นที่มีแนวทางเตรียมหน้างานและข้อมูลประกอบการประเมินต่างกัน</p></div><div className="seo-grid seo-services">{siblings.map(item => <Link className="seo-card" href={`/${item.slug}`} key={item.slug}><small>NONTHABURI</small><h3>รับเหมาก่อสร้าง {item.area}</h3><p>{item.lead}</p><b>ดูรายละเอียดพื้นที่ →</b></Link>)}</div></div></section>}
 
       <section className="section" style={{ paddingTop: 0 }}><div className="container seo-content"><span className="page-kicker">FAQ</span><h2>คำถามก่อนเริ่มโครงการใน{page.area}</h2><div className="seo-faq">{page.faq.map(item => <details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div></div></section>
