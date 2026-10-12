@@ -1128,3 +1128,35 @@ body[data-page="about"] .about-swnp-mosaic .history-projects{grid-column:1/13}
 @media(max-width:800px){.projects-review-gallery{padding:58px 0 74px}.projects-review-gallery>.container{width:min(100% - 36px,650px)}.customer-review-heading{gap:12px}.customer-review-heading h2{font-size:clamp(32px,8vw,43px)}.customer-review-heading p{font-size:13px}.customer-review-count{gap:7px;padding-left:12px}.customer-review-count strong{font-size:43px}.customer-review-count span{font-size:10px}.customer-review-grid{columns:1;max-width:650px}.customer-review-card{margin-bottom:14px}.customer-review-card a{min-height:96px;padding:9px}.customer-review-source{align-items:flex-start;flex-direction:column;gap:8px}}
 @media(max-width:420px){.customer-review-heading{grid-template-columns:1fr}.customer-review-count{width:fit-content}.customer-review-card{padding:11px}.customer-review-card figcaption{font-size:9px;letter-spacing:.6px}}
 @media(prefers-reduced-motion:reduce){.customer-review-card{transition:none}}
+
+
+/* Multicolor photo-estimate symbol and customer-supplied LINE mark. */
+@media(max-width:900px){
+  .mobile-estimate-dock .mobile-estimate-mark{
+    width:46px;height:46px;flex:0 0 46px;display:grid;place-items:center;
+    border:1px solid rgba(146,216,231,.72);border-radius:13px 5px 13px 5px;
+    background:linear-gradient(145deg,#f8fcff,#dff4f8);
+    box-shadow:0 6px 14px rgba(0,0,0,.18),inset 0 1px 0 #fff;
+    transform:rotate(-4deg);
+  }
+  .mobile-estimate-dock .mobile-estimate-mark .mobile-estimate-art{
+    display:block;width:42px;height:42px;object-fit:contain;margin:0;
+    transform:rotate(4deg);
+  }
+  .mobile-estimate-dock .mobile-estimate-go{
+    width:46px;height:46px;flex:0 0 46px;display:grid;place-items:center;
+    border:0;border-radius:13px;background:transparent;color:inherit;
+    box-shadow:none;animation:ngeLineLogoGlow 4.8s ease-in-out infinite;
+  }
+  .mobile-estimate-dock .mobile-estimate-go .mobile-estimate-line-logo{
+    display:block;width:46px;height:46px;max-width:100%;object-fit:cover;
+    margin:0;border-radius:13px;box-shadow:0 0 0 2px rgba(255,255,255,.23);
+  }
+}
+@media(max-width:380px){
+  .mobile-estimate-dock .mobile-estimate-mark,.mobile-estimate-dock .mobile-estimate-go{width:39px;height:39px;flex-basis:39px}
+  .mobile-estimate-dock .mobile-estimate-mark .mobile-estimate-art{width:36px;height:36px}
+  .mobile-estimate-dock .mobile-estimate-go .mobile-estimate-line-logo{width:39px;height:39px;border-radius:11px}
+}
+@keyframes ngeLineLogoGlow{0%,82%,100%{filter:drop-shadow(0 0 0 rgba(0,198,87,0))}90%{filter:drop-shadow(0 0 9px rgba(0,198,87,.6))}}
+@media(prefers-reduced-motion:reduce){.mobile-estimate-dock .mobile-estimate-go{animation:none}}

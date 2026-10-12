@@ -8,7 +8,7 @@ export function LegacyPage({ file, project = false, includeJsonLd = true }: { fi
   const page = readLegacyDocument(file);
   return <div className={page.bodyClass} data-legacy-page={page.page}>
     <LegacyBodyState page={page.page} bodyClass={page.bodyClass} />
-    <link rel="stylesheet" href="/legacy/styles.min.css?v=20261006-4" />
+    <link rel="stylesheet" href="/legacy/styles.min.css?v=20261013-2" />
     {(page.page === "home" || page.page === "projects") && <link rel="stylesheet" href="/portfolio-reference.css?v=20261013-1" />}
     {!project && <link rel="stylesheet" href="/legacy/service-seo.css?v=20261006-1" />}
     {page.page === "home" && <link rel="stylesheet" href="/legacy/home-facebook-reel.css?v=20261011-1" />}
@@ -18,6 +18,6 @@ export function LegacyPage({ file, project = false, includeJsonLd = true }: { fi
     <div dangerouslySetInnerHTML={{ __html: page.html }} />
     <LegacyRuntimeScripts sources={project
       ? ["/legacy/site-config.js?v=20260925-1", "/legacy/project-detail.js?v=20260925-2"]
-      : ["/legacy/site-config.js?v=20260925-1", "/legacy/site-shell.js?v=20260928-1", "/legacy/app.js?v=20261011-2"]} />
+      : ["/legacy/site-config.js?v=20260925-1", "/legacy/site-shell.js?v=20261013-2", "/legacy/app.js?v=20261011-2"]} />
   </div>;
 }
