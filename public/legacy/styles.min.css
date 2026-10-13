@@ -1217,7 +1217,7 @@ body[data-page="home"] .home-story-showcase .story-point-icon{display:block}
 
 /* Mobile hero: make the engineer part of the architectural image, with a clear text zone. */
 @media(max-width:640px){
-  body[data-page="home"] .hero-cinematic{height:auto;min-height:0;padding:420px 0 118px}
+  body[data-page="home"] .hero-cinematic{height:auto;min-height:0;max-height:none;padding:420px 0 118px}
   body[data-page="home"] .hero-cinematic .hero-bg{background:linear-gradient(180deg,rgba(8,11,15,.14) 0%,rgba(8,11,15,.34) 27%,rgba(8,11,15,.88) 42%,#101112 58%,#101112 100%)}
   body[data-page="home"] .hero-engineer,
   body[data-page="home"] .hero-engineer.reveal,
@@ -1241,7 +1241,8 @@ body[data-page="home"] .home-story-showcase .story-point-icon{display:block}
     position:relative;z-index:3;left:auto;right:auto;bottom:auto;
     width:min(100% - 40px,520px);max-width:none;margin:0 auto;text-align:left;
   }
-  body[data-page="home"] .hero-actions{justify-content:flex-start}
+  body[data-page="home"] .hero-actions{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;justify-content:stretch}
+  body[data-page="home"] .hero-actions .btn{width:100%;min-width:0;justify-content:center;white-space:normal;text-align:center}
   body[data-page="home"] .hero-trust{justify-content:flex-start}
 }
 @media(max-width:380px){body[data-page="home"] .hero-cinematic{padding-top:390px}body[data-page="home"] .hero-engineer,body[data-page="home"] .hero-engineer.reveal,body[data-page="home"] .hero-engineer.reveal.is-visible{height:500px}body[data-page="home"] .hero-engineer img{height:700px}}
