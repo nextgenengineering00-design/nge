@@ -276,6 +276,7 @@ html[lang="th"] body{line-break:strict;word-break:normal;overflow-wrap:normal}
 h1,h2,h3,.btn,.quick-card b,.project-body h3{text-wrap:balance}
 .hero-bg{background-image:linear-gradient(90deg,rgba(5,5,5,.91) 0%,rgba(5,5,5,.7) 48%,rgba(5,5,5,.34) 100%)}
 .hero-engineer{position:absolute;z-index:3;right:max(3%,calc((100% - 1320px)/2));bottom:-98px;width:min(39vw,530px);height:700px;display:flex;align-items:flex-end;justify-content:center;pointer-events:none;filter:drop-shadow(0 24px 26px rgba(0,0,0,.45))}
+.hero-engineer picture{display:block;width:100%;height:100%}
 .hero-engineer img{height:100%;width:auto;max-width:none;object-fit:contain;object-position:center bottom;animation:engineerEnter 1s cubic-bezier(.2,.8,.2,1) both}
 .hero-copy{max-width:690px}
 .hero-copy>p:not(.hero-eyebrow){max-width:560px}
@@ -707,6 +708,9 @@ body[data-page="home"] .reveal.is-visible{transform:none;filter:none}
 @media(prefers-reduced-motion:reduce){body[data-page="home"] .hero-cinematic .hero-media img,body[data-page="home"] .hero-cinematic::after,body[data-page="home"] .hero-blueprint,body[data-page="home"] .hero-copy>*,body[data-page="home"] .hero-copy h1 em::after,body[data-page="home"] .hero-engineer,body[data-page="home"] .hero-engineer img,body[data-page="home"] .engineer-halo,body[data-page="home"] .hero-side-note,body[data-page="home"] .quick-card{animation:none!important;opacity:1;transform:none}}
 @media(max-width:640px) and (prefers-reduced-motion:reduce){body[data-page="home"] .hero-engineer{transform:translateX(-50%)}}
 
+/* Keep the first screen stable while the mobile hero loads. */
+@media(max-width:640px){body[data-page="home"] .hero.hero{background-image:none}body[data-page="home"] .hero-cinematic .hero-media img,body[data-page="home"] .hero-copy>*,body[data-page="home"] .hero-engineer{animation:none;opacity:1;will-change:auto}body[data-page="home"] .hero-copy>*{transform:none}body[data-page="home"] .hero-engineer{transform:translateX(-50%)}}
+
 /* V19: calm, image-led company presentation inspired by established home-builder sites. */
 .site-header{height:auto}.header-utility{height:32px;background:#171717;color:#fff}.header-utility>div{width:min(1320px,calc(100% - 48px));height:100%;margin:auto;display:flex;align-items:center;justify-content:space-between;font-size:10px;letter-spacing:.15px}.header-utility-links{display:flex;align-items:center;gap:24px}.header-utility a{color:rgba(255,255,255,.76);transition:color .2s ease}.header-utility a:hover{color:var(--orange)}.header-inner{height:78px}.desktop-nav a{font-weight:400}.desktop-nav a[aria-current="page"]{font-weight:600}.header-call{border-radius:0;background:#171717}.header-call:hover{border-radius:0}
 .hero-copy{max-width:690px}.hero-copy h1{max-width:760px;line-height:1.1;letter-spacing:-1.8px}.hero-copy>p:not(.hero-eyebrow){max-width:590px;font-size:17px;line-height:1.8}.hero-eyebrow,.page-kicker,.section-heading>span{letter-spacing:2.2px}.hero-actions{margin-top:30px}
@@ -1077,9 +1081,9 @@ body[data-page="about"] .about-swnp-mosaic .history-projects{grid-column:1/13}
 /* NGE mobile site estimate: one clear LINE action with architectural details. */
 @media(max-width:900px){
   .mobile-dock.mobile-estimate-dock{left:clamp(9px,3.2vw,18px);right:clamp(9px,3.2vw,18px);bottom:calc(9px + env(safe-area-inset-bottom));height:78px;padding:0;display:block;border:0;border-radius:19px;background:transparent;box-shadow:none;overflow:visible;backdrop-filter:none;-webkit-backdrop-filter:none;animation:ngeEstimateEnter .65s cubic-bezier(.18,.8,.2,1) both}
-  .mobile-estimate-dock .mobile-estimate-link{position:relative;isolation:isolate;width:100%;height:78px;min-height:78px;display:flex;flex-direction:row;justify-content:flex-start;align-items:center;gap:12px;padding:9px 12px 9px 17px;border:1px solid rgba(255,169,67,.48)!important;border-radius:19px;background:linear-gradient(125deg,#18242b 0%,#10191f 63%,#22322c 100%)!important;color:#fff!important;box-shadow:0 14px 32px rgba(11,21,24,.3),inset 0 1px 0 rgba(255,255,255,.12);overflow:hidden;text-align:left;text-decoration:none;transition:transform .25s ease,box-shadow .25s ease}
+  .mobile-estimate-dock .mobile-estimate-link{position:relative;isolation:isolate;width:100%;height:78px;min-height:78px;display:flex;flex-direction:row;justify-content:flex-start;align-items:center;gap:12px;padding:9px 12px 9px 17px;border:0!important;border-radius:19px;background:linear-gradient(125deg,#18242b 0%,#10191f 63%,#22322c 100%)!important;color:#fff!important;box-shadow:0 14px 32px rgba(11,21,24,.3);overflow:hidden;text-align:left;text-decoration:none;transition:transform .25s ease,box-shadow .25s ease}
   .mobile-estimate-dock .mobile-estimate-link::before{content:"";position:absolute;z-index:-1;top:0;bottom:0;left:0;width:6px;background:#ff9d24;box-shadow:0 0 18px rgba(255,157,36,.45)}
-  .mobile-estimate-dock .mobile-estimate-link::after{content:"";position:absolute;z-index:-1;inset:0 0 0 auto;width:45%;background:repeating-linear-gradient(135deg,transparent 0 17px,rgba(134,207,178,.12) 18px,transparent 19px),linear-gradient(90deg,transparent,rgba(13,65,46,.36));pointer-events:none}
+  .mobile-estimate-dock .mobile-estimate-link::after{content:"";position:absolute;z-index:-1;inset:0 0 0 auto;width:45%;background:linear-gradient(90deg,transparent,rgba(13,65,46,.36));pointer-events:none}
   .mobile-estimate-dock .mobile-estimate-mark{width:42px;height:42px;flex:0 0 42px;display:grid;place-items:center;border:1px solid rgba(255,177,78,.5);border-radius:11px 3px 11px 3px;background:rgba(255,151,34,.13);transform:rotate(-4deg)}
   .mobile-estimate-dock .mobile-estimate-mark svg{width:25px;height:25px;margin:0;color:#ffab45;fill:none;stroke:currentColor;stroke-width:1.75;transform:rotate(4deg)}
   .mobile-estimate-dock .mobile-estimate-copy{min-width:0;flex:1;display:grid;gap:2px;line-height:1.1}
@@ -1088,7 +1092,7 @@ body[data-page="about"] .about-swnp-mosaic .history-projects{grid-column:1/13}
   .mobile-estimate-dock .mobile-estimate-go{width:42px;height:42px;flex:0 0 42px;display:grid;place-items:center;border-radius:50%;background:#22ba62;color:#082915;box-shadow:0 0 0 5px rgba(34,186,98,.13);animation:ngeEstimatePulse 4.8s ease-in-out infinite}
   .mobile-estimate-dock .mobile-estimate-go .mobile-estimate-line{width:24px;height:24px;margin:0;color:#fff;fill:currentColor}
   .mobile-estimate-dock .mobile-estimate-go .mobile-estimate-arrow{position:absolute;right:8px;bottom:7px;width:12px;height:12px;margin:0;color:#fff;transition:transform .25s ease}
-  .mobile-estimate-dock .mobile-estimate-link:hover,.mobile-estimate-dock .mobile-estimate-link:active{transform:translateY(-3px);box-shadow:0 18px 38px rgba(11,21,24,.38),inset 0 1px 0 rgba(255,255,255,.12)}
+  .mobile-estimate-dock .mobile-estimate-link:hover,.mobile-estimate-dock .mobile-estimate-link:active{transform:translateY(-3px);box-shadow:0 18px 38px rgba(11,21,24,.38)}
   .mobile-estimate-dock .mobile-estimate-link:hover .mobile-estimate-arrow{transform:translateX(3px)}
   .mobile-estimate-dock .mobile-estimate-link:focus-visible{outline:3px solid #23c96b;outline-offset:3px}
   body.menu-open .mobile-dock.mobile-estimate-dock{animation:none;transform:translateY(18px)}
@@ -1134,7 +1138,7 @@ body[data-page="about"] .about-swnp-mosaic .history-projects{grid-column:1/13}
 @media(max-width:900px){
   .mobile-estimate-dock .mobile-estimate-mark{
     width:46px;height:46px;flex:0 0 46px;display:grid;place-items:center;
-    border:1px solid rgba(146,216,231,.72);border-radius:13px 5px 13px 5px;
+    border:0;border-radius:13px 5px 13px 5px;
     background:linear-gradient(145deg,#f8fcff,#dff4f8);
     box-shadow:0 6px 14px rgba(0,0,0,.18),inset 0 1px 0 #fff;
     transform:rotate(-4deg);
@@ -1150,7 +1154,7 @@ body[data-page="about"] .about-swnp-mosaic .history-projects{grid-column:1/13}
   }
   .mobile-estimate-dock .mobile-estimate-go .mobile-estimate-line-logo{
     display:block;width:46px;height:46px;max-width:100%;object-fit:cover;
-    margin:0;border-radius:13px;box-shadow:0 0 0 2px rgba(255,255,255,.23);
+    margin:0;border-radius:13px;box-shadow:none;
   }
 }
 @media(max-width:380px){
@@ -1164,14 +1168,18 @@ body[data-page="about"] .about-swnp-mosaic .history-projects{grid-column:1/13}
 /* Mobile hero: make the engineer part of the architectural image, with a clear text zone. */
 @media(max-width:640px){
   body[data-page="home"] .hero-cinematic{height:auto;min-height:0;padding:420px 0 118px}
-  body[data-page="home"] .hero-cinematic .hero-bg{background:linear-gradient(180deg,rgba(8,11,15,.14) 0%,rgba(8,11,15,.26) 27%,rgba(8,11,15,.76) 46%,#101112 69%,#101112 100%)}
+  body[data-page="home"] .hero-cinematic .hero-bg{background:linear-gradient(180deg,rgba(8,11,15,.14) 0%,rgba(8,11,15,.34) 27%,rgba(8,11,15,.88) 42%,#101112 58%,#101112 100%)}
   body[data-page="home"] .hero-engineer,
   body[data-page="home"] .hero-engineer.reveal,
   body[data-page="home"] .hero-engineer.reveal.is-visible{
-    z-index:1;top:0;right:0;bottom:auto;left:0;width:100%;height:420px;
+    z-index:1;top:0;right:0;bottom:auto;left:0;width:100%;height:520px;
     opacity:1;transform:none;filter:none;animation:none;overflow:hidden;
-    -webkit-mask-image:linear-gradient(#000 0%,#000 65%,transparent 100%);
-    mask-image:linear-gradient(#000 0%,#000 65%,transparent 100%);
+    -webkit-mask-image:none;mask-image:none;
+  }
+  body[data-page="home"] .hero-engineer::after{
+    content:"";position:absolute;z-index:3;inset:28% 0 0;
+    background:linear-gradient(180deg,transparent 0%,rgba(16,17,18,.36) 20%,rgba(16,17,18,.85) 43%,#101112 68%);
+    pointer-events:none;
   }
   body[data-page="home"] .hero-engineer img{
     position:absolute;top:14px;left:55%;width:auto;height:760px;max-width:none;
@@ -1186,4 +1194,4 @@ body[data-page="about"] .about-swnp-mosaic .history-projects{grid-column:1/13}
   body[data-page="home"] .hero-actions{justify-content:flex-start}
   body[data-page="home"] .hero-trust{justify-content:flex-start}
 }
-@media(max-width:380px){body[data-page="home"] .hero-cinematic{padding-top:390px}body[data-page="home"] .hero-engineer,body[data-page="home"] .hero-engineer.reveal,body[data-page="home"] .hero-engineer.reveal.is-visible{height:390px}body[data-page="home"] .hero-engineer img{height:700px}}
+@media(max-width:380px){body[data-page="home"] .hero-cinematic{padding-top:390px}body[data-page="home"] .hero-engineer,body[data-page="home"] .hero-engineer.reveal,body[data-page="home"] .hero-engineer.reveal.is-visible{height:500px}body[data-page="home"] .hero-engineer img{height:700px}}
