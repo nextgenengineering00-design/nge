@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { projects, site } from "@/lib/site-data";
-import { legacySlugs } from "@/lib/legacy-content";
+import { knowledgeArticleSlugs, legacySlugs } from "@/lib/legacy-content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Only report a modification date when the page content actually changed.
@@ -18,7 +18,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "building-renovation-nonthaburi": "2026-10-04",
     "contractor-mueang-nonthaburi": "2026-10-05",
     "projects/lake-legend": "2026-10-05",
+    knowledge: "2026-10-15",
   };
+  for (const slug of knowledgeArticleSlugs) updated[slug] = "2026-10-15";
   const paths = ["", "about", "services", "projects", "knowledge", "contact", "privacy", ...projects.map(p => `projects/${p.slug}`), ...legacySlugs];
   return [...new Set(paths)].map(path => ({
     url: path ? `${site.url}/${path}` : `${site.url}/`,
