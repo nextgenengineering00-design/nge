@@ -28,7 +28,7 @@ export function LegacyPage({ file, project = false, includeJsonLd = true }: { fi
     {project && <link rel="stylesheet" href="/legacy/project-detail.css?v=20260920" />}
     {includeJsonLd && page.jsonLd.map((value, index) => <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: value.replace(/</g, "\\u003c") }} />)}
     {page.styles.map((value, index) => <style key={`style-${index}`} dangerouslySetInnerHTML={{ __html: value }} />)}
-    {isKnowledgePage && <link rel="stylesheet" href="/legacy/knowledge-template.css?v=20261015-3" />}
+    {isKnowledgePage && <link rel="stylesheet" href="/legacy/knowledge-template.css?v=20261015-4" />}
     <div dangerouslySetInnerHTML={{ __html: html }} />
     <LegacyRuntimeScripts sources={project
       ? ["/legacy/site-config.js?v=20260925-1", "/legacy/project-detail.js?v=20260925-2"]
