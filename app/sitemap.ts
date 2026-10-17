@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     knowledge: "2026-10-15",
   };
   for (const slug of knowledgeArticleSlugs) updated[slug] = "2026-10-15";
+  for (const path of ["", "boq-construction-guide", "projects/lake-legend", "build-home-nonthaburi", "renovation-nonthaburi"]) updated[path] = "2026-10-17";
   const paths = ["", "about", "services", "projects", "knowledge", "contact", "privacy", ...projects.map(p => `projects/${p.slug}`), ...legacySlugs];
   return [...new Set(paths)].map(path => ({
     url: path ? `${site.url}/${path}` : `${site.url}/`,
