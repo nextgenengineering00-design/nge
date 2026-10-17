@@ -17,13 +17,18 @@ export type LegacyDocument = {
 export const knowledgeArticleSlugs = ["choose-contractor-nonthaburi", "boq-construction-guide", "construction-contract-guide", "construction-process-guide", "renovation-budget-guide", "building-permit-guide", "home-extension-law-guide", "construction-payment-inspection-guide", "build-house-first-step-guide", "renovation-mep-guide", "renovation-nonthaburi", "renovation-structure-check-guide", "concrete-road-guide", "concrete-road-cost-guide", "house-construction-cost-guide", "house-construction-timeline-guide", "contractor-quotation-guide"] as const;
 export const legacySlugs=[...knowledgeArticleSlugs,"build-home-nonthaburi",...localAreaSlugs,...localServiceSlugs,"extend-home-nonthaburi","faq","renovation-service-nonthaburi","condo-renovation-nonthaburi","building-renovation-nonthaburi"] as const;
 
+function decodeMetadata(value: string) {
+  const entities: Record<string, string> = { amp: "&", quot: '"', apos: "'", lt: "<", gt: ">", "#39": "'", "#x27": "'" };
+  return value.replace(/&(amp|quot|apos|lt|gt|#39|#x27);/g, (_, entity: string) => entities[entity]);
+}
+
 export function readLegacyDocument(relativeFile: string): LegacyDocument {
   const source = legacyHtml[relativeFile.replaceAll("\\", "/")];
   if (!source) throw new Error(`Legacy page not found: ${relativeFile}`);
-  const title = source.match(/<title>([\s\S]*?)<\/title>/i)?.[1]?.trim() || "Next Gen Engineering";
-  const description = source.match(/<meta\s+name=["']description["']\s+content=["']([^"']*)["']/i)?.[1]
+  const title = decodeMetadata(source.match(/<title>([\s\S]*?)<\/title>/i)?.[1]?.trim() || "Next Gen Engineering");
+  const description = decodeMetadata(source.match(/<meta\s+name=["']description["']\s+content=["']([^"']*)["']/i)?.[1]
     || source.match(/<meta\s+content=["']([^"']*)["']\s+name=["']description["']/i)?.[1]
-    || "Next Gen Engineering";
+    || "Next Gen Engineering");
   const image = source.match(/<meta\s+property=["']og:image["']\s+content=["']([^"']*)["']/i)?.[1]
     || source.match(/<meta\s+content=["']([^"']*)["']\s+property=["']og:image["']/i)?.[1]
     || source.match(/<meta\s+name=["']twitter:image["']\s+content=["']([^"']*)["']/i)?.[1];
