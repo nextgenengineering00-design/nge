@@ -127,6 +127,6 @@ export function LocalAreaPage({ slug }: { slug: LocalAreaSlug }) {
       <section className="closing-cta"><div className="container"><div><span>เริ่มจากข้อมูลจริงของหน้างาน</span><h2>ให้ทีมช่วยจัดขอบเขตก่อนประเมินราคา</h2></div><Link className="btn btn-dark" href="/contact?source=local-area-cta">ให้ทีมติดต่อกลับ</Link></div></section>
     </main>
     {React.createElement("nge-footer")}
-    <LegacyRuntimeScripts sources={["/legacy/site-config.js?v=20260925-1", "/legacy/site-shell.js?v=20260925-4", "/legacy/app.js?v=20261011-2"]} />
+    <LegacyRuntimeScripts sources={["/legacy/site-config.js?v=20260925-1", "/legacy/site-shell.js?v=20260925-4", "/legacy/app.js?v=20261017-1"]} />
   </div>;
 }

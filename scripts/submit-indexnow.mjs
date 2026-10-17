@@ -1,0 +1,11 @@
+import fs from 'node:fs/promises';
+const config = JSON.parse(await fs.readFile(new URL('./indexnow-config.json', import.meta.url),'utf8'));
+const keyResponse = await fetch(config.keyLocation);
+if (!keyResponse.ok || (await keyResponse.text()).trim() !== config.key) throw new Error('Public verification file is not ready');
+const xml = await (await fetch('https://' + config.host + '/sitemap.xml')).text();
+const urlList = [...new Set([...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map(match => match[1]))];
+if (!urlList.length || urlList.some(url => new URL(url).host !== config.host || new URL(url).protocol !== 'https:')) throw new Error('Only verified site sitemap URLs may be submitted');
+const response = await fetch('https://api.indexnow.org/indexnow',{method:'POST',headers:{'Content-Type':'application/json; charset=utf-8'},body:JSON.stringify({...config,urlList})});
+const result = {date:new Date().toISOString(),endpoint:'https://api.indexnow.org/indexnow',status:response.status,urls:urlList.length,response:(await response.text()).slice(0,300),note:'Submission response does not confirm crawling, indexing or rankings'};
+console.log(JSON.stringify(result,null,2));
+if (![200,202].includes(response.status)) process.exitCode=1;

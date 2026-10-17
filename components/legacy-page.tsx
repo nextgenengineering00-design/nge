@@ -31,7 +31,7 @@ export function LegacyPage({ file, project = false, includeJsonLd = true }: { fi
     {isKnowledgePage && <link rel="stylesheet" href="/legacy/knowledge-template.css?v=20261015-4" />}
     <div dangerouslySetInnerHTML={{ __html: html }} />
     <LegacyRuntimeScripts sources={project
-      ? ["/legacy/site-config.js?v=20260925-1", "/legacy/project-detail.js?v=20260925-2"]
-      : ["/legacy/site-config.js?v=20260925-1", "/legacy/site-shell.js?v=20261013-3", "/legacy/app.js?v=20261011-2"]} />
+      ? ["/legacy/site-config.js?v=20260925-1", "/legacy/project-detail.js?v=20261017-1"]
+      : ["/legacy/site-config.js?v=20260925-1", "/legacy/site-shell.js?v=20261013-3", "/legacy/app.js?v=20261017-1"]} />
   </div>;
 }
