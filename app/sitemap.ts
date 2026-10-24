@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "renovation-structure-check-guide": "2026-09-28",
     "renovation-mep-guide": "2026-09-28",
     projects: "2026-10-04",
+    "projects/officer-residence-bangkok": "2026-10-24",
     "projects/pum-garage-roof-nawamin-26": "2026-10-04",
     "condo-renovation-nonthaburi": "2026-10-04",
     "building-renovation-nonthaburi": "2026-10-04",
