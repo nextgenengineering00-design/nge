@@ -1,0 +1,209 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(4, 16, 35, 0.68);
+  backdrop-filter: blur(7px);
+  animation: fade-in 180ms ease-out;
+}
+
+.dialog {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(320px, 0.92fr) minmax(420px, 1.08fr);
+  width: min(960px, 100%);
+  max-height: min(700px, calc(100dvh - 48px));
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 26px;
+  background: #fff;
+  box-shadow: 0 30px 90px rgba(0, 12, 35, 0.38);
+  animation: rise-in 260ms cubic-bezier(.2, .8, .2, 1);
+}
+
+.visual {
+  position: relative;
+  min-height: 590px;
+  overflow: hidden;
+  isolation: isolate;
+  background: #082a5d;
+}
+
+.visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: url("/assets/hero-home-modern-v2.webp") center / cover no-repeat;
+  transform: scale(1.02);
+}
+
+.visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(4, 23, 52, .28), rgba(4, 23, 52, .93)),
+    linear-gradient(120deg, rgba(3, 86, 160, .28), transparent 55%);
+}
+
+.visualContent {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 42px 38px 40px;
+  color: #fff;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px;
+  color: #ffb020;
+  font: 700 12px/1.2 var(--font-legacy-display), sans-serif;
+  letter-spacing: .11em;
+}
+
+.eyebrow::before { content: ""; width: 22px; height: 2px; background: currentColor; }
+
+.visual h2 {
+  margin: 0;
+  font: 700 clamp(34px, 3.8vw, 52px)/1.08 var(--font-legacy-display), sans-serif;
+  letter-spacing: -.035em;
+}
+
+.visual h2 span { display: block; color: #ff9f1a; }
+
+.visual p {
+  max-width: 420px;
+  margin: 18px 0 0;
+  color: rgba(255, 255, 255, .84);
+  font: 400 15px/1.65 var(--font-legacy-body), sans-serif;
+}
+
+.formPanel {
+  display: grid;
+  align-content: center;
+  min-height: 590px;
+  padding: 54px 54px 42px;
+  overflow-y: auto;
+}
+
+.close {
+  position: absolute;
+  top: 17px;
+  right: 17px;
+  z-index: 3;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: #f2f5f8;
+  color: #26374b;
+  font: 300 27px/1 Arial, sans-serif;
+  cursor: pointer;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.close:hover { background: #e5ebf1; transform: rotate(4deg); }
+.close:focus-visible, .form input:focus-visible, .form select:focus-visible, .submit:focus-visible { outline: 3px solid rgba(10, 102, 194, .26); outline-offset: 2px; }
+
+.formPanel header { margin-bottom: 25px; text-align: center; }
+.formPanel header strong { display: block; color: #0b68b8; font: 700 13px/1.3 var(--font-legacy-display), sans-serif; letter-spacing: .08em; }
+.formPanel h3 { margin: 7px 0 8px; color: #0a2348; font: 700 29px/1.18 var(--font-legacy-display), sans-serif; letter-spacing: -.025em; }
+.formPanel header p { margin: 0; color: #657286; font: 400 14px/1.55 var(--font-legacy-body), sans-serif; }
+
+.form { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 14px; }
+.field { display: grid; gap: 7px; color: #32445b; font: 600 12px/1.2 var(--font-legacy-display), sans-serif; }
+.field:first-of-type, .field:nth-of-type(2), .consent, .submit, .status { grid-column: 1 / -1; }
+.field input, .field select {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 13px;
+  border: 1px solid #d7dee7;
+  border-radius: 10px;
+  background: #fff;
+  color: #14243a;
+  font: 400 15px/1.2 var(--font-legacy-body), sans-serif;
+}
+.field input::placeholder { color: #9ba6b3; }
+
+.consent {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 9px;
+  align-items: start;
+  color: #6a7584;
+  font: 400 11px/1.55 var(--font-legacy-body), sans-serif;
+}
+.consent input { width: 17px; height: 17px; margin: 1px 0 0; accent-color: #0b68b8; }
+.consent a { color: #075ca6; text-decoration: underline; text-underline-offset: 2px; }
+
+.submit {
+  min-height: 51px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #0967ba, #064991);
+  color: #fff;
+  box-shadow: 0 10px 22px rgba(5, 78, 150, .23);
+  font: 700 15px/1 var(--font-legacy-display), sans-serif;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+.submit:hover { transform: translateY(-1px); box-shadow: 0 13px 26px rgba(5, 78, 150, .3); }
+.submit:disabled { opacity: .68; cursor: wait; transform: none; }
+.status { margin: -3px 0 0; text-align: center; color: #bd2f2f; font: 500 12px/1.45 var(--font-legacy-body), sans-serif; }
+
+.success { text-align: center; }
+.successIcon { display: grid; place-items: center; width: 62px; height: 62px; margin: 0 auto 17px; border-radius: 50%; background: #e7f7ef; color: #148253; font-size: 30px; }
+.success h3 { margin: 0 0 8px; }
+.success p { margin: 0; color: #657286; font: 400 14px/1.6 var(--font-legacy-body), sans-serif; }
+
+.hp { position: absolute !important; left: -9999px !important; }
+
+@keyframes fade-in { from { opacity: 0; } }
+@keyframes rise-in { from { opacity: 0; transform: translateY(18px) scale(.985); } }
+
+@media (max-width: 760px) {
+  .backdrop { align-items: end; padding: 12px; }
+  .dialog { grid-template-columns: 1fr; width: 100%; max-height: calc(100dvh - 24px); border-radius: 22px; }
+  .visual { min-height: 188px; }
+  .visual::before { background-image: url("/assets/hero-home-modern-mobile-lean.webp"); background-position: center 34%; }
+  .visualContent { padding: 25px 24px 23px; }
+  .eyebrow { margin-bottom: 8px; font-size: 10px; }
+  .visual h2 { max-width: 310px; font-size: 30px; }
+  .visual p { display: none; }
+  .formPanel { min-height: 0; padding: 27px 22px 24px; }
+  .formPanel header { margin-bottom: 17px; padding: 0 18px; }
+  .formPanel header strong { font-size: 11px; }
+  .formPanel h3 { margin-top: 5px; font-size: 23px; }
+  .formPanel header p { font-size: 12px; }
+  .form { gap: 12px; }
+  .field { grid-column: 1 / -1; }
+  .field input, .field select { min-height: 44px; }
+  .close { top: 12px; right: 12px; background: rgba(255,255,255,.9); }
+}
+
+@media (max-width: 410px), (max-height: 720px) and (max-width: 760px) {
+  .visual { min-height: 138px; }
+  .visualContent { padding: 18px 20px; }
+  .eyebrow { display: none; }
+  .visual h2 { font-size: 25px; }
+  .formPanel { padding: 20px; }
+  .formPanel header { margin-bottom: 13px; }
+  .formPanel header p { display: none; }
+  .form { gap: 9px; }
+  .field { gap: 4px; }
+  .field input, .field select { min-height: 41px; }
+  .consent { font-size: 10px; line-height: 1.4; }
+  .submit { min-height: 46px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .backdrop, .dialog { animation: none; }
+  .close, .submit { transition: none; }
+}
