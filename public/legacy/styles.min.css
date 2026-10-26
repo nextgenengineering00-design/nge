@@ -1253,3 +1253,16 @@ body[data-page="home"] .credibility-image-band::before,body[data-page="home"] .c
 body[data-page="home"] .credibility-image-band .credibility-artwork{display:block;width:100%;max-width:1484px;height:auto;margin:0 auto}
 @media(min-width:901px){body[data-page="home"] .credibility-image-band{position:relative;isolation:isolate;overflow:hidden;padding:28px 24px}body[data-page="home"] .credibility-image-band::before{content:"";position:absolute;inset:-40px;background:url('/assets/nge-credibility-supplied-2026.png') center 48%/cover no-repeat;filter:blur(38px) brightness(.4);transform:scale(1.05);z-index:-1}body[data-page="home"] .credibility-image-band .credibility-artwork{position:relative;width:100%;max-width:700px;-webkit-mask-image:linear-gradient(to right,transparent,#000 4%,#000 96%,transparent),linear-gradient(to bottom,transparent,#000 6%,#000 94%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 4%,#000 96%,transparent),linear-gradient(to bottom,transparent,#000 6%,#000 94%,transparent);mask-composite:intersect}}
 body[data-page="home"] .credibility-image-band .credibility-semantic{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+
+/* Remove decorative sequence numbers from cards and process tiles site-wide. */
+.home-service-card>span>small,
+.standard-number,
+.seo-guide-number,
+.knowledge-keypoint-number,
+.sv-card-number,
+.project-factbar .fact-number,
+.cc-num,
+.build-home-ref-process-grid article>span,
+.why24-step>span,
+.why-step>b,
+.story-point-number{display:none!important}
