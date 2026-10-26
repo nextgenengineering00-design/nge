@@ -92,7 +92,7 @@ export function CampaignPopup() {
       <section className={styles.visual} aria-label="บริการรับเหมาก่อสร้าง NGE">
         <div className={styles.visualContent}>
           <p className={styles.eyebrow}>สิทธิ์พิเศษสำหรับโครงการใหม่</p>
-          <h2>ลดค่าก่อสร้าง 1%<span className={styles.amountLine}><span className={styles.srOnly}>สูงสุด 100,000 บาท</span><span aria-hidden="true">สูงสุด </span><span className={styles.amountRoll} aria-hidden="true"><span className={styles.amountTrack}><b>20,000</b><b>50,000</b><b>80,000</b><b>100,000</b></span></span><span aria-hidden="true"> บาท</span></span></h2>
+          <h2>ลดค่าก่อสร้าง 1%<span className={styles.amountLine}><span className={styles.srOnly}>สูงสุด 100,000 บาท</span><span className={styles.amountText} aria-hidden="true">สูงสุด </span><span className={styles.amountRoll} aria-hidden="true"><span className={styles.amountTrack}><b>20,000</b><b>50,000</b><b>80,000</b><b>100,000</b></span></span><span className={styles.amountText} aria-hidden="true"> บาท</span></span></h2>
           <p>บ้าน อาคาร รีโนเวท งานระบบ หรืองานโยธา พร้อมสำรวจหน้างานและประเมินราคาเบื้องต้น</p>
         </div>
       </section>
