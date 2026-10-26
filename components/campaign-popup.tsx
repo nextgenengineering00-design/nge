@@ -3,8 +3,6 @@
 import { FormEvent, MouseEvent, useEffect, useRef, useState } from "react";
 import styles from "./campaign-popup.module.css";
 
-const STORAGE_KEY = "nge_campaign_popup_v1";
-const HIDE_FOR_MS = 7 * 24 * 60 * 60 * 1000;
 const EXCLUDED_PATHS = ["/construction-quote", "/contact", "/privacy", "/crm"];
 
 export function CampaignPopup() {
@@ -16,9 +14,7 @@ export function CampaignPopup() {
   useEffect(() => {
     const path = window.location.pathname;
     if (EXCLUDED_PATHS.some((item) => path === item || path.startsWith(`${item}/`))) return;
-    const lastSeen = Number(window.localStorage.getItem(STORAGE_KEY) || 0);
-    if (Date.now() - lastSeen < HIDE_FOR_MS) return;
-    const timer = window.setTimeout(() => setOpen(true), 4500);
+    const timer = window.setTimeout(() => setOpen(true), 1400);
     return () => window.clearTimeout(timer);
   }, []);
 
@@ -42,7 +38,6 @@ export function CampaignPopup() {
   }, [open]);
 
   function close() {
-    window.localStorage.setItem(STORAGE_KEY, String(Date.now()));
     setOpen(false);
   }
 
@@ -81,7 +76,6 @@ export function CampaignPopup() {
       const result = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(result.error || "ส่งข้อมูลไม่สำเร็จ");
       setStatus("success");
-      window.localStorage.setItem(STORAGE_KEY, String(Date.now()));
       const tracking = window as typeof window & { gtag?: (...args: unknown[]) => void; fbq?: (...args: unknown[]) => void };
       tracking.gtag?.("event", "generate_lead", { form_source: "campaign-popup", lead_id: result.leadId || "" });
       tracking.fbq?.("track", "Lead");
@@ -98,7 +92,7 @@ export function CampaignPopup() {
       <section className={styles.visual} aria-label="บริการรับเหมาก่อสร้าง NGE">
         <div className={styles.visualContent}>
           <p className={styles.eyebrow}>สิทธิ์พิเศษสำหรับโครงการใหม่</p>
-          <h2>ลดค่าก่อสร้าง 1%<span>สูงสุด 20,000 บาท</span></h2>
+          <h2>ลดค่าก่อสร้าง 1%<span className={styles.amountLine}><span className={styles.srOnly}>สูงสุด 100,000 บาท</span><span aria-hidden="true">สูงสุด </span><span className={styles.amountRoll} aria-hidden="true"><span className={styles.amountTrack}><b>20,000</b><b>50,000</b><b>80,000</b><b>100,000</b></span></span><span aria-hidden="true"> บาท</span></span></h2>
           <p>บ้าน อาคาร รีโนเวท งานระบบ หรืองานโยธา พร้อมสำรวจหน้างานและประเมินราคาเบื้องต้น</p>
         </div>
       </section>
@@ -121,7 +115,7 @@ export function CampaignPopup() {
             <label className={styles.field}>พื้นที่โครงการ<input name="location" required minLength={2} maxLength={180} placeholder="อำเภอ / จังหวัด" /></label>
             <label className={styles.consent}><input name="privacy_consent" type="checkbox" required /><span>ยินยอมให้ NGE ใช้ข้อมูลเพื่อติดต่อกลับเกี่ยวกับโครงการ ตาม <a href="/privacy" target="_blank" rel="noreferrer">นโยบายความเป็นส่วนตัว</a></span></label>
             <button className={styles.submit} disabled={status === "sending"}>{status === "sending" ? "กำลังส่งข้อมูล..." : "ลงทะเบียนรับสิทธิ์"}</button>
-            <p className={styles.terms}>สำหรับสัญญาใหม่ 500,000 บาทขึ้นไป · เซ็นสัญญาภายใน 30 วัน · 1 สิทธิ์ต่อโครงการ<br />ไม่รวมงานเพิ่ม และไม่ใช้ร่วมโปรโมชันอื่น</p>
+            <p className={styles.terms}>สำหรับสัญญาใหม่ 1,000,000 บาทขึ้นไป · เซ็นสัญญาภายใน 30 วัน · 1 สิทธิ์ต่อโครงการ<br />ไม่รวมงานเพิ่ม และไม่ใช้ร่วมโปรโมชันอื่น</p>
             {status === "error" && <p className={styles.status} role="alert">{error}</p>}
           </form>
         </>}
