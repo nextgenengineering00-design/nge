@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/json-ld";
 import { LegacyPage } from "@/components/legacy-page";
-import { HomepagePromo } from "@/components/homepage-promo";
+import { CampaignPopup } from "@/components/campaign-popup";
 import { absoluteUrl, site } from "@/lib/site-data";
 
 const homeTitle = "รับเหมาก่อสร้างครบวงจร นนทบุรี | ผลงานจริง 40 ปี NGE";
@@ -65,7 +65,7 @@ export default function Home() {
       />
       <JsonLd data={homePageSchema} />
       <LegacyPage file="index.html" includeJsonLd={false} />
-      <HomepagePromo />
+      <CampaignPopup />
     </>
   );
 }

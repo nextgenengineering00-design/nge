@@ -63,7 +63,7 @@ export function CampaignPopup() {
       email: String(fields.get("email") || ""),
       service: String(fields.get("service") || ""),
       location: String(fields.get("location") || ""),
-      message: "ลงทะเบียนผ่านป๊อปอัปปรึกษาโครงการ",
+      message: "ลงทะเบียนผ่านป๊อปอัปโปรลดค่าก่อสร้าง 1%",
       privacy_consent: fields.get("privacy_consent") === "on",
       marketing_consent: false,
       consent_version: "2026-10",
@@ -97,9 +97,9 @@ export function CampaignPopup() {
       <button className={styles.close} type="button" onClick={close} aria-label="ปิดป๊อปอัป">×</button>
       <section className={styles.visual} aria-label="บริการรับเหมาก่อสร้าง NGE">
         <div className={styles.visualContent}>
-          <p className={styles.eyebrow}>NEXT GEN ENGINEERING</p>
-          <h2>มีแผนสร้าง ต่อเติม<span>หรือรีโนเวท?</span></h2>
-          <p>ส่งข้อมูลโครงการให้ทีมวิศวกร NGE ช่วยดูขอบเขตเบื้องต้น ก่อนคุยรายละเอียดและนัดสำรวจหน้างาน</p>
+          <p className={styles.eyebrow}>สิทธิ์พิเศษสำหรับโครงการใหม่</p>
+          <h2>ลดค่าก่อสร้าง 1%<span>สูงสุด 20,000 บาท</span></h2>
+          <p>บ้าน อาคาร รีโนเวท งานระบบ หรืองานโยธา พร้อมสำรวจหน้างานและประเมินราคาเบื้องต้น</p>
         </div>
       </section>
       <section className={styles.formPanel}>
@@ -109,8 +109,8 @@ export function CampaignPopup() {
           <p>ทีม NGE จะติดต่อกลับเพื่อสอบถามรายละเอียดโครงการครับ</p>
         </div> : <>
           <header>
-            <strong>ปรึกษาโครงการเบื้องต้น</strong>
-            <h3 id="campaign-popup-title">ให้ทีม NGE ติดต่อกลับ</h3>
+            <strong>โปรโครงการใหม่ · NGE</strong>
+            <h3 id="campaign-popup-title">ลงทะเบียนรับข้อเสนอ</h3>
             <p>กรอกข้อมูลสั้น ๆ ใช้เวลาไม่เกิน 1 นาที</p>
           </header>
           <form className={styles.form} onSubmit={submit}>
@@ -120,7 +120,8 @@ export function CampaignPopup() {
             <label className={styles.field}>ประเภทงาน<select name="service" required defaultValue=""><option value="" disabled>เลือกประเภทงาน</option><option>สร้างบ้าน/อาคาร</option><option>รีโนเวท/ต่อเติม</option><option>ถนน/งานโยธา</option><option>งานระบบ</option><option>ยังไม่แน่ใจ</option></select></label>
             <label className={styles.field}>พื้นที่โครงการ<input name="location" required minLength={2} maxLength={180} placeholder="อำเภอ / จังหวัด" /></label>
             <label className={styles.consent}><input name="privacy_consent" type="checkbox" required /><span>ยินยอมให้ NGE ใช้ข้อมูลเพื่อติดต่อกลับเกี่ยวกับโครงการ ตาม <a href="/privacy" target="_blank" rel="noreferrer">นโยบายความเป็นส่วนตัว</a></span></label>
-            <button className={styles.submit} disabled={status === "sending"}>{status === "sending" ? "กำลังส่งข้อมูล..." : "ส่งข้อมูลให้ทีม NGE"}</button>
+            <button className={styles.submit} disabled={status === "sending"}>{status === "sending" ? "กำลังส่งข้อมูล..." : "ลงทะเบียนรับสิทธิ์"}</button>
+            <p className={styles.terms}>สำหรับสัญญาใหม่ 500,000 บาทขึ้นไป · เซ็นสัญญาภายใน 30 วัน · 1 สิทธิ์ต่อโครงการ<br />ไม่รวมงานเพิ่ม และไม่ใช้ร่วมโปรโมชันอื่น</p>
             {status === "error" && <p className={styles.status} role="alert">{error}</p>}
           </form>
         </>}
