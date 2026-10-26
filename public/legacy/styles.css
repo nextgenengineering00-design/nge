@@ -1194,6 +1194,8 @@ body[data-page="about"] .about-swnp-mosaic .history-projects{grid-column:1/13}
 /* Mobile hero: make the engineer part of the architectural image, with a clear text zone. */
 @media(max-width:640px){
   body[data-page="home"] .hero-cinematic{height:auto;min-height:0;max-height:none;padding:420px 0 118px}
+  body[data-page="home"] .hero-cinematic .hero-media{inset:0 0 auto;height:520px}
+  body[data-page="home"] .hero-cinematic .hero-media img{object-position:64% 62%;transform:scale(1.03)}
   body[data-page="home"] .hero-cinematic .hero-bg{background:linear-gradient(180deg,rgba(8,11,15,.14) 0%,rgba(8,11,15,.34) 27%,rgba(8,11,15,.88) 42%,#101112 58%,#101112 100%)}
   body[data-page="home"] .hero-engineer,
   body[data-page="home"] .hero-engineer.reveal,
