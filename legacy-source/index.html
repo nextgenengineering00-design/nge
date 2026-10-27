@@ -94,6 +94,21 @@
 }
 </style>
 <style>
+/* v16: brighten the mobile hero text zone and keep the engineer centered. */
+@media(max-width:640px){
+  body[data-page="home"] .hero-cinematic .hero-bg{
+    background:linear-gradient(180deg,rgba(8,11,15,.06) 0%,rgba(8,11,15,.2) 26%,rgba(7,20,34,.7) 43%,rgba(8,31,54,.92) 60%,#101820 80%,#101112 100%)!important;
+  }
+  body[data-page="home"] .hero-copy::before{
+    content:"";position:absolute;z-index:-1;inset:-34px -22px -28px;
+    border-radius:34px;
+    background:radial-gradient(circle at 18% 18%,rgba(245,164,0,.2),transparent 44%),linear-gradient(135deg,rgba(20,104,168,.2),rgba(10,17,25,.04) 66%);
+    filter:blur(2px);pointer-events:none;
+  }
+  body[data-page="home"] .hero-engineer img{left:50%!important;}
+}
+</style>
+<style>
 /* v14 remove home hero gold divider line */
 body[data-page="home"] .hero-cinematic::after{
   content:none!important;

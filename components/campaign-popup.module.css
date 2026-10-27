@@ -80,7 +80,7 @@
 .visual h2 .amountLine { display: block; font-size: clamp(31px, 3vw, 42px); letter-spacing: -.045em; white-space: nowrap; }
 .visual h2 .amountText { display: inline; }
 .amountRoll { display: inline-block !important; height: 1.12em; overflow: hidden; vertical-align: -.2em; color: inherit; }
-.amountTrack { display: grid !important; color: inherit; animation: amount-scroll 5s cubic-bezier(.16,.84,.26,1) .28s both; will-change: transform; }
+.amountTrack { display: grid !important; color: inherit; animation: amount-scroll 8s cubic-bezier(.16,.84,.26,1) .35s both; will-change: transform; }
 .amountTrack b { display: block; height: 1.12em; color: inherit; font: inherit; line-height: 1.12; white-space: nowrap; }
 .srOnly { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
@@ -176,8 +176,8 @@
 @keyframes rise-in { from { opacity: 0; transform: translateY(18px) scale(.985); } }
 @keyframes amount-scroll {
   0% { transform: translateY(0); filter: blur(2px); }
-  72% { transform: translateY(-3.42em); filter: blur(0); }
-  86% { transform: translateY(-3.30em); }
+  82% { transform: translateY(-3.42em); filter: blur(0); }
+  92% { transform: translateY(-3.30em); }
   100% { transform: translateY(-3.36em); }
 }
 

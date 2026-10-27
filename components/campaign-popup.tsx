@@ -14,20 +14,20 @@ function playPopupChime() {
   const context = new AudioContextClass();
   const play = () => {
     const start = context.currentTime + 0.02;
-    const notes = [659.25, 987.77];
+    const notes = [523.25, 783.99, 1046.5];
     notes.forEach((frequency, index) => {
       const oscillator = context.createOscillator();
       const gain = context.createGain();
-      const noteStart = start + (index * 0.09);
-      oscillator.type = "sine";
+      const noteStart = start + (index * 0.1);
+      oscillator.type = "triangle";
       oscillator.frequency.setValueAtTime(frequency, noteStart);
       gain.gain.setValueAtTime(0.0001, noteStart);
-      gain.gain.exponentialRampToValueAtTime(0.035, noteStart + 0.018);
-      gain.gain.exponentialRampToValueAtTime(0.0001, noteStart + 0.22);
+      gain.gain.exponentialRampToValueAtTime(0.16, noteStart + 0.018);
+      gain.gain.exponentialRampToValueAtTime(0.0001, noteStart + 0.3);
       oscillator.connect(gain);
       gain.connect(context.destination);
       oscillator.start(noteStart);
-      oscillator.stop(noteStart + 0.24);
+      oscillator.stop(noteStart + 0.32);
     });
   };
 
@@ -154,7 +154,6 @@ export function CampaignPopup() {
           <header>
             <strong>โปรโครงการใหม่ · NGE</strong>
             <h3 id="campaign-popup-title">ลงทะเบียนรับข้อเสนอ</h3>
-            <p>กรอกข้อมูลสั้น ๆ ใช้เวลาไม่เกิน 1 นาที</p>
           </header>
           <form className={styles.form} onSubmit={submit}>
             <input className={styles.hp} name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" />
