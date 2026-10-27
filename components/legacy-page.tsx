@@ -18,10 +18,13 @@ export function LegacyPage({ file, project = false, includeJsonLd = true }: { fi
     ["ตรวจรับงาน", "/construction-payment-inspection-guide"],
   ];
   const navigation = `<nav class="knowledge-template-tabs" aria-label="หมวดหมู่คลังความรู้"><div class="knowledge-template-tabs-inner">${tabs.map(([label, href]) => `<a href="${href}"${href === `/${slug}` ? ' aria-current="page"' : ""}>${label}</a>`).join("")}</div></nav>`;
-  const html = isKnowledgePage ? page.html.replace(/(<main\b[^>]*>)/i, `$1${navigation}`) : page.html;
+  const pageHtml = page.page === "home"
+    ? page.html.replace('<p class="story-lead">ประสบการณ์จากงานภาครัฐกว่า 40 ปี คือพื้นฐานของการทำงานอย่างเป็นระบบในทุกโครงการ</p>', "")
+    : page.html;
+  const html = isKnowledgePage ? pageHtml.replace(/(<main\b[^>]*>)/i, `$1${navigation}`) : pageHtml;
   return <div className={page.bodyClass} data-legacy-page={page.page} data-knowledge-article={isKnowledgeArticle ? "true" : undefined}>
     <LegacyBodyState page={page.page} bodyClass={page.bodyClass} />
-    <link rel="stylesheet" href="/legacy/styles.min.css?v=20261027-1" />
+    <link rel="stylesheet" href="/legacy/styles.min.css?v=20261027-2" />
     {(page.page === "home" || page.page === "projects") && <link rel="stylesheet" href="/portfolio-reference.css?v=20261013-1" />}
     {!project && <link rel="stylesheet" href="/legacy/service-seo.css?v=20261006-1" />}
     {page.page === "home" && <link rel="stylesheet" href="/legacy/home-facebook-reel.css?v=20261011-1" />}
