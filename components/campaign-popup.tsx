@@ -6,6 +6,36 @@ import styles from "./campaign-popup.module.css";
 
 const EXCLUDED_PATHS = ["/construction-quote", "/contact", "/privacy", "/crm"];
 
+function playPopupChime() {
+  const AudioContextClass = window.AudioContext
+    || (window as typeof window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
+  if (!AudioContextClass) return null;
+
+  const context = new AudioContextClass();
+  const play = () => {
+    const start = context.currentTime + 0.02;
+    const notes = [659.25, 987.77];
+    notes.forEach((frequency, index) => {
+      const oscillator = context.createOscillator();
+      const gain = context.createGain();
+      const noteStart = start + (index * 0.09);
+      oscillator.type = "sine";
+      oscillator.frequency.setValueAtTime(frequency, noteStart);
+      gain.gain.setValueAtTime(0.0001, noteStart);
+      gain.gain.exponentialRampToValueAtTime(0.035, noteStart + 0.018);
+      gain.gain.exponentialRampToValueAtTime(0.0001, noteStart + 0.22);
+      oscillator.connect(gain);
+      gain.connect(context.destination);
+      oscillator.start(noteStart);
+      oscillator.stop(noteStart + 0.24);
+    });
+  };
+
+  if (context.state === "running") play();
+  else void context.resume().then(play).catch(() => context.close());
+  return context;
+}
+
 export function CampaignPopup() {
   const pathname = usePathname();
   const initialPathRef = useRef(pathname);
@@ -34,6 +64,7 @@ export function CampaignPopup() {
 
   useEffect(() => {
     if (!open) return;
+    const audioContext = playPopupChime();
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     const onKeyDown = (event: KeyboardEvent) => {
@@ -48,7 +79,11 @@ export function CampaignPopup() {
     };
     document.addEventListener("keydown", onKeyDown);
     window.setTimeout(() => dialogRef.current?.querySelector<HTMLElement>("input")?.focus(), 60);
-    return () => { document.body.style.overflow = previousOverflow; document.removeEventListener("keydown", onKeyDown); };
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKeyDown);
+      if (audioContext && audioContext.state !== "closed") void audioContext.close();
+    };
   }, [open]);
 
   function close() {
