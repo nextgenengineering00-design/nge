@@ -125,7 +125,7 @@
 
 .form { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 14px; }
 .field { display: grid; gap: 7px; color: #32445b; font: 600 12px/1.2 var(--font-legacy-display), sans-serif; }
-.field:first-of-type, .field:nth-of-type(2), .consent, .submit, .status { grid-column: 1 / -1; }
+.field:first-of-type, .field:nth-of-type(2), .consent, .submit, .status, .terms { grid-column: 1 / -1; }
 .field input, .field select {
   width: 100%;
   min-height: 48px;
@@ -163,6 +163,7 @@
 .submit:hover { transform: translateY(-1px); box-shadow: 0 13px 26px rgba(5, 78, 150, .3); }
 .submit:disabled { opacity: .68; cursor: wait; transform: none; }
 .status { margin: -3px 0 0; text-align: center; color: #bd2f2f; font: 500 12px/1.45 var(--font-legacy-body), sans-serif; }
+.terms { margin: -5px 0 0; text-align: center; color: #7a8592; font: 400 10px/1.5 var(--font-legacy-body), sans-serif; }
 
 .success { text-align: center; }
 .successIcon { display: grid; place-items: center; width: 62px; height: 62px; margin: 0 auto 17px; border-radius: 50%; background: #e7f7ef; color: #148253; font-size: 30px; }
@@ -173,6 +174,12 @@
 
 @keyframes fade-in { from { opacity: 0; } }
 @keyframes rise-in { from { opacity: 0; transform: translateY(18px) scale(.985); } }
+@keyframes amount-scroll {
+  0% { transform: translateY(0); filter: blur(2px); }
+  72% { transform: translateY(-3.42em); filter: blur(0); }
+  86% { transform: translateY(-3.30em); }
+  100% { transform: translateY(-3.36em); }
+}
 
 @media (max-width: 760px) {
   .backdrop { align-items: end; padding: 12px; }
@@ -212,4 +219,5 @@
 @media (prefers-reduced-motion: reduce) {
   .backdrop, .dialog { animation: none; }
   .close, .submit { transition: none; }
+  .amountTrack { animation: none; transform: translateY(-3.36em); }
 }
