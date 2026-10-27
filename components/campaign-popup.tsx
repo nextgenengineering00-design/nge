@@ -1,22 +1,36 @@
 "use client";
 
 import { FormEvent, MouseEvent, useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import styles from "./campaign-popup.module.css";
 
 const EXCLUDED_PATHS = ["/construction-quote", "/contact", "/privacy", "/crm"];
 
 export function CampaignPopup() {
+  const pathname = usePathname();
+  const initialPathRef = useRef(pathname);
   const [open, setOpen] = useState(false);
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [error, setError] = useState("");
   const dialogRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (pathname !== initialPathRef.current) {
+      setOpen(false);
+      return;
+    }
+
+    const navigation = window.performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming | undefined;
+    const legacyNavigation = window.performance as Performance & { navigation?: { type: number; TYPE_RELOAD: number } };
+    const isReload = navigation?.type === "reload"
+      || legacyNavigation.navigation?.type === legacyNavigation.navigation?.TYPE_RELOAD;
+    if (!isReload) return;
+
     const path = window.location.pathname;
     if (EXCLUDED_PATHS.some((item) => path === item || path.startsWith(`${item}/`))) return;
     const timer = window.setTimeout(() => setOpen(true), 1400);
     return () => window.clearTimeout(timer);
-  }, []);
+  }, [pathname]);
 
   useEffect(() => {
     if (!open) return;
