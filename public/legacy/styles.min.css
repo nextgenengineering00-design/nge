@@ -340,7 +340,7 @@ h1,h2,h3,.btn,.quick-card b,.project-body h3{text-wrap:balance}
 
 .home-review-band{background:#151515;color:#fff;padding:48px 0}.home-review-band .container{display:flex;align-items:center;justify-content:space-between;gap:40px}.home-review-band span{font-family:var(--font-legacy-display);font-size:10px;letter-spacing:3px;color:var(--orange)}.home-review-band h2{font-size:30px;margin:5px 0}.home-review-band p{font-size:11px;color:#999}.home-review-actions{display:flex;gap:10px}.home-review-actions>a{min-width:160px;height:56px;padding:0 18px;display:flex;align-items:center;gap:11px;background:#fff;color:#151515;font-family:var(--font-legacy-display);font-size:12px}.platform-dot{width:31px;height:31px;border-radius:50%;display:grid!important;place-items:center;color:#fff!important;font-family:Arial,sans-serif!important;font-size:17px!important;letter-spacing:0!important}.google-dot{background:linear-gradient(135deg,#4285f4,#34a853)}.facebook-dot{background:#1877f2}
 
-.home-booking{background:#f7f4ee}.booking-shell{display:grid;grid-template-columns:minmax(0,.82fr) minmax(520px,1.18fr);gap:65px;align-items:center}.booking-copy>span{font-family:var(--font-legacy-display);font-size:11px;letter-spacing:3px;color:var(--orange-dark)}.booking-copy h2{font-size:clamp(38px,4vw,54px);margin:8px 0 17px;line-height:1.14}.booking-copy>p{font-size:13px;color:#68635d;line-height:1.8}.booking-copy ul{display:grid;gap:9px;margin:24px 0}.booking-copy li{display:flex;align-items:center;gap:8px;font-family:var(--font-legacy-display);font-size:12px}.booking-copy li svg{width:17px;height:17px;color:#148848}.booking-copy>a{font-size:10px;color:#6b655e}.booking-copy>a b{color:#1f1c18;text-decoration:underline;text-underline-offset:4px}.booking-form{background:#fff;border-top:6px solid var(--orange);padding:32px;box-shadow:0 24px 60px rgba(0,0,0,.12)}.booking-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.booking-form .form-row{margin:0}.booking-form .submit-btn{margin-top:19px}.booking-form .form-status{text-align:center}
+.home-booking{background:#f7f4ee}.booking-shell{display:grid;grid-template-columns:minmax(0,.82fr) minmax(520px,1.18fr);gap:65px;align-items:center}.booking-copy>span{font-family:var(--font-legacy-display);font-size:11px;letter-spacing:3px;color:var(--orange-dark)}.booking-copy h2{font-size:clamp(38px,4vw,54px);margin:8px 0 17px;line-height:1.14}.booking-copy>p{font-size:13px;color:#68635d;line-height:1.8}.booking-copy ul{display:grid;gap:9px;margin:24px 0}.booking-copy li{display:flex;align-items:center;gap:8px;font-family:var(--font-legacy-display);font-size:12px}.booking-copy li svg{width:17px;height:17px;color:#148848}.booking-copy>a{font-size:10px;color:#6b655e}.booking-copy>a b{color:#1f1c18;text-decoration:underline;text-underline-offset:4px}.booking-form{background:#fff;border:0;padding:32px;box-shadow:0 24px 60px rgba(0,0,0,.12)}.booking-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.booking-form .form-row{margin:0}.booking-form .submit-btn{margin-top:19px}.booking-form .form-status{text-align:center}
 .legal-company a{color:#fff;text-decoration:underline;text-decoration-color:rgba(245,164,0,.62);text-underline-offset:4px}.legal-company a:hover{color:var(--orange)}
 
 @media (max-width:1100px){.home-story-grid{gap:42px}.home-service-grid{grid-template-columns:repeat(2,1fr)}.home-standard-grid{grid-template-columns:1fr 1fr}.home-standard-grid article:nth-child(2){border-right:0}.home-standard-grid article:nth-child(-n+2){border-bottom:1px solid #e6e1d8}.booking-shell{grid-template-columns:1fr;gap:40px}.booking-copy{max-width:760px}}
@@ -357,6 +357,32 @@ h1,h2,h3,.btn,.quick-card b,.project-body h3{text-wrap:balance}
 
 .home-projects.abstract-section::before{width:620px;height:620px;left:-450px;top:18%;border:0;background:conic-gradient(from 90deg,transparent 0 15%,rgba(245,164,0,.08) 15% 18%,transparent 18% 48%,rgba(74,110,255,.065) 48% 51%,transparent 51%);transform:rotate(20deg)}.home-projects.abstract-section::after{width:520px;height:520px;right:-360px;bottom:5%;border-radius:80px;background:repeating-linear-gradient(135deg,rgba(23,23,23,.035) 0 1px,transparent 1px 13px);transform:rotate(15deg)}
 .home-booking.abstract-section::before{width:560px;height:560px;left:-310px;top:-250px;border:0;background:radial-gradient(circle at center,rgba(74,110,255,.13),transparent 68%)}.home-booking.abstract-section::after{width:470px;height:470px;right:-250px;bottom:-260px;border:0;border-radius:0;background-image:linear-gradient(rgba(245,164,0,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(245,164,0,.07) 1px,transparent 1px);background-size:24px 24px;transform:rotate(-12deg)}
+
+/* Homepage booking — wide construction backdrop with clean floating form */
+.home-booking{position:relative;isolation:isolate;min-height:590px;padding:72px 0;background:linear-gradient(90deg,rgba(255,255,255,.9) 0%,rgba(255,255,255,.72) 38%,rgba(255,255,255,.18) 66%),url('./assets/hero-nonthaburi-construction-v2.webp') center 56%/cover no-repeat;overflow:hidden}
+.home-booking::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(22,22,22,.08));pointer-events:none}
+.home-booking,.home-booking input,.home-booking textarea,.home-booking button{font-family:'Kanit',sans-serif}
+.home-booking .booking-shell{width:min(1400px,calc(100% - 64px));display:grid;grid-template-columns:minmax(360px,.85fr) minmax(620px,1.15fr);gap:72px;align-items:center}
+.home-booking .booking-copy{max-width:570px;padding:28px 0;text-shadow:0 2px 18px rgba(255,255,255,.9)}
+.home-booking .booking-copy h2{margin:0 0 10px;font-family:'Kanit',sans-serif;font-size:clamp(42px,3.6vw,60px);font-weight:700;line-height:1.16;letter-spacing:-.8px;color:#202020}
+.home-booking .booking-copy>p{max-width:540px;font-size:21px;font-weight:400;line-height:1.55;color:#4d4d4d}
+.home-booking .booking-engineer-mobile{display:none}
+.home-booking .booking-form{padding:38px;border:0;border-radius:24px;background:rgba(255,255,255,.96);box-shadow:0 28px 70px rgba(24,31,40,.2);backdrop-filter:blur(10px)}
+.home-booking .booking-form-grid{grid-template-columns:1fr 1fr;gap:16px}
+.home-booking .booking-form .form-row{position:relative;margin:0}
+.home-booking .booking-form label{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.home-booking .booking-form input,.home-booking .booking-form textarea{width:100%;border:1px solid #d8dce1;border-radius:9px;background:#fff;color:#242424;font-size:17px;font-weight:400;outline:none;transition:border-color .2s ease,box-shadow .2s ease,background .2s ease}
+.home-booking .booking-form input{height:64px;padding:0 20px}
+.home-booking .booking-form textarea{min-height:112px;padding:17px 20px;resize:vertical}
+.home-booking .booking-form input::placeholder,.home-booking .booking-form textarea::placeholder{color:#929292;opacity:1}
+.home-booking .booking-form input:focus,.home-booking .booking-form textarea:focus{border-color:#ff8512;box-shadow:0 0 0 4px rgba(255,133,18,.12);background:#fff}
+.home-booking .booking-details-row{grid-column:1/-1}
+.home-booking .booking-form .submit-btn{width:100%;min-height:64px;margin-top:20px;border:0;border-radius:9px;background:linear-gradient(135deg,#ff9b17,#f36d00);color:#fff;font-size:19px;font-weight:600;box-shadow:0 12px 26px rgba(235,112,0,.23)}
+.home-booking .booking-form .submit-btn:hover{background:linear-gradient(135deg,#ff8d08,#e95e00);transform:translateY(-1px)}
+.home-booking .booking-form .form-disclosure{margin:14px auto 0;max-width:630px;text-align:center;font-size:11px;line-height:1.55;color:#777}
+.home-booking .booking-form .form-disclosure a{font-weight:500;text-decoration:underline;text-underline-offset:2px}
+@media(max-width:1100px){.home-booking{min-height:0;padding:64px 0;background-position:34% center}.home-booking .booking-shell{width:min(100% - 40px,900px);grid-template-columns:1fr;gap:30px}.home-booking .booking-copy{max-width:650px;padding:0}.home-booking .booking-copy h2{font-size:clamp(38px,6vw,52px)}.home-booking .booking-copy>p{font-size:19px}.home-booking .booking-form{padding:30px}}
+@media(max-width:640px){.home-booking{min-height:0;padding:0 0 44px;background:#eef1f4}.home-booking::before{content:"";position:absolute;z-index:0;inset:0 0 auto;height:390px;background:url('./assets/hero-nonthaburi-construction-mobile-v2.webp') 55% center/cover no-repeat}.home-booking::after{z-index:1;inset:0 0 auto;height:390px;background:linear-gradient(180deg,rgba(8,17,24,.72) 0%,rgba(8,17,24,.58) 58%,rgba(8,17,24,.7) 100%)}.home-booking .booking-shell{position:relative;z-index:2;width:min(100% - 24px,560px);gap:0}.home-booking .booking-copy{position:relative;z-index:4;min-height:330px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:42px 14px 28px;text-align:center;text-shadow:0 3px 18px rgba(0,0,0,.55)}.home-booking .booking-copy h2{max-width:360px;font-size:32px;line-height:1.15;letter-spacing:-.4px;color:#fff}.home-booking .booking-copy>p{max-width:390px;font-size:15px;line-height:1.55;color:rgba(255,255,255,.88)}.home-booking .booking-engineer-mobile{display:none}.home-booking .booking-form{position:relative;z-index:5;margin-top:-16px;padding:20px 16px;border-radius:18px;box-shadow:0 22px 48px rgba(20,30,40,.22)}.home-booking .booking-form-grid{grid-template-columns:1fr;gap:12px}.home-booking .booking-details-row{grid-column:auto}.home-booking .booking-form input{height:58px;font-size:16px;padding:0 16px}.home-booking .booking-form textarea{min-height:104px;font-size:16px;padding:15px 16px}.home-booking .booking-form .submit-btn{min-height:58px;margin-top:14px;font-size:17px}.home-booking .booking-form .form-disclosure{font-size:10px}}
 
 .home-review-band{position:relative;padding:70px 0;overflow:hidden;background:radial-gradient(circle at 82% 10%,rgba(71,108,255,.2),transparent 32%),radial-gradient(circle at 8% 90%,rgba(245,164,0,.18),transparent 28%),#0e0f13}.home-review-band::before{content:"";position:absolute;left:7%;top:0;width:1px;height:100%;background:linear-gradient(transparent,rgba(255,255,255,.22),transparent)}.home-review-band::after{content:"SOCIAL PROOF";position:absolute;right:-34px;bottom:-16px;color:rgba(255,255,255,.035);font:800 94px/1 var(--font-legacy-display);letter-spacing:2px;pointer-events:none}.home-review-band .container{position:relative;z-index:1;padding:34px 38px;border:1px solid rgba(255,255,255,.12);border-radius:28px;background:rgba(255,255,255,.045);backdrop-filter:blur(16px);box-shadow:0 25px 70px rgba(0,0,0,.26)}.home-review-band h2{font-size:clamp(28px,3vw,40px);max-width:650px}.home-review-band p{font-size:12px;color:#a8abb6}.home-review-actions>a{min-width:178px;height:66px;border-radius:16px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);color:#fff;box-shadow:inset 0 1px rgba(255,255,255,.08);transition:.28s}.home-review-actions>a:hover{transform:translateY(-5px);background:#fff;color:#111}.home-review-actions .platform-dot{box-shadow:0 0 0 6px rgba(255,255,255,.07)}
 
@@ -1218,7 +1244,9 @@ body[data-page="home"] .home-story-showcase .story-point-icon{display:block}
 
 /* Mobile hero: make the engineer part of the architectural image, with a clear text zone. */
 @media(max-width:640px){
-  body[data-page="home"] .hero-cinematic{height:auto;min-height:0;padding:420px 0 118px}
+  body[data-page="home"] .hero-cinematic{height:auto;min-height:0;max-height:none;padding:420px 0 118px}
+  body[data-page="home"] .hero-cinematic .hero-media{inset:0 0 auto;height:520px}
+  body[data-page="home"] .hero-cinematic .hero-media img{object-position:64% 62%;transform:scale(1.03)}
   body[data-page="home"] .hero-cinematic .hero-bg{background:linear-gradient(180deg,rgba(8,11,15,.14) 0%,rgba(8,11,15,.34) 27%,rgba(8,11,15,.88) 42%,#101112 58%,#101112 100%)}
   body[data-page="home"] .hero-engineer,
   body[data-page="home"] .hero-engineer.reveal,
@@ -1246,3 +1274,23 @@ body[data-page="home"] .home-story-showcase .story-point-icon{display:block}
   body[data-page="home"] .hero-trust{justify-content:flex-start}
 }
 @media(max-width:380px){body[data-page="home"] .hero-cinematic{padding-top:390px}body[data-page="home"] .hero-engineer,body[data-page="home"] .hero-engineer.reveal,body[data-page="home"] .hero-engineer.reveal.is-visible{height:500px}body[data-page="home"] .hero-engineer img{height:700px}}
+
+/* Use the supplied credibility artwork while retaining the original facts for accessibility. */
+body[data-page="home"] .credibility-image-band{background:#080a0b}
+body[data-page="home"] .credibility-image-band::before,body[data-page="home"] .credibility-image-band::after{content:none}
+body[data-page="home"] .credibility-image-band .credibility-artwork{display:block;width:100%;max-width:1484px;height:auto;margin:0 auto}
+@media(min-width:901px){body[data-page="home"] .credibility-image-band{position:relative;isolation:isolate;overflow:hidden;padding:28px 24px}body[data-page="home"] .credibility-image-band::before{content:"";position:absolute;inset:-40px;background:url('/assets/nge-credibility-supplied-2026.png') center 48%/cover no-repeat;filter:blur(38px) brightness(.4);transform:scale(1.05);z-index:-1}body[data-page="home"] .credibility-image-band .credibility-artwork{position:relative;width:100%;max-width:700px;-webkit-mask-image:linear-gradient(to right,transparent,#000 4%,#000 96%,transparent),linear-gradient(to bottom,transparent,#000 6%,#000 94%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 4%,#000 96%,transparent),linear-gradient(to bottom,transparent,#000 6%,#000 94%,transparent);mask-composite:intersect}}
+body[data-page="home"] .credibility-image-band .credibility-semantic{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+
+/* Remove decorative sequence numbers from cards and process tiles site-wide. */
+.home-service-card>span>small,
+.standard-number,
+.seo-guide-number,
+.knowledge-keypoint-number,
+.sv-card-number,
+.project-factbar .fact-number,
+.cc-num,
+.build-home-ref-process-grid article>span,
+.why24-step>span,
+.why-step>b,
+.story-point-number{display:none!important}

@@ -21,7 +21,7 @@ export function LegacyPage({ file, project = false, includeJsonLd = true }: { fi
   const html = isKnowledgePage ? page.html.replace(/(<main\b[^>]*>)/i, `$1${navigation}`) : page.html;
   return <div className={page.bodyClass} data-legacy-page={page.page} data-knowledge-article={isKnowledgeArticle ? "true" : undefined}>
     <LegacyBodyState page={page.page} bodyClass={page.bodyClass} />
-    <link rel="stylesheet" href="/legacy/styles.min.css?v=20261013-3" />
+    <link rel="stylesheet" href="/legacy/styles.min.css?v=20261027-1" />
     {(page.page === "home" || page.page === "projects") && <link rel="stylesheet" href="/portfolio-reference.css?v=20261013-1" />}
     {!project && <link rel="stylesheet" href="/legacy/service-seo.css?v=20261006-1" />}
     {page.page === "home" && <link rel="stylesheet" href="/legacy/home-facebook-reel.css?v=20261011-1" />}
