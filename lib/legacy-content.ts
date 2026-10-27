@@ -21,10 +21,10 @@ export const legacySlugs=[...knowledgeArticleSlugs,"build-home-nonthaburi",...lo
 export function readLegacyDocument(relativeFile: string): LegacyDocument {
   const source = legacyHtml[relativeFile.replaceAll("\\", "/")];
   if (!source) throw new Error(`Legacy page not found: ${relativeFile}`);
-  const title = source.match(/<title>([\s\S]*?)<\/title>/i)?.[1]?.trim() || "Next Gen Engineering";
-  const description = source.match(/<meta\s+name=["']description["']\s+content=["']([^"']*)["']/i)?.[1]
+  const title = decodeMetadata(source.match(/<title>([\s\S]*?)<\/title>/i)?.[1]?.trim() || "Next Gen Engineering");
+  const description = decodeMetadata(source.match(/<meta\s+name=["']description["']\s+content=["']([^"']*)["']/i)?.[1]
     || source.match(/<meta\s+content=["']([^"']*)["']\s+name=["']description["']/i)?.[1]
-    || "Next Gen Engineering";
+    || "Next Gen Engineering");
   const image = source.match(/<meta\s+property=["']og:image["']\s+content=["']([^"']*)["']/i)?.[1]
     || source.match(/<meta\s+content=["']([^"']*)["']\s+property=["']og:image["']/i)?.[1]
     || source.match(/<meta\s+name=["']twitter:image["']\s+content=["']([^"']*)["']/i)?.[1];

@@ -29,7 +29,9 @@ export const viewport: Viewport = { width: "device-width", initialScale: 1, them
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const schema = [{
     "@context": "https://schema.org", "@type": ["Organization", "GeneralContractor"], "@id": `${site.url}/#organization`, name: site.name,
-    legalName: site.legalName, url: site.url, image: absoluteUrl("/og-ngebuild-preview-20260922.jpg"), logo: absoluteUrl("/nge-logo-icon-v2-180.png"), telephone: site.phone, email: site.email,
+    alternateName: ["NGE", "NextGen Engineering", "NEXTGEN ENGINEERING"],
+    description: `บริการรับเหมาก่อสร้าง Next Gen Engineering (NGE) ในนนทบุรี ดำเนินงานภายใต้${site.legalName} เลขทะเบียน ${site.legalId}`,
+    legalName: site.legalName, url: site.url, mainEntityOfPage: absoluteUrl("/about"), image: absoluteUrl("/og-ngebuild-preview-20260922.jpg"), logo: absoluteUrl("/nge-logo-icon-v2-180.png"), telephone: site.phone, email: site.email,
     address: { "@type": "PostalAddress", streetAddress: site.streetAddress, addressLocality: "นนทบุรี", addressRegion: "นนทบุรี", postalCode: site.postalCode, addressCountry: "TH" },
     hasMap: site.mapUrl,
     identifier: [{ "@type": "PropertyValue", name: "เลขทะเบียนนิติบุคคล", value: site.legalId }, { "@type": "PropertyValue", name: "ใบอนุญาตวิศวกรโยธา", value: site.engineerLicense }],

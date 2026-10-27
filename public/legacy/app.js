@@ -24,10 +24,9 @@
   }
 
   function trackEvent(name, params = {}) {
-    params = { page_path: location.pathname, ...params };
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event: name, ...params });
-    if (window.gtag) window.gtag('event', name, params);
+    // Link events are owned by the shared listener on every page.
+    if (['click_phone','click_line','click_facebook','click_facebook_reviews','click_google_business','click_email','click_map','company_profile_download','project_click','photo_estimate_cta','request_survey'].includes(name)) return;
+    window.NGE_ANALYTICS?.track(name, params);
   }
 
   function normalizePhone(value) {
@@ -208,66 +207,6 @@
   $$('[data-close-privacy]').forEach(button => button.addEventListener('click', () => privacyDialog?.close()));
   privacyDialog?.addEventListener('click', event => { if (event.target === privacyDialog) privacyDialog.close(); });
 
-  // Cookie consent: only essential storage is active before a choice is made.
-  const cookieBanner = $('#cookieBanner');
-  let loadedAnalytics = false;
-  let loadedMarketing = false;
-
-  function loadAnalytics() {
-    if (loadedAnalytics || (!config.googleAnalyticsId && !config.googleTagManagerId)) return;
-    loadedAnalytics = true;
-    window.dataLayer = window.dataLayer || [];
-    if (config.googleAnalyticsId) {
-      const script = document.createElement('script');
-      script.async = true;
-      script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(config.googleAnalyticsId)}`;
-      document.head.appendChild(script);
-      window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
-      window.gtag('js', new Date());
-      window.gtag('config', config.googleAnalyticsId, { anonymize_ip: true });
-    }
-    if (config.googleTagManagerId && !document.querySelector('script[data-nge-gtm]')) {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-      const gtm = document.createElement('script');
-      gtm.async = true; gtm.dataset.ngeGtm = 'true';
-      gtm.src = `https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(config.googleTagManagerId)}`;
-      document.head.appendChild(gtm);
-    }
-  }
-
-  function loadMarketing() {
-    if (loadedMarketing || !config.metaPixelId) return;
-    loadedMarketing = true;
-    /* Meta Pixel loader, executed only after marketing consent. */
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
-    (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    window.fbq('init', config.metaPixelId);
-    window.fbq('track', 'PageView');
-  }
-
-  function applyConsent(consent) {
-    if (consent.analytics) loadAnalytics();
-    if (consent.marketing) loadMarketing();
-  }
-
-  function saveConsent(consent) {
-    const record = { necessary: true, analytics: !!consent.analytics, marketing: !!consent.marketing, updatedAt: new Date().toISOString(), version: privacyVersion };
-    localStorage.setItem(consentKey, JSON.stringify(record));
-    if (cookieBanner) cookieBanner.hidden = true;
-    applyConsent(record);
-    showToast('ยอมรับการใช้คุกกี้แล้ว');
-  }
-
-  const savedConsent = safeJson(localStorage.getItem(consentKey), null);
-  if (savedConsent) applyConsent(savedConsent);
-  else if (cookieBanner) cookieBanner.hidden = false;
-  $('[data-cookie-accept]')?.addEventListener('click', () => saveConsent({ analytics: true, marketing: true }));
-
-
   document.addEventListener('click', event => {
     const link = event.target.closest?.('a[href]');
     if (!link) return;
@@ -339,12 +278,36 @@
   const renovationDock = $('#renovation-estimate') && $('.mobile-dock-book');
   if (renovationDock) {
     renovationDock.href = '#renovation-estimate';
-    renovationDock.setAttribute('aria-label', 'ส่งรูปขอประเมินงานรีโนเวท');
+    renovationDock.setAttribute('aria-label', 'กรอกข้อมูลเพื่อประเมินงานรีโนเวท');
     renovationDock.dataset.estimateSource = 'renovation-nonthaburi-mobile';
     const label = $('.mobile-dock-label', renovationDock);
-    if (label) label.textContent = 'ส่งรูป';
+    if (label) label.textContent = 'ขอประเมิน';
   }
   const leadForms = $$('[data-lead-form], #leadForm');
+  const photoInputs = $$('[data-photo-input]');
+  if (photoInputs.length) {
+    fetch('/api/leads', { cache: 'no-store' })
+      .then(response => response.ok ? response.json() : null)
+      .then(capabilities => {
+        if (capabilities?.photoUploadEnabled !== false) return;
+        photoInputs.forEach(input => {
+          const field = input.closest('.photo-upload-field, .quote-photo-input, .booking-photo-row');
+          if (!field) return;
+          const notice = document.createElement('p');
+          notice.className = 'photo-upload-fallback';
+          notice.setAttribute('role', 'status');
+          notice.append('กรอกข้อมูลโครงการผ่านฟอร์ม แล้วส่งรูปพร้อมชื่อและเบอร์โทรเดียวกันทาง ');
+          const link = document.createElement('a');
+          link.href = config.lineUrl || 'https://lin.ee/u45yvnc';
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          link.textContent = 'LINE @522magc';
+          notice.append(link);
+          field.replaceWith(notice);
+        });
+      })
+      .catch(() => undefined);
+  }
   leadForms.forEach(form => form.addEventListener('input', () => {
     trackEvent('lead_form_start', { form_id: form.id || 'leadForm', service: $('[name="service"]', form)?.value || '' });
   }, { once: true }));
@@ -476,7 +439,11 @@
         }
         leadForm.reset();
         $$('[data-min-today]', leadForm).forEach(input => { input.min = minDate; });
-        const photoNotice = result.photosRequested > 0 && result.photosUploaded === 0 ? ' รับข้อมูลแล้ว แต่รูปยังไม่ถูกอัปโหลด กรุณาส่งรูปซ้ำทาง LINE @522magc' : '';
+        const photoNotice = result.photosRequested > 0 && result.photosUploaded === 0
+          ? ' รับข้อมูลแล้ว แต่รูปยังไม่ถูกอัปโหลด กรุณาส่งรูปทาง LINE @522magc พร้อมชื่อและเบอร์โทรเดียวกับในฟอร์ม'
+          : leadForm.querySelector('.photo-upload-fallback')
+            ? ' หากมีรูปหน้างาน กรุณาส่งทาง LINE @522magc พร้อมชื่อและเบอร์โทรเดียวกับในฟอร์ม'
+            : '';
         setFormStatus(leadForm, (isBooking ? 'รับคำขอแล้ว ทีมงานจะโทรกลับเพื่อยืนยันรายละเอียด' : 'ส่งข้อมูลสำเร็จ ทีมงานจะติดต่อกลับโดยเร็วที่สุด') + photoNotice, 'success');
         const leadType = leadForm.dataset.photoEstimate === 'true' ? 'photo_estimate' : (isBooking ? 'consultation_booking' : 'callback_request');
         trackEvent('generate_lead', { lead_id: result.leadId || '', service: payload.service, form_id: leadForm.id || 'leadForm', lead_type: leadType, photo_count: result.photosUploaded || 0, utm_source: payload.utm_source || '', utm_campaign: payload.utm_campaign || '' });

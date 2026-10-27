@@ -4,6 +4,13 @@ import { getSupabaseAdmin, getSupabaseLeadWriter } from "@/lib/supabase";
 
 export const runtime = "nodejs";
 
+export async function GET() {
+  return NextResponse.json(
+    { photoUploadEnabled: Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.SUPABASE_SECRET_KEY) },
+    { headers: { "Cache-Control": "no-store" } },
+  );
+}
+
 const optionalText = (max: number) => z.string().trim().max(max).nullish().transform((value) => value || null);
 const Lead = z.object({
   name: z.string().trim().min(2).max(100),

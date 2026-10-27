@@ -24,6 +24,7 @@ export function LegacyPage({ file, project = false, includeJsonLd = true }: { fi
     <link rel="stylesheet" href="/legacy/styles.min.css?v=20261013-3" />
     {(page.page === "home" || page.page === "projects") && <link rel="stylesheet" href="/portfolio-reference.css?v=20261013-1" />}
     {!project && <link rel="stylesheet" href="/legacy/service-seo.css?v=20261006-1" />}
+    {page.page === "home" && <link rel="stylesheet" href="/legacy/home-facebook-reel.css?v=20261011-1" />}
     {project && <link rel="stylesheet" href="/legacy/project-detail.css?v=20260920" />}
     {includeJsonLd && page.jsonLd.map((value, index) => <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: value.replace(/</g, "\\u003c") }} />)}
     {page.styles.map((value, index) => <style key={`style-${index}`} dangerouslySetInnerHTML={{ __html: value }} />)}

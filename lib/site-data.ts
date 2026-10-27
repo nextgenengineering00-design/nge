@@ -25,6 +25,7 @@ export const services = [
 ];
 
 export const projects = [
+  { slug: "officer-residence-bangkok", title: "บ้านพักผู้บังคับบัญชาระดับผู้พัน", type: "สร้างบ้าน / อาคารพักอาศัย", location: "กรุงเทพมหานคร", image: "/assets/project-heroes/officer-residence-bangkok-hero.webp", summary: "ก่อสร้างบ้านพักจำนวน 3 หลัง พื้นที่ใช้สอย 180 ตร.ม. แบบบ้าน 3 ห้องนอน 3 ห้องน้ำ วงเงินก่อสร้างเฉพาะตัวบ้านรวม 11.25 ล้านบาท" },
   { slug: "pum-garage-roof-nawamin-26", title: "ต่อเติมหลังคาโรงรถ บ้านคุณปุ้ม", type: "ซ่อม / ต่อเติม", location: "นวมินทร์ 26 กรุงเทพมหานคร", image: "/assets/projects/pum-garage-roof-nawamin-26/01.webp", summary: "ต่อเติมโครงหลังคาโรงรถ ติดตั้งแผ่นหลังคาโปร่งแสงและฝ้าเพดานภายนอก งบประมาณประมาณ 200,000 บาท" },
   { slug: "gpo-yotse-pharmacy", title: "ปรับปรุงร้านขายยาองค์การเภสัชกรรม สาขายศเส", type: "รีโนเวท / ปรับปรุงอาคารภาครัฐ", location: "ยศเส กรุงเทพมหานคร", image: "/assets/projects/gpo-yotse-pharmacy/cover.webp", summary: "ปรับปรุงพื้นที่ร้านขายยาและงานตกแต่งภายใน พื้นที่ประมาณ 150 ตร.ม. มูลค่างานประมาณ 4 ล้านบาท" },
   { slug: "rc-road-saraburi-12-ton", title: "ถนนคอนกรีตเสริมเหล็ก รับน้ำหนัก 12 ตัน", type: "งานโยธาและถนน", location: "จังหวัดสระบุรี", image: "/assets/projects/rc-road-saraburi-12-ton/01-road-roller.webp", summary: "ออกแบบลำดับงานชั้นทาง เหล็กเสริม รอยต่อ และการระบายน้ำสำหรับการใช้งานรถหนัก" },

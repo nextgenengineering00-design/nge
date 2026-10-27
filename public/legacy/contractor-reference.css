@@ -1,0 +1,109 @@
+/* Screenshot-led treatment for the Nonthaburi contractor landing only. */
+.contractor-landing .local-area-hero{position:relative;isolation:isolate;min-height:520px;height:33.33vw;padding:0;overflow:hidden;background:#101a21}
+.contractor-landing .local-area-hero::before{z-index:-1;background:linear-gradient(90deg,rgba(9,17,22,.93) 0%,rgba(10,18,23,.88) 24%,rgba(10,18,23,.65) 39%,rgba(10,18,23,.15) 57%,transparent 78%),linear-gradient(0deg,rgba(9,15,19,.25),transparent 50%)}
+.contractor-landing .local-area-hero::after{content:none;display:none}
+.contractor-hero-art{position:absolute;z-index:-2;inset:0;background:url('/assets/contractor-nonthaburi-hero-reference-v2.webp') center 47%/cover no-repeat;animation:contractorHeroReveal 1.4s ease-out both}
+.contractor-hero-tagline{position:absolute;z-index:2;top:clamp(28px,2.45vw,54px);right:3.2vw;display:flex;align-items:center;gap:17px;color:#83878a;font:700 11px/1.2 var(--font-display);letter-spacing:4px;white-space:nowrap}
+.contractor-hero-tagline::before{content:"";width:30px;height:2px;background:#f69a22}
+.contractor-landing .local-area-hero .seo-split{display:block;min-height:100%;width:100%;max-width:none;margin:0;padding-left:10.25vw;padding-right:3vw}
+.contractor-landing .local-hero-copy{max-width:44vw;padding:6.5vw 0 4vw;animation:contractorRise .85s cubic-bezier(.18,.7,.2,1) both}
+.contractor-landing .local-area-hero .page-kicker{margin:0;color:#aab0b3;font-size:11px;letter-spacing:4px}
+.contractor-landing .local-area-hero h1{max-width:none;margin:clamp(12px,1.2vw,26px) 0 clamp(11px,.85vw,19px);font-size:clamp(48px,4vw,87px);line-height:1.04;font-weight:700;letter-spacing:-2.6px;text-wrap:nowrap;text-shadow:0 5px 23px rgba(0,0,0,.2)}
+.contractor-landing .local-area-hero h1 em,.contractor-scope h2 em,.contractor-area-intro h2 em,.contractor-contact-story h2 em{font-style:normal;color:#f68e18}
+.contractor-landing .local-area-hero .local-hero-copy>p.contractor-hero-lead{max-width:750px;margin:clamp(14px,1.25vw,26px) 0 4px;color:#fff;font-size:clamp(16px,1.05vw,22px);font-weight:700;line-height:1.5}
+.contractor-landing .local-area-hero .local-hero-copy>p.contractor-hero-support{margin:0;color:#adb5b9;font-size:clamp(13px,.85vw,18px);line-height:1.65}
+.contractor-hero-proof{display:flex;gap:0;align-items:center;margin:clamp(18px,1.5vw,33px) 0 clamp(24px,2vw,43px);color:#f5f6f7}
+.contractor-hero-proof>div{display:flex;align-items:center;gap:12px;min-height:42px;padding:0 clamp(12px,1.25vw,27px);border-left:1px solid rgba(255,255,255,.27);font-size:clamp(11px,.7vw,15px);font-weight:600;line-height:1.4;white-space:nowrap}
+.contractor-hero-proof>div:first-child{padding-left:0;border-left:0}
+.contractor-hero-proof>div>span{display:block}
+.contractor-hero-proof small{display:block;color:#c4cbcf;font-size:inherit;font-weight:400}
+.contractor-hero-proof svg{flex:0 0 auto;width:clamp(25px,1.8vw,39px);height:clamp(25px,1.8vw,39px);color:#f59312;stroke-width:1.7}
+.contractor-landing .local-area-hero .seo-actions{margin:0;gap:14px}
+.contractor-landing .local-area-hero .seo-actions .btn{min-width:clamp(170px,12vw,260px);min-height:clamp(46px,2.8vw,61px);padding:12px 22px;border-radius:40px;font-size:clamp(13px,.8vw,17px);font-weight:700}
+.contractor-landing .local-area-hero .seo-actions .btn-primary{background:#fb9419;box-shadow:0 12px 24px rgba(235,125,9,.25)}
+.contractor-landing .local-area-hero .seo-actions .btn-dark{background:rgba(17,25,31,.23);backdrop-filter:blur(4px)}
+@keyframes contractorHeroReveal{from{opacity:.4;transform:scale(1.035)}to{opacity:1;transform:scale(1)}}
+
+.contractor-landing .local-business-proof{padding:0;background:#fff}
+.contractor-landing .business-proof-grid{display:grid;grid-template-columns:58.3% 41.7%;gap:0;align-items:stretch;max-width:none;margin:0}
+.contractor-contact-story{position:relative;display:flex;align-items:center;min-height:clamp(740px,56vw,940px);padding:clamp(60px,6vw,118px) clamp(35px,5.2vw,100px);isolation:isolate;overflow:hidden;color:#fff;background:#101e28}
+.contractor-contact-story::before{content:"";position:absolute;z-index:-2;inset:0;background:url('/assets/contractor-contact-building-reference.webp') center/cover no-repeat;opacity:.52}
+.contractor-contact-story::after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,rgba(12,26,36,.92),rgba(12,26,36,.78))}
+.contractor-contact-inner{max-width:800px;padding-left:52px;border-left:2px solid #ec8e18}
+.contractor-contact-story .page-kicker{display:flex;align-items:center;gap:15px;color:#f8941b;font-size:17px;letter-spacing:0}
+.contractor-contact-story .page-kicker::before{content:"";width:43px;height:3px;background:#f8941b}
+.contractor-landing .business-proof-grid .contractor-contact-story h2{max-width:none;margin:35px 0 30px;color:#fff;font-size:clamp(42px,4.25vw,76px);line-height:1.15;letter-spacing:-2px;white-space:nowrap}
+.contractor-contact-story p{color:#cbd2d5;font-size:clamp(17px,1.5vw,27px);line-height:1.7}
+.contractor-contact-story .seo-actions{margin:39px 0 0;gap:20px}
+.contractor-contact-story .seo-actions .btn{min-height:84px;padding:20px 30px;border-radius:4px;font-size:20px;font-weight:700;white-space:nowrap}
+.contractor-contact-story .seo-actions .btn:first-child{width:332px}
+.contractor-contact-story .seo-actions .btn:last-child{width:303px}
+.contractor-contact-story .seo-actions .btn-primary{background:#f99520;color:#111b22}
+.contractor-contact-story .seo-actions .btn-dark{border:1px solid #e1e9ed;background:transparent;color:#fff}
+.contractor-landing .business-proof-grid dl.contractor-contact-facts{display:flex;flex-direction:column;justify-content:center;max-width:none;margin:0;padding:50px clamp(36px,5.1vw,94px);border:0;background:#fff}
+.contractor-landing .business-proof-grid dl.contractor-contact-facts>div{display:grid;grid-template-columns:70px 1fr;gap:20px;align-items:center;min-height:142px;padding:19px 0;border-bottom:1px solid #e6e5e3}
+.contractor-landing .business-proof-grid dl.contractor-contact-facts>div:last-child{border-bottom:0}
+.contractor-fact-icon{display:grid;place-items:center;width:66px;height:66px;border-radius:50%;background:#fff0df;color:#f38c0e}
+.contractor-landing .business-proof-grid dt{margin-bottom:5px;color:#78818c;font-size:14px}
+.contractor-landing .business-proof-grid dd{color:#172538;font-size:clamp(16px,1.22vw,22px);font-weight:500;overflow-wrap:anywhere}
+
+.contractor-scope{position:relative;min-height:480px;padding:78px 0 64px;overflow:hidden;background:linear-gradient(110deg,#f4faff,#fff 32%,#fbfaf8 100%)}
+.contractor-scope::before{content:"";position:absolute;left:-85px;bottom:-96px;width:175px;height:210px;background:linear-gradient(90deg,rgba(244,144,19,.72) 0 28%,rgba(26,41,47,.86) 28% 52%,transparent 52%);transform:rotate(-41deg);pointer-events:none}
+.contractor-scope::after{content:none;display:none}
+.contractor-scope-photo{position:absolute;left:0;bottom:0;width:36%;height:40%;background:url('/assets/hero-home-modern-v2.webp') right 42%/cover no-repeat;mask-image:linear-gradient(90deg,#000 0%,#000 60%,transparent 100%)}
+.contractor-scope-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#fff 0%,rgba(255,255,255,0) 28%)}
+.contractor-scope-layout{position:relative;display:grid;grid-template-columns:35% minmax(0,1fr);gap:24px;width:82%;max-width:none;margin-left:11%;margin-right:7%}
+.contractor-scope-heading .page-kicker{display:flex;align-items:center;gap:12px;color:#ee7f12;font-size:10px;letter-spacing:2.7px}
+.contractor-scope-heading .page-kicker::before{content:"";width:23px;height:3px;background:#f68e18}
+.contractor-scope-heading h2{margin:14px 0 17px;font-size:clamp(35px,3vw,56px);line-height:1.15;letter-spacing:-1.7px;white-space:nowrap}
+.contractor-scope-heading h2{font-size:clamp(32px,2.4vw,43px)}
+.contractor-scope-heading p{max-width:490px;font-size:14px;line-height:1.8;color:#50606b}
+.contractor-scope-right{min-width:0;padding-top:27px}
+.contractor-scope-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
+.contractor-scope-cards article{display:flex;flex-direction:column;min-height:226px;padding:20px;border:1px solid #f0e6de;border-radius:15px;background:rgba(255,255,255,.88);box-shadow:0 13px 35px rgba(33,43,51,.07);transition:transform .25s ease,box-shadow .25s ease}
+.contractor-scope-cards article:hover{transform:translateY(-7px);box-shadow:0 20px 45px rgba(33,43,51,.12)}
+.contractor-scope-icon{display:grid;place-items:center;width:50px;height:50px;border-radius:16px;background:#fff0e4;color:#f88914}
+.contractor-scope-cards h3{margin:18px 0 7px;font-size:16px;line-height:1.3}
+.contractor-scope-cards p{margin:0;color:#66727c;font-size:12px;line-height:1.65}
+.contractor-scope-cards a{display:flex;align-items:center;gap:6px;margin-top:auto;padding-top:17px;color:#ef7e00;font-size:12px;text-decoration:none}
+.contractor-scope-note{display:flex;align-items:center;gap:10px;margin:25px 0 0;color:#64717b;font-size:15px;font-weight:600}
+
+.contractor-landing .local-area-links.contractor-areas{display:grid;grid-template-columns:27% 73%;padding:0;background:linear-gradient(135deg,#f8fbfc,#f7f9fa)}
+.contractor-area-intro{position:relative;min-height:471px;padding:73px clamp(30px,4.5vw,80px);overflow:hidden;isolation:isolate;color:#fff;background:#0e2430}
+.contractor-area-intro::before{content:"";position:absolute;z-index:-2;inset:0;background:url('/assets/home-slider/construction-building-exterior.webp') center/cover no-repeat;opacity:.24}
+.contractor-area-intro::after{content:"";position:absolute;z-index:-1;left:-78px;bottom:-174px;width:290px;height:290px;background:#f68b10;transform:rotate(-45deg)}
+.contractor-area-intro .page-kicker{display:flex;align-items:center;gap:12px;color:#fff;font-size:10px;letter-spacing:2.6px}
+.contractor-area-intro .page-kicker::before{content:"";width:24px;height:2px;background:#f79518}
+.contractor-area-intro h2{margin:14px 0 19px;font-size:36px;line-height:1.2;letter-spacing:-1.4px;white-space:nowrap}
+.contractor-area-intro p{max-width:330px;margin:0 0 28px;font-size:16px;line-height:1.8;color:#dbe2e6}
+.contractor-area-intro .btn{display:inline-flex;align-items:center;gap:12px;padding:13px 20px;border-radius:28px;background:#f99b25;color:#101c22;font-size:13px;font-weight:700;text-decoration:none}
+.contractor-area-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;padding:33px 32px}
+.contractor-area-card{position:relative;display:block;min-width:0;min-height:190px;padding:9px 9px 22px;border:1px solid #e8edf0;border-radius:17px;background:#fff;color:#16222b;text-decoration:none;box-shadow:0 7px 22px rgba(28,48,61,.07);transition:transform .25s ease,box-shadow .25s ease}
+.contractor-area-card:hover{transform:translateY(-5px);box-shadow:0 15px 28px rgba(28,48,61,.12)}
+.contractor-area-thumb{height:87px;overflow:hidden;border-radius:10px;background:#f1f4f5}
+.contractor-area-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
+.contractor-area-card:hover img{transform:scale(1.07)}
+.contractor-area-title{display:flex;align-items:center;gap:6px;margin:12px 5px 4px}
+.contractor-area-title svg{flex:0 0 auto;color:#f68c15;fill:#f68c15;stroke:#fff;stroke-width:1.5}
+.contractor-area-title h3{margin:0;font-size:16px;line-height:1.4}
+.contractor-area-card p{max-width:92%;margin:0 5px;color:#6e7c84;font-size:12px;line-height:1.5}
+.contractor-area-arrow{position:absolute;right:13px;bottom:16px;color:#f28b13}
+.contractor-area-other .contractor-area-thumb{display:grid;place-items:center;color:#f68c15;background:#f8fafb}
+
+@media(max-width:1300px){.contractor-landing .business-proof-grid .contractor-contact-story h2{font-size:clamp(39px,4vw,60px)}.contractor-contact-inner{padding-left:28px}.contractor-scope-layout{grid-template-columns:1fr}.contractor-scope-photo{opacity:.25}.contractor-scope-cards{max-width:none}.contractor-landing .local-area-links.contractor-areas{grid-template-columns:30% 70%}.contractor-area-cards{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:980px){.contractor-landing .local-area-hero .seo-split{min-height:620px}.contractor-landing .local-hero-copy{padding:88px 0 60px}.contractor-landing .local-area-hero h1{font-size:clamp(52px,7vw,78px)}.contractor-landing .business-proof-grid{grid-template-columns:1fr}.contractor-contact-story{min-height:520px}.contractor-landing .business-proof-grid dl.contractor-contact-facts{padding:30px 7vw}.contractor-landing .local-area-links.contractor-areas{grid-template-columns:1fr}.contractor-area-intro{min-height:0;padding:62px 7vw}.contractor-area-cards{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:760px){.contractor-landing .local-area-hero{min-height:700px}.contractor-hero-art{background-position:64% center}.contractor-landing .local-area-hero::before{background:linear-gradient(90deg,rgba(9,17,22,.88),rgba(9,17,22,.68)),linear-gradient(0deg,rgba(9,17,22,.5),transparent)}.contractor-landing .local-area-hero .seo-split{min-height:700px;padding-inline:22px}.contractor-landing .local-hero-copy{padding:85px 0 56px}.contractor-landing .local-area-hero h1{font-size:clamp(42px,10.5vw,62px);white-space:normal;letter-spacing:-1.5px}.contractor-landing .local-area-hero .local-hero-copy>p.contractor-hero-lead{font-size:17px}.contractor-landing .local-area-hero .local-hero-copy>p.contractor-hero-support{font-size:14px}.contractor-hero-proof{margin:22px 0 28px}.contractor-hero-proof span{flex:1;display:block;min-height:72px;padding:0 10px;font-size:10px}.contractor-hero-proof svg{display:block;width:26px;height:26px;margin-bottom:5px}.contractor-landing .local-area-hero .seo-actions{display:grid;grid-template-columns:1fr 1fr}.contractor-landing .local-area-hero .seo-actions .btn{min-width:0;width:100%;font-size:12px;gap:6px;padding:10px}.contractor-contact-story{min-height:0;padding:70px 25px}.contractor-contact-inner{padding-left:20px}.contractor-landing .business-proof-grid .contractor-contact-story h2{white-space:normal;font-size:clamp(37px,8vw,58px)}.contractor-contact-story p{font-size:16px}.contractor-contact-story p br{display:none}.contractor-contact-story .seo-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.contractor-contact-story .seo-actions .btn{min-height:56px;padding:9px;font-size:12px;gap:5px}.contractor-landing .business-proof-grid dl.contractor-contact-facts>div{min-height:94px;grid-template-columns:58px 1fr;gap:12px}.contractor-fact-icon{width:50px;height:50px}.contractor-fact-icon svg{width:25px}.contractor-scope{padding:65px 0}.contractor-scope-heading h2{white-space:normal;font-size:clamp(34px,7.5vw,48px)}.contractor-scope-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.contractor-scope-cards article{min-height:220px}.contractor-area-cards{grid-template-columns:repeat(2,minmax(0,1fr));padding:20px;gap:10px}}
+@media(max-width:440px){.contractor-landing .local-area-hero .seo-actions{grid-template-columns:1fr}.contractor-landing .local-area-hero{min-height:740px}.contractor-landing .local-area-hero .seo-split{min-height:740px}.contractor-scope-cards{gap:9px}.contractor-scope-cards article{padding:14px}.contractor-scope-cards h3{font-size:14px}.contractor-area-card{min-height:205px}.contractor-area-title h3{font-size:14px}}
+@media(prefers-reduced-motion:reduce){.contractor-hero-art,.contractor-landing .local-hero-copy,.contractor-scope-cards article,.contractor-area-card,.contractor-area-thumb img{animation:none!important;transition:none!important}}
+@media(max-width:1300px){.contractor-scope-layout{width:calc(100% - 80px);margin-inline:40px}}
+@media(max-width:980px){.contractor-landing .local-area-hero{height:auto;min-height:620px}.contractor-landing .local-hero-copy{max-width:600px}}
+@media(max-width:760px){.contractor-hero-tagline{display:none}.contractor-landing .local-hero-copy{max-width:100%}.contractor-hero-proof>div{flex:1;display:block;min-height:72px;padding:0 10px;font-size:10px;white-space:normal}.contractor-hero-proof>div:first-child{padding-left:0}.contractor-hero-proof svg{display:block;width:26px;height:26px;margin-bottom:5px}.contractor-scope-layout{width:calc(100% - 36px);margin-inline:18px}.contractor-scope::after{display:none}.contractor-area-card{min-height:215px}}
+.contractor-hero-proof svg *,
+.contractor-contact-story .btn svg *,
+.contractor-fact-icon svg *,
+.contractor-scope-icon svg *,
+.contractor-scope-note svg *{fill:none!important;stroke:currentColor!important}
+@media(max-width:980px){.contractor-scope-right{padding-top:0}}
+@media(min-width:981px) and (max-width:1480px){.contractor-contact-story .seo-actions .btn{min-height:68px;padding:13px 18px;font-size:16px}.contractor-contact-story .seo-actions .btn:first-child,.contractor-contact-story .seo-actions .btn:last-child{width:auto}}
+@media(max-width:1300px){.contractor-scope-photo{display:none}}
+@media(max-width:760px){.contractor-contact-story .seo-actions .btn:first-child,.contractor-contact-story .seo-actions .btn:last-child{width:100%}.contractor-contact-story .seo-actions .btn{min-height:56px;padding:9px;font-size:12px}.contractor-area-intro h2{font-size:clamp(31px,7vw,40px);white-space:normal}}

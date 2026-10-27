@@ -276,6 +276,7 @@ html[lang="th"] body{line-break:strict;word-break:normal;overflow-wrap:normal}
 h1,h2,h3,.btn,.quick-card b,.project-body h3{text-wrap:balance}
 .hero-bg{background-image:linear-gradient(90deg,rgba(5,5,5,.91) 0%,rgba(5,5,5,.7) 48%,rgba(5,5,5,.34) 100%)}
 .hero-engineer{position:absolute;z-index:3;right:max(3%,calc((100% - 1320px)/2));bottom:-98px;width:min(39vw,530px);height:700px;display:flex;align-items:flex-end;justify-content:center;pointer-events:none;filter:drop-shadow(0 24px 26px rgba(0,0,0,.45))}
+.hero-engineer picture{display:block;width:100%;height:100%}
 .hero-engineer img{height:100%;width:auto;max-width:none;object-fit:contain;object-position:center bottom;animation:engineerEnter 1s cubic-bezier(.2,.8,.2,1) both}
 .hero-copy{max-width:690px}
 .hero-copy>p:not(.hero-eyebrow){max-width:560px}
@@ -706,6 +707,9 @@ body[data-page="home"] .reveal.is-visible{transform:none;filter:none}
 @keyframes ngeEngineerInMobile{to{opacity:1;transform:translate3d(-50%,0,0)}}
 @media(prefers-reduced-motion:reduce){body[data-page="home"] .hero-cinematic .hero-media img,body[data-page="home"] .hero-cinematic::after,body[data-page="home"] .hero-blueprint,body[data-page="home"] .hero-copy>*,body[data-page="home"] .hero-copy h1 em::after,body[data-page="home"] .hero-engineer,body[data-page="home"] .hero-engineer img,body[data-page="home"] .engineer-halo,body[data-page="home"] .hero-side-note,body[data-page="home"] .quick-card{animation:none!important;opacity:1;transform:none}}
 @media(max-width:640px) and (prefers-reduced-motion:reduce){body[data-page="home"] .hero-engineer{transform:translateX(-50%)}}
+
+/* Keep the first screen stable while the mobile hero loads. */
+@media(max-width:640px){body[data-page="home"] .hero.hero{background-image:none}body[data-page="home"] .hero-cinematic .hero-media img,body[data-page="home"] .hero-copy>*,body[data-page="home"] .hero-engineer{animation:none;opacity:1;will-change:auto}body[data-page="home"] .hero-copy>*{transform:none}body[data-page="home"] .hero-engineer{transform:translateX(-50%)}}
 
 /* V19: calm, image-led company presentation inspired by established home-builder sites. */
 .site-header{height:auto}.header-utility{height:32px;background:#171717;color:#fff}.header-utility>div{width:min(1320px,calc(100% - 48px));height:100%;margin:auto;display:flex;align-items:center;justify-content:space-between;font-size:10px;letter-spacing:.15px}.header-utility-links{display:flex;align-items:center;gap:24px}.header-utility a{color:rgba(255,255,255,.76);transition:color .2s ease}.header-utility a:hover{color:var(--orange)}.header-inner{height:78px}.desktop-nav a{font-weight:400}.desktop-nav a[aria-current="page"]{font-weight:600}.header-call{border-radius:0;background:#171717}.header-call:hover{border-radius:0}

@@ -71,16 +71,6 @@
   });
   $$('a', panel || document).forEach(link => link.addEventListener('click', closeMenu));
 
-  const cookieBanner = $('#cookieBanner');
-  const consentKey = 'nge-cookie-consent-v2';
-  let hasConsent = false;
-  try { hasConsent = !!JSON.parse(localStorage.getItem(consentKey)); } catch (_) {}
-  if (cookieBanner && !hasConsent) cookieBanner.hidden = false;
-  $('[data-cookie-accept]')?.addEventListener('click', () => {
-    localStorage.setItem(consentKey, JSON.stringify({ necessary: true, analytics: true, marketing: true, updatedAt: new Date().toISOString(), version: '2026-08-30' }));
-    cookieBanner.hidden = true;
-  });
-
   const reveal = $$('.reveal');
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(entries => entries.forEach(entry => {

@@ -120,7 +120,7 @@ export function MarketingStudio() {
           <div className="form-section"><span><ClipboardList /> 3. หลักฐานและข้อเสนอ</span>
             <label>หลักฐานจริงที่ใช้ได้<textarea name="proof" rows={3} placeholder="รูปก่อน-หลัง ขนาดงาน ระยะเวลา ปัญหาที่แก้ ขั้นตอนตรวจงาน รีวิวจริง" /></label>
             <label>ข้อเสนอหรือจุดเด่น<textarea name="offer" rows={2} placeholder="เช่น ช่วยตรวจข้อมูลและเรียงขอบเขตก่อนนัดสำรวจ" /></label>
-            <label>อยากให้ลูกค้าทำอะไรต่อ<input name="desiredAction" defaultValue="ส่งรูป พิกัด และช่วงงบประมาณเพื่อประเมินเบื้องต้น" /></label>
+            <label>อยากให้ลูกค้าทำอะไรต่อ<input name="desiredAction" defaultValue="กรอกข้อมูลโครงการผ่านฟอร์ม แล้วส่งรูปทาง LINE พร้อมพิกัดและช่วงงบประมาณ" /></label>
             <label>ข้อห้าม/ข้อมูลเพิ่มเติม<textarea name="constraints" rows={2} placeholder="เช่น ห้ามระบุราคาแน่นอน ห้ามใช้คำว่าถูกที่สุด" /></label>
           </div>
           <button className="generate-button" disabled={busy}>{busy ? <LoaderCircle className="spin" /> : <WandSparkles />} สร้างแผนการตลาดและโพสต์ฉบับเต็ม</button>

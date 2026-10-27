@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/json-ld";
 import { LegacyPage } from "@/components/legacy-page";
+import { CampaignPopup } from "@/components/campaign-popup";
 import { absoluteUrl, site } from "@/lib/site-data";
 
 const homeTitle = "รับเหมาก่อสร้างครบวงจร นนทบุรี | ผลงานจริง 40 ปี NGE";
 const homeDescription =
-  "ผู้รับเหมาก่อสร้างครบวงจรในนนทบุรี ทีมวิศวกรประสบการณ์กว่า 40 ปี รับสร้างบ้าน อาคาร ต่อเติม และรับรีโนเวทบ้าน คอนโด นนทบุรี พร้อมงานระบบและงานโยธา";
+  "รับสร้างบ้าน อาคาร ต่อเติม และรีโนเวทในนนทบุรี โดยทีมวิศวกรประสบการณ์กว่า 40 ปี ดูภาพผลงานจริง ขอบเขตงาน และส่งรายละเอียดโครงการให้ NGE ประเมินเบื้องต้น";
 
 export const metadata: Metadata = {
   title: { absolute: homeTitle },
@@ -73,6 +74,7 @@ export default function Home() {
       />
       <JsonLd data={homePageSchema} />
       <LegacyPage file="index.html" includeJsonLd={false} />
+      <CampaignPopup />
     </>
   );
 }
