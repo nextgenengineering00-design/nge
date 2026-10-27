@@ -3,8 +3,6 @@
 import { FormEvent, MouseEvent, useEffect, useRef, useState } from "react";
 import styles from "./campaign-popup.module.css";
 
-const STORAGE_KEY = "nge_campaign_popup_v1";
-const HIDE_FOR_MS = 7 * 24 * 60 * 60 * 1000;
 const EXCLUDED_PATHS = ["/construction-quote", "/contact", "/privacy", "/crm"];
 
 export function CampaignPopup() {
@@ -16,9 +14,7 @@ export function CampaignPopup() {
   useEffect(() => {
     const path = window.location.pathname;
     if (EXCLUDED_PATHS.some((item) => path === item || path.startsWith(`${item}/`))) return;
-    const lastSeen = Number(window.localStorage.getItem(STORAGE_KEY) || 0);
-    if (Date.now() - lastSeen < HIDE_FOR_MS) return;
-    const timer = window.setTimeout(() => setOpen(true), 4500);
+    const timer = window.setTimeout(() => setOpen(true), 1400);
     return () => window.clearTimeout(timer);
   }, []);
 
@@ -42,7 +38,6 @@ export function CampaignPopup() {
   }, [open]);
 
   function close() {
-    window.localStorage.setItem(STORAGE_KEY, String(Date.now()));
     setOpen(false);
   }
 
@@ -81,7 +76,6 @@ export function CampaignPopup() {
       const result = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(result.error || "ส่งข้อมูลไม่สำเร็จ");
       setStatus("success");
-      window.localStorage.setItem(STORAGE_KEY, String(Date.now()));
       const tracking = window as typeof window & { gtag?: (...args: unknown[]) => void; fbq?: (...args: unknown[]) => void };
       tracking.gtag?.("event", "generate_lead", { form_source: "campaign-popup", lead_id: result.leadId || "" });
       tracking.fbq?.("track", "Lead");
