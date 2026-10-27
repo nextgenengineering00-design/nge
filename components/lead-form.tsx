@@ -18,7 +18,7 @@ export function LeadForm({ compact = false }: { compact?: boolean }) {
       w.fbq?.("track", "Lead");
     }
   }
-  if (status === "ok") return <div className="form-success"><CheckCircle2 /><h3>รับข้อมูลแล้วครับ</h3><p>ทีมงานจะติดต่อกลับเพื่อถามรายละเอียดและนัดหมาย</p></div>;
+  if (status === "ok") return <div className="form-success"><CheckCircle2 /><h3>รับข้อมูลแล้วครับ</h3><p>ทีมงานจะติดต่อกลับเพื่อสอบถามรายละเอียดและนัดหมายขั้นตอนถัดไป</p></div>;
   return <form className={compact ? "lead-form compact" : "lead-form"} onSubmit={submit}>
     <input name="website" tabIndex={-1} autoComplete="off" className="hp" aria-hidden="true" />
     <label>ชื่อผู้ติดต่อ<input name="name" required minLength={2} maxLength={100} placeholder="ชื่อของคุณ" /></label>
