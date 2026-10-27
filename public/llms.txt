@@ -1,66 +1,22 @@
-# Next Gen Engineering
+# Next Gen Engineering (NGE)
 
-Next Gen Engineering เป็นผู้รับเหมาก่อสร้างครบวงจรในจังหวัดนนทบุรี กรุงเทพฯ และพื้นที่ปริมณฑล ให้บริการก่อสร้าง ต่อเติม รีโนเวท งานโครงสร้าง งานระบบอาคาร และบริหารโครงการ ดำเนินการภายใต้ห้างหุ้นส่วนจำกัด รวมพลชัย เอ็นจิเนียริ่ง
+> บริษัทรับเหมาก่อสร้างครบวงจรในนนทบุรี กรุงเทพฯ และปริมณฑล รับสร้างบ้าน ต่อเติม รีโนเวท งานโครงสร้าง งานระบบ และบริหารโครงการ
 
-ห้างหุ้นส่วนจำกัด รวมพลชัย เอ็นจิเนียริ่ง จดทะเบียนเมื่อวันที่ 5 พฤศจิกายน 2528 โดย Company Profile มีรายการผลงานอ้างอิงของวิศวกรโครงการต่อเนื่องตั้งแต่ปี 2558–2568 ครอบคลุมอาคารราชการ อาคารพักอาศัย โรงทหาร โรงเรียน สำนักงาน คลัง และสิ่งอำนวยความสะดวก
+เว็บไซต์อย่างเป็นทางการ: https://ngebuild.com/
 
-## Core facts
+## หน้าหลัก
 
-- Primary service area: นนทบุรี กรุงเทพฯ และปริมณฑล
-- Team experience: มากกว่า 40 ปี
-- Completed work: มากกว่า 300 ผลงาน
-- Combined project value: หลายร้อยล้านบาท
-- Quality standard: ใช้มาตรฐานควบคุมและตรวจรับแบบโครงการภาครัฐ พร้อมรับประกันตามขอบเขตสัญญาและดูแลข้อบกพร่องจากงานก่อสร้างหลังส่งมอบ
-- Project reference period in current Company Profile: พ.ศ. 2558–2568
-- Project engineer reference: ภย. 60575
-- Service model: สำรวจ ออกแบบ วางแผนงบประมาณ ก่อสร้าง ควบคุมงาน และส่งมอบครบวงจร
-- Legal entity reference: https://www.dataforthai.com/company/0103528028423/
+- [ภาพรวมบริษัทและบริการ](https://ngebuild.com/)
+- [เกี่ยวกับ NGE และ Company Profile](https://ngebuild.com/about)
+- [บริการทั้งหมด](https://ngebuild.com/services)
+- [รับเหมาก่อสร้าง นนทบุรี](https://ngebuild.com/contractor-nonthaburi)
+- [ผลงานจริง](https://ngebuild.com/projects)
+- [บทความความรู้ก่อสร้าง](https://ngebuild.com/knowledge)
+- [ติดต่อบริษัท](https://ngebuild.com/contact)
 
-## Main pages
+## เริ่มต้นโครงการ
 
-- /about - ประวัติบริษัทและดาวน์โหลด Company Profile
-- /services - บริการรับเหมาก่อสร้างครบวงจร
-- /why-us - จุดเด่น ระบบทำงาน และหลักฐานผลงาน
-- /projects - รวมผลงานพร้อมลิงก์ไปยังหน้ารายละเอียด
-- /knowledge - ศูนย์ความรู้ก่อสร้าง
-- /faq - คำถามที่พบบ่อย
-- /contact - แบบฟอร์มติดต่อและช่องทางติดต่อ
-- /#booking - จองเวลาปรึกษาวิศวกรฟรี
+- [ส่งข้อมูลเพื่อประเมินงานก่อสร้าง](https://ngebuild.com/construction-quote)
+- [ส่งข้อมูลเพื่อประเมินงานรีโนเวท](https://ngebuild.com/renovation-quote)
 
-## Contact
-
-- Phone: 098-279-9145
-- LINE: @522magc
-- LINE URL: https://lin.ee/u45yvnc
-
-## Services
-
-- รับเหมาก่อสร้างครบวงจร บ้าน อาคาร สำนักงาน และโครงการในนนทบุรี กรุงเทพฯ และปริมณฑล
-- ต่อเติมอาคารและเพิ่มพื้นที่ใช้สอย
-- รีโนเวทและตกแต่งภายในครบวงจร
-- งานฐานรากและโครงสร้างคอนกรีตเสริมเหล็ก
-- งานถนนคอนกรีตเสริมเหล็กและงานโยธา
-- งานระบบไฟฟ้า ประปา สุขาภิบาล และปรับอากาศ
-- บริหารและควบคุมโครงการโดยทีมวิศวกร
-
-## Selected projects
-
-- /projects/rc-road-saraburi-12-ton.html - งานถนนคอนกรีตเสริมเหล็ก รับน้ำหนัก 12 ตัน จังหวัดสระบุรี พร้อมภาพหน้างานจริง
-- /projects/concrete-road-building.html - งานเทคอนกรีตถนนและทางเดินรอบอาคาร พร้อมภาพวางเหล็ก เทคอนกรีต ปรับระดับ และเก็บผิวหน้างานจริง
-- /projects/phra2-renovation.html - รีโนเวทบ้านพักอาศัย 3 ชั้น พระราม 2 กรุงเทพฯ พร้อมแบบฟังก์ชันและรายละเอียดวัสดุ
-- /projects/rowhouse-10-families.html - ก่อสร้างอาคารเรือนแถว 10 ครอบครัว 2 ชั้น งานเสาเข็ม ฐานราก และคานคอดิน
-- /projects/school-25.html - อาคารเรียนครบรอบ 25 ปี โรงเรียนกาญจนาภิเษกฯ
-- /projects/military-saraburi.html - โครงการย้ายหน่วยพัน ซบร. จังหวัดสระบุรี
-- /projects/wichai-sriracha.html - บ้านคุณวิชัย อำเภอศรีราชา
-- /projects/lake-legend.html - บ้านคุณประวิทย์ Lake Legend แจ้งวัฒนะ
-- /projects/royal-stable.html - อาคารคอกม้าทรงประจำพระองค์
-- /projects/oikos-cafe.html - OIKOS Cafe & Restaurant เอกชัย 64
-
-Project pages contain source-provided project type, size, budget reference where available, and photo/design galleries. Budget figures belong to example projects and are not current quotations.
-
-
-## Topic clusters (2026-09-15)
-- Contractor / cost / contract: https://ngebuild.com/contractor-nonthaburi.html, https://ngebuild.com/boq-construction-guide.html, https://ngebuild.com/construction-contract-guide.html, https://ngebuild.com/construction-process-guide.html
-- Renovation: https://ngebuild.com/renovation-nonthaburi.html, https://ngebuild.com/renovation-budget-guide.html, https://ngebuild.com/renovation-structure-check-guide.html
-- Concrete road: https://ngebuild.com/concrete-road-guide.html, https://ngebuild.com/concrete-road-cost-guide.html
-- Project evidence: https://ngebuild.com/projects.html
+ข้อมูลราคาและขอบเขตงานในหน้าผลงานเป็นข้อมูลของโครงการตัวอย่าง ไม่ใช่ใบเสนอราคาปัจจุบัน โปรดติดต่อบริษัทเพื่อประเมินงานจริง

@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "generate:legacy": "node scripts/generate-legacy-content.mjs",
+    "generate:og": "node scripts/generate-og-previews.mjs",
     "predev": "npm run generate:legacy",
     "dev": "next dev",
     "prebuild": "npm run generate:legacy",

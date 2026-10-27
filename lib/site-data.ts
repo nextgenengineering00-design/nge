@@ -5,7 +5,7 @@ export const site = {
   phoneDisplay: "098-279-9145",
   phone: "0982799145",
   line: "@522magc",
-  email: "nextgenengineering.th@gmail.com",
+  email: "nextgenengineering00@gmail.com",
   area: "นนทบุรี กรุงเทพฯ และปริมณฑล",
   legalId: "0103528028423",
   legalName: "ห้างหุ้นส่วนจำกัด รวมพลชัย เอ็นจิเนียริ่ง",

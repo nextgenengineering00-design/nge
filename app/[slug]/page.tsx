@@ -7,24 +7,27 @@ import { isLocalAreaSlug, localAreas } from "@/lib/local-area-data";
 import { LocalServicePage } from "@/components/local-service-page";
 import { isLocalServiceSlug, localServices } from "@/lib/local-service-data";
 import { absoluteUrl } from "@/lib/site-data";
+import { socialPreviewPath } from "@/lib/social-preview";
 
 export function generateStaticParams(){return legacySlugs.map(slug=>({slug}))}
 export async function generateMetadata({params}:{params:Promise<{slug:string}>}):Promise<Metadata>{
   const {slug}=await params;
   if(isLocalAreaSlug(slug)){
     const page=localAreas[slug];
+    const preview=socialPreviewPath(`/${slug}`);
     return {
       title:{absolute:page.title},description:page.description,alternates:{canonical:`/${slug}`},
-      openGraph:{type:"website",locale:"th_TH",url:`/${slug}`,title:page.title,description:page.description,images:[{url:page.image,alt:page.imageAlt}]},
-      twitter:{card:"summary_large_image",title:page.title,description:page.description,images:[absoluteUrl(page.image)]},
+      openGraph:{type:"website",locale:"th_TH",url:`/${slug}`,title:page.title,description:page.description,images:[{url:preview,width:1200,height:630,alt:page.title}]},
+      twitter:{card:"summary_large_image",title:page.title,description:page.description,images:[absoluteUrl(preview)]},
     };
   }
   if(isLocalServiceSlug(slug)){
     const page=localServices[slug];
+    const preview=socialPreviewPath(`/${slug}`);
     return {
       title:{absolute:page.title},description:page.description,keywords:page.serviceTypes,alternates:{canonical:`/${slug}`},
-      openGraph:{type:"website",locale:"th_TH",url:`/${slug}`,title:page.title,description:page.description,images:[{url:page.image,alt:page.imageAlt}]},
-      twitter:{card:"summary_large_image",title:page.title,description:page.description,images:[absoluteUrl(page.image)]},
+      openGraph:{type:"website",locale:"th_TH",url:`/${slug}`,title:page.title,description:page.description,images:[{url:preview,width:1200,height:630,alt:page.title}]},
+      twitter:{card:"summary_large_image",title:page.title,description:page.description,images:[absoluteUrl(preview)]},
     };
   }
   if(!legacySlugs.includes(slug as typeof legacySlugs[number]))return{};

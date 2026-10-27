@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { localAreaSlugs } from "@/lib/local-area-data";
 import { localServiceSlugs } from "@/lib/local-service-data";
 import { legacyHtml } from "@/lib/legacy-content.generated";
+import { socialPreviewPath } from "@/lib/social-preview";
 
 export type LegacyDocument = {
   title: string;
@@ -14,7 +15,8 @@ export type LegacyDocument = {
   image?: string;
 };
 
-export const legacySlugs=["boq-construction-guide","build-home-nonthaburi","choose-contractor-nonthaburi","concrete-road-cost-guide","concrete-road-guide","construction-contract-guide","construction-process-guide","building-permit-guide","home-extension-law-guide","construction-payment-inspection-guide","build-house-first-step-guide","renovation-mep-guide",...localAreaSlugs,...localServiceSlugs,"extend-home-nonthaburi","faq","renovation-budget-guide","renovation-nonthaburi","renovation-service-nonthaburi","condo-renovation-nonthaburi","building-renovation-nonthaburi","renovation-structure-check-guide"] as const;
+export const knowledgeArticleSlugs = ["choose-contractor-nonthaburi", "boq-construction-guide", "construction-contract-guide", "construction-process-guide", "renovation-budget-guide", "building-permit-guide", "home-extension-law-guide", "construction-payment-inspection-guide", "build-house-first-step-guide", "renovation-mep-guide", "renovation-nonthaburi", "renovation-structure-check-guide", "concrete-road-guide", "concrete-road-cost-guide", "house-construction-cost-guide", "house-construction-timeline-guide", "contractor-quotation-guide"] as const;
+export const legacySlugs=[...knowledgeArticleSlugs,"build-home-nonthaburi",...localAreaSlugs,...localServiceSlugs,"extend-home-nonthaburi","faq","renovation-service-nonthaburi","condo-renovation-nonthaburi","building-renovation-nonthaburi"] as const;
 
 export function readLegacyDocument(relativeFile: string): LegacyDocument {
   const source = legacyHtml[relativeFile.replaceAll("\\", "/")];
@@ -53,12 +55,13 @@ export function readLegacyDocument(relativeFile: string): LegacyDocument {
 
 export function legacyMetadata(relativeFile: string, canonical: string, noindex = false): Metadata {
   const page = readLegacyDocument(relativeFile);
+  const preview = socialPreviewPath(canonical);
   return {
     title: { absolute: page.title },
     description: page.description,
     alternates: { canonical },
-    openGraph: { type: "website", locale: "th_TH", title: page.title, description: page.description, url: canonical, images: page.image ? [{ url: page.image }] : undefined },
-    twitter: { card: "summary_large_image", title: page.title, description: page.description, images: page.image ? [page.image] : undefined },
+    openGraph: { type: "website", locale: "th_TH", title: page.title, description: page.description, url: canonical, images: [{ url: preview, width: 1200, height: 630, alt: page.title }] },
+    twitter: { card: "summary_large_image", title: page.title, description: page.description, images: [preview] },
     robots: noindex ? { index: false, follow: true } : { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
   };
 }

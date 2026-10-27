@@ -12,6 +12,6 @@ export function Analytics(){
   return <>
     {consent==="yes"&&ga&&<><Script src={`https://www.googletagmanager.com/gtag/js?id=${ga}`} strategy="afterInteractive"/><Script id="ga4" strategy="afterInteractive">{`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${ga}',{anonymize_ip:true});`}</Script></>}
     {consent==="yes"&&pixel&&<Script id="meta-pixel" strategy="afterInteractive">{`!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','${pixel}');fbq('track','PageView');`}</Script>}
-    {consent===null&&(ga||pixel)&&<div className="consent-banner"><p><b>ขออนุญาตเก็บข้อมูลการใช้งาน</b><span>เพื่อวัดผลว่าหน้าไหนช่วยให้ลูกค้าติดต่อเรา โดยไม่ขายข้อมูลส่วนตัว</span></p><button onClick={()=>choose("no")}>ไม่อนุญาต</button><button className="accept" onClick={()=>choose("yes")}>อนุญาต</button></div>}
+    {consent===null&&(ga||pixel)&&<div className="consent-banner"><p><b>ขออนุญาตเก็บข้อมูลการใช้งาน</b><span>เพื่อดูว่าข้อมูลส่วนใดมีประโยชน์ต่อผู้ใช้งาน เราไม่ขายข้อมูลส่วนตัว</span></p><button onClick={()=>choose("no")}>ไม่อนุญาต</button><button className="accept" onClick={()=>choose("yes")}>อนุญาต</button></div>}
   </>;
 }

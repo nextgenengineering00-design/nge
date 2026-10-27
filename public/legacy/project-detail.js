@@ -24,15 +24,15 @@
 
   const mobileDock = $('.mobile-dock');
   const dockLinks = mobileDock ? $$('a', mobileDock) : [];
-  if (dockLinks[0]) {
+  if (dockLinks[0] && !mobileDock.classList.contains('mobile-estimate-dock')) {
     dockLinks[0].setAttribute('aria-label', 'โทรหา Next Gen Engineering');
     dockLinks[0].innerHTML = `${iconPhone}<span>โทรเลย</span>`;
   }
-  if (dockLinks[1]) {
+  if (dockLinks[1] && !mobileDock.classList.contains('mobile-estimate-dock')) {
     dockLinks[1].setAttribute('aria-label', 'ติดต่อทาง LINE');
     dockLinks[1].innerHTML = `${iconLine}<span>LINE</span>`;
   }
-  if (dockLinks[2]) {
+  if (dockLinks[2] && !mobileDock.classList.contains('mobile-estimate-dock')) {
     dockLinks[2].href = '/#booking';
     dockLinks[2].setAttribute('aria-label', 'จองคิวปรึกษา');
     dockLinks[2].innerHTML = `${iconClock}<span>จองคิว</span>`;

@@ -43,26 +43,27 @@ export function LocalAreaPage({ slug }: { slug: LocalAreaSlug }) {
     ],
   };
 
-  return <div data-legacy-page="services">
+  return <div data-legacy-page="services" className={isNonthaburi ? "contractor-landing" : undefined}>
     <LegacyBodyState page="services" bodyClass="" />
     <link rel="stylesheet" href="/legacy/styles.min.css?v=20260925-5" />
-    <link rel="stylesheet" href="/legacy/service-seo.css?v=20260925-1" />
+    <link rel="stylesheet" href="/legacy/service-seo.css?v=20261011-1" />
     <JsonLd data={schema} />
     <a className="skip-link" href="#main-content">ข้ามไปเนื้อหาหลัก</a>
     {React.createElement("nge-header")}
     <main id="main-content">
       <section className="seo-hero local-area-hero">
         <div className="container seo-split">
-          <div>
+          <div className="local-hero-copy">
             <nav className="breadcrumb" aria-label="เส้นทางหน้าเว็บ"><Link href="/">หน้าหลัก</Link> / <Link href="/services">บริการ</Link> / <span>{page.area}</span></nav>
             <span className="page-kicker">NONTHABURI SERVICE AREA</span>
-            <h1>{page.h1}</h1>
+            <h1>{isNonthaburi ? "รับเหมาก่อสร้าง นนทบุรี" : page.h1}</h1>
+            {isNonthaburi && <p className="contractor-area-line">ครอบคลุมบางใหญ่ บางกรวย บางบัวทอง ไทรน้อย และปากเกร็ด</p>}
             <p>{page.lead}</p>
-            <div className="seo-actions"><Link className="btn btn-dark" href="/contact?service=construction">ขอประเมินโครงการ</Link><a className="btn btn-dark js-line-link" href="https://lin.ee/u45yvnc">ส่งรูปทาง LINE</a></div>
+            <div className="seo-actions"><Link className="btn btn-primary" href="/contact?service=construction">ขอประเมินโครงการ <span aria-hidden="true">↗</span></Link><a className="btn btn-dark js-line-link" href="https://lin.ee/u45yvnc">ส่งรูปทาง LINE</a></div>
             <p className="local-coverage">พื้นที่บริการ: {areaName} และพื้นที่ใกล้เคียง</p>
             {isNonthaburi && <div className="local-proof-row" aria-label="ข้อมูลผู้รับเหมา"><span>วิศวกรโยธา {site.engineerLicense}</span><span>จดทะเบียนนิติบุคคล {site.legalId}</span></div>}
           </div>
-          <figure className="seo-photo"><Image src={page.image} alt={page.imageAlt} width={800} height={600} priority sizes="(max-width: 760px) 100vw, 48vw" /><figcaption>{page.imageAlt} · <Link href="/projects">ดูผลงานจริงทั้งหมด</Link></figcaption></figure>
+          <figure className="seo-photo"><Image src={page.image} alt={page.imageAlt} width={800} height={600} priority sizes="(max-width: 760px) 100vw, 48vw" /><figcaption><span>ผลงานจริงของ NGE</span>{page.imageAlt} · <Link href="/projects">ดูผลงานทั้งหมด ↗</Link></figcaption></figure>
         </div>
       </section>
 

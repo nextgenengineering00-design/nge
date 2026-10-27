@@ -846,3 +846,113 @@ body[data-page="home"] .portfolio-heading-icon{width:20px;height:20px;filter:bri
 .home-projects-editorial .project-category-icon{display:inline-block;width:19px;height:19px;flex:none;object-fit:contain;margin-right:7px}
 .home-projects-editorial .project-filter-btn[aria-pressed="true"] .project-category-icon,.home-projects-editorial .project-body > small .project-category-icon{filter:brightness(0) invert(1)}
 .home-projects-editorial .project-body > small .project-category-icon{width:16px;height:16px}
+
+
+/* Shared portfolio icons and higher contrast text on project photography. */
+body[data-page="projects"] .projects-portfolio-reference .project-filter-btn::before,
+body[data-page="projects"] .projects-portfolio-reference .project-body > small::before { display:none !important; }
+body[data-page="projects"] .projects-portfolio-reference .project-category-icon,
+.home-projects-editorial .project-category-icon { display:inline-block; width:19px; height:19px; flex:none; object-fit:contain; margin-right:2px; vertical-align:middle; }
+body[data-page="projects"] .projects-portfolio-reference .project-body > small .project-category-icon,
+.home-projects-editorial .project-body > small .project-category-icon { width:17px; height:17px; margin-right:8px; filter:brightness(0) invert(1); }
+body[data-page="projects"] .projects-portfolio-reference .project-filter-btn[aria-pressed="true"] .project-category-icon,
+.home-projects-editorial .project-filter-btn[aria-pressed="true"] .project-category-icon { filter:brightness(0) invert(1); }
+body[data-page="projects"] .projects-portfolio-reference .project-filter-btn,
+.home-projects-editorial .project-filter-btn { font-size:15px; font-weight:600; }
+body[data-page="projects"] .projects-portfolio-reference .project-filter-btn[aria-pressed="true"],
+.home-projects-editorial .project-filter-btn[aria-pressed="true"] { background:#17252e; border-color:#17252e; color:#fff; box-shadow:0 9px 20px rgba(14,29,37,.22); }
+body[data-page="projects"] .projects-portfolio-reference .project-filter-btn[aria-pressed="true"] > span,
+.home-projects-editorial .project-filter-btn[aria-pressed="true"] > span { background:#ff9a1b; color:#14212a; }
+body[data-page="projects"] .projects-portfolio-reference .project-card,
+.home-projects-editorial .project-card { min-height:265px; }
+body[data-page="projects"] .projects-portfolio-reference .project-image::after,
+.home-projects-editorial .project-image::after { background:linear-gradient(180deg,rgba(7,17,24,.26) 0%,rgba(7,17,24,.03) 26%,rgba(7,17,24,.32) 49%,rgba(7,17,24,.96) 100%); }
+body[data-page="projects"] .projects-portfolio-reference .project-body > small,
+.home-projects-editorial .project-body > small { gap:0; max-width:calc(100% - 72px); background:rgba(17,32,41,.94); border:1px solid rgba(255,255,255,.3); color:#fff; font-weight:600; text-shadow:none; box-shadow:0 4px 14px rgba(0,0,0,.18); }
+body[data-page="projects"] .projects-portfolio-reference .project-body > h3,
+.home-projects-editorial .project-body > h3 { color:#fff; font-weight:700; line-height:1.25; text-shadow:0 2px 12px rgba(0,0,0,.75); }
+body[data-page="projects"] .projects-portfolio-reference .project-body > p,
+.home-projects-editorial .project-body > p { color:#fff; font-weight:500; text-shadow:0 2px 9px rgba(0,0,0,.75); }
+body[data-page="projects"] .projects-portfolio-reference .project-body > a,
+.home-projects-editorial .project-body > a { color:#fff; font-weight:600; border-bottom-color:#ffad42; text-shadow:0 2px 8px rgba(0,0,0,.65); }
+@media(max-width:640px){
+  body[data-page="projects"] .projects-portfolio-reference .project-card,
+  .home-projects-editorial .project-card { min-height:280px; }
+  body[data-page="projects"] .projects-portfolio-reference .project-filter-btn,
+  .home-projects-editorial .project-filter-btn { font-size:14px; }
+  body[data-page="projects"] .projects-portfolio-reference .project-body > h3,
+  .home-projects-editorial .project-body > h3 { font-size:22px; }
+  body[data-page="projects"] .projects-portfolio-reference .project-body > p,
+  .home-projects-editorial .project-body > p { font-size:15px; }
+  body[data-page="projects"] .projects-portfolio-reference .project-body > small,
+  .home-projects-editorial .project-body > small { font-size:13px; }
+}
+
+body[data-page="projects"] .projects-portfolio-reference .project-body > a,
+.home-projects-editorial .project-body > a { order:3; margin-top:2px; }
+
+
+/* Customer reviews: architectural image background, black gallery frames, real Google Material JPG icons. */
+body[data-page="projects"] .projects-review-gallery {
+  padding:84px 0 98px;
+  background-color:#10181d;
+  background-image:linear-gradient(180deg,rgba(8,12,14,.15) 0,rgba(10,16,19,.55) 550px,#10181d 1180px),url('/assets/reviews/customer-voices-backdrop-2026.webp');
+  background-position:center top,center top;
+  background-size:100% 1180px,100% auto;
+  background-repeat:no-repeat,no-repeat;
+}
+body[data-page="projects"] .projects-review-gallery::before,
+body[data-page="projects"] .projects-review-gallery::after { display:none; }
+body[data-page="projects"] .customer-review-heading {
+  display:flex;align-items:center;gap:24px;padding:0 0 26px;
+  border-bottom:2px solid rgba(234,146,54,.82);
+}
+body[data-page="projects"] .customer-review-title-icon {
+  display:block;width:56px;height:56px;flex:none;padding:9px;object-fit:contain;
+  border:3px solid #090d0f;border-radius:5px;background:#fff;
+  box-shadow:6px 6px 0 #dd862a;
+}
+body[data-page="projects"] .customer-review-heading h2 {
+  margin:0;color:#fff;font-weight:700;line-height:1.18;
+  text-shadow:0 2px 18px rgba(0,0,0,.5);
+}
+body[data-page="projects"] .customer-review-grid { column-gap:23px;margin-top:32px; }
+body[data-page="projects"] .customer-review-card {
+  position:relative;margin:0 7px 27px 0;padding:10px;overflow:visible;
+  border:3px solid #080d10;border-radius:7px;background:#fff;
+  box-shadow:7px 7px 0 #05090b,0 14px 36px rgba(0,0,0,.25);
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+body[data-page="projects"] .customer-review-card:hover {
+  transform:translate(-2px,-4px);
+  border-color:#080d10;
+  box-shadow:10px 11px 0 #e18d30,0 20px 42px rgba(0,0,0,.32);
+}
+body[data-page="projects"] .customer-review-card a {
+  min-height:105px;padding:8px;border:1px solid #e7e2da;border-radius:2px;background:#fff;
+}
+body[data-page="projects"] .customer-review-card img { max-width:100%;height:auto; }
+body[data-page="projects"] .customer-review-source {
+  display:flex;justify-content:center;margin:14px auto 0;padding:0;
+  border:0;background:transparent;
+}
+body[data-page="projects"] .customer-review-source a {
+  display:inline-flex;align-items:center;gap:12px;min-height:54px;padding:8px 18px 8px 9px;
+  border:2px solid #05090b;border-radius:5px;background:#fff;
+  color:#172329;font:700 14px/1.2 var(--font-legacy-body),sans-serif;
+  box-shadow:5px 5px 0 #e18d30;text-decoration:none;
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+body[data-page="projects"] .customer-review-source a:hover { transform:translate(-2px,-2px);box-shadow:7px 7px 0 #e18d30;text-decoration:none; }
+body[data-page="projects"] .customer-review-source a img { display:block;width:28px;height:28px;object-fit:contain; }
+@media(max-width:800px){
+  body[data-page="projects"] .projects-review-gallery { padding:62px 0 78px;background-size:100% 740px,auto 440px; }
+  body[data-page="projects"] .customer-review-heading { gap:17px;padding-bottom:22px; }
+  body[data-page="projects"] .customer-review-title-icon { width:49px;height:49px;padding:7px;box-shadow:4px 4px 0 #dd862a; }
+  body[data-page="projects"] .customer-review-heading h2 { font-size:clamp(29px,7.3vw,43px); }
+  body[data-page="projects"] .customer-review-grid { margin-top:25px; }
+  body[data-page="projects"] .customer-review-card { margin:0 6px 21px 0;padding:7px;border-width:2px;box-shadow:5px 5px 0 #05090b,0 9px 25px rgba(0,0,0,.25); }
+  body[data-page="projects"] .customer-review-card a { min-height:80px;padding:6px; }
+}
+@media(max-width:390px){body[data-page="projects"] .customer-review-heading{gap:13px}body[data-page="projects"] .customer-review-heading h2{font-size:28px}}
+@media(prefers-reduced-motion:reduce){body[data-page="projects"] .customer-review-card,body[data-page="projects"] .customer-review-source a{transition:none}}

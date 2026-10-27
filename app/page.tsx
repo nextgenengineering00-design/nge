@@ -3,7 +3,7 @@ import { JsonLd } from "@/components/json-ld";
 import { LegacyPage } from "@/components/legacy-page";
 import { absoluteUrl, site } from "@/lib/site-data";
 
-const homeTitle = "รับเหมาก่อสร้างครบวงจร นนทบุรี | ทีมวิศวกร NGE";
+const homeTitle = "รับเหมาก่อสร้างครบวงจร นนทบุรี | ผลงานจริง 40 ปี NGE";
 const homeDescription =
   "ผู้รับเหมาก่อสร้างครบวงจรในนนทบุรี ทีมวิศวกรประสบการณ์กว่า 40 ปี รับสร้างบ้าน อาคาร ต่อเติม และรับรีโนเวทบ้าน คอนโด นนทบุรี พร้อมงานระบบและงานโยธา";
 
@@ -58,7 +58,16 @@ export default function Home() {
       <link
         rel="preload"
         as="image"
+        href="/assets/hero-home-modern-mobile-lean.webp"
+        media="(max-width: 640px)"
+        type="image/webp"
+        fetchPriority="high"
+      />
+      <link
+        rel="preload"
+        as="image"
         href="/assets/hero-home-modern-v2.webp"
+        media="(min-width: 641px)"
         type="image/webp"
         fetchPriority="high"
       />
@@ -67,3 +76,4 @@ export default function Home() {
     </>
   );
 }
+
