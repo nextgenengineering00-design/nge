@@ -1243,7 +1243,7 @@ body[data-page="home"] .home-story-showcase .story-point-icon{display:block}
 @media(prefers-reduced-motion:reduce){.mobile-estimate-dock .mobile-estimate-go{animation:none}}
 
 /* Mobile hero: make the engineer part of the architectural image, with a clear text zone. */
-@media(max-width:640px){
+@media(max-width:760px){
   body[data-page="home"] .hero-cinematic{height:auto;min-height:0;max-height:none;padding:420px 0 118px}
   body[data-page="home"] .hero-cinematic .hero-media{inset:0 0 auto;height:520px}
   body[data-page="home"] .hero-cinematic .hero-media img{object-position:64% 62%;transform:scale(1.03)}
