@@ -45,3 +45,18 @@
 .nge-cred-icon svg{fill:none;stroke:currentColor}
 .nge-cred-shell[data-visible="true"] .nge-cred-date{animation:ngeCredDate .8s .4s both}
 @keyframes ngeCredDate{from{opacity:0;filter:blur(8px)}to{opacity:1;filter:blur(0)}}
+
+/* Full-bleed scenery with a focused shade behind the readable content. */
+.nge-cred{padding-top:32px;padding-bottom:42px;background:#15100b}
+.nge-cred::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(0deg,#080909a6,transparent 45%,#08090933),linear-gradient(90deg,#08090912 0%,#08090977 25%,#080909c4 43%,#080909c4 57%,#08090966 77%,#08090908)}
+.nge-cred-shell{max-width:1120px}
+.nge-cred-photo{inset:-22px 0}
+.nge-cred-photo img{object-position:center}
+.nge-cred-banner{height:190px;overflow:visible;border-radius:0}
+.nge-cred-banner::before,.nge-cred-banner::after{display:none}
+.nge-cred-heading{bottom:28px}
+.nge-cred-grid{padding:0;gap:18px}
+.nge-cred-card{background:linear-gradient(135deg,#201b14eb,#080909f2);box-shadow:inset 0 1px 0 #ffffff12,0 8px 30px #0004}
+.nge-cred-card-inner{justify-content:center}
+@media(min-width:1600px){.nge-cred{padding-top:44px;padding-bottom:54px}.nge-cred-banner{height:210px}}
+@media(max-width:767px){.nge-cred{padding:24px 16px 36px}.nge-cred-shell{position:relative;isolation:isolate}.nge-cred::before{display:none}.nge-cred-photo{inset:0 -16px auto;height:260px}.nge-cred-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#15100b,transparent 90%)}.nge-cred-photo img{object-position:55% center}.nge-cred-banner{height:220px}.nge-cred-heading{bottom:25px}.nge-cred-grid{gap:12px}.nge-cred-card-inner{justify-content:flex-start}}

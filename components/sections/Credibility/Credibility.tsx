@@ -9,11 +9,11 @@ export const credibilityStats: CredibilityStat[] = [
   { id: "projects", icon: "handshake", value: 300, suffix: "+", unit: "ผลงาน", label: "ผลงานก่อสร้างและปรับปรุง", countUp: true, wide: true },
 ];
 
-export function Credibility({ stats = credibilityStats, image = "/images/credibility-construction.webp" }: { stats?: CredibilityStat[]; image?: string }) {
+export function Credibility({ stats = credibilityStats, image = "/images/credibility-construction-wide.webp" }: { stats?: CredibilityStat[]; image?: string }) {
   return <section className="nge-cred" aria-labelledby="nge-cred-title">
     <Reveal>
+      <div className="nge-cred-photo" aria-hidden="true"><Image src={image} alt="" fill sizes="100vw" /></div>
       <div className="nge-cred-banner">
-        <div className="nge-cred-photo" aria-hidden="true"><Image src={image} alt="" fill sizes="(max-width: 960px) 100vw, 960px" /></div>
         <div className="nge-cred-heading">
           <p className="nge-cred-eyebrow"><span />VERIFIABLE EXPERIENCE<span /></p>
           <h2 id="nge-cred-title"><span>ความ</span><em>น่าเชื่อถือ</em></h2>
