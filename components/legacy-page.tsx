@@ -2,6 +2,7 @@ import { knowledgeArticleSlugs, readLegacyDocument } from "@/lib/legacy-content"
 import { LegacyRuntimeScripts } from "@/components/legacy-runtime-scripts";
 import { LegacyBodyState } from "@/components/legacy-body-state";
 import { Credibility } from "@/components/sections/Credibility/Credibility";
+import "./home-refinements.css";
 
 /* eslint-disable @next/next/no-css-tags */
 
@@ -38,7 +39,7 @@ export function LegacyPage({ file, project = false, includeJsonLd = true }: { fi
     {homeParts ? <>
       <div dangerouslySetInnerHTML={{ __html: homeParts[1] }} />
       <main id="main-content">
-        <div style={{ display: "contents" }} dangerouslySetInnerHTML={{ __html: homeParts[2] }} />
+        <div className="home-entry" dangerouslySetInnerHTML={{ __html: homeParts[2] }} />
         <Credibility />
         <div style={{ display: "contents" }} dangerouslySetInnerHTML={{ __html: homeParts[3] }} />
       </main>
