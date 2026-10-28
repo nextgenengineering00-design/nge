@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Building2, ClipboardCheck, ClipboardList, DraftingCompass, FileCheck2, FileText, HardHat, House, Landmark, Mail, MapPin, Phone, Ruler, Send, ShieldCheck } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Building2, ClipboardCheck, ClipboardList, DraftingCompass, FileCheck2, FileText, HardHat, House, Mail, MapPin, Phone, Ruler, Send, ShieldCheck } from "lucide-react";
 import { JsonLd } from "@/components/json-ld";
 import { LegacyBodyState } from "@/components/legacy-body-state";
 import { LegacyRuntimeScripts } from "@/components/legacy-runtime-scripts";
