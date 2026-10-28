@@ -47,6 +47,8 @@
 @keyframes ngeCredDate{from{opacity:0;filter:blur(8px)}to{opacity:1;filter:blur(0)}}
 
 /* Full-bleed scenery with a focused shade behind the readable content. */
+#main-content .quick-contact.quick-visual{background:#15100b!important}
+@media(min-width:641px){#main-content .quick-contact.quick-visual{height:0!important;background:transparent!important}#main-content .nge-cred{padding-top:96px}}
 .nge-cred{padding-top:32px;padding-bottom:42px;background:#15100b}
 .nge-cred::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(0deg,#080909a6,transparent 45%,#08090933),linear-gradient(90deg,#08090912 0%,#08090977 25%,#080909c4 43%,#080909c4 57%,#08090966 77%,#08090908)}
 .nge-cred-shell{max-width:1120px}

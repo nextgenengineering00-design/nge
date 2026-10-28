@@ -1,10 +1,13 @@
 "use client";
 
-import { FormEvent, MouseEvent, useEffect, useRef, useState } from "react";
+import { FormEvent, MouseEvent, useCallback, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import styles from "./campaign-popup.module.css";
 
 const EXCLUDED_PATHS = ["/construction-quote", "/contact", "/privacy", "/crm"];
+const POPUP_INTERVAL = 10 * 60 * 1000;
+const DISMISS_COOLDOWN = 20 * 60 * 1000;
+const NEXT_POPUP_KEY = "nge-campaign-next-popup-at-v1";
 
 function playPopupChime() {
   const AudioContextClass = window.AudioContext
@@ -38,29 +41,68 @@ function playPopupChime() {
 
 export function CampaignPopup() {
   const pathname = usePathname();
-  const initialPathRef = useRef(pathname);
+  const nextPopupRef = useRef(0);
   const [open, setOpen] = useState(false);
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [error, setError] = useState("");
   const dialogRef = useRef<HTMLDivElement>(null);
 
+  const saveDeadline = useCallback((deadline: number) => {
+    nextPopupRef.current = deadline;
+    try { window.localStorage.setItem(NEXT_POPUP_KEY, String(deadline)); } catch { /* Keep the timer working when storage is blocked. */ }
+  }, []);
+
+  const close = useCallback(() => {
+    saveDeadline(Date.now() + DISMISS_COOLDOWN);
+    setOpen(false);
+  }, [saveDeadline]);
+
   useEffect(() => {
-    if (pathname !== initialPathRef.current) {
-      setOpen(false);
-      return;
-    }
-
-    const navigation = window.performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming | undefined;
-    const legacyNavigation = window.performance as Performance & { navigation?: { type: number; TYPE_RELOAD: number } };
-    const isReload = navigation?.type === "reload"
-      || legacyNavigation.navigation?.type === legacyNavigation.navigation?.TYPE_RELOAD;
-    if (!isReload) return;
-
-    const path = window.location.pathname;
-    if (EXCLUDED_PATHS.some((item) => path === item || path.startsWith(`${item}/`))) return;
-    const timer = window.setTimeout(() => setOpen(true), 1400);
+    const timer = window.setTimeout(() => setOpen(false), 0);
     return () => window.clearTimeout(timer);
   }, [pathname]);
+
+  useEffect(() => {
+    if (EXCLUDED_PATHS.some((item) => pathname === item || pathname.startsWith(`${item}/`))) return;
+    let timer: number | undefined;
+    const schedule = () => {
+      window.clearTimeout(timer);
+      if (open) return;
+      let deadline = nextPopupRef.current;
+      try {
+        const saved = Number(window.localStorage.getItem(NEXT_POPUP_KEY));
+        if (Number.isFinite(saved) && saved > 0) deadline = saved;
+      } catch { /* Fall back to this mounted session. */ }
+      if (!deadline) {
+        deadline = Date.now() + POPUP_INTERVAL;
+        saveDeadline(deadline);
+      }
+      nextPopupRef.current = deadline;
+      const remaining = deadline - Date.now();
+      if (remaining > 0) {
+        timer = window.setTimeout(schedule, Math.min(remaining, 2147483647));
+      } else if (document.visibilityState === "visible") {
+        // Record the next window before opening so other tabs share the limit.
+        saveDeadline(Date.now() + POPUP_INTERVAL);
+        setOpen(true);
+      }
+    };
+    const onStorage = (event: StorageEvent) => {
+      if (event.key !== NEXT_POPUP_KEY) return;
+      if (open) setOpen(false);
+      else schedule();
+    };
+    timer = window.setTimeout(schedule, 0);
+    window.addEventListener("storage", onStorage);
+    window.addEventListener("focus", schedule);
+    document.addEventListener("visibilitychange", schedule);
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener("storage", onStorage);
+      window.removeEventListener("focus", schedule);
+      document.removeEventListener("visibilitychange", schedule);
+    };
+  }, [pathname, open, saveDeadline]);
 
   useEffect(() => {
     if (!open) return;
@@ -78,17 +120,14 @@ export function CampaignPopup() {
       else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
     };
     document.addEventListener("keydown", onKeyDown);
-    window.setTimeout(() => dialogRef.current?.querySelector<HTMLElement>("input")?.focus(), 60);
+    const focusTimer = window.setTimeout(() => dialogRef.current?.querySelector<HTMLElement>("input")?.focus(), 60);
     return () => {
+      window.clearTimeout(focusTimer);
       document.body.style.overflow = previousOverflow;
       document.removeEventListener("keydown", onKeyDown);
       if (audioContext && audioContext.state !== "closed") void audioContext.close();
     };
-  }, [open]);
-
-  function close() {
-    setOpen(false);
-  }
+  }, [open, close]);
 
   function backdropClick(event: MouseEvent<HTMLDivElement>) {
     if (event.target === event.currentTarget) close();
