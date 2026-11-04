@@ -1,0 +1,148 @@
+/* Service-page cover, with static photography and centered white/gold type. */
+.contractor-service-cover{position:relative;isolation:isolate;min-height:720px;display:flex;align-items:flex-end;background:#121212;overflow:hidden;color:#fff}
+.contractor-service-cover .contractor-service-backdrop{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:-2}
+.contractor-service-cover::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#07080ab8,#07080a85 40%,#07080a61),linear-gradient(180deg,#00000029,#00000070)}
+.contractor-service-cover .container{padding:120px 0 92px}
+.contractor-service-cover .contractor-cover-heading{display:block;max-width:1000px;margin:auto;padding:0;text-align:center}
+.contractor-service-cover .contractor-cover-eyebrow{color:#ffbf3b;font-size:12px;font-weight:500;letter-spacing:3px;margin:0}
+.contractor-service-divider{display:block;width:54px;height:3px;background:#f5a400;margin:24px auto}
+.contractor-landing .contractor-service-cover h1{font-size:clamp(40px,5.4vw,72px);font-weight:600;line-height:1.16;letter-spacing:-1.4px;color:#fff;margin:0}
+.contractor-service-cover h1 strong{display:block;color:#f5a400;font-size:clamp(30px,3.8vw,50px);font-weight:600;line-height:1.3;margin-top:7px}
+.contractor-service-cover .contractor-cover-intro{border:0;padding:0}
+.contractor-landing .contractor-service-cover .contractor-cover-intro>p{font-size:clamp(16px,1.55vw,20px);line-height:1.8;color:#eee;margin:24px auto 0;max-width:700px}
+.contractor-service-cover .contractor-cover-actions{justify-content:center;margin-top:34px;gap:12px}
+.contractor-service-cover .contractor-cover-actions .btn{background:#f5a400;color:#171717;border:1px solid #f5a400;border-radius:4px;padding:15px 24px;font-size:15px;font-weight:500}
+.contractor-service-cover .contractor-cover-actions .contractor-service-secondary{background:transparent;color:#fff;border-color:#ffffff80}
+@media(max-width:640px){.contractor-service-cover{min-height:620px}.contractor-service-cover .container{padding:90px 0 66px}.contractor-service-cover .contractor-service-backdrop{object-position:60% center}.contractor-service-cover::before{background:linear-gradient(180deg,#07080a66,#07080abf 55%,#07080aeb)}.contractor-landing .contractor-service-cover h1{max-width:350px;margin-inline:auto;font-size:clamp(27px,7.6vw,44px);letter-spacing:-.6px;white-space:normal;text-wrap:balance}.contractor-service-cover h1 strong{font-size:clamp(24px,6.5vw,34px);white-space:normal}.contractor-service-cover .contractor-cover-eyebrow{font-size:10px;letter-spacing:2px}.contractor-service-cover .contractor-cover-intro>p{font-size:14px}.contractor-service-cover .contractor-cover-actions{flex-wrap:nowrap;gap:8px}.contractor-service-cover .contractor-cover-actions .btn{font-size:12px;padding:13px 10px}}
+/* Architectural editorial cover. */
+.contractor-cover{background:#f2f0ea;padding:26px 0 0;color:#20221f}
+.contractor-cover .breadcrumb{font-size:11px;color:#777970;margin:0}
+.contractor-cover .breadcrumb a{color:inherit}
+.contractor-cover-heading{display:grid;grid-template-columns:1.35fr 1fr;gap:64px;align-items:end;padding:32px 0 38px}
+.contractor-cover-eyebrow{display:block;font-size:10px;letter-spacing:2px;font-weight:400;color:#65685f;margin-bottom:18px}
+.contractor-landing .contractor-cover h1{margin:0;font-size:clamp(40px,4.5vw,64px);font-weight:500;line-height:1.15;letter-spacing:-1px;color:#20221f}
+.contractor-cover h1>span{display:flex;align-items:center;gap:24px;font-size:1.48em;font-weight:600;line-height:1.14;margin-top:3px}
+.contractor-cover h1>span::after{content:"";height:7px;width:84px;background:#e5a014;margin-top:22px}
+.contractor-cover-intro{padding:0 0 6px 30px;border-left:1px solid #cccfc3}
+.contractor-landing .contractor-cover-services{font-size:21px;font-weight:400;color:#252921;margin:0 0 10px}
+.contractor-cover-intro>p:not(.contractor-cover-services){font-size:16px;line-height:1.8;color:#666a60;margin:0}
+.contractor-cover-actions{display:flex;align-items:center;gap:25px;margin-top:26px}
+.contractor-cover-actions .btn{background:#262b24;color:white;border:1px solid #262b24;padding:14px 20px;display:inline-flex;align-items:center;gap:16px;font-size:14px;border-radius:0}
+.contractor-cover-line{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:400;color:#30352c;border-bottom:1px solid #95998c;padding-bottom:5px;white-space:nowrap}
+.contractor-cover-photo{position:relative;margin:0;height:365px;overflow:hidden;background:#ccd0c4}
+.contractor-cover-photo>img{width:100%;height:100%;object-fit:cover;object-position:center 47%;display:block}
+.contractor-cover-photo figcaption{position:absolute;bottom:0;left:0;min-width:285px;background:#262b24;color:#fff;padding:22px 68px 22px 26px;display:grid;gap:5px}
+.contractor-cover-photo figcaption>span:first-child{font-size:9px;letter-spacing:1.8px;color:#d1bd8a}
+.contractor-cover-photo figcaption strong{font-size:22px;font-weight:400}
+.contractor-cover-photo figcaption>span{font-size:12px;color:#bec3b7;font-weight:300}
+.contractor-cover-photo figcaption a{position:absolute;right:22px;top:50%;color:#efbe55}
+.contractor-cover-photo-label{position:absolute;right:0;bottom:0;padding:14px 22px;background:#f2f0ea;color:#3d4337;font-size:12px;letter-spacing:.3px}
+.contractor-cover-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:17px 0}
+.contractor-cover-foot p,.contractor-cover-foot>span{margin:0;font-size:11px;color:#686c60;font-weight:300}
+@media(max-width:980px){.contractor-cover-heading{gap:30px}.contractor-cover-intro{padding-left:22px}.contractor-cover-actions{gap:16px;flex-wrap:wrap}.contractor-landing .contractor-cover-services{font-size:18px}.contractor-cover h1>span::after{width:46px}}
+@media(max-width:640px){.contractor-cover{padding-top:22px}.contractor-cover-heading{grid-template-columns:1fr;gap:24px;padding:28px 0}.contractor-cover-eyebrow{font-size:8px;letter-spacing:1.5px;margin-bottom:16px}.contractor-landing .contractor-cover h1{font-size:clamp(33px,9.7vw,46px);letter-spacing:-.5px}.contractor-cover h1>span{font-size:1.55em;gap:20px}.contractor-cover h1>span::after{width:54px;height:5px;margin-top:14px}.contractor-cover-intro{padding:0;border:0}.contractor-landing .contractor-cover-services{font-size:18px;margin-bottom:6px}.contractor-cover-intro>p:not(.contractor-cover-services){font-size:14px}.contractor-cover-actions{margin-top:18px;gap:20px}.contractor-cover-actions .btn{font-size:13px;padding:12px 16px}.contractor-cover-line{font-size:12px}.contractor-cover-photo{height:300px;margin-inline:-18px}.contractor-cover-photo>img{object-position:52% center}.contractor-cover-photo figcaption{min-width:250px;padding:16px 58px 16px 18px}.contractor-cover-photo figcaption strong{font-size:19px}.contractor-cover-photo-label{display:none}.contractor-cover-foot{align-items:start;flex-direction:column;gap:4px;padding:14px 0}.contractor-cover-foot p,.contractor-cover-foot>span{font-size:10px}}
+/* Quiet corporate presentation for the Nonthaburi service page. */
+.contractor-landing{--font-display:var(--font-kanit),Tahoma,sans-serif;--font-body:var(--font-kanit),Tahoma,sans-serif;font-family:var(--font-kanit),Tahoma,sans-serif;background:#fff;color:#222}
+.contractor-landing :is(h1,h2,h3,p,a,button,span,small,dt,dd,b){font-family:inherit}
+.contractor-landing *, .contractor-landing *::before,.contractor-landing *::after{animation:none!important;transition:none!important;box-shadow:none!important}
+.contractor-landing a:hover,.contractor-landing article:hover,.contractor-landing a:hover img,.contractor-landing article:hover img{transform:none!important}
+.contractor-landing .container{width:calc(100% - 64px);max-width:1180px}
+.contractor-landing .section{padding:72px 0}
+.contractor-landing h2{font-weight:500;letter-spacing:0;line-height:1.4;font-size:clamp(27px,2.6vw,38px)}
+.contractor-landing h3{font-weight:500;letter-spacing:0}
+.contractor-landing p{font-weight:300;line-height:1.85}
+.contractor-landing .btn{border-radius:4px;font-weight:500;letter-spacing:0}
+.contractor-landing :is(.contractor-hero-art,.contractor-hero-tagline,.contractor-section-count,.contractor-focus-top>span,.contractor-project-index,.contractor-service-image>span){display:none}
+.contractor-landing .local-area-hero{background:#191919}
+.contractor-landing .local-area-hero::before,.contractor-landing .local-area-hero::after{display:none}
+.contractor-landing .local-area-hero .seo-split{min-height:580px;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:56px;align-items:center;padding-block:50px}
+.contractor-landing .local-hero-copy{padding:0}
+.contractor-landing .local-area-hero .page-kicker{margin-top:24px;font-weight:400;letter-spacing:1.5px}
+.contractor-landing .local-area-hero h1{font-size:clamp(34px,3.4vw,49px);line-height:1.35;font-weight:500;letter-spacing:0;text-wrap:pretty}
+.contractor-landing .local-area-hero .contractor-area-line{font-size:17px!important;font-weight:400}
+.contractor-landing .local-area-hero .seo-photo{align-self:center;height:440px;min-height:0;border-radius:4px}
+.contractor-landing .local-area-hero .seo-photo img{height:100%;min-height:0;object-position:center}
+.contractor-landing .local-area-hero .local-proof-row span{font-size:11px;font-weight:300}
+.contractor-landing .local-area-intro{background:#fff}
+.contractor-landing .local-area-intro .seo-content{max-width:1180px}
+.contractor-landing .local-area-intro .seo-card{padding:26px;border:1px solid #e5e3df;border-radius:4px;min-height:0}
+.contractor-landing .local-area-intro .seo-card::before{display:none}
+.contractor-landing .contractor-focus-top{margin-bottom:16px}
+.contractor-landing .contractor-focus-top>svg{box-sizing:content-box;width:24px;height:24px;padding:10px;border-radius:50%;background:#002a3e;color:#f5b326;stroke-width:1.6}
+.contractor-landing .local-service-depth{background:#f5f4f1;color:#222}
+.contractor-landing .local-service-depth .section-heading :is(h2,p){color:#222}
+.contractor-landing .local-service-list{gap:24px;background:none}
+.contractor-landing .local-service-list article,.contractor-landing .local-service-list article+article{background:#fff;border:1px solid #e5e3df;border-radius:4px;overflow:hidden}
+.contractor-landing .contractor-service-image{aspect-ratio:16/10}
+.contractor-landing .contractor-service-image img{filter:none}
+.contractor-landing .contractor-service-copy{padding:24px}
+.contractor-landing .contractor-service-copy>svg{display:block;box-sizing:content-box;width:24px;height:24px;padding:9px;margin-bottom:16px;border-radius:50%;background:#f3ead8;color:#8b5a00;stroke-width:1.6}
+.contractor-landing .contractor-service-copy h3{color:#222;margin-top:0}
+.contractor-landing .contractor-service-copy p{color:#615f59;min-height:0}
+.contractor-landing .contractor-service-copy a{color:#875c09}
+.contractor-landing .local-project-proof{background:#fff}
+.contractor-landing .local-project-grid{gap:28px 24px}
+.contractor-landing .contractor-project-card{min-height:0;background:#fff!important;color:#222!important;border-bottom:1px solid #e5e3df;padding-bottom:20px}
+.contractor-landing .contractor-project-card>img{position:static;height:auto;aspect-ratio:4/3;border-radius:4px}
+.contractor-landing .contractor-project-card::after{display:none}
+.contractor-landing .contractor-project-caption{position:static;padding-top:18px}
+.contractor-landing .contractor-project-caption small{color:#777;font-size:12px;font-weight:300}
+.contractor-landing .contractor-project-caption h3{color:#222;font-size:20px;line-height:1.5}
+.contractor-landing .contractor-project-caption>span{color:#875c09!important;letter-spacing:0}
+.contractor-landing .contractor-detail-gallery{display:none}
+.contractor-landing .local-business-proof{padding:0;background:#f5f4f1}
+.contractor-landing .contractor-contact-story{background:#f5f4f1;min-height:0;padding-block:64px}
+.contractor-landing .contractor-contact-story h2{font-size:34px;line-height:1.45}
+.contractor-landing .contractor-contact-story h2 em{display:block;font-size:25px}
+.contractor-landing .contractor-contact-facts{padding-block:48px}
+.contractor-landing .contractor-contact-facts dd{font-weight:400;overflow-wrap:anywhere}
+.contractor-landing .local-planning{background:#fff;color:#222}
+.contractor-landing .local-planning :is(h2,p,b){color:#222}
+.contractor-landing .local-checklist li{background:#f5f4f1;border:1px solid #e5e3df;border-radius:4px}
+.contractor-landing .local-checklist b{font-weight:400}
+.contractor-landing .local-checklist li>svg{box-sizing:content-box;width:18px;height:18px;padding:7px;border-radius:50%;background:#002a3e;color:#f5b326;stroke-width:1.7}
+.contractor-landing .local-lead-box{background:#f5f4f1;border:1px solid #e5e3df;border-radius:4px;color:#222}
+.contractor-landing .local-lead-box>a:not(.btn){color:#222}
+.contractor-landing .contractor-scope{background:#f5f4f1}
+.contractor-landing .contractor-scope-photo{display:none}
+.contractor-landing .contractor-scope-layout{gap:48px;align-items:start}
+.contractor-landing .contractor-scope-heading{padding:0;background:none;color:#222}
+.contractor-landing .contractor-scope-heading h2{font-size:34px;color:#222;line-height:1.45}
+.contractor-landing .contractor-scope-heading h2 em{color:#222}
+.contractor-landing .contractor-scope-heading p{color:#666}
+.contractor-landing .contractor-scope-cards{gap:16px;background:none}
+.contractor-landing .contractor-scope-cards article{border:1px solid #e5e3df;border-radius:4px}
+.contractor-landing .contractor-scope-note{font-weight:400;font-size:13px}
+.contractor-landing .contractor-areas{padding:72px max(32px,calc((100vw - 1180px)/2));background:#fff;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:48px}
+.contractor-landing .contractor-area-intro{position:static}
+.contractor-landing .contractor-area-intro h2{font-size:34px;line-height:1.45}
+.contractor-landing .contractor-area-intro h2 em{color:#222}
+.contractor-landing .contractor-area-card{border:1px solid #e5e3df;border-radius:4px}
+.contractor-landing .contractor-area-thumb{height:100px}
+.contractor-landing .contractor-area-title>svg{color:#a46a00;stroke-width:1.8}
+.contractor-landing .contractor-area-arrow{color:#a46a00}
+.contractor-landing .contractor-fact-icon{border-radius:50%;background:#002a3e!important;color:#f5b326!important}
+.contractor-landing .contractor-scope-icon{border-radius:50%;background:#f3ead8!important;color:#8b5a00!important}
+.contractor-landing .closing-cta{background:#191919;color:#fff;padding:40px 0}
+.contractor-landing .closing-cta h2{color:#fff;font-size:28px}
+.contractor-landing .closing-cta .btn{background:#f5a400;color:#191919}
+/* Architectural cover: strong type, a restrained accent and generous photography. */
+.contractor-landing .local-area-hero{border-bottom:5px solid #f5a400}
+.contractor-landing .local-area-hero .seo-split{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;padding-block:40px;min-height:650px}
+.contractor-landing .local-area-hero .page-kicker{margin-top:30px;font-size:10px;letter-spacing:2px}
+.contractor-landing .local-area-hero h1{margin:22px 0 24px;font-size:clamp(38px,4.4vw,62px);font-weight:500;line-height:1.2;text-wrap:initial}
+.contractor-landing .contractor-title-service{display:block;white-space:nowrap}
+.contractor-landing .contractor-title-place{display:block;margin-top:4px;color:#f5b326;font-size:1.4em;line-height:1.15;font-weight:600}
+.contractor-landing .contractor-title-mark{color:#fff}
+.contractor-landing .local-area-hero .contractor-area-line{max-width:420px;color:#e3dfd7!important;font-size:14px!important;font-weight:300;line-height:1.7!important}
+.contractor-landing .local-area-hero .local-hero-copy>p:not(.local-coverage):not(.contractor-area-line){max-width:440px;font-size:16px;color:#bdbdb8;line-height:1.8}
+.contractor-landing .local-area-hero .local-coverage{display:none}
+.contractor-landing .local-area-hero .seo-actions{margin:25px 0 0}
+.contractor-landing .local-area-hero .local-proof-row{margin-top:28px}
+.contractor-landing .local-area-hero .seo-photo{height:560px;max-height:none;border-radius:2px}
+.contractor-landing .local-area-hero .seo-photo img{height:100%;max-height:none;object-position:48% center}
+.contractor-landing .local-area-hero .seo-photo figcaption{left:28px;right:28px;bottom:26px;padding-top:16px;border-top:1px solid #ffffff55}
+.contractor-landing .local-area-hero .seo-photo figcaption span{font-size:11px;font-weight:400;letter-spacing:1px;margin-bottom:5px}
+@media(min-width:641px) and (max-width:980px){.contractor-landing .local-area-hero .seo-split{gap:28px}.contractor-landing .local-area-hero h1{font-size:clamp(30px,4.2vw,42px)}.contractor-landing .local-area-hero .seo-photo{height:560px}}
+@media(max-width:980px){.contractor-landing .local-area-hero .seo-split{gap:32px}.contractor-landing .business-proof-grid,.contractor-landing .contractor-scope-layout,.contractor-landing .contractor-areas{grid-template-columns:1fr}.contractor-landing .contractor-contact-story,.contractor-landing .contractor-contact-facts{padding:40px 32px}}
+@media(max-width:640px){.contractor-landing .container{width:calc(100% - 36px)}.contractor-landing .section{padding:48px 0}.contractor-landing .local-area-hero .seo-split{grid-template-columns:1fr;padding-block:28px;min-height:0;gap:28px}.contractor-landing .local-area-hero h1{font-size:34px}.contractor-landing .local-area-hero .seo-photo,.contractor-landing .local-area-hero .seo-photo img{height:290px;min-height:0;max-height:none}.contractor-landing .local-area-hero .seo-actions{grid-template-columns:1fr 1fr;gap:8px}.contractor-landing .local-area-hero .seo-actions .btn{padding:10px 8px;font-size:13px;gap:6px}.contractor-landing .local-service-list,.contractor-landing .local-project-grid{grid-template-columns:1fr;gap:24px}.contractor-landing .local-business-proof{padding:0}.contractor-landing .contractor-contact-story,.contractor-landing .contractor-contact-facts{padding:36px 18px}.contractor-landing .contractor-areas{padding:48px 18px;gap:28px}.contractor-landing .contractor-area-cards{grid-template-columns:1fr 1fr;gap:10px}.contractor-landing .contractor-area-card{padding:0 12px 16px}.contractor-landing .contractor-area-title h3{font-size:16px}.contractor-landing .contractor-area-card p{font-size:12px;margin-right:0}.contractor-landing .contractor-area-arrow{display:none}.contractor-landing .contractor-area-thumb{margin-inline:-12px}.contractor-landing .closing-cta .container{display:grid;gap:20px}}

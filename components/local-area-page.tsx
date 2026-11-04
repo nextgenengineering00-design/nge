@@ -13,7 +13,17 @@ import { absoluteUrl, projects, site } from "@/lib/site-data";
 export function LocalAreaPage({ slug }: { slug: LocalAreaSlug }) {
   const page = localAreas[slug];
   const isNonthaburi = slug === "contractor-nonthaburi";
+  const usesContractorTemplate = true;
   const areaName = isNonthaburi || page.area.includes("นนทบุรี") ? page.area : `${page.area} นนทบุรี`;
+  const contractorHeroImages: Record<LocalAreaSlug, string> = {
+    "contractor-nonthaburi": "/assets/services/service-hero-house-team.webp",
+    "contractor-mueang-nonthaburi": "/assets/area-mueang-nonthaburi-reference.webp",
+    "contractor-bang-yai": "/assets/area-bang-yai-reference.webp",
+    "contractor-bang-kruai": "/assets/area-bang-kruai-reference.webp",
+    "contractor-bang-bua-thong": "/assets/area-bang-bua-thong-reference.webp",
+    "contractor-sai-noi": "/assets/area-sai-noi-reference.webp",
+    "contractor-pak-kret": "/assets/area-pak-kret-reference.webp",
+  };
   const galleryProjects = [
     { slug: "lake-legend", image: "/assets/project-heroes/lake-legend-hero.webp" },
     { slug: "gpo-yotse-pharmacy", image: "/assets/projects/gpo-yotse-pharmacy/cover.webp" },
@@ -52,22 +62,38 @@ export function LocalAreaPage({ slug }: { slug: LocalAreaSlug }) {
     ],
   };
 
-  return <div data-legacy-page="services" className={isNonthaburi ? "contractor-landing" : undefined}>
+  return <div data-legacy-page="services" className={usesContractorTemplate ? "contractor-landing" : undefined}>
     <LegacyBodyState page="services" bodyClass="" />
-    <link rel="stylesheet" href="/legacy/styles.min.css?v=20260925-5" />
-    <link rel="stylesheet" href="/legacy/service-seo.css?v=20261011-1" />
+    <link rel="stylesheet" href="/legacy/styles.min.css?v=20261104-2" />
+    <link rel="stylesheet" href="/legacy/service-seo.css?v=20261104-2" />
+    {usesContractorTemplate && <link rel="stylesheet" href="/legacy/contractor-official.css?v=20261030-4" />}
     <JsonLd data={schema} />
     <a className="skip-link" href="#main-content">ข้ามไปเนื้อหาหลัก</a>
     {React.createElement("nge-header")}
     <main id="main-content">
-      <section className="seo-hero local-area-hero">
+      {usesContractorTemplate ? <section className="contractor-service-cover" aria-labelledby="contractor-main-title">
+        <Image className="contractor-service-backdrop" src={contractorHeroImages[slug]} alt={`พื้นที่และหน้างานก่อสร้างใน${areaName}`} width={1360} height={1020} priority sizes="100vw" />
+        <div className="container">
+          <div className="contractor-cover-heading">
+            <div className="contractor-cover-title">
+              <span className="contractor-cover-eyebrow">NONTHABURI SERVICE AREA</span>
+              <span className="contractor-service-divider" aria-hidden="true" />
+              <h1 id="contractor-main-title">{isNonthaburi ? "บริษัทก่อสร้างนนทบุรี โดยทีมวิศวกร NGE" : `รับเหมาก่อสร้าง ${page.area}`}<strong>{isNonthaburi ? "ดูแลบ้าน อาคาร ต่อเติม และรีโนเวท" : "วางแผนและควบคุมงานโดยทีมวิศวกร"}</strong></h1>
+            </div>
+            <div className="contractor-cover-intro">
+              <p>{page.lead}</p>
+              <div className="contractor-cover-actions"><Link className="btn btn-primary" href="/contact?service=construction">ขอประเมินหน้างาน</Link><Link className="btn contractor-service-secondary" href="/projects">ดูผลงานก่อสร้างจริง</Link></div>
+            </div>
+          </div>
+        </div>
+      </section> : <section className="seo-hero local-area-hero">
         {isNonthaburi && <div className="contractor-hero-art" aria-hidden="true" />}
         {isNonthaburi && <span className="contractor-hero-tagline">BUILDING A BETTER TOMORROW</span>}
         <div className="container seo-split">
           <div className="local-hero-copy">
             <nav className="breadcrumb" aria-label="เส้นทางหน้าเว็บ"><Link href="/">หน้าหลัก</Link> / <Link href="/services">บริการ</Link> / <span>{page.area}</span></nav>
             <span className="page-kicker">NONTHABURI SERVICE AREA</span>
-            <h1>{isNonthaburi ? "รับเหมาก่อสร้าง นนทบุรี" : page.h1}</h1>
+            <h1>{isNonthaburi ? <><span className="contractor-title-service">รับเหมาก่อสร้าง</span>{" "}<span className="contractor-title-place">นนทบุรี<span className="contractor-title-mark" aria-hidden="true">.</span></span></> : page.h1}</h1>
             {isNonthaburi && <p className="contractor-area-line">ครอบคลุมบางใหญ่ บางกรวย บางบัวทอง ไทรน้อย และปากเกร็ด</p>}
             <p>{page.lead}</p>
             <div className="seo-actions"><Link className="btn btn-primary" href="/contact?service=construction">ขอประเมินโครงการ <span aria-hidden="true">↗</span></Link><a className="btn btn-dark js-line-link" href="https://lin.ee/u45yvnc">ส่งรูปทาง LINE</a></div>
@@ -76,12 +102,12 @@ export function LocalAreaPage({ slug }: { slug: LocalAreaSlug }) {
           </div>
           <figure className="seo-photo"><Image src={page.image} alt={page.imageAlt} width={800} height={600} priority sizes="(max-width: 760px) 100vw, 48vw" /><figcaption><span>ผลงานจริงของ NGE</span>{page.imageAlt} · <Link href="/projects">ดูผลงานทั้งหมด ↗</Link></figcaption></figure>
         </div>
-      </section>
+      </section>}
 
-      <section className="section local-area-intro"><div className="container seo-content"><div className="contractor-section-top"><span className="page-kicker">วางขอบเขตก่อนเสนอราคา</span>{isNonthaburi && <span className="contractor-section-count">01 / APPROACH</span>}</div><h2>เริ่มจากข้อมูลหน้างาน ไม่ใช้ราคาเหมารวม</h2><p>{page.intro}</p><div className="seo-grid">{page.focus.map((item, index) => { const Icon = focusIcons[index]; return <article className="seo-card" key={item.title}>{isNonthaburi && <div className="contractor-focus-top"><Icon size={30} strokeWidth={1.5} aria-hidden="true" /><span>0{index + 1}</span></div>}<h3>{item.title}</h3><p>{item.body}</p></article>; })}</div></div></section>
+      <section className="section local-area-intro"><div className="container seo-content"><div className="contractor-section-top"><span className="page-kicker">วางขอบเขตก่อนเสนอราคา</span>{usesContractorTemplate && <span className="contractor-section-count">01 / APPROACH</span>}</div><h2>วางแผนงานก่อสร้างจากพื้นที่และงบประมาณ</h2><p>{page.intro}</p><div className="seo-grid">{page.focus.map((item, index) => { const Icon = focusIcons[index]; return <article className="seo-card" key={item.title}>{usesContractorTemplate && <div className="contractor-focus-top"><Icon size={30} strokeWidth={1.5} aria-hidden="true" /><span>0{index + 1}</span></div>}<h3>{item.title}</h3><p>{item.body}</p></article>; })}</div></div></section>
 
-      {isNonthaburi && <>
-        <section className="section local-service-depth" id="contractor-services"><div className="container"><div className="contractor-section-top"><span className="page-kicker">งานที่รับดูแล</span><span className="contractor-section-count">02 / EXPERTISE</span></div><div className="section-heading split-heading"><div><h2>สร้างใหม่ ต่อเติม หรือแก้พื้นที่เดิม<br />คุยกับทีมเดียวได้</h2><p>เราแยกขอบเขตตามสภาพหน้างาน ไม่ตีราคาแบบกว้าง ๆ แล้วค่อยเพิ่มรายการภายหลัง</p></div><Link href="/services">ดูบริการทั้งหมด <ArrowUpRight size={18} aria-hidden="true" /></Link></div><div className="local-service-list">
+      {usesContractorTemplate && <>
+        <section className="section local-service-depth" id="contractor-services"><div className="container"><div className="contractor-section-top"><span className="page-kicker">งานที่รับดูแล</span><span className="contractor-section-count">02 / EXPERTISE</span></div><div className="section-heading split-heading"><div><h2>บริการก่อสร้าง ต่อเติม<br />และปรับปรุงอาคาร</h2><p>พิจารณาสภาพพื้นที่และความต้องการใช้งาน เพื่อกำหนดขอบเขตและรายการงานก่อนเสนอราคา</p></div><Link href="/services">ดูบริการทั้งหมด <ArrowUpRight size={18} aria-hidden="true" /></Link></div><div className="local-service-list">
           {[
             { title: "สร้างบ้านและอาคาร", body: "ประสานงานโครงสร้าง สถาปัตยกรรม และระบบ ตั้งแต่แบบก่อนก่อสร้างจนถึงการตรวจรับ", href: "/build-home-nonthaburi", label: "รายละเอียดงานสร้างบ้าน", image: "/assets/project-heroes/wichai-sriracha-hero.webp", icon: Building2 },
             { title: "ต่อเติมและรีโนเวท", body: "ตรวจสภาพอาคารเดิม แยกงานรื้อ งานซ่อม และงานใหม่ก่อนจัดงบและลำดับการทำงาน", href: "/renovation-service-nonthaburi", label: "รายละเอียดงานรีโนเวท", image: "/assets/services/service-renovation-fast.webp", icon: Ruler },
@@ -89,7 +115,7 @@ export function LocalAreaPage({ slug }: { slug: LocalAreaSlug }) {
           ].map((item, index) => { const Icon = item.icon; return <article key={item.title}><div className="contractor-service-image"><Image src={item.image} alt="" width={720} height={520} loading="lazy" sizes="(max-width: 760px) 100vw, 33vw" /><span>0{index + 1} / 03</span></div><div className="contractor-service-copy"><Icon size={28} strokeWidth={1.5} aria-hidden="true" /><h3>{item.title}</h3><p>{item.body}</p><Link href={item.href}>{item.label} <ArrowUpRight size={17} aria-hidden="true" /></Link></div></article>; })}
         </div></div></section>
 
-        <section className="section local-project-proof" id="contractor-projects"><div className="container"><div className="contractor-section-top"><span className="page-kicker">ผลงาน NGE</span><span className="contractor-section-count">03 / SELECTED PROJECTS</span></div><div className="section-heading split-heading"><div><h2>ดูของจริง ก่อนคุยเรื่องงาน</h2><p>ภาพจากโครงการของเราเอง กดดูรายละเอียด ขอบเขตงาน และภาพเพิ่มเติมได้ทุกโครงการ</p></div><Link href="/projects">ดูผลงานทั้งหมด <ArrowUpRight size={18} aria-hidden="true" /></Link></div><div className="local-project-grid" aria-label="แกลเลอรีผลงาน NGE">{galleryProjects.map((project, index) => <Link className="contractor-project-card" href={`/projects/${project.slug}`} key={project.slug} aria-label={`ดูผลงาน ${project.title} ${project.location}`}><Image src={project.image} alt={`${project.title} ${project.location}`} width={1000} height={750} loading="lazy" sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 60vw" /><span className="contractor-project-index">0{index + 1} / 06</span><div className="contractor-project-caption"><small>{project.type} · {project.location}</small><h3>{project.title}</h3><span>ดูผลงานนี้ <ArrowUpRight size={18} aria-hidden="true" /></span></div></Link>)}</div><div className="contractor-detail-gallery"><div><span>DETAILS MATTER</span><h3>รายละเอียดหน้างาน<br />ที่เล่าเรื่องแทนเรา</h3><p>ดูภาพใกล้ ๆ แล้วกดไปยังโครงการจริง</p></div>{[
+        <section className="section local-project-proof" id="contractor-projects"><div className="container"><div className="contractor-section-top"><span className="page-kicker">ผลงาน NGE</span><span className="contractor-section-count">03 / SELECTED PROJECTS</span></div><div className="section-heading split-heading"><div><h2>ตัวอย่างผลงานของเรา</h2><p>ชมรายละเอียดและภาพหน้างานจากโครงการก่อสร้างและปรับปรุงอาคารของ NGE</p></div><Link href="/projects">ดูผลงานทั้งหมด <ArrowUpRight size={18} aria-hidden="true" /></Link></div><div className="local-project-grid" aria-label="แกลเลอรีผลงาน NGE">{galleryProjects.map((project, index) => <Link className="contractor-project-card" href={`/projects/${project.slug}`} key={project.slug} aria-label={`ดูผลงาน ${project.title} ${project.location}`}><Image src={project.image} alt={`${project.title} ${project.location}`} width={1000} height={750} loading="lazy" sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 60vw" /><span className="contractor-project-index">0{index + 1} / 06</span><div className="contractor-project-caption"><small>{project.type} · {project.location}</small><h3>{project.title}</h3><span>ดูผลงานนี้ <ArrowUpRight size={18} aria-hidden="true" /></span></div></Link>)}</div><div className="contractor-detail-gallery"><div><span>DETAILS MATTER</span><h3>รายละเอียดหน้างาน<br />ที่เล่าเรื่องแทนเรา</h3><p>ดูภาพใกล้ ๆ แล้วกดไปยังโครงการจริง</p></div>{[
           { image: "/assets/projects/lake-legend/04-p25.webp", slug: "lake-legend", label: "งานภายใน บ้าน Lake Legend" },
           { image: "/assets/projects/gpo-yotse-pharmacy/03.webp", slug: "gpo-yotse-pharmacy", label: "งานปรับปรุงร้านขายยา ยศเส" },
           { image: "/assets/projects/rc-road-saraburi-12-ton/03-road-preparation.webp", slug: "rc-road-saraburi-12-ton", label: "งานเตรียมถนนคอนกรีต สระบุรี" },
@@ -104,17 +130,18 @@ export function LocalAreaPage({ slug }: { slug: LocalAreaSlug }) {
         ].map(item => { const Icon = item.icon; return <div key={item.label}><span className="contractor-fact-icon"><Icon size={29} strokeWidth={1.75} aria-hidden="true" /></span><div><dt>{item.label}</dt><dd>{item.value}</dd></div></div>; })}</dl></div></section>
       </>}
 
-      <section className="section local-planning" id={isNonthaburi ? "contractor-process" : undefined}><div className="container local-planning-grid"><div className="seo-content"><span className="page-kicker">PROJECT PLANNING</span><h2>{isNonthaburi ? "เริ่มโครงการกับ NGE ต้องเตรียมอะไรบ้าง" : page.focusTitle}</h2><p>ส่งข้อมูลให้ครบตั้งแต่รอบแรก ช่วยให้ทีมแยกสิ่งที่ประเมินได้ สิ่งที่ต้องสำรวจ และรายการที่ต้องออกแบบเพิ่มได้เร็วขึ้น</p><ol className="local-checklist">{page.checklist.map((item, index) => <li key={item}>{isNonthaburi ? <ClipboardCheck size={22} strokeWidth={1.5} aria-hidden="true" /> : <span>{String(index + 1).padStart(2, "0")}</span>}<b>{item}</b><small>0{index + 1}</small></li>)}</ol></div><aside className="local-lead-box"><span>คุยโครงการกับทีมวิศวกร</span><h2>มีรูป แบบ หรือพิกัดแล้ว ส่งให้ทีมดูได้เลย</h2><p>แจ้งประเภทงาน พื้นที่ และช่วงงบประมาณ ทีมจะช่วยระบุข้อมูลที่ต้องใช้ก่อนนัดหมาย</p><Link className="btn btn-primary" href="/contact?source=local-area">ส่งข้อมูลโครงการ <ArrowRight size={17} aria-hidden="true" /></Link><a href={`tel:${site.phone}`}>โทร {site.phoneDisplay}</a></aside></div></section>
+      <section className="section local-planning" id={usesContractorTemplate ? "contractor-process" : undefined}><div className="container local-planning-grid"><div className="seo-content"><span className="page-kicker">PROJECT PLANNING</span><h2>{usesContractorTemplate ? `เริ่มโครงการใน${page.area} ต้องเตรียมอะไรบ้าง` : page.focusTitle}</h2><p>ส่งข้อมูลให้ครบตั้งแต่รอบแรก ช่วยให้ทีมแยกสิ่งที่ประเมินได้ สิ่งที่ต้องสำรวจ และรายการที่ต้องออกแบบเพิ่มได้เร็วขึ้น</p><ol className="local-checklist">{page.checklist.map((item, index) => <li key={item}>{usesContractorTemplate ? <ClipboardCheck size={22} strokeWidth={1.5} aria-hidden="true" /> : <span>{String(index + 1).padStart(2, "0")}</span>}<b>{item}</b><small>0{index + 1}</small></li>)}</ol></div><aside className="local-lead-box"><span>คุยโครงการกับทีมวิศวกร</span><h2>มีรูป แบบ หรือพิกัดแล้ว ส่งให้ทีมดูได้เลย</h2><p>แจ้งประเภทงาน พื้นที่ และช่วงงบประมาณ ทีมจะช่วยระบุข้อมูลที่ต้องใช้ก่อนนัดหมาย</p><Link className="btn btn-primary" href="/contact?source=local-area">ส่งข้อมูลโครงการ <ArrowRight size={17} aria-hidden="true" /></Link><a href={`tel:${site.phone}`}>โทร {site.phoneDisplay}</a></aside></div></section>
 
-      {isNonthaburi ? <section className="section contractor-scope"><div className="contractor-scope-photo" aria-hidden="true" /><div className="container contractor-scope-layout"><div className="contractor-scope-heading"><span className="page-kicker">OUR SERVICE SCOPE</span><h2>ขอบเขตที่ควรอยู่ในเอกสาร<br /><em>ก่อนเริ่มงานก่อสร้าง</em></h2><p>เพื่อให้คุณมั่นใจว่างานทุกขั้นตอนถูกต้อง โปร่งใส และตรงตามความต้องการ เราจึงแนะนำให้มีเอกสารสำคัญก่อนเริ่มงาน</p></div><div className="contractor-scope-right"><div className="contractor-scope-cards">{[
+      {usesContractorTemplate ? <section className="section contractor-scope"><div className="contractor-scope-photo" aria-hidden="true" /><div className="container contractor-scope-layout"><div className="contractor-scope-heading"><span className="page-kicker">OUR SERVICE SCOPE</span><h2>ขอบเขตที่ควรอยู่ในเอกสาร<br /><em>ก่อนเริ่มงานก่อสร้าง</em></h2><p>เพื่อให้คุณมั่นใจว่างานทุกขั้นตอนถูกต้อง โปร่งใส และตรงตามความต้องการ เราจึงแนะนำให้มีเอกสารสำคัญก่อนเริ่มงาน</p></div><div className="contractor-scope-right"><div className="contractor-scope-cards">{[
         { icon: FileText, title: "แบบและวัสดุ", body: "ระบุแบบก่อสร้าง วัสดุที่ใช้ และมาตรฐานที่ต้องการ", href: "/construction-contract-guide" },
         { icon: ClipboardList, title: "รายการและขอบเขตงาน", body: "ระบุขอบเขตงานให้ชัดเจน พร้อมรายละเอียดทุกขั้นตอน", href: "/boq-construction-guide" },
-        { icon: FileCheck2, title: "แบบขอและส่งมอบ", body: "กำหนดลำดับงาน ผู้รับเหมา และระยะเวลาการส่งมอบ", href: "/construction-contract-guide" },
+        { icon: FileCheck2, title: "แผนงานและการส่งมอบ", body: "กำหนดลำดับงาน ผู้รับเหมา และระยะเวลาการส่งมอบ", href: "/construction-contract-guide" },
         { icon: ShieldCheck, title: "มาตรฐานและเงื่อนไข", body: "กำหนดมาตรฐานวัสดุ คุณภาพงาน และเงื่อนไขการรับประกัน", href: "/choose-contractor-nonthaburi" },
-      ].map(item => { const Icon = item.icon; return <article key={item.title}><span className="contractor-scope-icon"><Icon size={30} strokeWidth={1.7} aria-hidden="true" /></span><h3>{item.title}</h3><p>{item.body}</p><Link href={item.href}>ดูรายละเอียด <ArrowRight size={15} aria-hidden="true" /></Link></article>; })}</div><p className="contractor-scope-note"><ShieldCheck size={22} aria-hidden="true" /> เอกสารครบ = ลดปัญหา · ลดค่าใช้จ่าย · งานเสร็จตามแผน</p></div></div></section> : <section className="section"><div className="container seo-content"><span className="page-kicker">CLEAR SCOPE</span><h2>ขอบเขตที่ควรอยู่ในเอกสารก่อนเริ่มงาน</h2><div className="seo-grid"><article className="seo-card"><h3>แบบและวัสดุ</h3><p>ระบุแบบอ้างอิง รุ่นหรือระดับวัสดุ และตัวเลือกที่มีผลต่อราคาให้ตรวจสอบร่วมกัน</p></article><article className="seo-card"><h3>ราคาและงวดงาน</h3><p>ผูก BOQ กับงวดตรวจรับ แยกงานรวม งานไม่รวม และวิธีอนุมัติงานเพิ่มลด</p></article><article className="seo-card"><h3>แผนงานและส่งมอบ</h3><p>กำหนดลำดับงาน ผู้ประสานงาน จุดตรวจ และรายการเอกสารหรือการรับประกันตอนส่งมอบ</p></article></div><p><Link href="/boq-construction-guide">อ่านวิธีตรวจ BOQ</Link> · <Link href="/construction-contract-guide">ดูรายการสำคัญในสัญญาก่อสร้าง</Link> · <Link href="/choose-contractor-nonthaburi">เช็กลิสต์เลือกผู้รับเหมา</Link></p></div></section>}
+      ].map(item => { const Icon = item.icon; return <article key={item.title}><span className="contractor-scope-icon"><Icon size={30} strokeWidth={1.7} aria-hidden="true" /></span><h3>{item.title}</h3><p>{item.body}</p><Link href={item.href}>ดูรายละเอียด <ArrowRight size={15} aria-hidden="true" /></Link></article>; })}</div><p className="contractor-scope-note"><ShieldCheck size={22} aria-hidden="true" /> ขอบเขตที่ชัดเจนช่วยให้ติดตามงานและตรวจรับได้ง่ายขึ้น</p></div></div></section> : <section className="section"><div className="container seo-content"><span className="page-kicker">CLEAR SCOPE</span><h2>ขอบเขตที่ควรอยู่ในเอกสารก่อนเริ่มงาน</h2><div className="seo-grid"><article className="seo-card"><h3>แบบและวัสดุ</h3><p>ระบุแบบอ้างอิง รุ่นหรือระดับวัสดุ และตัวเลือกที่มีผลต่อราคาให้ตรวจสอบร่วมกัน</p></article><article className="seo-card"><h3>ราคาและงวดงาน</h3><p>ผูก BOQ กับงวดตรวจรับ แยกงานรวม งานไม่รวม และวิธีอนุมัติงานเพิ่มลด</p></article><article className="seo-card"><h3>แผนงานและส่งมอบ</h3><p>กำหนดลำดับงาน ผู้ประสานงาน จุดตรวจ และรายการเอกสารหรือการรับประกันตอนส่งมอบ</p></article></div><p><Link href="/boq-construction-guide">อ่านวิธีตรวจ BOQ</Link> · <Link href="/construction-contract-guide">ดูรายการสำคัญในสัญญาก่อสร้าง</Link> · <Link href="/choose-contractor-nonthaburi">เช็กลิสต์เลือกผู้รับเหมา</Link></p></div></section>}
 
-      {isNonthaburi ? <section className="section local-area-links contractor-areas"><div className="contractor-area-intro"><span className="page-kicker">OUR SERVICES</span><h2>เลือกดูข้อมูลตามพื้นที่<br /><em>ที่คุณต้องการ</em></h2><p>เรามีทีมงานและประสบการณ์ในหลายพื้นที่ พร้อมให้คำปรึกษาและดูแลอย่างใกล้ชิด</p><a href="#contractor-area-grid" className="btn btn-primary"><MapPin size={18} aria-hidden="true" /> ดูพื้นที่ให้บริการทั้งหมด <ArrowRight size={17} aria-hidden="true" /></a></div><div className="contractor-area-cards" id="contractor-area-grid">{[
+      {usesContractorTemplate ? <section className="section local-area-links contractor-areas"><div className="contractor-area-intro"><span className="page-kicker">OUR SERVICES</span><h2>เลือกดูข้อมูลตามพื้นที่<br /><em>ที่คุณต้องการ</em></h2><p>เรามีทีมงานและประสบการณ์ในหลายพื้นที่ พร้อมให้คำปรึกษาและดูแลอย่างใกล้ชิด</p><a href="#contractor-area-grid" className="btn btn-primary"><MapPin size={18} aria-hidden="true" /> ดูพื้นที่ให้บริการทั้งหมด <ArrowRight size={17} aria-hidden="true" /></a></div><div className="contractor-area-cards" id="contractor-area-grid">{[
         { area: "นนทบุรี", slug: "contractor-nonthaburi", image: "/assets/area-nonthaburi-reference.webp", detail: "รับเหมาสร้างบ้าน อาคาร ต่อเติม รีโนเวท" },
+        { area: "เมืองนนทบุรี", slug: "contractor-mueang-nonthaburi", image: "/assets/area-mueang-nonthaburi-reference.webp", detail: "งานบ้าน อาคาร ต่อเติม และงานระบบ" },
         { area: "บางใหญ่", slug: "contractor-bang-yai", image: "/assets/area-bang-yai-reference.webp", detail: "บ้านเดี่ยว งานต่อเติม อาคารพาณิชย์" },
         { area: "บางกรวย", slug: "contractor-bang-kruai", image: "/assets/area-bang-kruai-reference.webp", detail: "รีโนเวท ต่อเติม งานระบบครบวงจร" },
         { area: "บางบัวทอง", slug: "contractor-bang-bua-thong", image: "/assets/area-bang-bua-thong-reference.webp", detail: "งานก่อสร้างทุกขนาด พร้อมดูแลตั้งแต่เริ่มจนจบ" },
@@ -127,6 +154,6 @@ export function LocalAreaPage({ slug }: { slug: LocalAreaSlug }) {
       <section className="closing-cta"><div className="container"><div><span>เริ่มจากข้อมูลจริงของหน้างาน</span><h2>ให้ทีมช่วยจัดขอบเขตก่อนประเมินราคา</h2></div><Link className="btn btn-dark" href="/contact?source=local-area-cta">ให้ทีมติดต่อกลับ</Link></div></section>
     </main>
     {React.createElement("nge-footer")}
-    <LegacyRuntimeScripts sources={["/legacy/site-config.js?v=20260925-1", "/legacy/site-shell.js?v=20260925-4", "/legacy/app.js?v=20261017-1"]} />
+    <LegacyRuntimeScripts sources={["/legacy/site-config.js?v=20261104-2", "/legacy/site-shell.js?v=20261104-2", "/legacy/app.js?v=20261104-2"]} />
   </div>;
 }

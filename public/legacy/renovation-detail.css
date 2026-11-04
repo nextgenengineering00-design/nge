@@ -1,0 +1,28 @@
+/* Shared condo/building template; hero, intro and process reuse the renovation landing classes. */
+.renovation-detail{--font-display:var(--font-kanit),Tahoma,sans-serif;--font-body:var(--font-kanit),Tahoma,sans-serif}
+.renovation-detail :is(h1,h2,h3,p,a,b,span,small){font-family:inherit}
+.renovation-detail .renovation-ref-hero>img{animation:none}
+.renovation-detail .renovation-ref-hero h1{max-width:1000px;line-height:1.25}
+.renovation-detail .renovation-ref-hero p{max-width:760px;line-height:1.7}
+.renovation-detail-image-note{font-size:11px;color:#ddd;margin-top:16px;font-weight:300}
+.renovation-detail-checks article{padding:26px 22px}
+.renovation-detail-number{display:block;color:#b44243;font-size:15px;margin-bottom:18px}
+.renovation-detail-checks h3{margin:0 0 10px;font-size:21px;line-height:1.5}
+.renovation-detail-checks p{padding:0;font-size:14px}
+.renovation-detail-services{background:#f3f5f7}
+.renovation-detail .renovation-ref-service-head>span{display:block;color:#b44243;margin-bottom:12px;font-size:13px}
+.renovation-detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.renovation-detail-card{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);overflow:hidden;background:#fff;border:1px solid #dfe4ea;border-radius:22px;min-height:280px}
+.renovation-detail-card>img{width:100%;height:100%;min-height:280px;object-fit:cover}
+.renovation-detail-card>div{padding:26px}
+.renovation-detail-card h3{font-size:23px;font-weight:500;line-height:1.4;margin:0 0 12px;color:#002a3e}
+.renovation-detail-card p{font-size:15px;line-height:1.8;font-weight:300;color:#4c586b;margin:0}
+.renovation-detail .renovation-note{margin:24px 0 0;padding:18px 22px;border-left:4px solid #d63637;background:#fff;font-size:13px;color:#53636c;line-height:1.8}
+.renovation-detail .renovation-note a{color:#002a3e;text-decoration:underline;text-underline-offset:3px}
+.renovation-detail .renovation-area-simple h2{font-size:clamp(28px,3vw,40px);font-weight:400;line-height:1.4;color:#002a3e;margin:0 0 18px}
+.renovation-detail .renovation-area-simple p+h2{margin-top:38px}
+.renovation-detail .renovation-area-simple p{font-weight:300;line-height:1.9;color:#4b5c65}
+.renovation-detail .renovation-area-simple .btn-dark{background:#002a3e;color:#fff;border-radius:999px}
+.renovation-detail .closing-cta h2{color:#fff;font-weight:400}
+@media(max-width:980px){.renovation-detail-grid{grid-template-columns:1fr}.renovation-detail-card{grid-template-columns:40% 60%}}
+@media(max-width:640px){.renovation-detail .renovation-ref-hero h1{font-size:clamp(30px,8.4vw,38px)}.renovation-detail .renovation-ref-hero-label{font-size:24px}.renovation-detail .renovation-ref-hero-copy{padding-inline:0}.renovation-detail .renovation-ref-hero a{font-size:16px}.renovation-detail-checks article{display:block;padding:24px}.renovation-detail-checks h3{margin:0 0 8px}.renovation-detail-checks p{padding:0;font-size:14px}.renovation-detail-number{margin-bottom:12px}.renovation-detail-card{grid-template-columns:1fr}.renovation-detail-card>img{height:240px;min-height:0}.renovation-detail-card>div{padding:24px}.renovation-detail .closing-cta .container{display:grid;gap:24px}.renovation-detail .closing-cta .btn{justify-self:start}}

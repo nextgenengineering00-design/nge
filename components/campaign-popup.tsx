@@ -4,7 +4,7 @@ import { FormEvent, MouseEvent, useCallback, useEffect, useRef, useState } from 
 import { usePathname } from "next/navigation";
 import styles from "./campaign-popup.module.css";
 
-const EXCLUDED_PATHS = ["/construction-quote", "/contact", "/privacy", "/crm"];
+const EXCLUDED_PATHS = ["/construction-quote", "/contact", "/privacy", "/crm", "/house-designs"];
 const POPUP_INTERVAL = 10 * 60 * 1000;
 const DISMISS_COOLDOWN = 20 * 60 * 1000;
 const NEXT_POPUP_KEY = "nge-campaign-next-popup-at-v1";

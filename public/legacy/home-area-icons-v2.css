@@ -1,0 +1,10 @@
+.area-service-grid{align-items:stretch}
+.area-service-grid .area-service-card{position:relative;display:flex;min-height:248px;padding:28px 28px 24px!important;overflow:hidden;flex-direction:column;border:1px solid #ded9ce!important;border-radius:18px!important;background:linear-gradient(145deg,#fff 0%,#fbfaf6 100%)!important;box-shadow:0 12px 32px rgba(29,32,35,.07);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.area-service-grid .area-service-card:hover{transform:translateY(-5px);border-color:#d59b22!important;box-shadow:0 22px 45px rgba(29,32,35,.12)}
+.area-service-icon{display:grid!important;width:58px!important;height:58px!important;min-width:58px;margin:0 0 21px!important;place-items:center;border:1px solid #384858;border-radius:17px;color:#ffbd35!important;background:#17222d!important;box-shadow:0 9px 22px rgba(12,21,29,.2),inset 0 0 0 1px rgba(255,255,255,.06)}
+.area-service-icon svg{display:block!important;width:31px!important;height:31px!important;overflow:visible;fill:none!important;stroke:currentColor!important;stroke-width:1.9!important;stroke-linecap:round;stroke-linejoin:round}
+.area-service-card:hover .area-service-icon{color:#17222d!important;background:#f5a400!important;transform:scale(1.05) rotate(-2deg)}
+.area-service-card h3{margin:0 0 10px!important;color:#171d23}
+.area-service-card p{margin:0 0 20px;color:#4e555c}
+.area-service-card b{display:block;margin-top:auto;color:#815600}
+@media(max-width:760px){.area-service-grid .area-service-card{min-height:0;padding:22px!important}.area-service-icon{width:52px!important;height:52px!important;min-width:52px;margin-bottom:17px!important;border-radius:15px}.area-service-icon svg{width:28px!important;height:28px!important}}
