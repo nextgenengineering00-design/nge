@@ -118,6 +118,54 @@
   }
 </style>
 <style>.nge-evidence{padding:56px 0}.nge-evidence h2{font-size:clamp(24px,3vw,38px);line-height:1.35;margin:0 0 18px}.nge-evidence p{line-height:1.85}.nge-evidence-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.nge-evidence-card{padding:24px;border:1px solid #ddd;border-radius:16px;background:#fff;color:#19212c;min-width:0}.nge-evidence-card h3{font-size:21px;line-height:1.5}.nge-evidence-card a{color:#845100;text-decoration:underline;text-underline-offset:3px}.nge-evidence-dl{display:grid;grid-template-columns:minmax(100px,1fr) 2fr;gap:12px 20px}.nge-evidence-dl dt{font-weight:700}.nge-evidence-dl dd{margin:0;overflow-wrap:anywhere}.nge-evidence-note{font-size:14px;color:#555}.nge-evidence-steps{line-height:1.9;padding-left:22px}.nge-byline{font-size:14px;color:#555;border-top:1px solid #ddd;padding-top:16px;margin-top:28px}@media(max-width:760px){.nge-evidence{padding:36px 0}.nge-evidence-grid{grid-template-columns:1fr}.nge-evidence-dl{grid-template-columns:1fr;gap:6px}.nge-evidence-dl dd{margin-bottom:10px}}</style></head>
+<style>
+  /* Soft falling snow inside the About timeline cards. */
+  .about-swnp-mosaic .history-card{
+    --snow-main:rgba(255,255,255,.62);
+    --snow-soft:rgba(255,255,255,.28);
+  }
+  .about-swnp-mosaic .history-card-light,
+  .about-swnp-mosaic .history-card-present{
+    --snow-main:rgba(245,164,0,.26);
+    --snow-soft:rgba(45,39,31,.10);
+  }
+  .about-swnp-mosaic .history-card::before,
+  .about-swnp-mosaic .history-card::after{
+    content:"";
+    position:absolute;
+    z-index:1;
+    inset:-110% -12% 0;
+    pointer-events:none;
+    background-image:
+      radial-gradient(circle,var(--snow-main) 0 2px,transparent 2.6px),
+      radial-gradient(circle,var(--snow-soft) 0 1.4px,transparent 2px),
+      radial-gradient(circle,var(--snow-main) 0 1px,transparent 1.7px);
+    background-size:58px 58px,91px 91px,127px 127px;
+    background-position:4px 7px,25px 31px,63px 18px;
+    opacity:.72;
+    animation:aboutHistorySnow 15s linear infinite;
+    will-change:transform;
+  }
+  .about-swnp-mosaic .history-card::after{
+    inset:-125% -18% 0;
+    background-size:83px 83px,119px 119px,157px 157px;
+    opacity:.42;
+    filter:blur(.35px);
+    animation-duration:23s;
+    animation-delay:-11s;
+    transform:translate3d(3%,-10%,0);
+  }
+  .about-swnp-mosaic .history-card:nth-child(2n)::before{animation-duration:18s;animation-delay:-6s}
+  .about-swnp-mosaic .history-card:nth-child(3n)::after{animation-duration:27s;animation-delay:-17s}
+  @keyframes aboutHistorySnow{
+    from{transform:translate3d(-2%,-46%,0)}
+    to{transform:translate3d(6%,48%,0)}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .about-swnp-mosaic .history-card::before,
+    .about-swnp-mosaic .history-card::after{animation:none;transform:none;opacity:.22}
+  }
+</style>
 <body data-page="about"><a class="skip-link" href="#main-content">ข้ามไปเนื้อหาหลัก</a><nge-header></nge-header><main id="main-content" class="about-swnp-page">
   <section class="about-swnp-intro" aria-labelledby="about-title">
     <div class="container about-swnp-intro-grid">
