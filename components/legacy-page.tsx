@@ -28,9 +28,9 @@ export function LegacyPage({ file, project = false, includeJsonLd = true }: { fi
   const homeParts = page.page === "home" ? html.match(/^([\s\S]*?)<main id="main-content">([\s\S]*?)<section aria-label="ความน่าเชื่อถือ"[\s\S]*?<\/section>([\s\S]*?)<\/main>([\s\S]*)$/) : null;
   return <div className={page.bodyClass} data-legacy-page={page.page} data-knowledge-article={isKnowledgeArticle ? "true" : undefined}>
     <LegacyBodyState page={page.page} bodyClass={page.bodyClass} />
-    <link rel="stylesheet" href="/legacy/styles.min.css?v=20261027-2" />
+    <link rel="stylesheet" href="/legacy/styles.min.css?v=20261104-2" />
     {(page.page === "home" || page.page === "projects") && <link rel="stylesheet" href="/portfolio-reference.css?v=20261013-1" />}
-    {!project && <link rel="stylesheet" href="/legacy/service-seo.css?v=20261006-1" />}
+    {!project && <link rel="stylesheet" href="/legacy/service-seo.css?v=20261104-2" />}
     {page.page === "home" && <link rel="stylesheet" href="/legacy/home-facebook-reel.css?v=20261011-1" />}
     {project && <link rel="stylesheet" href="/legacy/project-detail.css?v=20260920" />}
     {includeJsonLd && page.jsonLd.map((value, index) => <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: value.replace(/</g, "\\u003c") }} />)}
@@ -47,7 +47,7 @@ export function LegacyPage({ file, project = false, includeJsonLd = true }: { fi
     </> : <div dangerouslySetInnerHTML={{ __html: html }} />}
     <LegacyRuntimeScripts sources={project
       ? ["/legacy/site-config.js?v=20260925-1", "/legacy/project-detail.js?v=20260925-2"]
-      : ["/legacy/site-config.js?v=20260925-1", "/legacy/site-shell.js?v=20261013-2", "/legacy/app.js?v=20260928-3"]} />
+      : ["/legacy/site-config.js?v=20261104-2", "/legacy/site-shell.js?v=20261104-2", "/legacy/app.js?v=20261104-2"]} />
   </div>;
 }
 
