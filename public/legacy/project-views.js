@@ -40,6 +40,15 @@
   }).catch(() => {}));
 
   if (document.body.classList.contains('project-page')) {
+    document.querySelectorAll('.project-data-card .data-row').forEach(row => {
+      const label = row.querySelector('small')?.textContent.trim() || '';
+      let icon = 'project';
+      if (/ผู้ว่าจ้าง|เจ้าของ/.test(label)) icon = 'client';
+      else if (/สถานที่|ที่ตั้ง/.test(label)) icon = 'location';
+      else if (/พื้นที่|ขนาด|ชั้น|รูปแบบอาคาร/.test(label)) icon = 'area';
+      else if (/ราคา|งบ|มูลค่า|วงเงิน/.test(label)) icon = 'value';
+      row.dataset.metaIcon = icon;
+    });
     const slug = slugFromHref(location.href);
     const hero = document.querySelector('.project-hero-content');
     if (!slug || !hero) return;
