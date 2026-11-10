@@ -37,7 +37,7 @@ export function LegacyPage({ file, project = false, includeJsonLd = true }: { fi
     {!project && <link rel="stylesheet" href="/legacy/service-seo.css?v=20261104-2" />}
     {page.page === "home" && <link rel="stylesheet" href="/legacy/home-facebook-reel.css?v=20261011-1" />}
     {page.page === "home" && <link rel="stylesheet" href="/legacy/home-area-icons-v2.css?v=20261104-1" />}
-    {project && <link rel="stylesheet" href="/legacy/project-detail.css?v=20260920" />}
+    {project && <link rel="stylesheet" href="/legacy/project-detail.css?v=20261110-1" />}
     {project && <link rel="stylesheet" href="/legacy/project-detail-scg.css?v=20261109-3" />}
     {includeJsonLd && page.jsonLd.map((value, index) => <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: value.replace(/</g, "\\u003c") }} />)}
     {page.styles.map((value, index) => <style key={`style-${index}`} dangerouslySetInnerHTML={{ __html: value }} />)}

@@ -38,3 +38,7 @@
 
 /* Watermarks are baked into the image files, so no removable overlay is needed. */
 .gallery-item::before,.project-lightbox figure::after{content:none!important}
+
+/* Keep every project scope item aligned with the reference detail page. */
+.scope-list svg{flex:0 0 17px}
+.scope-list span:not(:has(>svg))::before{content:"";width:17px;height:17px;flex:0 0 17px;background:var(--orange);clip-path:polygon(9% 48%,0 59%,38% 92%,100% 20%,88% 9%,37% 68%)}
