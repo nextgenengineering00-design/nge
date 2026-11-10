@@ -33,7 +33,7 @@ export function LegacyPage({ file, project = false, includeJsonLd = true }: { fi
     <LegacyBodyState page={page.page} bodyClass={page.bodyClass} />
     <link rel="stylesheet" href="/legacy/styles.min.css?v=20261109-1" />
     {(page.page === "home" || page.page === "projects") && <link rel="stylesheet" href="/portfolio-reference.css?v=20261013-1" />}
-    {(page.page === "home" || page.page === "projects") && <link rel="stylesheet" href="/portfolio-scg.min.css?v=20261109-6" />}
+    {(page.page === "home" || page.page === "projects") && <link rel="stylesheet" href="/portfolio-scg.min.css?v=20261109-9" />}
     {!project && <link rel="stylesheet" href="/legacy/service-seo.css?v=20261104-2" />}
     {page.page === "home" && <link rel="stylesheet" href="/legacy/home-facebook-reel.css?v=20261011-1" />}
     {page.page === "home" && <link rel="stylesheet" href="/legacy/home-area-icons-v2.css?v=20261104-1" />}
