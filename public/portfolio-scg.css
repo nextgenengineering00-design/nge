@@ -19,7 +19,7 @@ body[data-page="projects"] .projects-portfolio-reference .project-body,.home-pro
 body[data-page="projects"] .projects-portfolio-reference .project-body>small,.home-projects-editorial .project-body>small{position:static;display:flex;min-width:0;max-width:none;min-height:0;align-items:center;justify-content:center;gap:7px;padding:0;border:0;border-radius:0;background:transparent;color:#b45e00!important;font-size:9px!important;line-height:1.35;letter-spacing:.45px!important;white-space:normal;box-shadow:none;text-align:center;text-shadow:none}
 body[data-page="projects"] .projects-portfolio-reference .project-body h3,.home-projects-editorial .project-body h3{position:absolute;z-index:3;left:0;right:0;top:123px;min-height:72px;margin:0;padding:11px 15px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;font-weight:500;line-height:1.35;letter-spacing:0;text-align:center;text-wrap:pretty;background:linear-gradient(90deg,rgba(16,16,16,.92),rgba(16,16,16,.64));overflow-wrap:anywhere;text-shadow:none}
 body[data-page="projects"] .projects-portfolio-reference .project-body h3::after,.home-projects-editorial .project-body h3::after{display:none}
-body[data-page="projects"] .projects-portfolio-reference .project-body>p,.home-projects-editorial .project-body>p{position:static;display:flex;min-height:38px;margin:10px 0 0;align-items:flex-start;justify-content:center;color:#666;font-size:11px;line-height:1.55;text-align:center;text-wrap:pretty;overflow-wrap:anywhere;text-shadow:none;-webkit-line-clamp:unset}
+body[data-page="projects"] .projects-portfolio-reference .project-body>p,.home-projects-editorial .project-body>p{position:static;display:flex;min-height:72px;margin:10px 0 0;align-items:flex-start;justify-content:center;color:#666;font-size:11px;line-height:1.55;text-align:center;text-wrap:pretty;overflow-wrap:anywhere;text-shadow:none;-webkit-line-clamp:unset}
 body[data-page="projects"] .projects-portfolio-reference .project-body>p::before,.home-projects-editorial .project-body>p::before{display:none}
 body[data-page="projects"] .projects-portfolio-reference .project-facts{display:flex!important;gap:5px;margin:10px 0 0}
 body[data-page="projects"] .projects-portfolio-reference .project-facts span,body[data-page="projects"] .projects-portfolio-reference .project-facts span:nth-child(n+3){display:inline-block;padding:4px 6px;border:0;border-bottom:1px solid #e2a04a;background:#f7f7f5;color:#555;font-size:8px;line-height:1.35;white-space:normal}
@@ -43,7 +43,7 @@ body[data-page="home"] .home-projects-editorial .portfolio-reference-heading{pos
 .home-projects-editorial .project-image{position:relative;z-index:0;width:100%;height:170px}
 .home-projects-editorial .project-body{padding:15px 13px 13px!important}
 .home-projects-editorial .project-body h3{top:98px;min-height:72px;padding:10px 12px;font-size:14px;line-height:1.32}
-.home-projects-editorial .project-body>p{min-height:36px;font-size:10px}
+body[data-page="home"] .home-projects-editorial .project-body>p{min-height:72px;font-size:10px}
 .home-projects-editorial .project-value{display:grid;margin:9px 0 0;padding:8px 9px;border:0;border-left:2px solid #e48a1b;background:#f4f4f1;color:#444;text-shadow:none}
 .home-projects-editorial .project-value small{color:#8a8a8a!important;font-size:7px!important;line-height:1.3}
 .home-projects-editorial .project-value b{color:#b45e00;font-size:11px;line-height:1.35;overflow-wrap:anywhere}
