@@ -116,3 +116,22 @@ body[data-page="home"] .home-story-showcase .story-point{grid-template-columns:4
   }
   body[data-page="projects"] .projects-portfolio-reference .project-view-count + a { margin-top:0 }
 }
+/* Keep the portfolio page static and prevent legacy mobile controls from returning. */
+body[data-page="projects"] .projects-hero-backdrop,
+body[data-page="projects"] .projects-hero-photo-accent,
+body[data-page="projects"] .page-hero-copy {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+body[data-page="projects"] .mobile-dock,
+body[data-page="projects"] .mobile-estimate-dock,
+body[data-page="projects"] .mobile-estimate-go {
+  animation: none !important;
+  transition: none !important;
+}
+
+body[data-page="projects"] .mobile-estimate-dock {
+  display: none !important;
+}
