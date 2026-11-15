@@ -49,7 +49,7 @@ body[data-page="home"] .home-projects-editorial .project-body>p{min-height:72px;
 .home-projects-editorial .project-value b{color:#b45e00;font-size:11px;line-height:1.35;overflow-wrap:anywhere}
 @media(max-width:1120px){body[data-page="projects"] .projects-portfolio-reference .project-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.home-projects-editorial .project-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:780px){body[data-page="projects"] .projects-portfolio-reference .project-grid,.home-projects-editorial .project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.home-projects-editorial .portfolio-reference-heading{padding-right:0}.home-projects-editorial .portfolio-reference-heading p{white-space:normal}.home-projects-editorial .portfolio-view-all{position:static;width:max-content;margin-top:14px}}
-@media(max-width:520px){.home-projects-editorial .portfolio-reference-heading p br{display:none}body[data-page="projects"] .projects-portfolio-reference{padding-top:30px}body[data-page="projects"] .projects-portfolio-reference>.container,.home-projects-editorial>.container{width:calc(100% - 28px)}body[data-page="projects"] .projects-portfolio-reference .project-grid,.home-projects-editorial .project-grid{grid-template-columns:1fr;gap:17px}body[data-page="projects"] .projects-portfolio-reference .project-card,.home-projects-editorial .project-card{min-height:0;aspect-ratio:auto;border-radius:0}body[data-page="projects"] .projects-portfolio-reference .project-image,.home-projects-editorial .project-image{height:240px}body[data-page="projects"] .projects-portfolio-reference .project-body,.home-projects-editorial .project-body{padding:17px 16px 15px!important}body[data-page="projects"] .projects-portfolio-reference .project-body h3,.home-projects-editorial .project-body h3{top:168px;min-height:72px;padding:11px 15px;font-size:16px}body[data-page="projects"] .projects-portfolio-reference .project-body>p,.home-projects-editorial .project-body>p{min-height:0}.home-projects-editorial .portfolio-reference-heading h2{font-size:36px}}
+@media(max-width:520px){.home-projects-editorial .portfolio-reference-heading p br{display:none}body[data-page="projects"] .projects-portfolio-reference{padding-top:30px}body[data-page="projects"] .projects-portfolio-reference>.container,.home-projects-editorial>.container{width:calc(100% - 28px)}.home-projects-editorial .project-grid{grid-template-columns:1fr;gap:17px}body[data-page="projects"] .projects-portfolio-reference .project-card,.home-projects-editorial .project-card{min-height:0;aspect-ratio:auto;border-radius:0}body[data-page="projects"] .projects-portfolio-reference .project-image,.home-projects-editorial .project-image{height:240px}body[data-page="projects"] .projects-portfolio-reference .project-body,.home-projects-editorial .project-body{padding:17px 16px 15px!important}body[data-page="projects"] .projects-portfolio-reference .project-body h3,.home-projects-editorial .project-body h3{top:168px;min-height:72px;padding:11px 15px;font-size:16px}body[data-page="projects"] .projects-portfolio-reference .project-body>p,.home-projects-editorial .project-body>p{min-height:0}.home-projects-editorial .portfolio-reference-heading h2{font-size:36px}}
 @media(prefers-reduced-motion:reduce){body[data-page="projects"] .projects-portfolio-reference .project-card,.home-projects-editorial .project-card{transition:none!important}}
 
 /* Shared view counter and corrected two-column company-story cards. */
@@ -65,3 +65,54 @@ body[data-page="projects"] .projects-portfolio-reference .project-filter-btn{fle
 @media(max-width:1279px){body[data-page="home"] .home-projects-editorial .project-filter,body[data-page="projects"] .projects-portfolio-reference .project-filter{justify-content:flex-start!important;overflow-x:auto;scrollbar-width:none}body[data-page="home"] .home-projects-editorial .project-filter::-webkit-scrollbar,body[data-page="projects"] .projects-portfolio-reference .project-filter::-webkit-scrollbar{display:none}}
 body[data-page="home"] .home-story-showcase .story-point{grid-template-columns:46px minmax(0,1fr)!important}
 @media(max-width:640px){body[data-page="home"] .home-story-showcase .story-point{grid-template-columns:34px minmax(0,1fr)!important}}
+
+/* Keep the portfolio cards side by side on phones. */
+@media(max-width:760px) {
+  body[data-page="projects"] .projects-portfolio-reference > .container { width:calc(100% - 26px) }
+  body[data-page="projects"] .projects-portfolio-reference .project-grid { gap:10px }
+  body[data-page="projects"] .projects-portfolio-reference .project-card { border-radius:13px }
+  body[data-page="projects"] .projects-portfolio-reference .project-image { aspect-ratio:1.22 / 1; height:auto }
+  body[data-page="projects"] .projects-portfolio-reference .project-image::after { display:none }
+  body[data-page="projects"] .projects-portfolio-reference .project-body { padding:10px 9px 0!important }
+  body[data-page="projects"] .projects-portfolio-reference .project-body > small { justify-content:flex-start; gap:4px; text-align:left; letter-spacing:0!important }
+  body[data-page="projects"] .projects-portfolio-reference .project-body > small .project-category-icon { width:13px; height:13px; flex:0 0 13px; margin:0 }
+  body[data-page="projects"] .projects-portfolio-reference .project-body h3 {
+    position:static;
+    display:block;
+    min-height:0;
+    padding:0;
+    margin:6px 0 0;
+    color:#222;
+    background:none;
+    font-size:13px;
+    line-height:1.35;
+    text-align:left;
+  }
+  body[data-page="projects"] .projects-portfolio-reference .project-body > p {
+    display:-webkit-box!important;
+    min-height:0;
+    margin:6px 0 8px;
+    overflow:hidden;
+    font-size:11px;
+    line-height:1.4;
+    text-align:left;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:3;
+  }
+  body[data-page="projects"] .projects-portfolio-reference .project-view-count {
+    position:static;
+    order:3;
+    margin: auto 0 6px;
+    font-size:10px;
+  }
+  body[data-page="projects"] .projects-portfolio-reference .project-view-count img { width:14px!important; height:14px!important }
+  body[data-page="projects"] .projects-portfolio-reference .project-body > a {
+    order:4;
+    min-height:44px;
+    margin-top:auto;
+    padding:7px 0;
+    align-items:center;
+    line-height:1.35;
+  }
+  body[data-page="projects"] .projects-portfolio-reference .project-view-count + a { margin-top:0 }
+}
