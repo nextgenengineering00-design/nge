@@ -31,7 +31,7 @@ export function LegacyPage({ file, project = false, includeJsonLd = true }: { fi
   const catalogueParts = homeParts?.[3].split('<!-- NGE_HOUSE_CATALOGUE -->');
   return <div className={page.bodyClass} data-legacy-page={page.page} data-knowledge-article={isKnowledgeArticle ? "true" : undefined}>
     <LegacyBodyState page={page.page} bodyClass={page.bodyClass} />
-    <link rel="stylesheet" href="/legacy/styles.min.css?v=20261109-1" />
+    <link rel="stylesheet" href="/legacy/styles.min.css?v=20261115-3" />
     {(page.page === "home" || page.page === "projects") && <link rel="stylesheet" href="/portfolio-reference.css?v=20261013-1" />}
     {(page.page === "home" || page.page === "projects") && <link rel="stylesheet" href="/portfolio-scg.min.css?v=20261115-2" />}
     {!project && <link rel="stylesheet" href="/legacy/service-seo.css?v=20261104-2" />}
@@ -42,7 +42,7 @@ export function LegacyPage({ file, project = false, includeJsonLd = true }: { fi
     {includeJsonLd && page.jsonLd.map((value, index) => <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: value.replace(/</g, "\\u003c") }} />)}
     {page.styles.map((value, index) => <style key={`style-${index}`} dangerouslySetInnerHTML={{ __html: value }} />)}
     {(["condo-renovation-nonthaburi", "building-renovation-nonthaburi"].includes(slug)) && <link rel="stylesheet" href="/legacy/renovation-detail.css?v=20261104-2" />}
-    {isKnowledgePage && <link rel="stylesheet" href="/legacy/knowledge-template.css?v=20261015-2" />}
+    {isKnowledgePage && <link rel="stylesheet" href="/legacy/knowledge-template.css?v=20261115-3" />}
     {homeParts ? <>
       <div dangerouslySetInnerHTML={{ __html: homeParts[1] }} />
       <main id="main-content">
