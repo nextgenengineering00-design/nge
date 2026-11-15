@@ -31,9 +31,9 @@ export function LegacyPage({ file, project = false, includeJsonLd = true }: { fi
   const catalogueParts = homeParts?.[3].split('<!-- NGE_HOUSE_CATALOGUE -->');
   return <div className={page.bodyClass} data-legacy-page={page.page} data-knowledge-article={isKnowledgeArticle ? "true" : undefined}>
     <LegacyBodyState page={page.page} bodyClass={page.bodyClass} />
-    <link rel="stylesheet" href="/legacy/styles.min.css?v=20261115-3" />
+    <link rel="stylesheet" href="/legacy/styles.min.css?v=20261115-4" />
     {(page.page === "home" || page.page === "projects") && <link rel="stylesheet" href="/portfolio-reference.css?v=20261013-1" />}
-    {(page.page === "home" || page.page === "projects") && <link rel="stylesheet" href="/portfolio-scg.min.css?v=20261115-2" />}
+    {(page.page === "home" || page.page === "projects") && <link rel="stylesheet" href="/portfolio-scg.min.css?v=20261115-3" />}
     {!project && <link rel="stylesheet" href="/legacy/service-seo.css?v=20261104-2" />}
     {page.page === "home" && <link rel="stylesheet" href="/legacy/home-facebook-reel.css?v=20261011-1" />}
     {page.page === "home" && <link rel="stylesheet" href="/legacy/home-area-icons-v2.css?v=20261104-1" />}
