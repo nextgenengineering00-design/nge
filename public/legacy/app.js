@@ -275,15 +275,19 @@
   });
 
   // Supabase contact and consultation booking forms
-  const buildHomeEstimate = $('#build-home-estimate');
-  const serviceEstimate = buildHomeEstimate || $('#renovation-estimate');
+  const serviceEstimates = [
+    { section: $('#build-home-estimate'), slug: 'build-home', label: 'สร้างบ้าน', photoEvent: 'view_build_home_photo' },
+    { section: $('#extend-home-estimate'), slug: 'extend-home', label: 'ต่อเติม', photoEvent: 'view_extend_home_photo' },
+    { section: $('#renovation-estimate'), slug: 'renovation', label: 'รีโนเวท', photoEvent: 'view_renovation_photo' },
+  ];
+  const serviceEstimate = serviceEstimates.find(item => item.section);
   const estimateDock = serviceEstimate && $('.mobile-dock-book');
   if (estimateDock) {
-    estimateDock.href = '#' + serviceEstimate.id;
-    estimateDock.setAttribute('aria-label', buildHomeEstimate ? 'กรอกข้อมูลประเมินงานสร้างบ้าน' : 'กรอกข้อมูลประเมินงานรีโนเวท');
-    estimateDock.dataset.estimateSource = buildHomeEstimate ? 'build-home-nonthaburi-mobile' : 'renovation-nonthaburi-mobile';
+    estimateDock.href = '#' + serviceEstimate.section.id;
+    estimateDock.setAttribute('aria-label', 'กรอกข้อมูลประเมินงาน' + serviceEstimate.label);
+    estimateDock.dataset.estimateSource = serviceEstimate.slug + '-nonthaburi-mobile';
     const label = $('.mobile-dock-label', estimateDock);
-    if (label) label.textContent = buildHomeEstimate ? 'สร้างบ้าน' : 'รีโนเวท';
+    if (label) label.textContent = serviceEstimate.label;
   }
   const leadForms = $$('[data-lead-form], #leadForm');
   const photoInputs = $$('[data-photo-input]');
@@ -678,7 +682,7 @@
       lightboxImage.alt = card.dataset.galleryAlt || '';
       lightboxCaption.textContent = card.dataset.galleryAlt || '';
       renovationLightbox.showModal();
-      trackEvent(buildHomeEstimate ? 'view_build_home_photo' : 'view_renovation_photo', { photo: card.dataset.gallerySrc || '' });
+      trackEvent(serviceEstimate?.photoEvent || 'view_renovation_photo', { photo: card.dataset.gallerySrc || '' });
     });
     $('[data-lightbox-close]', renovationLightbox)?.addEventListener('click', closeLightbox);
     renovationLightbox.addEventListener('click', event => {

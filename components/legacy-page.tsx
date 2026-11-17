@@ -31,7 +31,7 @@ export function LegacyPage({ file, project = false, includeJsonLd = true }: { fi
   const catalogueParts = homeParts?.[3].split('<!-- NGE_HOUSE_CATALOGUE -->');
   return <div className={page.bodyClass} data-legacy-page={page.page} data-knowledge-article={isKnowledgeArticle ? "true" : undefined}>
     <LegacyBodyState page={page.page} bodyClass={page.bodyClass} />
-    <link rel="stylesheet" href="/legacy/styles.min.css?v=20261115-4" />
+    <link rel="stylesheet" href="/legacy/styles.min.css?v=20261117-2" />
     {(page.page === "home" || page.page === "projects") && <link rel="stylesheet" href="/portfolio-reference.css?v=20261013-1" />}
     {(page.page === "home" || page.page === "projects") && <link rel="stylesheet" href="/portfolio-scg.min.css?v=20261115-3" />}
     {!project && <link rel="stylesheet" href="/legacy/service-seo.css?v=20261104-2" />}
@@ -40,7 +40,7 @@ export function LegacyPage({ file, project = false, includeJsonLd = true }: { fi
     {project && <link rel="stylesheet" href="/legacy/project-detail.css?v=20261110-1" />}
     {project && <link rel="stylesheet" href="/legacy/project-detail-scg.css?v=20261109-3" />}
     {includeJsonLd && page.jsonLd.map((value, index) => <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: value.replace(/</g, "\\u003c") }} />)}
-    {(["build-home-nonthaburi", "renovation-service-nonthaburi"].includes(slug)) && <link rel="stylesheet" href="/legacy/service-example-cards.css?v=1" />}
+    {(["build-home-nonthaburi", "extend-home-nonthaburi", "renovation-service-nonthaburi"].includes(slug)) && <link rel="stylesheet" href="/legacy/service-example-cards.css?v=1" />}
     {page.styles.map((value, index) => <style key={`style-${index}`} dangerouslySetInnerHTML={{ __html: value }} />)}
     {(["condo-renovation-nonthaburi", "building-renovation-nonthaburi"].includes(slug)) && <link rel="stylesheet" href="/legacy/renovation-detail.css?v=20261104-2" />}
     {isKnowledgePage && <link rel="stylesheet" href="/legacy/knowledge-template.css?v=20261115-3" />}
@@ -55,7 +55,7 @@ export function LegacyPage({ file, project = false, includeJsonLd = true }: { fi
     </> : <div dangerouslySetInnerHTML={{ __html: html }} />}
     <LegacyRuntimeScripts sources={project
       ? ["/legacy/site-config.js?v=20260925-1", "/legacy/project-detail.js?v=20260925-2", "/legacy/project-views.js?v=20261109-3"]
-      : ["/legacy/site-config.js?v=20261104-2", "/legacy/site-shell.js?v=20261104-2", "/legacy/app.js?v=20261117-1", ...((page.page === "home" || page.page === "projects") ? ["/legacy/project-views.js?v=20261109-3"] : [])]} />
+      : ["/legacy/site-config.js?v=20261104-2", "/legacy/site-shell.js?v=20261104-2", "/legacy/app.js?v=20261117-2", ...((page.page === "home" || page.page === "projects") ? ["/legacy/project-views.js?v=20261109-3"] : [])]} />
   </div>;
 }
 
