@@ -1,3 +1,4 @@
+import { legacyAssetUrls } from "@/lib/legacy-content.generated";
 import { knowledgeArticleSlugs, readLegacyDocument } from "@/lib/legacy-content";
 import { LegacyRuntimeScripts } from "@/components/legacy-runtime-scripts";
 import { LegacyBodyState } from "@/components/legacy-body-state";
@@ -31,7 +32,7 @@ export function LegacyPage({ file, project = false, includeJsonLd = true }: { fi
   const catalogueParts = homeParts?.[3].split('<!-- NGE_HOUSE_CATALOGUE -->');
   return <div className={page.bodyClass} data-legacy-page={page.page} data-knowledge-article={isKnowledgeArticle ? "true" : undefined}>
     <LegacyBodyState page={page.page} bodyClass={page.bodyClass} />
-    <link rel="stylesheet" href="/legacy/styles.min.css?v=20261117-2" />
+    <link rel="stylesheet" href={legacyAssetUrls["/legacy/styles.min.css"]} />
     {(page.page === "home" || page.page === "projects") && <link rel="stylesheet" href="/portfolio-reference.css?v=20261013-1" />}
     {(page.page === "home" || page.page === "projects") && <link rel="stylesheet" href="/portfolio-scg.min.css?v=20261115-3" />}
     {!project && <link rel="stylesheet" href="/legacy/service-seo.css?v=20261104-2" />}
@@ -55,7 +56,7 @@ export function LegacyPage({ file, project = false, includeJsonLd = true }: { fi
     </> : <div dangerouslySetInnerHTML={{ __html: html }} />}
     <LegacyRuntimeScripts sources={project
       ? ["/legacy/site-config.js?v=20260925-1", "/legacy/project-detail.js?v=20260925-2", "/legacy/project-views.js?v=20261109-3"]
-      : ["/legacy/site-config.js?v=20261104-2", "/legacy/site-shell.js?v=20261104-2", "/legacy/app.js?v=20261117-2", ...((page.page === "home" || page.page === "projects") ? ["/legacy/project-views.js?v=20261109-3"] : [])]} />
+      : ["/legacy/site-config.js?v=20261104-2", "/legacy/site-shell.js?v=20261104-2", legacyAssetUrls["/legacy/app.js"], ...((page.page === "home" || page.page === "projects") ? ["/legacy/project-views.js?v=20261109-3"] : [])]} />
   </div>;
 }
 
