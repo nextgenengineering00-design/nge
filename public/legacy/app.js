@@ -473,7 +473,7 @@
   // Projects category filter: simple for customers, shareable for ad/marketing links.
   const projectFilter = $('[data-project-filter]');
   if (projectFilter) {
-    const filterButtons = $$('.project-filter-btn', projectFilter);
+    const filterButtons = $$('button.project-filter-btn[data-filter]', projectFilter);
     const projectCards = $$('[data-project-grid] .project-card[data-category]');
     const emptyState = $('[data-project-empty]');
     const filterStatus = $('#projectFilterStatus');

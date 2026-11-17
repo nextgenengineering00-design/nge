@@ -24,7 +24,7 @@ for (const file of files) {
   content[key] = await fs.readFile(file, "utf8");
 }
 
-const versionedAssets = ["/legacy/styles.min.css", "/legacy/app.js"];
+const versionedAssets = ["/legacy/styles.min.css", "/legacy/app.js", "/legacy/site-shell.js"];
 const assetUrls = Object.fromEntries(await Promise.all(versionedAssets.map(async (url) => {
   const bytes = await fs.readFile(path.join(root, "public", url));
   const hash = createHash("sha256").update(bytes).digest("hex").slice(0, 12);

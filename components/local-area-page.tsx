@@ -1,3 +1,4 @@
+import { legacyAssetUrls } from "@/lib/legacy-content.generated";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -154,6 +155,6 @@ export function LocalAreaPage({ slug }: { slug: LocalAreaSlug }) {
       <section className="closing-cta"><div className="container"><div><span>เริ่มจากข้อมูลจริงของหน้างาน</span><h2>ให้ทีมช่วยจัดขอบเขตก่อนประเมินราคา</h2></div><Link className="btn btn-dark" href="/contact?source=local-area-cta">ให้ทีมติดต่อกลับ</Link></div></section>
     </main>
     {React.createElement("nge-footer")}
-    <LegacyRuntimeScripts sources={["/legacy/site-config.js?v=20261104-2", "/legacy/site-shell.js?v=20261104-2", "/legacy/app.js?v=20261104-2"]} />
+    <LegacyRuntimeScripts sources={["/legacy/site-config.js?v=20261104-2", legacyAssetUrls["/legacy/site-shell.js"], "/legacy/app.js?v=20261104-2"]} />
   </div>;
 }
