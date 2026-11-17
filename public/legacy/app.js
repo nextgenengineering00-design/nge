@@ -275,13 +275,15 @@
   });
 
   // Supabase contact and consultation booking forms
-  const renovationDock = $('#renovation-estimate') && $('.mobile-dock-book');
-  if (renovationDock) {
-    renovationDock.href = '#renovation-estimate';
-    renovationDock.setAttribute('aria-label', 'กรอกข้อมูลเพื่อประเมินงานรีโนเวท');
-    renovationDock.dataset.estimateSource = 'renovation-nonthaburi-mobile';
-    const label = $('.mobile-dock-label', renovationDock);
-    if (label) label.textContent = 'ขอประเมิน';
+  const buildHomeEstimate = $('#build-home-estimate');
+  const serviceEstimate = buildHomeEstimate || $('#renovation-estimate');
+  const estimateDock = serviceEstimate && $('.mobile-dock-book');
+  if (estimateDock) {
+    estimateDock.href = '#' + serviceEstimate.id;
+    estimateDock.setAttribute('aria-label', buildHomeEstimate ? 'กรอกข้อมูลประเมินงานสร้างบ้าน' : 'กรอกข้อมูลประเมินงานรีโนเวท');
+    estimateDock.dataset.estimateSource = buildHomeEstimate ? 'build-home-nonthaburi-mobile' : 'renovation-nonthaburi-mobile';
+    const label = $('.mobile-dock-label', estimateDock);
+    if (label) label.textContent = buildHomeEstimate ? 'สร้างบ้าน' : 'รีโนเวท';
   }
   const leadForms = $$('[data-lead-form], #leadForm');
   const photoInputs = $$('[data-photo-input]');
@@ -676,7 +678,7 @@
       lightboxImage.alt = card.dataset.galleryAlt || '';
       lightboxCaption.textContent = card.dataset.galleryAlt || '';
       renovationLightbox.showModal();
-      trackEvent('view_renovation_photo', { photo: card.dataset.gallerySrc || '' });
+      trackEvent(buildHomeEstimate ? 'view_build_home_photo' : 'view_renovation_photo', { photo: card.dataset.gallerySrc || '' });
     });
     $('[data-lightbox-close]', renovationLightbox)?.addEventListener('click', closeLightbox);
     renovationLightbox.addEventListener('click', event => {
